@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "geodes",
+  "version": "${version}",
+
+  "name": "More Geodes",
+  "description": "This mod adds Emerald Geodes as an alternative to Emerald ore.",
+  "authors": [
+    "TheDeathlyCow"
+  ],
+  "contact": {
+    "homepage": "https://github.com/TheDeathlyCow/more-geodes/wiki",
+    "sources": "https://github.com/TheDeathlyCow/more-geodes"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.thedeathlycow.MoreGeodes"
+    ]
+  },
+  "mixins": [
+    "geodes.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.17.x"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
