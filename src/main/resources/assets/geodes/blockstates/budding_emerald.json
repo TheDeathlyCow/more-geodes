@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "minecraft:block/budding_emerald"
+      "model": "geodes:block/budding_emerald"
     }
   }
 }
