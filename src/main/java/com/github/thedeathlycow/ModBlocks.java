@@ -1,20 +1,26 @@
 package com.github.thedeathlycow;
 
+import com.github.thedeathlycow.blocks.EmeraldGeodeBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
+import net.minecraft.block.*;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+
 public class ModBlocks {
 
-    public static Block EMERALD_GEODE = new Block(FabricBlockSettings.of(Material.AMETHYST));
-    public static Block BUDDING_EMERALD = new Block(FabricBlockSettings.of(Material.AMETHYST));
+    public static Block EMERALD_GEODE = new EmeraldGeodeBlock(FabricBlockSettings .of(Material.AMETHYST, MapColor.EMERALD_GREEN).strength(1.5F).sounds(BlockSoundGroup.AMETHYST_BLOCK).breakByTool(FabricToolTags.PICKAXES).requiresTool());
+    public static Block BUDDING_EMERALD = new Block(FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN));
 
     public static void registerBlocks() {
-        Registry.register(Registry.BLOCK, new Identifier(MoreGeodes.MODID, "emerald_geode"), EMERALD_GEODE);
-        Registry.register(Registry.BLOCK, new Identifier(MoreGeodes.MODID, "budding_emerald"), BUDDING_EMERALD);
+        register("emerald_geode", EMERALD_GEODE);
+        register("budding_emerald", BUDDING_EMERALD);
+    }
+
+    private static void register(String name, Block block) {
+        Registry.register(Registry.BLOCK, new Identifier(MoreGeodes.MODID, name), block);
     }
 
 }
