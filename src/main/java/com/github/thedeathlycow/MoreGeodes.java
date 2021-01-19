@@ -17,6 +17,7 @@ public class MoreGeodes implements ModInitializer {
         System.out.println("Registering More Geodes...");
         ModItems.registerItems();
         ModBlocks.registerBlocks();
+        ModBlocks.registerCutouts();
         ModFeatures.registerFeatures();
         System.out.println("More Geodes registered!");
     }

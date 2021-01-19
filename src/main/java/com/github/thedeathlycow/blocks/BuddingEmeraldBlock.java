@@ -28,13 +28,13 @@ public class BuddingEmeraldBlock extends Block {
             BlockState blockState = world.getBlockState(blockPos);
             Block block = null;
             if (canGrowIn(blockState)) {
-                block = Blocks.SMALL_AMETHYST_BUD;
+                block = ModBlocks.SMALL_EMERALD_BUD;
             } else if (blockState.isOf(Blocks.SMALL_AMETHYST_BUD) && blockState.get(AmethystClusterBlock.FACING) == direction) {
-                block = Blocks.MEDIUM_AMETHYST_BUD;
+                block = ModBlocks.MEDIUM_EMERALD_BUD;
             } else if (blockState.isOf(Blocks.MEDIUM_AMETHYST_BUD) && blockState.get(AmethystClusterBlock.FACING) == direction) {
-                block = Blocks.LARGE_AMETHYST_BUD;
+                block = ModBlocks.LARGE_EMERALD_BUD;
             } else if (blockState.isOf(Blocks.LARGE_AMETHYST_BUD) && blockState.get(AmethystClusterBlock.FACING) == direction) {
-                block = Blocks.AMETHYST_CLUSTER;
+                block = ModBlocks.EMERALD_CLUSTER;
             }
 
             if (block != null) {
