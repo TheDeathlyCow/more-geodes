@@ -19,11 +19,10 @@ public class ModItems {
         register("emerald_shard", EMERALD_SHARD);
         register("emerald_geode", new BlockItem(ModBlocks.EMERALD_GEODE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
         register("budding_emerald", new BlockItem(ModBlocks.BUDDING_EMERALD, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
-        register("emerald_cluster", new BlockItem(ModBlocks.EMERALD_CLUSTER, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
-        register("large_emerald_bud", new BlockItem(ModBlocks.LARGE_EMERALD_BUD, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
-        register("medium_emerald_bud", new BlockItem(ModBlocks.MEDIUM_EMERALD_BUD, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
-        register("small_emerald_bud", new BlockItem(ModBlocks.SMALL_EMERALD_BUD, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
-
+        register("small_emerald_bud", new BlockItem(ModBlocks.SMALL_EMERALD_BUD, new Item.Settings().group(ItemGroup.DECORATIONS)));
+        register("medium_emerald_bud", new BlockItem(ModBlocks.MEDIUM_EMERALD_BUD, new Item.Settings().group(ItemGroup.DECORATIONS)));
+        register("large_emerald_bud", new BlockItem(ModBlocks.LARGE_EMERALD_BUD, new Item.Settings().group(ItemGroup.DECORATIONS)));
+        register("emerald_cluster", new BlockItem(ModBlocks.EMERALD_CLUSTER, new Item.Settings().group(ItemGroup.DECORATIONS)));
     }
 
     private static void register(String name, Item item) {
