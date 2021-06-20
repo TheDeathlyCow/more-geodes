@@ -1,4 +1,4 @@
-package com.github.thedeathlycow.blocks;
+package com.github.thedeathlycow.moregeodes.blocks;
 
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;

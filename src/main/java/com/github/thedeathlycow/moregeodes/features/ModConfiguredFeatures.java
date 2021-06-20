@@ -1,6 +1,6 @@
-package com.github.thedeathlycow.gen.features;
+package com.github.thedeathlycow.moregeodes.features;
 
-import com.github.thedeathlycow.blocks.ModBlocks;
+import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Blocks;
 import net.minecraft.tag.BlockTags;

@@ -1,8 +1,8 @@
-package com.github.thedeathlycow;
+package com.github.thedeathlycow.moregeodes;
 
-import com.github.thedeathlycow.blocks.ModBlocks;
-import com.github.thedeathlycow.gen.features.ModFeatures;
-import com.github.thedeathlycow.item.ModItems;
+import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
+import com.github.thedeathlycow.moregeodes.features.ModFeatures;
+import com.github.thedeathlycow.moregeodes.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 public class MoreGeodes implements ModInitializer {

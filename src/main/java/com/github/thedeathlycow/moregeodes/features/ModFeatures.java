@@ -1,6 +1,6 @@
-package com.github.thedeathlycow.gen.features;
+package com.github.thedeathlycow.moregeodes.features;
 
-import com.github.thedeathlycow.MoreGeodes;
+import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.util.Identifier;

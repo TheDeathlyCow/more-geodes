@@ -1,7 +1,7 @@
-package com.github.thedeathlycow.item;
+package com.github.thedeathlycow.moregeodes.item;
 
-import com.github.thedeathlycow.blocks.ModBlocks;
-import com.github.thedeathlycow.MoreGeodes;
+import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
+import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;

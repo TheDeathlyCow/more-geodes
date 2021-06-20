@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.github.thedeathlycow.MoreGeodes"
+      "com.github.thedeathlycow.moregeodes.MoreGeodes"
     ]
   },
   "mixins": [

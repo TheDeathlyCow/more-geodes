@@ -1,6 +1,6 @@
-package com.github.thedeathlycow.blocks;
+package com.github.thedeathlycow.moregeodes.blocks;
 
-import com.github.thedeathlycow.MoreGeodes;
+import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
