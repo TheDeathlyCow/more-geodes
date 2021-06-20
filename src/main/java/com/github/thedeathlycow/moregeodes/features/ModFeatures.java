@@ -1,6 +1,8 @@
 package com.github.thedeathlycow.moregeodes.features;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
+import com.github.thedeathlycow.moregeodes.blocks.CustomGeode;
+import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.util.Identifier;
@@ -13,7 +15,10 @@ import net.minecraft.world.gen.feature.*;
 
 public class ModFeatures {
 
-    public static Feature<GeodeFeatureConfig> EMERALD_GEODE = new GeodeFeature(GeodeFeatureConfig.CODEC);
+    public static Feature<GeodeFeatureConfig> EMERALD_GEODE = new CustomGeode(
+            ModBlocks.BUDDING_EMERALD,
+            ModBlocks.EMERALD_CLUSTER
+    );
 
     public static void registerFeatures() {
         register("emerald_geode", EMERALD_GEODE);

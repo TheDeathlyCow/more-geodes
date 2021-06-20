@@ -11,6 +11,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+@Deprecated
 public class EmeraldGeodeBlock extends Block {
 
     public EmeraldGeodeBlock(Settings settings) {

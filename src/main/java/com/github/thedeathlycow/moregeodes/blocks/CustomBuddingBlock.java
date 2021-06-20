@@ -1,5 +1,6 @@
 package com.github.thedeathlycow.moregeodes.blocks;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.fluid.Fluids;
@@ -7,14 +8,28 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-@Deprecated
-public class BuddingEmeraldBlock extends Block {
+public class CustomBuddingBlock extends Block {
+
     private static final Direction[] DIRECTIONS = Direction.values();
 
-    public BuddingEmeraldBlock(Settings settings) {
+    private final Block SMALL_CLUSTER;
+    private final Block MEDIUM_CLUSTER;
+    private final Block LARGE_CLUSTER;
+    private final Block FULL_BUD;
+
+    public CustomBuddingBlock(AbstractBlock.Settings settings, List<AmethystClusterBlock> clusters) {
         super(settings);
+        if (clusters.size() != 4) {
+            throw new IllegalArgumentException("Crystals must have exactly 4 stages of growth!");
+        }
+        this.SMALL_CLUSTER = clusters.get(0);
+        this.MEDIUM_CLUSTER = clusters.get(1);
+        this.LARGE_CLUSTER = clusters.get(2);
+        this.FULL_BUD = clusters.get(3);
     }
 
     public PistonBehavior getPistonBehavior() {
@@ -29,21 +44,33 @@ public class BuddingEmeraldBlock extends Block {
             BlockState blockState = world.getBlockState(blockPos);
             Block block = null;
             if (canGrowIn(blockState)) {
-                block = ModBlocks.SMALL_EMERALD_BUD;
+                block = this.SMALL_CLUSTER;
             } else if (blockState.isOf(ModBlocks.SMALL_EMERALD_BUD) && blockState.get(AmethystClusterBlock.FACING) == direction) {
-                block = ModBlocks.MEDIUM_EMERALD_BUD;
+                block = this.MEDIUM_CLUSTER;
             } else if (blockState.isOf(ModBlocks.MEDIUM_EMERALD_BUD) && blockState.get(AmethystClusterBlock.FACING) == direction) {
-                block = ModBlocks.LARGE_EMERALD_BUD;
+                block = this.LARGE_CLUSTER;
             } else if (blockState.isOf(ModBlocks.LARGE_EMERALD_BUD) && blockState.get(AmethystClusterBlock.FACING) == direction) {
-                block = ModBlocks.EMERALD_CLUSTER;
+                block = this.FULL_BUD;
             }
 
             if (block != null) {
-                BlockState blockState2 = (BlockState)((BlockState)block.getDefaultState().with(AmethystClusterBlock.FACING, direction)).with(AmethystClusterBlock.WATERLOGGED, blockState.getFluidState().getFluid() == Fluids.WATER);
+                BlockState blockState2 = block.getDefaultState().with(AmethystClusterBlock.FACING, direction).with(AmethystClusterBlock.WATERLOGGED, blockState.getFluidState().getFluid() == Fluids.WATER);
                 world.setBlockState(blockPos, blockState2);
             }
 
         }
+    }
+
+    public List<Block> getClusters() {
+        return ImmutableList.of(SMALL_CLUSTER, MEDIUM_CLUSTER, LARGE_CLUSTER, FULL_BUD);
+    }
+
+    public List<BlockState> getClusterStates() {
+        List<BlockState> states = new ArrayList<>();
+        getClusters().forEach(
+                s -> states.add(s.getDefaultState())
+        );
+        return states;
     }
 
     public static boolean canGrowIn(BlockState state) {
