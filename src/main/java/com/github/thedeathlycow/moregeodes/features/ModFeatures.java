@@ -23,7 +23,7 @@ public class ModFeatures {
 
     public static CustomGeode QUARTZ_GEODE = new CustomGeode(
             ModBlocks.BUDDING_QUARTZ,
-            ModBlocks.QUARTZ_GEODE
+            ModBlocks.QUARTZ_GEODE_BLOCK
     );
 
     public static void registerFeatures() {
