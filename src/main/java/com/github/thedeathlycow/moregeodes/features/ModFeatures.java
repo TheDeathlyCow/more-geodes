@@ -41,6 +41,12 @@ public class ModFeatures {
                 emeraldGeode
         );
 
+        BiomeModifications.addFeature(
+                BiomeSelectors.categories(Biome.Category.EXTREME_HILLS),
+                GenerationStep.Feature.UNDERGROUND_ORES,
+                emeraldGeode
+        );
+
 //        BiomeModifications.addFeature(
 //                BiomeSelectors.categories(Biome.Category.NETHER),
 //                GenerationStep.Feature.UNDERGROUND_ORES,
