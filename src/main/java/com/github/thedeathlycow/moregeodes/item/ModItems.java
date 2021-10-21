@@ -1,7 +1,7 @@
 package com.github.thedeathlycow.moregeodes.item;
 
 import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
-import com.github.thedeathlycow.moregeodes.MoreGeodes;
+import com.github.thedeathlycow.moregeodes.MoreGeodesDedicatedServer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -22,11 +22,11 @@ public class ModItems {
         register("medium_emerald_bud", new BlockItem(ModBlocks.MEDIUM_EMERALD_BUD, new Item.Settings().group(ItemGroup.DECORATIONS)));
         register("large_emerald_bud", new BlockItem(ModBlocks.LARGE_EMERALD_BUD, new Item.Settings().group(ItemGroup.DECORATIONS)));
         register("emerald_cluster", new BlockItem(ModBlocks.EMERALD_CLUSTER, new Item.Settings().group(ItemGroup.DECORATIONS)));
-        register("quartz_shard", QUARTZ_SHARD);
-        register("quartz_geode_block", new BlockItem(ModBlocks.QUARTZ_GEODE_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+//        register("quartz_shard", QUARTZ_SHARD);
+//        register("quartz_geode_block", new BlockItem(ModBlocks.QUARTZ_GEODE_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     }
 
     private static void register(String name, Item item) {
-        Registry.register(Registry.ITEM, new Identifier(MoreGeodes.MODID, name), item);
+        Registry.register(Registry.ITEM, new Identifier(MoreGeodesDedicatedServer.MODID, name), item);
     }
 }
