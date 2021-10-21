@@ -44,7 +44,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "geodes:emerald_shard"
+              "name": "minecraft:emerald"
             }
           ]
         }
