@@ -7,5 +7,9 @@
     "block.geodes.small_emerald_bud": "Small Emerald Bud",
     "item.geodes.emerald_shard": "Emerald Shard",
     "block.geodes.quartz_geode": "Quartz Geode",
-    "block.geodes.budding_quartz": "Budding Quartz"
+    "block.geodes.budding_quartz": "Budding Quartz",
+    "block.geodes.quartz_cluster": "Quartz Cluster",
+    "block.geodes.large_quartz_bud": "Large Quartz Bud",
+    "block.geodes.medium_quartz_bud": "Medium Quartz Bud",
+    "block.geodes.small_quartz_bud": "Small Quartz Bud"
 }
