@@ -21,7 +21,7 @@ public class ModItems {
         register("medium_emerald_bud", new BlockItem(ModBlocks.MEDIUM_EMERALD_BUD, new Item.Settings().group(ItemGroup.DECORATIONS)));
         register("large_emerald_bud", new BlockItem(ModBlocks.LARGE_EMERALD_BUD, new Item.Settings().group(ItemGroup.DECORATIONS)));
         register("emerald_cluster", new BlockItem(ModBlocks.EMERALD_CLUSTER, new Item.Settings().group(ItemGroup.DECORATIONS)));
-        register("quartz_geode_block", new BlockItem(ModBlocks.QUARTZ_GEODE_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+        register("quartz_geode", new BlockItem(ModBlocks.QUARTZ_GEODE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     }
 
     private static void register(String name, Item item) {
