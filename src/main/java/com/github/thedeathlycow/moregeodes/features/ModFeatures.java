@@ -21,19 +21,19 @@ public class ModFeatures {
             ModBlocks.EMERALD_GEODE
     );
 
-//    public static CustomGeode QUARTZ_GEODE = new CustomGeode(
-//            ModBlocks.BUDDING_QUARTZ,
-//            ModBlocks.QUARTZ_GEODE_BLOCK
-//    );
+    public static CustomGeode QUARTZ_GEODE = new CustomGeode(
+            ModBlocks.BUDDING_QUARTZ,
+            ModBlocks.QUARTZ_GEODE_BLOCK
+    );
 
     public static void registerFeatures() {
         register("emerald_geode", EMERALD_GEODE);
         RegistryKey<ConfiguredFeature<?, ?>> emeraldGeode = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(MoreGeodesDedicatedServer.MODID, "emerald_geode"));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, emeraldGeode.getValue(), ModConfiguredFeatures.EMERALD_GEODE);
 
-//        register("quartz_geode", QUARTZ_GEODE);
-//        RegistryKey<ConfiguredFeature<?, ?>> quartzGeode = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(MoreGeodesDedicatedServer.MODID, "quartz_geode"));
-//        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, quartzGeode.getValue(), ModConfiguredFeatures.QUARTZ_GEODE);
+        register("quartz_geode", QUARTZ_GEODE);
+        RegistryKey<ConfiguredFeature<?, ?>> quartzGeode = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(MoreGeodesDedicatedServer.MODID, "quartz_geode"));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, quartzGeode.getValue(), ModConfiguredFeatures.QUARTZ_GEODE);
 
         BiomeModifications.addFeature(
                 BiomeSelectors.categories(Biome.Category.UNDERGROUND),
@@ -47,11 +47,11 @@ public class ModFeatures {
                 emeraldGeode
         );
 
-//        BiomeModifications.addFeature(
-//                BiomeSelectors.categories(Biome.Category.NETHER),
-//                GenerationStep.Feature.UNDERGROUND_ORES,
-//                quartzGeode
-//        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.categories(Biome.Category.NETHER),
+                GenerationStep.Feature.UNDERGROUND_ORES,
+                quartzGeode
+        );
     }
 
 

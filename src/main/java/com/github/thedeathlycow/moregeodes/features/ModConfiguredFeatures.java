@@ -14,11 +14,11 @@ public class ModConfiguredFeatures {
             .spreadHorizontally()
             .applyChance(53);
 
-//    public static final ConfiguredFeature<?, ?> QUARTZ_GEODE = ModFeatures.QUARTZ_GEODE
-//            .configure(ModFeatures.QUARTZ_GEODE.getFeatureConfig())
-//            .uniformRange(YOffset.aboveBottom(12), YOffset.fixed(80))
-//            .spreadHorizontally()
-//            .applyChance(53);
+    public static final ConfiguredFeature<?, ?> QUARTZ_GEODE = ModFeatures.QUARTZ_GEODE
+            .configure(ModFeatures.QUARTZ_GEODE.getFeatureConfig())
+            .uniformRange(YOffset.aboveBottom(12), YOffset.fixed(80))
+            .spreadHorizontally()
+            .applyChance(53);
 
     private static void register(String name, ConfiguredFeature<?, ?> configuredFeature) {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, name, configuredFeature);
