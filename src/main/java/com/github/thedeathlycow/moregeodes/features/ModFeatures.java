@@ -5,6 +5,7 @@ import com.github.thedeathlycow.moregeodes.blocks.CustomGeode;
 import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -22,7 +23,9 @@ public class ModFeatures {
 
     public static CustomGeode QUARTZ_GEODE = new CustomGeode(
             ModBlocks.BUDDING_QUARTZ,
-            ModBlocks.QUARTZ_GEODE
+            ModBlocks.QUARTZ_GEODE,
+            Blocks.TUFF,
+            Blocks.SMOOTH_BASALT
     );
 
     public static void registerFeatures() {
