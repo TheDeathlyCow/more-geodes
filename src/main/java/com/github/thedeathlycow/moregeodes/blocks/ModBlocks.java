@@ -30,12 +30,12 @@ public class ModBlocks {
     public static AmethystClusterBlock SMALL_QUARTZ_BUD = new AmethystClusterBlock(3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.IRON_GRAY).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool().ticksRandomly().sounds(ModBlockSoundGroups.SMALL_QUARTZ_BUD).strength(1.5f).luminance((blockState) -> 5));
 
     public static CustomBuddingBlock BUDDING_EMERALD = new CustomBuddingBlock(
-            FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).ticksRandomly().strength(1.5F).sounds(BlockSoundGroup.AMETHYST_BLOCK).breakByTool(FabricToolTags.PICKAXES).requiresTool(),
+            FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).ticksRandomly().strength(1.5F).sounds(ModBlockSoundGroups.EMERALD_GEODE).breakByTool(FabricToolTags.PICKAXES).requiresTool(),
             ImmutableList.of(SMALL_EMERALD_BUD, MEDIUM_EMERALD_BUD, LARGE_EMERALD_BUD, EMERALD_CLUSTER)
     );
 
     public static CustomBuddingBlock BUDDING_QUARTZ = new CustomBuddingBlock(
-            FabricBlockSettings.of(Material.AMETHYST, MapColor.IRON_GRAY).ticksRandomly().strength(1.5f).sounds(BlockSoundGroup.AMETHYST_BLOCK).breakByTool(FabricToolTags.PICKAXES).requiresTool(),
+            FabricBlockSettings.of(Material.AMETHYST, MapColor.IRON_GRAY).ticksRandomly().strength(1.5f).sounds(ModBlockSoundGroups.QUARTZ_GEODE).breakByTool(FabricToolTags.PICKAXES).requiresTool(),
             ImmutableList.of(SMALL_QUARTZ_BUD, MEDIUM_QUARTZ_BUD, LARGE_QUARTZ_BUD, QUARTZ_CLUSTER)
     );
 

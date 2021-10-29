@@ -23,9 +23,7 @@ public class CustomBuddingBlock extends Block {
 
     public CustomBuddingBlock(AbstractBlock.Settings settings, List<AmethystClusterBlock> clusters) {
         super(settings);
-        if (clusters.size() != 4) {
-            throw new IllegalArgumentException("Crystals must have exactly 4 stages of growth!");
-        }
+        assert clusters.size() == 4;
         this.SMALL_CLUSTER = clusters.get(0);
         this.MEDIUM_CLUSTER = clusters.get(1);
         this.LARGE_CLUSTER = clusters.get(2);
