@@ -36,7 +36,7 @@ public class QuartzClusterBlock extends AmethystClusterBlock {
     }
 
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
-        world.getBlockTickScheduler().schedule(pos, this, 1);
+        world.getBlockTickScheduler().schedule(pos, this, ON_TIME);
     }
 
     @Override
