@@ -16,8 +16,8 @@ public class MoreGeodesClient implements ClientModInitializer {
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
         System.out.println("Registering More Geodes cutouts on client...");
-        ModItems.registerItems();
         ModBlocks.registerBlocks();
+        ModItems.registerItems();
         ModBlocks.registerCutouts();
         ModFeatures.registerFeatures();
         System.out.println("More Geodes cutouts registered!");
