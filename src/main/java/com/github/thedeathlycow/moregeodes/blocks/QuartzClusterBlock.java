@@ -32,7 +32,8 @@ public class QuartzClusterBlock extends AmethystClusterBlock {
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         BlockState placementState = super.getPlacementState(ctx);
-        return placementState != null ? placementState.with(POWERED, false) : null;
+        boolean poweredState = ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos());
+        return placementState != null ? placementState.with(POWERED, poweredState) : null;
     }
 
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
