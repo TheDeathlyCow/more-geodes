@@ -8,8 +8,6 @@ import net.fabricmc.api.ClientModInitializer;
 
 public class MoreGeodesClient implements ClientModInitializer {
 
-    public static String MODID = "geodes";
-
     @Override
     public void onInitializeClient() {
         // This code runs as soon as Minecraft is in a mod-load-ready state.
