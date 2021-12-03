@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "geodes:emerald_geode",
+    "geodes:budding_emerald",
+    "geodes:quartz_geode",
+    "geodes:budding_quartz",
+    "geodes:emerald_cluster",
+    "geodes:small_emerald_bud",
+    "geodes:medium_emerald_bud",
+    "geodes:large_emerald_bud",
+    "geodes:quartz_cluster",
+    "geodes:small_quartz_bud",
+    "geodes:medium_quartz_bud",
+    "geodes:large_quartz_bud"
+  ]
+}
