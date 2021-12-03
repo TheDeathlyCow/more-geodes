@@ -12,6 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.tick.OrderedTick;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
@@ -36,8 +37,9 @@ public class QuartzClusterBlock extends AmethystClusterBlock {
         return placementState != null ? placementState.with(POWERED, poweredState) : null;
     }
 
+    @Override
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
-        world.getBlockTickScheduler().schedule(pos, this, ON_TIME);
+        world.createAndScheduleBlockTick(pos, this, ON_TIME);
     }
 
     @Override
@@ -45,7 +47,7 @@ public class QuartzClusterBlock extends AmethystClusterBlock {
         if (world.isReceivingRedstonePower(pos)) {
             boolean powered = state.get(POWERED);
             world.setBlockState(pos, state.with(POWERED, !powered));
-            world.getBlockTickScheduler().schedule(pos, this, ON_TIME);
+            world.createAndScheduleBlockTick(pos, this, ON_TIME);
         } else {
             world.setBlockState(pos, state.with(POWERED, false));
         }
@@ -61,6 +63,7 @@ public class QuartzClusterBlock extends AmethystClusterBlock {
         return true;
     }
 
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
         builder.add(POWERED);

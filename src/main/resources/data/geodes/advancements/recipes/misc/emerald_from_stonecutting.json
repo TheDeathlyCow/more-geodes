@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "geodes:emerald_from_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_emerald_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "geodes:emerald_shard"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "geodes:emerald_from_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_emerald_shard",
+      "has_the_recipe"
+    ]
+  ]
+}

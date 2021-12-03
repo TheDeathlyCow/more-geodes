@@ -1,5 +1,6 @@
-package com.github.thedeathlycow.moregeodes.blocks;
+package com.github.thedeathlycow.moregeodes.features;
 
+import com.github.thedeathlycow.moregeodes.blocks.CustomBuddingBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.tag.BlockTags;
@@ -46,11 +47,11 @@ public class CustomGeode extends GeodeFeature {
         this.outerBlock = outerBlock;
 
         this.LAYER_CONFIG = new GeodeLayerConfig(
-                new SimpleBlockStateProvider(Blocks.AIR.getDefaultState()),
-                new SimpleBlockStateProvider(this.baseBlock.getDefaultState()),
-                new SimpleBlockStateProvider(this.buddingBlock.getDefaultState()),
-                new SimpleBlockStateProvider(this.calciteBlock.getDefaultState()),
-                new SimpleBlockStateProvider(this.outerBlock.getDefaultState()),
+                SimpleBlockStateProvider.of(Blocks.AIR.getDefaultState()),
+                SimpleBlockStateProvider.of(this.baseBlock.getDefaultState()),
+                SimpleBlockStateProvider.of(this.buddingBlock.getDefaultState()),
+                SimpleBlockStateProvider.of(this.calciteBlock.getDefaultState()),
+                SimpleBlockStateProvider.of(this.outerBlock.getDefaultState()),
                 buddingBlock.getClusterStates(),
                 BlockTags.FEATURES_CANNOT_REPLACE.getId(),
                 BlockTags.GEODE_INVALID_BLOCKS.getId()
