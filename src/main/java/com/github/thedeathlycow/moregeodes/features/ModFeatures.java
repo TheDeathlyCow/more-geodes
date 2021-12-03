@@ -33,7 +33,7 @@ public class ModFeatures {
     public static void registerFeatures() {
 
         completeFeatureRegistration("emerald_geode", EMERALD_GEODE, EMERALD_GEODE.getFeatureConfig(),
-                RarityFilterPlacementModifier.of(54),
+                RarityFilterPlacementModifier.of(12),
                 SquarePlacementModifier.of(),
                 HeightRangePlacementModifier.uniform(YOffset.fixed(-16), YOffset.fixed(256)),
                 BiomePlacementModifier.of()
