@@ -8,13 +8,11 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.decorator.BiomePlacementModifier;
-import net.minecraft.world.gen.decorator.HeightRangePlacementModifier;
-import net.minecraft.world.gen.decorator.RarityFilterPlacementModifier;
-import net.minecraft.world.gen.decorator.SquarePlacementModifier;
+import net.minecraft.world.gen.decorator.*;
 import net.minecraft.world.gen.feature.*;
 
 public class ModFeatures {
@@ -24,47 +22,49 @@ public class ModFeatures {
             ModBlocks.EMERALD_GEODE
     ));
 
-    public static CustomGeode QUARTZ_GEODE = new CustomGeode(
+    public static CustomGeode QUARTZ_GEODE = registerFeature("quartz_geode", new CustomGeode(
             ModBlocks.BUDDING_QUARTZ,
             ModBlocks.QUARTZ_GEODE,
             Blocks.TUFF,
             Blocks.SMOOTH_BASALT
-    );
+    ));
 
 
     public static void registerFeatures() {
 
-        ConfiguredFeature<?, ?> emeraldGeode = registerConfiguredFeature(
-                "emerald_geode",
-                EMERALD_GEODE.configure(EMERALD_GEODE.getFeatureConfig())
+        completeFeatureRegistration("emerald_geode", EMERALD_GEODE, EMERALD_GEODE.getFeatureConfig(),
+                RarityFilterPlacementModifier.of(24),
+                SquarePlacementModifier.of(),
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-16), YOffset.fixed(256)),
+                BiomePlacementModifier.of()
         );
-
-        PlacedFeature placedEmeraldGeode = registerPlacedFeature("emerald_geode", emeraldGeode
-                .withPlacement(
-                        RarityFilterPlacementModifier.of(24),
-                        SquarePlacementModifier.of(),
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(-16), YOffset.fixed(256)),
-                        BiomePlacementModifier.of()
-                ));
 
         BiomeModifications.addFeature(
                 BiomeSelectors.categories(Biome.Category.MOUNTAIN),
-                GenerationStep.Feature.UNDERGROUND_ORES,
-                BuiltinRegistries.PLACED_FEATURE.getKey(placedEmeraldGeode).get()
+                GenerationStep.Feature.UNDERGROUND_DECORATION,
+                RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoreGeodes.MODID, "emerald_geode"))
         );
 
+        completeFeatureRegistration("quartz_geode", QUARTZ_GEODE, QUARTZ_GEODE.getFeatureConfig(),
+                RarityFilterPlacementModifier.of(24),
+                SquarePlacementModifier.of(),
+                HeightRangePlacementModifier.uniform(YOffset.aboveBottom(6), YOffset.fixed(116)),
+                BiomePlacementModifier.of()
+        );
 
-//        register("quartz_geode", QUARTZ_GEODE);
-//        RegistryKey<ConfiguredFeature<?, ?>> quartzGeode = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(MoreGeodesDedicatedServer.MODID, "quartz_geode"));
-//        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, quartzGeode.getValue(), ModConfiguredFeatures.QUARTZ_GEODE);
-//
-//        BiomeModifications.addFeature(
-//                BiomeSelectors.categories(Biome.Category.NETHER),
-//                GenerationStep.Feature.UNDERGROUND_ORES,
-//                quartzGeode
-//        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.categories(Biome.Category.NETHER),
+                GenerationStep.Feature.UNDERGROUND_DECORATION,
+                RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoreGeodes.MODID, "quartz_geode"))
+        );
     }
 
+    private static <FC extends FeatureConfig> void completeFeatureRegistration(String name, Feature<FC> feature, FC featureConfig, PlacementModifier... placementModifiers) {
+        ConfiguredFeature<? extends FeatureConfig, ?> configuredFeature = registerConfiguredFeature(
+                name, feature.configure(featureConfig)
+        );
+        registerPlacedFeature(name, configuredFeature.withPlacement(placementModifiers));
+    }
 
     private static <C extends FeatureConfig, F extends Feature<C>> F registerFeature(String name, F feature) {
         return register(Registry.FEATURE, name, feature);
