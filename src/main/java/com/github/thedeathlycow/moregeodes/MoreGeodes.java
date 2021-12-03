@@ -6,7 +6,7 @@ import com.github.thedeathlycow.moregeodes.item.ModItems;
 
 import net.fabricmc.api.DedicatedServerModInitializer;
 
-public class MoreGeodesDedicatedServer implements DedicatedServerModInitializer {
+public class MoreGeodes implements DedicatedServerModInitializer {
 
     public static String MODID = "geodes";
 

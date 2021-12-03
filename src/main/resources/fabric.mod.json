@@ -17,7 +17,7 @@
   "environment": "*",
   "entrypoints": {
     "server": [
-      "com.github.thedeathlycow.moregeodes.MoreGeodesDedicatedServer"
+      "com.github.thedeathlycow.moregeodes.MoreGeodes"
     ],
     "client": [
       "com.github.thedeathlycow.moregeodes.MoreGeodesClient"

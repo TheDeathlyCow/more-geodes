@@ -1,6 +1,6 @@
 package com.github.thedeathlycow.moregeodes.blocks;
 
-import com.github.thedeathlycow.moregeodes.MoreGeodesDedicatedServer;
+import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.sounds.ModBlockSoundGroups;
 import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -8,7 +8,6 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -66,7 +65,7 @@ public class ModBlocks {
     }
 
     private static void register(String name, Block block) {
-        Registry.register(Registry.BLOCK, new Identifier(MoreGeodesDedicatedServer.MODID, name), block);
+        Registry.register(Registry.BLOCK, new Identifier(MoreGeodes.MODID, name), block);
     }
 
 }
