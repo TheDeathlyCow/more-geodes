@@ -6,6 +6,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 
 public class ModFeatures {
+
     public static void placedFeaturesInBiomes() {
 
         BiomeModifications.addFeature
