@@ -5,6 +5,9 @@ import com.github.thedeathlycow.moregeodes.features.ModFeatures;
 import com.github.thedeathlycow.moregeodes.item.ModItems;
 
 import net.fabricmc.api.DedicatedServerModInitializer;
+import net.minecraft.block.Blocks;
+
+import java.util.logging.Logger;
 
 public class MoreGeodes implements DedicatedServerModInitializer {
 
@@ -15,7 +18,7 @@ public class MoreGeodes implements DedicatedServerModInitializer {
         System.out.println("Registering More Geodes on server...");
         ModBlocks.registerBlocks();
         ModItems.registerItems();
-        ModFeatures.registerFeatures();
+        ModFeatures.placedFeaturesInBiomes();
         System.out.println("More Geodes registered on server!");
     }
 }

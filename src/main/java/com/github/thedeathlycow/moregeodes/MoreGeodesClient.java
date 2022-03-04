@@ -17,7 +17,7 @@ public class MoreGeodesClient implements ClientModInitializer {
         ModBlocks.registerBlocks();
         ModItems.registerItems();
         ModBlocks.registerCutouts();
-        ModFeatures.registerFeatures();
+        ModFeatures.placedFeaturesInBiomes();
         System.out.println("More Geodes cutouts registered!");
     }
 }
