@@ -1,8 +1,8 @@
 package com.github.thedeathlycow.moregeodes.features;
 
+import com.github.thedeathlycow.moregeodes.tag.ModBiomeTags;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 
 public class ModFeatures {
@@ -11,14 +11,14 @@ public class ModFeatures {
 
         BiomeModifications.addFeature
                 (
-                        BiomeSelectors.categories(Biome.Category.MOUNTAIN),
+                        BiomeSelectors.tag(ModBiomeTags.HAS_EMERALD_GEODE),
                         GenerationStep.Feature.UNDERGROUND_DECORATION,
                         ModPlacedFeatures.EMERALD_GEODE.getKey().get()
                 );
 
         BiomeModifications.addFeature
                 (
-                        BiomeSelectors.categories(Biome.Category.NETHER),
+                        BiomeSelectors.tag(ModBiomeTags.HAS_QUARTZ_GEODE),
                         GenerationStep.Feature.UNDERGROUND_DECORATION,
                         ModPlacedFeatures.QUARTZ_GEODE.getKey().get()
                 );

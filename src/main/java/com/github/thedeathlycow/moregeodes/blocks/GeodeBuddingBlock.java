@@ -16,9 +16,9 @@ public class GeodeBuddingBlock extends Block {
 
     private static final Direction[] DIRECTIONS = Direction.values();
 
-    private final List<? extends Block> clusters;
+    private final List<? extends AmethystClusterBlock> clusters;
 
-    public GeodeBuddingBlock(AbstractBlock.Settings settings, List<? extends Block> clusters) {
+    public GeodeBuddingBlock(AbstractBlock.Settings settings, List<? extends AmethystClusterBlock> clusters) {
         super(settings);
         assert clusters.size() > 0;
         this.clusters = clusters;
@@ -34,19 +34,22 @@ public class GeodeBuddingBlock extends Block {
             Direction direction = DIRECTIONS[random.nextInt(DIRECTIONS.length)];
             BlockPos blockPos = pos.offset(direction);
             BlockState blockState = world.getBlockState(blockPos);
-            Block block = null;
+            Block blockStateBlock = blockState.getBlock();
+            AmethystClusterBlock nextBlock = null;
 
             if (canGrowIn(blockState)) {
-                block = clusters.get(0);
-            } else if (blockState.get(AmethystClusterBlock.FACING) == direction && clusters.contains(blockState.getBlock())) {
-                int nextBlock = clusters.indexOf(blockState.getBlock());
-                if (nextBlock < clusters.size()) {
-                    block = clusters.get(nextBlock);
+                nextBlock = clusters.get(0);
+            } else if (blockStateBlock instanceof AmethystClusterBlock clusterBlock && blockState.get(AmethystClusterBlock.FACING) == direction) {
+                if (clusters.contains(clusterBlock)) {
+                    int nextBlockIndex = clusters.indexOf(clusterBlock) + 1;
+                    if (nextBlockIndex < clusters.size()) {
+                        nextBlock = clusters.get(nextBlockIndex);
+                    }
                 }
             }
 
-            if (block != null) {
-                BlockState toSet = block.getDefaultState()
+            if (nextBlock != null) {
+                BlockState toSet = nextBlock.getDefaultState()
                         .with(AmethystClusterBlock.FACING, direction)
                         .with(AmethystClusterBlock.WATERLOGGED, blockState.getFluidState().getFluid() == Fluids.WATER);
                 world.setBlockState(blockPos, toSet);

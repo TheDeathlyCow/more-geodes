@@ -52,7 +52,7 @@ public class ModConfiguredFeatures {
                                         SimpleBlockStateProvider.of(Blocks.AIR.getDefaultState()),
                                         SimpleBlockStateProvider.of(ModBlocks.QUARTZ_GEODE.getDefaultState()),
                                         SimpleBlockStateProvider.of(ModBlocks.BUDDING_QUARTZ.getDefaultState()),
-                                        SimpleBlockStateProvider.of(Blocks.CALCITE.getDefaultState()),
+                                        SimpleBlockStateProvider.of(Blocks.TUFF.getDefaultState()),
                                         SimpleBlockStateProvider.of(Blocks.SMOOTH_BASALT.getDefaultState()),
                                         ModBlocks.BUDDING_QUARTZ.getClusterStates(),
                                         BlockTags.FEATURES_CANNOT_REPLACE,
