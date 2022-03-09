@@ -3,19 +3,21 @@ package com.github.thedeathlycow.moregeodes;
 import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
 import com.github.thedeathlycow.moregeodes.features.ModFeatures;
 import com.github.thedeathlycow.moregeodes.item.ModItems;
-
+import com.mojang.logging.LogUtils;
 import net.fabricmc.api.DedicatedServerModInitializer;
+import org.slf4j.Logger;
 
 public class MoreGeodes implements DedicatedServerModInitializer {
 
-    public static String MODID = "geodes";
+    public static final String MODID = "geodes";
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     @Override
     public void onInitializeServer() {
-        System.out.println("Registering More Geodes on server...");
+        LOGGER.info("Beginning More Geodes dedicated server initialization");
         ModBlocks.registerBlocks();
         ModItems.registerItems();
-        ModFeatures.registerFeatures();
-        System.out.println("More Geodes registered on server!");
+        ModFeatures.placedFeaturesInBiomes();
+        LOGGER.info("More Geodes dedicated server initialized!");
     }
 }

@@ -3,7 +3,6 @@ package com.github.thedeathlycow.moregeodes;
 import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
 import com.github.thedeathlycow.moregeodes.features.ModFeatures;
 import com.github.thedeathlycow.moregeodes.item.ModItems;
-
 import net.fabricmc.api.ClientModInitializer;
 
 public class MoreGeodesClient implements ClientModInitializer {
@@ -13,11 +12,11 @@ public class MoreGeodesClient implements ClientModInitializer {
         // This code runs as soon as Minecraft is in a mod-load-ready state.
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
-        System.out.println("Registering More Geodes cutouts on client...");
+        MoreGeodes.LOGGER.info("Beginning More Geodes client initialization");
         ModBlocks.registerBlocks();
         ModItems.registerItems();
+        ModFeatures.placedFeaturesInBiomes();
         ModBlocks.registerCutouts();
-        ModFeatures.registerFeatures();
-        System.out.println("More Geodes cutouts registered!");
+        MoreGeodes.LOGGER.info("More Geodes client initialized!");
     }
 }

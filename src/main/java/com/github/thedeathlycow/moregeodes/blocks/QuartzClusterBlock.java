@@ -12,7 +12,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.tick.OrderedTick;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
@@ -23,9 +22,9 @@ public class QuartzClusterBlock extends AmethystClusterBlock {
     private final int SIGNAL_STRENGTH;
     private final int ON_TIME;
 
-    public QuartzClusterBlock(int height, int xzOffset, Settings settings, int signal_strength, int onTime) {
+    public QuartzClusterBlock(int height, int xzOffset, Settings settings, int signalStrength, int onTime) {
         super(height, xzOffset, settings);
-        this.SIGNAL_STRENGTH = 15;
+        this.SIGNAL_STRENGTH = signalStrength;
         this.ON_TIME = onTime;
         this.setDefaultState(this.getDefaultState().with(POWERED, false));
     }
