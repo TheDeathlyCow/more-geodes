@@ -37,3 +37,5 @@ Similar to the configured features, you can edit the emerald and quartz geode pl
 
 ## Biome placement
 Rather than editing or overriding specific biomes in order to add emerald and quartz geode feature, it would instead be better to edit the biome tags `geodes:has_emerald_geode` and `geodes:has_quartz_geode`. These tags exist in the directory `geodes/tags/worldgen/biome/`, and the default tags for them can be found [here](https://github.com/TheDeathlyCow/more-geodes/tree/main/src/main/resources/data/geodes/tags/worldgen/biome).
+
+**Important note**: These changes can ONLY take affect after a server or world restart. A simple reload is not sufficient! 
