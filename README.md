@@ -27,7 +27,7 @@ Buds pulse with the following frequencies:
 
 # Datapack Configuration
 
-This mod uses the namespace `geodes`. If you wish to make changes to the features in this mod using a datapack, all the files should be put in `data/geodes`. The emerald and quartz geodes use very similar values to the amethyst geode, and it can be used as an example for how to configure them. Slicedlime provides an example worldgen datapack that can be used as a reference [here](https://github.com/slicedlime/examples/blob/master/vanilla_worldgen.zip). 
+This mod uses the namespace `geodes`. If you wish to make changes to the features in this mod using a datapack, all files must be put under that namespace. The emerald and quartz geodes use very similar values to the amethyst geode, and it can be used as an example for how to configure them. Slicedlime provides an example worldgen datapack that can be used as a reference [here](https://github.com/slicedlime/examples/blob/master/vanilla_worldgen.zip). 
 
 ## Configured features
 You can make changes to the emerald and quartz geode configured features by replacing their files in the directories `geodes/worldgen/configured_feature/emerald_geode.json`or `geodes/worldgen/configured_feature/quartz_geode.json`. 
