@@ -29,7 +29,7 @@ public class ModPlacedFeatures {
                 List.of(
                         RarityFilterPlacementModifier.of(24),
                         SquarePlacementModifier.of(),
-                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(6), YOffset.fixed(30)),
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(6), YOffset.fixed(64)),
                         BiomePlacementModifier.of()
                 )));
         QUARTZ_GEODE = register("quartz_geode", new PlacedFeature(ModConfiguredFeatures.QUARTZ_GEODE,

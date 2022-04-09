@@ -6,6 +6,16 @@
     "minecraft:jagged_peaks",
     "minecraft:stony_peaks",
     "minecraft:snowy_slopes",
-    "minecraft:grove"
+    "minecraft:grove",
+    {"id": "terralith:alpine_grove", "required": false},
+    {"id": "terralith:blooming_plateau", "required": false},
+    {"id": "terralith:emerald_peaks", "required": false},
+    {"id": "terralith:haze_mountain", "required": false},
+    {"id": "terralith:painted_mountains", "required": false},
+    {"id": "terralith:rocky_mountains", "required": false},
+    {"id": "terralith:stony_spires", "required": false},
+    {"id": "terralith:volcanic_crater", "required": false},
+    {"id": "terralith:volcanic_peaks", "required": false},
+    {"id": "terralith:windswept_spires", "required": false}
   ]
 }
