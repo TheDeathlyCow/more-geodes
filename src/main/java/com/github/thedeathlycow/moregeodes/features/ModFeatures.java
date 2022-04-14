@@ -22,5 +22,12 @@ public class ModFeatures {
                         GenerationStep.Feature.UNDERGROUND_DECORATION,
                         ModPlacedFeatures.QUARTZ_GEODE.getKey().get()
                 );
+
+        BiomeModifications.addFeature
+                (
+                        BiomeSelectors.all(),
+                        GenerationStep.Feature.UNDERGROUND_DECORATION,
+                        ModPlacedFeatures.DIAMOND_GEODE.getKey().get()
+                );
     }
 }
