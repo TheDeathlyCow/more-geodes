@@ -27,6 +27,7 @@ public class ModItems {
     public static Item QUARTZ_CLUSTER = new BlockItem(ModBlocks.QUARTZ_CLUSTER, new Item.Settings().group(ItemGroup.DECORATIONS));
 
     public static Item DIAMOND_GEODE = new BlockItem(ModBlocks.DIAMOND_GEODE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static Item DIAMOND_CLUSTER = new BlockItem(ModBlocks.DIAMOND_CLUSTER, new Item.Settings().group(ItemGroup.DECORATIONS));
 
     public static void registerItems() {
         register("emerald_shard", EMERALD_SHARD);
@@ -43,6 +44,7 @@ public class ModItems {
         register("large_quartz_bud", LARGE_QUARTZ_BUD);
         register("quartz_cluster", QUARTZ_CLUSTER);
         register("diamond_geode", DIAMOND_GEODE);
+        register("diamond_cluster", DIAMOND_CLUSTER);
     }
 
     private static void register(String name, Item item) {
