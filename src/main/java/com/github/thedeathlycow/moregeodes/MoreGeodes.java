@@ -17,7 +17,7 @@ public class MoreGeodes implements ModInitializer {
         LOGGER.info("Beginning More Geodes initialization");
         ModBlocks.registerBlocks();
         ModItems.registerItems();
-        ModFeatures.placedFeaturesInBiomes();
+        ModFeatures.placeFeaturesInBiomes();
         LOGGER.info("More Geodes initialized!");
     }
 }
