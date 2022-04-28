@@ -16,7 +16,7 @@
   "icon": "assets/geodes/icon.png",
   "environment": "*",
   "entrypoints": {
-    "server": [
+    "main": [
       "com.github.thedeathlycow.moregeodes.MoreGeodes"
     ],
     "client": [
