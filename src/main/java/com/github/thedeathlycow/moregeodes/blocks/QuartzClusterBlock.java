@@ -16,6 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
+@SuppressWarnings("deprecation")
 public class QuartzClusterBlock extends AmethystClusterBlock {
 
     public static final BooleanProperty POWERED;

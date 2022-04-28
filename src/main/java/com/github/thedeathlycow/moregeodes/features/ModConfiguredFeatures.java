@@ -84,12 +84,12 @@ public class ModConfiguredFeatures {
                                         BlockTags.GEODE_INVALID_BLOCKS
                                 ),
                         new GeodeLayerThicknessConfig(1.7D, 2.2D, 3.2D, 4.2D),
-                        new GeodeCrackConfig(0.95D, 2.0D, 2),
+                        new GeodeCrackConfig(0.1D, 1.0D, 2),
                         0.35D, 0.083D, true,
                         UniformIntProvider.create(4, 6),
                         UniformIntProvider.create(3, 4),
                         UniformIntProvider.create(1, 2),
-                        0, 12, 0.05D, 1
+                        -16, 16, 0.05D, 1
                 )
         ));
     }
