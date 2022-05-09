@@ -2,14 +2,17 @@ package com.github.thedeathlycow.moregeodes.features;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 
 import java.util.List;
 
@@ -75,11 +78,11 @@ public class ModConfiguredFeatures {
                         new GeodeLayerConfig
                                 (
                                         SimpleBlockStateProvider.of(Blocks.AIR.getDefaultState()),
-                                        SimpleBlockStateProvider.of(Blocks.DIAMOND_BLOCK.getDefaultState()),
-                                        SimpleBlockStateProvider.of(Blocks.DIAMOND_BLOCK.getDefaultState()),
-                                        SimpleBlockStateProvider.of(Blocks.CALCITE.getDefaultState()),
+                                        SimpleBlockStateProvider.of(ModBlocks.DIAMOND_GEODE.getDefaultState()),
+                                        SimpleBlockStateProvider.of(ModBlocks.DIAMOND_GEODE.getDefaultState()),
+                                        SimpleBlockStateProvider.of(Blocks.DEEPSLATE_COAL_ORE.getDefaultState()),
                                         SimpleBlockStateProvider.of(Blocks.SMOOTH_BASALT.getDefaultState()),
-                                        List.of(ModBlocks.EMERALD_CLUSTER.getDefaultState()),
+                                        List.of(ModBlocks.DIAMOND_CLUSTER.getDefaultState(), ModBlocks.DIAMOND_CLUSTER.getDefaultState()),
                                         BlockTags.FEATURES_CANNOT_REPLACE,
                                         BlockTags.GEODE_INVALID_BLOCKS
                                 ),

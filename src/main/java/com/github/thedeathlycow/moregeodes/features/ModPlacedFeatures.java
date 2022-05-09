@@ -42,7 +42,7 @@ public class ModPlacedFeatures {
                 List.of(
                         RarityFilterPlacementModifier.of(200),
                         SquarePlacementModifier.of(),
-                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(4), YOffset.aboveBottom(64)),
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(4), YOffset.aboveBottom(60)),
                         BiomePlacementModifier.of()
                 )));
     }

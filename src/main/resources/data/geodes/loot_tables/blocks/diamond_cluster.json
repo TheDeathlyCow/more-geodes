@@ -25,7 +25,7 @@
                   }
                 }
               ],
-              "name": "geodes:emerald_cluster"
+              "name": "geodes:diamond_cluster"
             },
             {
               "type": "minecraft:alternatives",
@@ -44,8 +44,8 @@
                     {
                       "function": "minecraft:set_count",
                       "count": {
-                        "min": 4.0,
-                        "max": 8.0,
+                        "min": 1,
+                        "max": 2,
                         "type": "minecraft:uniform"
                       },
                       "add": false
@@ -56,7 +56,7 @@
                       "formula": "minecraft:ore_drops"
                     }
                   ],
-                  "name": "minecraft:emerald"
+                  "name": "minecraft:diamond"
                 }
               ]
             }
