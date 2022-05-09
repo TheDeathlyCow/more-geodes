@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:emerald"
+      "item": "minecraft:diamond"
     }
   },
   "result": {
-    "item": "geodes:emerald_geode"
+    "item": "geodes:diamond_geode"
   }
 }
