@@ -3,7 +3,7 @@
   "id": "geodes",
   "version": "${version}",
   "name": "More Geodes",
-  "description": "This mod adds Emerald Geodes as an alternative to Emerald ore.",
+  "description": "Adds more geode variants including Diamond, Emerald, and Quartz.",
   "authors": [
     "TheDeathlyCow",
     "SalveMundiProd"
