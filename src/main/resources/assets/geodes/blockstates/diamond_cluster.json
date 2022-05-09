@@ -1,28 +1,28 @@
 {
   "variants": {
     "facing=down": {
-      "model": "geodes:block/large_quartz_bud",
+      "model": "geodes:block/diamond_cluster",
       "x": 180
     },
     "facing=east": {
-      "model": "geodes:block/large_quartz_bud",
+      "model": "geodes:block/diamond_cluster",
       "x": 90,
       "y": 90
     },
     "facing=north": {
-      "model": "geodes:block/large_quartz_bud",
+      "model": "geodes:block/diamond_cluster",
       "x": 90
     },
     "facing=south": {
-      "model": "geodes:block/large_quartz_bud",
+      "model": "geodes:block/diamond_cluster",
       "x": 90,
       "y": 180
     },
     "facing=up": {
-      "model": "geodes:block/large_quartz_bud"
+      "model": "geodes:block/diamond_cluster"
     },
     "facing=west": {
-      "model": "geodes:block/large_quartz_bud",
+      "model": "geodes:block/diamond_cluster",
       "x": 90,
       "y": 270
     }

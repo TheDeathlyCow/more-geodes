@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("deprecation")
 public class GeodeBuddingBlock extends Block {
 
     private static final Direction[] DIRECTIONS = Direction.values();

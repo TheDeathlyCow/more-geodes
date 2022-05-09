@@ -12,6 +12,8 @@
     "geodes:quartz_cluster",
     "geodes:small_quartz_bud",
     "geodes:medium_quartz_bud",
-    "geodes:large_quartz_bud"
+    "geodes:large_quartz_bud",
+    "geodes:diamond_geode",
+    "geodes:diamond_cluster"
   ]
 }
