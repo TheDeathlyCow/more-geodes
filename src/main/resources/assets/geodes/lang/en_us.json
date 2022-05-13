@@ -13,5 +13,7 @@
     "block.geodes.medium_quartz_bud": "Medium Quartz Bud",
     "block.geodes.small_quartz_bud": "Small Quartz Bud",
     "block.geodes.diamond_geode": "Diamond Geode",
-    "block.geodes.diamond_cluster": "Diamond Cluster"
+    "block.geodes.diamond_cluster": "Diamond Cluster",
+    "advancement.geodes.adventure.outrageous.title": "Gems Are Truly Outrageous",
+    "advancement.geodes.adventure.outrageous.description": "Collect both an Emerald and Diamond geode block"
 }

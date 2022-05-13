@@ -1,0 +1,51 @@
+{
+  "display": {
+    "icon": {
+      "item": "geodes:emerald_cluster"
+    },
+    "title": {
+      "translate": "advancement.geodes.adventure.outrageous.title"
+    },
+    "description": {
+      "translate": "advancement.geodes.adventure.outrageous.description"
+    }
+  },
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "collect_emerald_geode": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "geodes:emerald_geode"
+            ]
+          }
+        ]
+      }
+    },
+    "collect_diamond_geode": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "geodes:diamond_geode"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "collect_emerald_geode"
+    ],
+    [
+      "collect_diamond_geode"
+    ]
+  ],
+  "rewards": {
+    "experience": 15
+  }
+}

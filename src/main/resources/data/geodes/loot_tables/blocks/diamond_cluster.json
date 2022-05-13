@@ -43,11 +43,7 @@
                   "functions": [
                     {
                       "function": "minecraft:set_count",
-                      "count": {
-                        "min": 1,
-                        "max": 2,
-                        "type": "minecraft:uniform"
-                      },
+                      "count": 1,
                       "add": false
                     },
                     {
