@@ -1,0 +1,9 @@
+{
+    "replace": false,
+    "values": [
+        "geodes:small_emerald_bud",
+        "geodes:medium_emerald_bud",
+        "geodes:large_emerald_bud",
+        "geodes:emerald_cluster"
+    ]
+}

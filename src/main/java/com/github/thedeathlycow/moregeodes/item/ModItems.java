@@ -36,6 +36,7 @@ public class ModItems {
     public static final Item LARGE_ECHO_BUD = new BlockItem(ModBlocks.LARGE_ECHO_BUD, new Item.Settings().group(ItemGroup.DECORATIONS));
     public static final Item ECHO_CLUSTER = new BlockItem(ModBlocks.ECHO_CLUSTER, new Item.Settings().group(ItemGroup.DECORATIONS));
 
+    public static final Item ECHO_LOCATOR = new BlockItem(ModBlocks.ECHO_LOCATOR, new FabricItemSettings().group(ItemGroup.DECORATIONS));
 
     public static void registerItems() {
         register("emerald_shard", EMERALD_SHARD);
@@ -59,6 +60,7 @@ public class ModItems {
         register("medium_echo_bud", MEDIUM_ECHO_BUD);
         register("large_echo_bud", LARGE_ECHO_BUD);
         register("echo_cluster", ECHO_CLUSTER);
+        register("echo_locator", ECHO_LOCATOR);
     }
 
     private static void register(String name, Item item) {
