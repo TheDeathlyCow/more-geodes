@@ -1,11 +1,7 @@
 {
   "replace": false,
   "values": [
-    "minecraft:nether_wastes",
-    "minecraft:basalt_deltas",
-    "minecraft:soul_sand_valley",
-    "minecraft:crimson_forest",
-    "minecraft:warped_forest",
+    "#minecraft:is_nether",
     {"id": "incendium:ash_barrens", "required": false},
     {"id": "incendium:infernal_dunes", "required": false},
     {"id": "incendium:inverted_forest", "required": false},

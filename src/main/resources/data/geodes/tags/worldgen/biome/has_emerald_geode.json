@@ -1,11 +1,7 @@
 {
   "replace": false,
   "values": [
-    "minecraft:meadow",
-    "minecraft:frozen_peaks",
-    "minecraft:jagged_peaks",
-    "minecraft:stony_peaks",
-    "minecraft:snowy_slopes",
+    "#minecraft:is_mountain",
     "minecraft:grove",
     {"id": "terralith:alpine_grove", "required": false},
     {"id": "terralith:blooming_plateau", "required": false},

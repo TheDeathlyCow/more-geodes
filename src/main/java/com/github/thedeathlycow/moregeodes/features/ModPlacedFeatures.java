@@ -18,6 +18,7 @@ public class ModPlacedFeatures {
     public static final RegistryEntry<PlacedFeature> EMERALD_GEODE;
     public static final RegistryEntry<PlacedFeature> QUARTZ_GEODE;
     public static final RegistryEntry<PlacedFeature> DIAMOND_GEODE;
+    public static final RegistryEntry<PlacedFeature> ECHO_GEODE;
 
     private static RegistryEntry<PlacedFeature> register(String id, PlacedFeature placedFeature) {
         return BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(MoreGeodes.MODID, id), placedFeature);
@@ -43,6 +44,13 @@ public class ModPlacedFeatures {
                         RarityFilterPlacementModifier.of(200),
                         SquarePlacementModifier.of(),
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(4), YOffset.aboveBottom(60)),
+                        BiomePlacementModifier.of()
+                )));
+        ECHO_GEODE = register("echo_geode", new PlacedFeature(ModConfiguredFeatures.ECHO_GEODE,
+                List.of(
+                        RarityFilterPlacementModifier.of(24),
+                        SquarePlacementModifier.of(),
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(6), YOffset.fixed(32)),
                         BiomePlacementModifier.of()
                 )));
     }
