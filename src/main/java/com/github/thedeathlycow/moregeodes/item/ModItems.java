@@ -29,6 +29,14 @@ public class ModItems {
     public static final Item DIAMOND_GEODE = new BlockItem(ModBlocks.DIAMOND_GEODE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final Item DIAMOND_CLUSTER = new BlockItem(ModBlocks.DIAMOND_CLUSTER, new Item.Settings().group(ItemGroup.DECORATIONS));
 
+    public static final Item ECHO_BLOCK = new BlockItem(ModBlocks.ECHO_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final Item BUDDING_ECHO_BLOCK = new BlockItem(ModBlocks.BUDDING_ECHO_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final Item SMALL_ECHO_BUD = new BlockItem(ModBlocks.SMALL_ECHO_BUD, new Item.Settings().group(ItemGroup.DECORATIONS));
+    public static final Item MEDIUM_ECHO_BUD = new BlockItem(ModBlocks.MEDIUM_ECHO_BUD, new Item.Settings().group(ItemGroup.DECORATIONS));
+    public static final Item LARGE_ECHO_BUD = new BlockItem(ModBlocks.LARGE_ECHO_BUD, new Item.Settings().group(ItemGroup.DECORATIONS));
+    public static final Item ECHO_CLUSTER = new BlockItem(ModBlocks.ECHO_CLUSTER, new Item.Settings().group(ItemGroup.DECORATIONS));
+
+
     public static void registerItems() {
         register("emerald_shard", EMERALD_SHARD);
         register("emerald_geode", EMERALD_GEODE);
@@ -45,6 +53,12 @@ public class ModItems {
         register("quartz_cluster", QUARTZ_CLUSTER);
         register("diamond_geode", DIAMOND_GEODE);
         register("diamond_cluster", DIAMOND_CLUSTER);
+        register("echo_block", ECHO_BLOCK);
+        register("budding_echo_block", BUDDING_ECHO_BLOCK);
+        register("small_echo_bud", SMALL_ECHO_BUD);
+        register("medium_echo_bud", MEDIUM_ECHO_BUD);
+        register("large_echo_bud", LARGE_ECHO_BUD);
+        register("echo_cluster", ECHO_CLUSTER);
     }
 
     private static void register(String name, Item item) {
