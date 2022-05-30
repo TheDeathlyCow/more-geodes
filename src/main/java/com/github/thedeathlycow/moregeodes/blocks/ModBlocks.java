@@ -48,6 +48,11 @@ public class ModBlocks {
             ImmutableList.of(SMALL_QUARTZ_BUD, MEDIUM_QUARTZ_BUD, LARGE_QUARTZ_BUD, QUARTZ_CLUSTER)
     );
 
+    public static final GeodeBuddingBlock BUDDING_ECHO_BLOCK = new GeodeBuddingBlock(
+            FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).ticksRandomly().strength(1.5f).sounds(BlockSoundGroup.SCULK_SHRIEKER).requiresTool(),
+            ImmutableList.of(SMALL_ECHO_BUD, MEDIUM_ECHO_BUD, LARGE_ECHO_BUD, ECHO_CLUSTER)
+    );
+
     public static void registerBlocks() {
         register("emerald_geode", EMERALD_GEODE);
         register("budding_emerald", BUDDING_EMERALD);
@@ -63,6 +68,12 @@ public class ModBlocks {
         register("small_quartz_bud", SMALL_QUARTZ_BUD);
         register("diamond_geode", DIAMOND_GEODE);
         register("diamond_cluster", DIAMOND_CLUSTER);
+        register("echo_block", ECHO_BLOCK);
+        register("budding_echo_block", BUDDING_ECHO_BLOCK);
+        register("echo_cluster", ECHO_CLUSTER);
+        register("large_echo_bud", LARGE_ECHO_BUD);
+        register("medium_echo_bud", MEDIUM_ECHO_BUD);
+        register("small_echo_bud", SMALL_ECHO_BUD);
     }
 
     private static void register(String name, Block block) {
