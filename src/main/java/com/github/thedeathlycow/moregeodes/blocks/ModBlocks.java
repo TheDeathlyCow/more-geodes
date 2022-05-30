@@ -2,6 +2,7 @@ package com.github.thedeathlycow.moregeodes.blocks;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.sounds.ModBlockSoundGroups;
+import com.github.thedeathlycow.moregeodes.tag.ModBlockTags;
 import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -37,6 +38,7 @@ public class ModBlocks {
     public static final AmethystClusterBlock MEDIUM_ECHO_BUD = new AmethystClusterBlock(4, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(BlockSoundGroup.SCULK_SHRIEKER).strength(1.5f).luminance((blockState) -> 2));
     public static final AmethystClusterBlock SMALL_ECHO_BUD = new AmethystClusterBlock(3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(BlockSoundGroup.SCULK_SHRIEKER).strength(1.5f).luminance((blockState) -> 1));
 
+    public static final Block ECHO_LOCATOR = new EchoLocatorBlock(ModBlockTags.ECHO_LOCATOR_EMERALD, FabricBlockSettings.of(Material.STONE));
 
     public static final GeodeBuddingBlock BUDDING_EMERALD = new GeodeBuddingBlock(
             FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).ticksRandomly().strength(1.5F).sounds(ModBlockSoundGroups.EMERALD_GEODE).requiresTool(),
@@ -74,6 +76,7 @@ public class ModBlocks {
         register("large_echo_bud", LARGE_ECHO_BUD);
         register("medium_echo_bud", MEDIUM_ECHO_BUD);
         register("small_echo_bud", SMALL_ECHO_BUD);
+        register("echo_locator", ECHO_LOCATOR);
     }
 
     private static void register(String name, Block block) {
