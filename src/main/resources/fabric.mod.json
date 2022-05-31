@@ -10,9 +10,10 @@
   ],
   "contact": {
     "homepage": "https://github.com/TheDeathlyCow/more-geodes/wiki",
-    "sources": "https://github.com/TheDeathlyCow/more-geodes"
+    "sources": "https://github.com/TheDeathlyCow/more-geodes",
+    "issues":  "https://github.com/TheDeathlyCow/more-geodes/issues"
   },
-  "license": "CC0-1.0",
+  "license": "LGPL-3.0",
   "icon": "assets/geodes/icon.png",
   "environment": "*",
   "entrypoints": {
