@@ -1,12 +1,10 @@
 package com.github.thedeathlycow.moregeodes.blocks.entity;
 
-import com.github.thedeathlycow.moregeodes.MoreGeodes;
+import com.github.thedeathlycow.moregeodes.blocks.EchoLocatorType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BarrelBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtIntArray;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.sound.SoundCategory;
@@ -17,6 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +27,7 @@ public class EchoLocatorBlockEntity extends BlockEntity {
 
     private int pingTicks = 0;
     private final List<BlockPos> pinging = new ArrayList<>();
-    private TagKey<Block> canLocate = null;
+    private EchoLocatorType type = EchoLocatorType.EMPTY;
 
     public EchoLocatorBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ECHO_LOCATOR, pos, state);
@@ -60,8 +59,8 @@ public class EchoLocatorBlockEntity extends BlockEntity {
      * @return Returns whether the state was highlighted
      */
     private static boolean highlightBlock(EchoLocatorBlockEntity blockEntity, World world, BlockPos pos, BlockState state) {
-        if (state.isIn(blockEntity.canLocate)) {
-            world.playSound(null, pos, SoundEvents.BLOCK_BELL_RESONATE, SoundCategory.BLOCKS, 1.0f, 1.0f);
+        if (state.isIn(blockEntity.type.canLocate())) {
+            world.playSound(null, pos, blockEntity.type.resonateSound(), SoundCategory.BLOCKS, 1.0f, 1.0f);
             return true;
         } else {
             return false;
@@ -71,12 +70,11 @@ public class EchoLocatorBlockEntity extends BlockEntity {
     public void activate(World world, BlockPos origin) {
         BlockPos from = origin.subtract(scanRadius);
         BlockPos to = origin.add(scanRadius);
-
         this.pingTicks = 0;
         this.pinging.clear();
         for (BlockPos pos : BlockPos.iterate(from, to)) {
             BlockState state = world.getBlockState(pos);
-            if (state.isIn(this.canLocate)) {
+            if (state.isIn(this.type.canLocate())) {
                 this.pinging.add(pos.toImmutable());
             }
         }
@@ -86,14 +84,15 @@ public class EchoLocatorBlockEntity extends BlockEntity {
         return this.pingTicks < MAX_PING_TIME;
     }
 
-    public void setCanLocate(TagKey<Block> canLocate) {
-        this.canLocate = canLocate;
+    public void setType(EchoLocatorType type) {
+        this.type = type;
     }
 
     @Override
     public void writeNbt(NbtCompound nbt) {
         nbt.putInt("PingTicks", this.pingTicks);
-        nbt.putString("CanLocate", this.canLocate.id().toString());
+
+        nbt.put("Type", this.type.toNbt());
 
         NbtList pinging = new NbtList();
         for (BlockPos pingingPos : this.pinging) {
@@ -109,13 +108,18 @@ public class EchoLocatorBlockEntity extends BlockEntity {
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         this.pingTicks = nbt.getInt("PingTicks");
-        Identifier canLocateID = new Identifier(nbt.getString("CanLocate"));
-        this.canLocate = TagKey.of(Registry.BLOCK_KEY, canLocateID);
+
         this.pinging.clear();
         NbtList nbtList = nbt.getList("Pinging", NbtList.COMPOUND_TYPE);
         for (int i = 0; i < nbtList.size(); i++) {
             NbtList pos = nbtList.getList(i);
             this.pinging.add(new BlockPos(pos.getInt(0), pos.getInt(1), pos.getInt(2)));
+        }
+
+        if (nbt.contains("Type")) {
+            this.type = EchoLocatorType.fromNbt(nbt.getCompound("Type"));
+        } else {
+            this.type = EchoLocatorType.EMPTY;
         }
     }
 }

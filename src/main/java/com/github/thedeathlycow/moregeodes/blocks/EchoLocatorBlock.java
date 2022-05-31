@@ -22,11 +22,11 @@ import org.jetbrains.annotations.Nullable;
 @SuppressWarnings("deprecation")
 public class EchoLocatorBlock extends BlockWithEntity {
 
-    private final TagKey<Block> blocksCanLocate;
+    private final EchoLocatorType type;
 
-    public EchoLocatorBlock(TagKey<Block> blocksCanLocate, Settings settings) {
+    public EchoLocatorBlock(EchoLocatorType type, Settings settings) {
         super(settings);
-        this.blocksCanLocate = blocksCanLocate;
+        this.type = type;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class EchoLocatorBlock extends BlockWithEntity {
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         EchoLocatorBlockEntity blockEntity = new EchoLocatorBlockEntity(pos, state);
-        blockEntity.setCanLocate(this.blocksCanLocate);
+        blockEntity.setType(this.type);
         return blockEntity;
     }
 

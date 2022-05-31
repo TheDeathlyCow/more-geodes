@@ -14,6 +14,13 @@
     "geodes:medium_quartz_bud",
     "geodes:large_quartz_bud",
     "geodes:diamond_geode",
-    "geodes:diamond_cluster"
+    "geodes:diamond_cluster",
+    "geodes:echo_block",
+    "geodes:budding_echo_block",
+    "geodes:echo_cluster",
+    "geodes:large_echo_bud",
+    "geodes:medium_echo_bud",
+    "geodes:small_echo_bud",
+    "geodes:echo_locator"
   ]
 }
