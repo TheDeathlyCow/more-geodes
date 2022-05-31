@@ -38,7 +38,7 @@ public class ModBlocks {
     public static final AmethystClusterBlock MEDIUM_ECHO_BUD = new AmethystClusterBlock(4, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(BlockSoundGroup.SCULK_SHRIEKER).strength(1.5f).luminance((blockState) -> 2));
     public static final AmethystClusterBlock SMALL_ECHO_BUD = new AmethystClusterBlock(3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(BlockSoundGroup.SCULK_SHRIEKER).strength(1.5f).luminance((blockState) -> 1));
 
-    public static final Block ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.EMPTY, FabricBlockSettings.of(Material.STONE));
+    public static final Block ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.EMPTY, FabricBlockSettings.of(Material.STONE).nonOpaque());
 
     public static final GeodeBuddingBlock BUDDING_EMERALD = new GeodeBuddingBlock(
             FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).ticksRandomly().strength(1.5F).sounds(ModBlockSoundGroups.EMERALD_GEODE).requiresTool(),
