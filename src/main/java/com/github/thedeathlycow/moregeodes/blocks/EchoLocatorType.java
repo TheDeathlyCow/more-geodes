@@ -15,13 +15,13 @@ public record EchoLocatorType(SoundEvent activateSound, SoundEvent resonateSound
 
     public static final EchoLocatorType EMERALD_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATOR_EMERALD);
 
-    public static final EchoLocatorType QUARTZ_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATOR_EMERALD);
+    public static final EchoLocatorType QUARTZ_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATOR_QUARTZ);
 
-    public static final EchoLocatorType DIAMOND_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATOR_EMERALD);
+    public static final EchoLocatorType DIAMOND_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATOR_DIAMOND);
 
-    public static final EchoLocatorType AMETHYST_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATOR_EMERALD);
+    public static final EchoLocatorType AMETHYST_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATOR_AMETHYST);
 
-    public static final EchoLocatorType ECHO_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATOR_EMERALD);
+    public static final EchoLocatorType ECHO_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATOR_ECHO);
 
 
     public static EchoLocatorType fromNbt(NbtCompound nbt) {
