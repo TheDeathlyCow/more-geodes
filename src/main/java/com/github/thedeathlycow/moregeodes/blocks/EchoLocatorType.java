@@ -11,7 +11,7 @@ import net.minecraft.util.registry.Registry;
 
 public record EchoLocatorType(SoundEvent activateSound, SoundEvent resonateSound, TagKey<Block> canLocate) {
 
-    public static final EchoLocatorType EMPTY = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATOR_EMERALD);
+    public static final EchoLocatorType EMPTY = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATOR_DEFAULT);
 
     public static final EchoLocatorType EMERALD_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATOR_EMERALD);
 

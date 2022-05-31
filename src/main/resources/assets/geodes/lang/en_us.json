@@ -20,7 +20,11 @@
     "block.geodes.large_echo_bud": "Large Echo Bud",
     "block.geodes.medium_echo_bud": "Medium Echo Bud",
     "block.geodes.small_echo_bud": "Small Echo Bud",
-    "block.geodes.echo_locator": "Echo Locator",
+    "block.geodes.emerald_crystal_echo_locator": "Emerald Crystal Echo Locator",
+    "block.geodes.quartz_crystal_echo_locator": "Quartz Crystal Echo Locator",
+    "block.geodes.amethyst_crystal_echo_locator": "Amethyst Crystal Echo Locator",
+    "block.geodes.diamond_crystal_echo_locator": "Diamond Crystal Echo Locator",
+    "block.geodes.echo_crystal_echo_locator": "Echo Crystal Echo Locator",
     "advancement.geodes.adventure.outrageous.title": "Gems Are Truly Outrageous",
     "advancement.geodes.adventure.outrageous.description": "Collect both an Emerald and Diamond geode block"
 }
