@@ -2,6 +2,8 @@
 
 Curse Forge mod page: https://www.curseforge.com/minecraft/mc-mods/emerald-geodes
 
+Modrinth mod page: https://modrinth.com/mod/more-geodes
+
 The curse forge mod page above and this repository are the only official download pages for this mod, do not trust any version of this mod from elsewhere! 
 
 Adds some extra geodes to the Minecraft Caves & Cliffs Update. 
