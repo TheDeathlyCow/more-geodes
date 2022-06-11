@@ -9,10 +9,11 @@
     "SalveMundiProd"
   ],
   "contact": {
-    "homepage": "https://github.com/TheDeathlyCow/more-geodes/wiki",
-    "sources": "https://github.com/TheDeathlyCow/more-geodes"
+    "homepage": "https://github.com/TheDeathlyCow/more-geodes",
+    "sources": "https://github.com/TheDeathlyCow/more-geodes",
+    "issues":  "https://github.com/TheDeathlyCow/more-geodes/issues"
   },
-  "license": "CC0-1.0",
+  "license": "LGPL-3.0",
   "icon": "assets/geodes/icon.png",
   "environment": "*",
   "entrypoints": {
@@ -26,9 +27,9 @@
   "mixins": [
   ],
   "depends": {
-    "fabricloader": ">=0.13.3",
+    "fabricloader": ">=0.14.7",
     "fabric": "*",
-    "minecraft": "1.18.x",
+    "minecraft": "1.19.x",
     "java": ">=17"
   },
   "suggests": {
