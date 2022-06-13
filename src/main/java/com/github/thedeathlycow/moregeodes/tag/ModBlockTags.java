@@ -8,12 +8,12 @@ import net.minecraft.util.registry.Registry;
 
 public class ModBlockTags {
 
-    public static final TagKey<Block> ECHO_LOCATOR_DEFAULT = create("echo_locator/default");
-    public static final TagKey<Block> ECHO_LOCATOR_EMERALD = create("echo_locator/emerald");
-    public static final TagKey<Block> ECHO_LOCATOR_AMETHYST = create("echo_locator/amethyst");
-    public static final TagKey<Block> ECHO_LOCATOR_QUARTZ = create("echo_locator/quartz");
-    public static final TagKey<Block> ECHO_LOCATOR_DIAMOND = create("echo_locator/diamond");
-    public static final TagKey<Block> ECHO_LOCATOR_ECHO = create("echo_locator/echo");
+    public static final TagKey<Block> ECHO_LOCATABLE_DEFAULT = create("echo_locatable/default");
+    public static final TagKey<Block> ECHO_LOCATABLE_EMERALD = create("echo_locatable/emerald");
+    public static final TagKey<Block> ECHO_LOCATABLE_AMETHYST = create("echo_locatable/amethyst");
+    public static final TagKey<Block> ECHO_LOCATABLE_QUARTZ = create("echo_locatable/quartz");
+    public static final TagKey<Block> ECHO_LOCATABLE_DIAMOND = create("echo_locatable/diamond");
+    public static final TagKey<Block> ECHO_LOCATABLE_ECHO = create("echo_locatable/echo");
 
     private static TagKey<Block> create(String id) {
         return TagKey.of(Registry.BLOCK_KEY, new Identifier(MoreGeodes.MODID, id));
