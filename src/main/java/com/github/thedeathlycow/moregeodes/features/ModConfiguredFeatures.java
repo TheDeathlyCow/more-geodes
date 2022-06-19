@@ -112,8 +112,8 @@ public class ModConfiguredFeatures {
                                         SimpleBlockStateProvider.of(Blocks.AIR.getDefaultState()),
                                         SimpleBlockStateProvider.of(ModBlocks.ECHO_BLOCK.getDefaultState()),
                                         SimpleBlockStateProvider.of(ModBlocks.BUDDING_ECHO_BLOCK.getDefaultState()),
+                                        SimpleBlockStateProvider.of(Blocks.SCULK.getDefaultState()),
                                         SimpleBlockStateProvider.of(Blocks.BLACKSTONE.getDefaultState()),
-                                        SimpleBlockStateProvider.of(Blocks.OBSIDIAN.getDefaultState()),
                                         ModBlocks.BUDDING_ECHO_BLOCK.getClusterStates(),
                                         BlockTags.FEATURES_CANNOT_REPLACE,
                                         BlockTags.GEODE_INVALID_BLOCKS
