@@ -1,28 +1,17 @@
 package com.github.thedeathlycow.moregeodes.blocks.entity;
 
 import com.github.thedeathlycow.moregeodes.blocks.EchoLocatorType;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtIntArray;
 import net.minecraft.nbt.NbtList;
-import net.minecraft.particle.ParticleEffect;
-import net.minecraft.particle.VibrationParticleEffect;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.tag.TagKey;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
-import net.minecraft.world.event.BlockPositionSource;
-import net.minecraft.world.event.PositionSource;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +56,7 @@ public class EchoLocatorBlockEntity extends BlockEntity {
      */
     private static boolean highlightBlock(EchoLocatorBlockEntity blockEntity, ServerWorld world, Vec3d locatorPos, BlockPos pos, BlockState state) {
         if (state.isIn(blockEntity.type.canLocate())) {
-            world.playSound(null, pos, blockEntity.type.resonateSound(), SoundCategory.BLOCKS, 30.0f, 1.0f);
+            world.playSound(null, pos, blockEntity.type.resonateSound(), SoundCategory.BLOCKS, 2.5f, 1.0f);
             return true;
         } else {
             return false;
