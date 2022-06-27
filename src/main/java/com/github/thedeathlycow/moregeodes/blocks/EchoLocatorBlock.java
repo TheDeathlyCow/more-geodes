@@ -3,10 +3,8 @@ package com.github.thedeathlycow.moregeodes.blocks;
 import com.github.thedeathlycow.moregeodes.blocks.entity.EchoLocatorBlockEntity;
 import com.github.thedeathlycow.moregeodes.blocks.entity.ModBlockEntities;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.SculkSensorBlockEntity;
+import net.minecraft.block.entity.*;
+import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -32,6 +30,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
+import net.minecraft.world.event.listener.GameEventListener;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
@@ -57,6 +56,16 @@ public class EchoLocatorBlock extends BlockWithEntity implements Waterloggable {
                         .with(AXIS, Direction.Axis.X)
                         .with(FACING, Direction.UP)
         );
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> GameEventListener getGameEventListener(ServerWorld world, T blockEntity) {
+        if (blockEntity instanceof EchoLocatorBlockEntity echoLocatorBlockEntity) {
+            return echoLocatorBlockEntity.getVibrationListener();
+        } else {
+            return null;
+        }
     }
 
     @Nullable
