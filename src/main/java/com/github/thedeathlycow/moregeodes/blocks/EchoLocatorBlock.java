@@ -6,6 +6,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.entity.SculkSensorBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -30,6 +31,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
@@ -156,12 +158,12 @@ public class EchoLocatorBlock extends BlockWithEntity implements Waterloggable {
     }
 
     private boolean ping(World world, BlockPos origin, BlockState state, BlockHitResult hit, PlayerEntity player) {
-
         world.playSound(null, origin, SoundEvents.BLOCK_BELL_USE, SoundCategory.BLOCKS, 2.0F, 1.0F);
 
         EchoLocatorBlockEntity blockEntity = (EchoLocatorBlockEntity) world.getBlockEntity(origin);
 
         if (blockEntity != null && !state.get(POWERED)) {
+            world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, origin);
             blockEntity.activate(world, origin);
             return true;
         }

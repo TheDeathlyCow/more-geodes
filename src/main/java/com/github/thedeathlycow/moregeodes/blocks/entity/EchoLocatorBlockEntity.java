@@ -4,17 +4,24 @@ import com.github.thedeathlycow.moregeodes.blocks.EchoLocatorType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtIntArray;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.VibrationParticleEffect;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import net.minecraft.world.event.BlockPositionSource;
+import net.minecraft.world.event.PositionSource;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -33,12 +40,12 @@ public class EchoLocatorBlockEntity extends BlockEntity {
         super(ModBlockEntities.ECHO_LOCATOR, pos, state);
     }
 
-    public static void tick(World world, BlockPos origin, BlockState state, EchoLocatorBlockEntity blockEntity) {
+    public static void tick(ServerWorld world, BlockPos origin, BlockState state, EchoLocatorBlockEntity blockEntity) {
         if (blockEntity.isPinging() && !world.isClient()) {
             blockEntity.pingTicks++;
             for (BlockPos pos : List.copyOf(blockEntity.pinging)) {
                 BlockState atState = world.getBlockState(pos);
-                if (!highlightBlock(blockEntity, world, pos, atState)) {
+                if (!highlightBlock(blockEntity, world, Vec3d.ofCenter(origin), pos, atState)) {
                     blockEntity.pinging.remove(pos);
                 }
             }
@@ -46,11 +53,11 @@ public class EchoLocatorBlockEntity extends BlockEntity {
     }
 
     public static void clientTick(World world, BlockPos pos, BlockState state, EchoLocatorBlockEntity blockEntity) {
-        //tick(world, pos, state, blockEntity);
     }
 
+
     public static void serverTick(World world, BlockPos pos, BlockState state, EchoLocatorBlockEntity blockEntity) {
-        tick(world, pos, state, blockEntity);
+        tick((ServerWorld) world, pos, state, blockEntity);
     }
 
     /**
@@ -58,9 +65,9 @@ public class EchoLocatorBlockEntity extends BlockEntity {
      *
      * @return Returns whether the state was highlighted
      */
-    private static boolean highlightBlock(EchoLocatorBlockEntity blockEntity, World world, BlockPos pos, BlockState state) {
+    private static boolean highlightBlock(EchoLocatorBlockEntity blockEntity, ServerWorld world, Vec3d locatorPos, BlockPos pos, BlockState state) {
         if (state.isIn(blockEntity.type.canLocate())) {
-            world.playSound(null, pos, blockEntity.type.resonateSound(), SoundCategory.BLOCKS, 1.0f, 1.0f);
+            world.playSound(null, pos, blockEntity.type.resonateSound(), SoundCategory.BLOCKS, 30.0f, 1.0f);
             return true;
         } else {
             return false;
