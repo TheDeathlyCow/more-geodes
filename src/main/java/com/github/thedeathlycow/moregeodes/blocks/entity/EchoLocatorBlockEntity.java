@@ -12,9 +12,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.nbt.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.tag.GameEventTags;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import net.minecraft.world.event.BlockPositionSource;
@@ -22,15 +22,13 @@ import net.minecraft.world.event.GameEvent;
 import net.minecraft.world.event.listener.GameEventListener;
 import net.minecraft.world.event.listener.VibrationListener;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class EchoLocatorBlockEntity extends BlockEntity implements VibrationListener.Callback {
-
-    private static final Vec3i scanRadius = new Vec3i(30, 30, 30);
+    public static final int SCAN_RADIUS = 30;
+    private static final Vec3i SCAN_BOX = new Vec3i(SCAN_RADIUS, SCAN_RADIUS, SCAN_RADIUS);
     private static final int MAX_PING_TIME = 20 * 20;
     private static final int TICKS_PER_PING = 20;
 
@@ -41,7 +39,7 @@ public class EchoLocatorBlockEntity extends BlockEntity implements VibrationList
 
     public EchoLocatorBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ECHO_LOCATOR, pos, state);
-        this.vibrationListener = new VibrationListener(new BlockPositionSource(this.pos), 8, this, null, 0.0F, 0);
+        this.vibrationListener = new VibrationListener(new BlockPositionSource(this.pos), SCAN_RADIUS, this, null, 0.0F, 0);
     }
 
     public static void tick(ServerWorld world, BlockPos origin, BlockState state, EchoLocatorBlockEntity blockEntity) {
@@ -84,13 +82,14 @@ public class EchoLocatorBlockEntity extends BlockEntity implements VibrationList
     }
 
     public void activate(World world, BlockPos origin) {
-        BlockPos from = origin.subtract(scanRadius);
-        BlockPos to = origin.add(scanRadius);
+        BlockPos from = origin.subtract(SCAN_BOX);
+        BlockPos to = origin.add(SCAN_BOX);
         this.pingTicks = 0;
         this.pinging.clear();
         for (BlockPos pos : BlockPos.iterate(from, to)) {
             BlockState state = world.getBlockState(pos);
-            if (state.isIn(this.type.canLocate())) {
+            final int rangeSquared = MathHelper.square(this.vibrationListener.getRange());
+            if (origin.getSquaredDistance(pos) <= rangeSquared && state.isIn(this.type.canLocate())) {
                 this.pinging.add(pos.toImmutable());
             }
         }
