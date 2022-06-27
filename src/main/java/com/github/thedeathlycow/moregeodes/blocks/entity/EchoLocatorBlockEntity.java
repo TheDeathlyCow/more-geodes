@@ -20,6 +20,7 @@ public class EchoLocatorBlockEntity extends BlockEntity {
 
     private static final Vec3i scanRadius = new Vec3i(30, 30, 30);
     private static final int MAX_PING_TIME = 20 * 20;
+    private static final int TICKS_PER_PING = 20;
 
     private int pingTicks = 0;
     private final List<BlockPos> pinging = new ArrayList<>();
@@ -32,6 +33,11 @@ public class EchoLocatorBlockEntity extends BlockEntity {
     public static void tick(ServerWorld world, BlockPos origin, BlockState state, EchoLocatorBlockEntity blockEntity) {
         if (blockEntity.isPinging() && !world.isClient()) {
             blockEntity.pingTicks++;
+
+            if (blockEntity.pingTicks % TICKS_PER_PING != 0) {
+                return;
+            }
+
             for (BlockPos pos : List.copyOf(blockEntity.pinging)) {
                 BlockState atState = world.getBlockState(pos);
                 if (!highlightBlock(blockEntity, world, Vec3d.ofCenter(origin), pos, atState)) {

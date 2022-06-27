@@ -1,5 +1,6 @@
 package com.github.thedeathlycow.moregeodes.blocks;
 
+import com.github.thedeathlycow.moregeodes.sounds.GeodesSoundEvents;
 import com.github.thedeathlycow.moregeodes.tag.ModBlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.nbt.NbtCompound;
@@ -11,17 +12,17 @@ import net.minecraft.util.registry.Registry;
 
 public record EchoLocatorType(SoundEvent activateSound, SoundEvent resonateSound, TagKey<Block> canLocate) {
 
-    public static final EchoLocatorType EMPTY = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATABLE_DEFAULT);
+    public static final EchoLocatorType EMPTY = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, GeodesSoundEvents.CRYSTAL_RESONATE, ModBlockTags.ECHO_LOCATABLE_DEFAULT);
 
-    public static final EchoLocatorType EMERALD_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATABLE_EMERALD);
+    public static final EchoLocatorType EMERALD_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, GeodesSoundEvents.CRYSTAL_RESONATE, ModBlockTags.ECHO_LOCATABLE_EMERALD);
 
-    public static final EchoLocatorType QUARTZ_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATABLE_QUARTZ);
+    public static final EchoLocatorType QUARTZ_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, GeodesSoundEvents.CRYSTAL_RESONATE, ModBlockTags.ECHO_LOCATABLE_QUARTZ);
 
-    public static final EchoLocatorType DIAMOND_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATABLE_DIAMOND);
+    public static final EchoLocatorType DIAMOND_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, GeodesSoundEvents.CRYSTAL_RESONATE, ModBlockTags.ECHO_LOCATABLE_DIAMOND);
 
-    public static final EchoLocatorType AMETHYST_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATABLE_AMETHYST);
+    public static final EchoLocatorType AMETHYST_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, GeodesSoundEvents.CRYSTAL_RESONATE, ModBlockTags.ECHO_LOCATABLE_AMETHYST);
 
-    public static final EchoLocatorType ECHO_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, SoundEvents.BLOCK_BELL_RESONATE, ModBlockTags.ECHO_LOCATABLE_ECHO);
+    public static final EchoLocatorType ECHO_GEODE_LOCATOR = new EchoLocatorType(SoundEvents.BLOCK_BELL_USE, GeodesSoundEvents.CRYSTAL_RESONATE, ModBlockTags.ECHO_LOCATABLE_ECHO);
 
 
     public static EchoLocatorType fromNbt(NbtCompound nbt) {

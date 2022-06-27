@@ -1,0 +1,8 @@
+{
+  "block.geodes.echo_locator.resonate": {
+    "sounds": [
+      "geodes:crystal_resonate"
+    ],
+    "subtitle": "subtitles.geodes.echo_locator.resonate"
+  }
+}
