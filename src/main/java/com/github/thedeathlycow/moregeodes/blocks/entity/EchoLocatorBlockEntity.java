@@ -3,7 +3,6 @@ package com.github.thedeathlycow.moregeodes.blocks.entity;
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.blocks.EchoLocatorType;
 import com.github.thedeathlycow.moregeodes.tag.GeodesGameEventTags;
-import com.github.thedeathlycow.moregeodes.tag.GeodesPoiTypeTags;
 import com.github.thedeathlycow.moregeodes.world.GeodesGameEvents;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.Dynamic;
@@ -15,20 +14,17 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3i;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.event.BlockPositionSource;
 import net.minecraft.world.event.GameEvent;
 import net.minecraft.world.event.listener.GameEventListener;
 import net.minecraft.world.event.listener.VibrationListener;
-import net.minecraft.world.poi.PointOfInterest;
-import net.minecraft.world.poi.PointOfInterestStorage;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class EchoLocatorBlockEntity extends BlockEntity implements VibrationListener.Callback {
     public static final int SCAN_RADIUS = 30;
@@ -38,7 +34,7 @@ public class EchoLocatorBlockEntity extends BlockEntity implements VibrationList
 
     private int pingTicks = 0;
     private final List<BlockPos> pinging = new ArrayList<>();
-    private EchoLocatorType type = EchoLocatorType.CRYSTAL;
+    private EchoLocatorType type = EchoLocatorType.EMPTY;
     private VibrationListener vibrationListener;
 
     public EchoLocatorBlockEntity(BlockPos pos, BlockState state) {
@@ -76,7 +72,7 @@ public class EchoLocatorBlockEntity extends BlockEntity implements VibrationList
      * @return Returns whether the state was highlighted
      */
     private static boolean highlightBlock(EchoLocatorBlockEntity blockEntity, ServerWorld world, BlockPos pos, BlockState state) {
-        if (state.isIn(blockEntity.type.validBlocks())) {
+        if (state.isIn(blockEntity.type.canLocate())) {
             world.emitGameEvent(null, GeodesGameEvents.CRYSTAL_RESONATE, pos);
             world.playSound(null, pos, blockEntity.type.resonateSound(), SoundCategory.BLOCKS, 2.5f, 1.0f);
             return true;
@@ -86,19 +82,16 @@ public class EchoLocatorBlockEntity extends BlockEntity implements VibrationList
     }
 
     public void activate(World world, BlockPos origin) {
-        if (world instanceof ServerWorld serverWorld) {
-            this.pingTicks = 0;
-            this.pinging.clear();
-            Stream<PointOfInterest> positions = serverWorld.getPointOfInterestStorage().getInCircle(
-                    (poiType) -> this.type.pointsOfInterest().contains(poiType.value()),
-                    origin, SCAN_RADIUS, PointOfInterestStorage.OccupationStatus.ANY
-            );
-
-            positions.forEach(
-                    (poi) -> {
-                        this.pinging.add(poi.getPos());
-                    }
-            );
+        BlockPos from = origin.subtract(SCAN_BOX);
+        BlockPos to = origin.add(SCAN_BOX);
+        this.pingTicks = 0;
+        this.pinging.clear();
+        for (BlockPos pos : BlockPos.iterate(from, to)) {
+            BlockState state = world.getBlockState(pos);
+            final int rangeSquared = MathHelper.square(this.vibrationListener.getRange());
+            if (origin.getSquaredDistance(pos) <= rangeSquared && state.isIn(this.type.canLocate())) {
+                this.pinging.add(pos.toImmutable());
+            }
         }
     }
 
@@ -166,7 +159,7 @@ public class EchoLocatorBlockEntity extends BlockEntity implements VibrationList
         if (nbt.contains("Type")) {
             this.type = EchoLocatorType.fromNbt(nbt.getCompound("Type"));
         } else {
-            this.type = EchoLocatorType.CRYSTAL;
+            this.type = EchoLocatorType.EMPTY;
         }
 
         if (nbt.contains("listener", NbtElement.COMPOUND_TYPE)) {
