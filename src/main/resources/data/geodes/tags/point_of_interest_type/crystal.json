@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "geodes:amethyst_crystal",
+    "geodes:diamond_crystal",
+    "geodes:echo_crystal",
+    "geodes:emerald_crystal",
+    "geodes:quartz_crystal"
+  ]
+}
