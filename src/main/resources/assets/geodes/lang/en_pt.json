@@ -1,0 +1,19 @@
+{
+  "block.geodes.emerald_geode": "Block o' green gems",
+  "block.geodes.budding_emerald": "Buddin' green gems",
+  "block.geodes.emerald_cluster": "Clump o' green gems",
+  "block.geodes.large_emerald_bud": "Huge bud o' green gem",
+  "block.geodes.medium_emerald_bud": "Sizable bud o' green gem",
+  "block.geodes.small_emerald_bud": "Small bud o' green gem",
+  "item.geodes.emerald_shard": "Shard o' green gem",
+  "block.geodes.quartz_geode": "Block o' white crystals",
+  "block.geodes.budding_quartz": "Buddin' white crystals",
+  "block.geodes.quartz_cluster": "Clump o' white crystals",
+  "block.geodes.large_quartz_bud": "Huge o' white crystals",
+  "block.geodes.medium_quartz_bud": "Sizable o' white crystals",
+  "block.geodes.small_quartz_bud": "Small o' white crystals",
+  "block.geodes.diamond_geode": "Block o' shinies",
+  "block.geodes.diamond_cluster": "Clump o' shinies",
+  "advancement.geodes.adventure.outrageous.title": "Gems Arrrr Truly Outrageous",
+  "advancement.geodes.adventure.outrageous.description": "Plunder thar green gem and thar shiny gem"
+}
