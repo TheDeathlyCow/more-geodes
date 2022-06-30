@@ -1,0 +1,19 @@
+{
+  "block.geodes.emerald_geode": "Smaragdkristallblock",
+  "block.geodes.budding_emerald": "Smaragdknospenblock",
+  "block.geodes.emerald_cluster": "Smaragdhaufen",
+  "block.geodes.large_emerald_bud": "Große Smaragdknospe",
+  "block.geodes.medium_emerald_bud": "Mittlere Smaragdknospe",
+  "block.geodes.small_emerald_bud": "Kleine Smaragdknospe",
+  "item.geodes.emerald_shard": "Smaragdscherbe",
+  "block.geodes.quartz_geode": "Quarzkristallblock",
+  "block.geodes.budding_quartz": "Quarzknospenblock",
+  "block.geodes.quartz_cluster": "Quarzhaufen",
+  "block.geodes.large_quartz_bud": "Große Quarzknospe",
+  "block.geodes.medium_quartz_bud": "Mittlere Quarzknospe",
+  "block.geodes.small_quartz_bud": "Kleine Quarzknospe",
+  "block.geodes.diamond_geode": "Diamantkristallblock",
+  "block.geodes.diamond_cluster": "Diamanthaufen",
+  "advancement.geodes.adventure.outrageous.title": "Edelsteine Sind Sirklich Unverschämt",
+  "advancement.geodes.adventure.outrageous.description": "Sammeln ein Smaragdkristallblock und ein Diamantkristallblock"
+}
