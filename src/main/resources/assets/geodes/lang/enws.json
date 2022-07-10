@@ -1,0 +1,10 @@
+{
+  "block.geodes.emerald_geode": "Emerald Crystal",
+  "block.geodes.emerald_cluster": "Emerald Clust'r",
+  "block.geodes.quartz_geode": "Quartz Crystal",
+  "block.geodes.quartz_cluster": "Quartz Clust'r",
+  "block.geodes.diamond_geode": "Diamond Crystal",
+  "block.geodes.diamond_cluster": "Diamond Clust'r",
+  "advancement.geodes.adventure.outrageous.title": "Gems Art Truly Outrageous",
+  "advancement.geodes.adventure.outrageous.description": "Collecteth ye both thy Em'rald and Diamond crystal"
+}

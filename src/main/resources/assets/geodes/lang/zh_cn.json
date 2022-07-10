@@ -1,0 +1,19 @@
+{
+  "block.geodes.emerald_geode": "绿宝石水晶块",
+  "block.geodes.budding_emerald": "绿宝石水晶母岩",
+  "block.geodes.emerald_cluster": "绿宝石水晶簇",
+  "block.geodes.large_emerald_bud": "大绿宝石水晶芽",
+  "block.geodes.medium_emerald_bud": "中绿宝石水晶芽",
+  "block.geodes.small_emerald_bud": "小绿宝石水晶芽",
+  "item.geodes.emerald_shard": "绿宝石碎片",
+  "block.geodes.quartz_geode": "石英水晶块",
+  "block.geodes.budding_quartz": "石英水晶母岩",
+  "block.geodes.quartz_cluster": "石英水晶簇",
+  "block.geodes.large_quartz_bud": "大石英水晶芽",
+  "block.geodes.medium_quartz_bud": "中石英水晶芽",
+  "block.geodes.small_quartz_bud": "小石英水晶芽",
+  "block.geodes.diamond_geode": "钻石水晶块",
+  "block.geodes.diamond_cluster": "钻石水晶簇",
+  "advancement.geodes.adventure.outrageous.title": "真正离谱的东西是宝石!",
+  "advancement.geodes.adventure.outrageous.description": "收集一个绿宝石水晶块和钻石水晶块"
+}
