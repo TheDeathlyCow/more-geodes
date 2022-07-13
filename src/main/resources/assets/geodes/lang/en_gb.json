@@ -1,0 +1,20 @@
+{
+  "block.geodes.emerald_geode": "Imerald Geyo innit",
+  "block.geodes.budding_emerald": "Buddin' Imerald",
+  "block.geodes.emerald_cluster": "Imerald Clustah",
+  "block.geodes.large_emerald_bud": "Lahge Imerald Bud",
+  "block.geodes.medium_emerald_bud": "Medum Imerald Bud",
+  "block.geodes.small_emerald_bud": "Small Imerald Bud",
+  "item.geodes.emerald_shard": "Imerald Shard",
+  "block.geodes.quartz_geode": "Queen's Geyo",
+  "block.geodes.budding_quartz": "Queens' Buddin' innit bruv",
+  "block.geodes.quartz_cluster": "Queen's Clustah",
+  "block.geodes.large_quartz_bud": "Lahge Queen's Bud",
+  "block.geodes.medium_quartz_bud": "Medum Queen's Bud",
+  "block.geodes.small_quartz_bud": "Small Queen's Bud",
+  "block.geodes.diamond_geode": "Stolen Diamond Geode",
+  "block.geodes.diamond_cluster": "Stolen Diamond Cluster",
+  "advancement.geodes.adventure.outrageous.title": "These Gems Are Definitely Bri'ish",
+  "advancement.geodes.adventure.outrageous.description": "Steal an Emerald and Diamond geode block from the colonies"
+}
+
