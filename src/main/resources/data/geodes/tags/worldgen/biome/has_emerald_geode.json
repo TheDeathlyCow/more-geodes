@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "#minecraft:is_mountain",
+    "#c:mountain",
     "minecraft:grove",
     {"id": "terralith:alpine_grove", "required": false},
     {"id": "terralith:blooming_plateau", "required": false},
@@ -12,7 +13,6 @@
     {"id": "terralith:stony_spires", "required": false},
     {"id": "terralith:volcanic_crater", "required": false},
     {"id": "terralith:volcanic_peaks", "required": false},
-    {"id": "terralith:windswept_spires", "required": false},
-    {"id": "#c:mountain", "required": false}
+    {"id": "terralith:windswept_spires", "required": false}
   ]
 }
