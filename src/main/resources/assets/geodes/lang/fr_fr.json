@@ -1,0 +1,19 @@
+{
+    "block.geodes.emerald_geode": "Géode d'émeraude",
+    "block.geodes.budding_emerald": "Druse d'émeraude",
+    "block.geodes.emerald_cluster": "Amas d'émeraude",
+    "block.geodes.large_emerald_bud": "Grand cristal d'émeraude",
+    "block.geodes.medium_emerald_bud": "Cristal moyen d'émeraude",
+    "block.geodes.small_emerald_bud": "Petit cristal d'émeraude",
+    "item.geodes.emerald_shard": "Éclat d'émeraude",
+    "block.geodes.quartz_geode": "Géode de quartz",
+    "block.geodes.budding_quartz": "Druse de quartz",
+    "block.geodes.quartz_cluster": "Amas de quartz",
+    "block.geodes.large_quartz_bud": "Grand cristal de quartz",
+    "block.geodes.medium_quartz_bud": "Cristal moyen de quartz",
+    "block.geodes.small_quartz_bud": "Petit cristal quartz",
+    "block.geodes.diamond_geode": "Géode de diamant",
+    "block.geodes.diamond_cluster": "Amas de diamant",
+    "advancement.geodes.adventure.outrageous.title": "Les gemmes sont vraiment scandaleuses",
+    "advancement.geodes.adventure.outrageous.description": "Récupérez un bloc de géode d'émeraude et de diamant"
+}
