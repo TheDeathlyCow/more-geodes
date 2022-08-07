@@ -4,5 +4,18 @@
       "geodes:crystal_resonate"
     ],
     "subtitle": "subtitles.geodes.echo_locator.resonate"
+  },
+  "block.geodes.echo_block.break": {
+    "sounds": [
+      "geodes:block/echo_block/break1",
+      "geodes:block/echo_block/break2"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.geodes.echo_block.place": {
+    "sounds": [
+      "geodes:block/echo_block/place1"
+    ],
+    "subtitle": "subtitles.block.generic.place"
   }
 }
