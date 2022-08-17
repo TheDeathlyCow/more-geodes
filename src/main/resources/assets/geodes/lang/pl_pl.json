@@ -1,0 +1,19 @@
+{
+    "block.geodes.emerald_geode": "Emeraldowa Geoda",
+    "block.geodes.budding_emerald": "Kiełkujący Emerald",
+    "block.geodes.emerald_cluster": "Zarodek Emeraldu",
+    "block.geodes.large_emerald_bud": "Duży Zarodek Emeraldu",
+    "block.geodes.medium_emerald_bud": "Średni Zarodek Emeraldu",
+    "block.geodes.small_emerald_bud": "Mały Zarodek Emeraldu",
+    "item.geodes.emerald_shard": "Odłamek emeraldu",
+    "block.geodes.quartz_geode": "Kwarcowa Geoda",
+    "block.geodes.budding_quartz": "Kiełkujący Kwarc",
+    "block.geodes.quartz_cluster": "Zarodek Kwarcu",
+    "block.geodes.large_quartz_bud": "Duży Zarodek Kwarcu",
+    "block.geodes.medium_quartz_bud": "Średni Zarodek Kwarcu",
+    "block.geodes.small_quartz_bud": "Mały Zarodek Kwarcu",
+    "block.geodes.diamond_geode": "Diamentowa Geoda",
+    "block.geodes.diamond_cluster": "Zarodek Diamentu",
+    "advancement.geodes.adventure.outrageous.title": "Geody są naprawdę przepiękne",
+    "advancement.geodes.adventure.outrageous.description": "Zdobąć blok Emeraldowej oraz Diamentowej geody"
+}
