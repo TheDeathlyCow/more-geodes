@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "geodes:diamond_cluster",
+              "name": "geodes:echo_cluster",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",
@@ -32,7 +32,7 @@
               "children": [
                 {
                   "type": "minecraft:item",
-                  "name": "minecraft:diamond",
+                  "name": "minecraft:echo_shard",
                   "conditions": [
                     {
                       "condition": "minecraft:match_tool",
@@ -56,7 +56,7 @@
                 },
                 {
                   "type": "minecraft:item",
-                  "name": "minecraft:diamond",
+                  "name": "minecraft:echo_shard",
                   "functions": [
                     {
                       "function": "minecraft:set_count",
