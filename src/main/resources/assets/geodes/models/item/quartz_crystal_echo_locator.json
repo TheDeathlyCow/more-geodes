@@ -1,3 +1,6 @@
 {
-  "parent": "geodes:block/echo_locator/quartz"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "geodes:item/echo_locator/quartz"
+  }
 }
