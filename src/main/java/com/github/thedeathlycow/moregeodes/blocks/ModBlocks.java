@@ -13,30 +13,30 @@ import net.minecraft.util.registry.Registry;
 
 public class ModBlocks {
 
-    public static final AmethystBlock EMERALD_GEODE = new AmethystBlock(FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).strength(1.5F).sounds(ModBlockSoundGroups.EMERALD_GEODE).requiresTool());
+    public static final Block EMERALD_GEODE = new CrystalBlock(CrystalBlockSoundGroup.EMERALD_GEODE, FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).strength(1.5F).sounds(ModBlockSoundGroups.EMERALD_GEODE).requiresTool());
 
-    public static final AmethystClusterBlock EMERALD_CLUSTER = new AmethystClusterBlock(7, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.EMERALD_CLUSTER).strength(1.5f).luminance((blockState) -> 5));
-    public static final AmethystClusterBlock LARGE_EMERALD_BUD = new AmethystClusterBlock(5, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.LARGE_EMERALD_BUD).strength(1.5f).luminance((blockState) -> 4));
-    public static final AmethystClusterBlock MEDIUM_EMERALD_BUD = new AmethystClusterBlock(4, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.MEDIUM_EMERALD_BUD).strength(1.5f).luminance((blockState) -> 2));
-    public static final AmethystClusterBlock SMALL_EMERALD_BUD = new AmethystClusterBlock(3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.SMALL_EMERALD_BUD).strength(1.5f).luminance((blockState) -> 1));
+    public static final Block EMERALD_CLUSTER = new AmethystClusterBlock(7, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.EMERALD_CLUSTER).strength(1.5f).luminance((blockState) -> 5));
+    public static final Block LARGE_EMERALD_BUD = new AmethystClusterBlock(5, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.LARGE_EMERALD_BUD).strength(1.5f).luminance((blockState) -> 4));
+    public static final Block MEDIUM_EMERALD_BUD = new AmethystClusterBlock(4, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.MEDIUM_EMERALD_BUD).strength(1.5f).luminance((blockState) -> 2));
+    public static final Block SMALL_EMERALD_BUD = new AmethystClusterBlock(3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.SMALL_EMERALD_BUD).strength(1.5f).luminance((blockState) -> 1));
 
-    public static final AmethystBlock QUARTZ_GEODE = new AmethystBlock(FabricBlockSettings.of(Material.AMETHYST, MapColor.OFF_WHITE).strength(1.5F).sounds(ModBlockSoundGroups.QUARTZ_GEODE).requiresTool());
+    public static final Block QUARTZ_GEODE = new CrystalBlock(CrystalBlockSoundGroup.QUARTZ_GEODE, FabricBlockSettings.of(Material.AMETHYST, MapColor.OFF_WHITE).strength(1.5F).sounds(ModBlockSoundGroups.QUARTZ_GEODE).requiresTool());
 
-    public static final QuartzClusterBlock QUARTZ_CLUSTER = new QuartzClusterBlock(7, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.OFF_WHITE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.QUARTZ_CLUSTER).strength(1.5f).luminance((blockState) -> 5), 15, 1);
-    public static final QuartzClusterBlock LARGE_QUARTZ_BUD = new QuartzClusterBlock(5, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.OFF_WHITE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.LARGE_QUARTZ_BUD).strength(1.5f).luminance((blockState) -> 4), 15, 5);
-    public static final QuartzClusterBlock MEDIUM_QUARTZ_BUD = new QuartzClusterBlock(4, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.OFF_WHITE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.MEDIUM_QUARTZ_BUD).strength(1.5f).luminance((blockState) -> 2), 15, 10);
-    public static final QuartzClusterBlock SMALL_QUARTZ_BUD = new QuartzClusterBlock(3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.OFF_WHITE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.SMALL_QUARTZ_BUD).strength(1.5f).luminance((blockState) -> 1), 15, 20);
+    public static final Block QUARTZ_CLUSTER = new QuartzClusterBlock(7, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.OFF_WHITE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.QUARTZ_CLUSTER).strength(1.5f).luminance((blockState) -> 5), 15, 1);
+    public static final Block LARGE_QUARTZ_BUD = new QuartzClusterBlock(5, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.OFF_WHITE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.LARGE_QUARTZ_BUD).strength(1.5f).luminance((blockState) -> 4), 15, 5);
+    public static final Block MEDIUM_QUARTZ_BUD = new QuartzClusterBlock(4, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.OFF_WHITE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.MEDIUM_QUARTZ_BUD).strength(1.5f).luminance((blockState) -> 2), 15, 10);
+    public static final Block SMALL_QUARTZ_BUD = new QuartzClusterBlock(3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.OFF_WHITE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.SMALL_QUARTZ_BUD).strength(1.5f).luminance((blockState) -> 1), 15, 20);
 
-    public static final AmethystBlock DIAMOND_GEODE = new AmethystBlock(FabricBlockSettings.of(Material.AMETHYST, MapColor.DIAMOND_BLUE).strength(1.5F).sounds(ModBlockSoundGroups.DIAMOND_GEODE).requiresTool());
+    public static final Block DIAMOND_GEODE = new CrystalBlock(CrystalBlockSoundGroup.DIAMOND_GEODE, FabricBlockSettings.of(Material.AMETHYST, MapColor.DIAMOND_BLUE).strength(1.5F).sounds(ModBlockSoundGroups.DIAMOND_GEODE).requiresTool());
 
-    public static final AmethystClusterBlock DIAMOND_CLUSTER = new AmethystClusterBlock(7, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.DIAMOND_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.DIAMOND_CLUSTER).strength(1.5f).luminance((blockState) -> 7));
+    public static final Block DIAMOND_CLUSTER = new AmethystClusterBlock(7, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.DIAMOND_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.DIAMOND_CLUSTER).strength(1.5f).luminance((blockState) -> 7));
 
-    public static final AmethystBlock ECHO_BLOCK = new CrystalBlock(CrystalBlockSoundGroup.ECHO_BLOCK, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).strength(1.5f).sounds(ModBlockSoundGroups.ECHO_BLOCK).requiresTool());
+    public static final Block ECHO_BLOCK = new CrystalBlock(CrystalBlockSoundGroup.ECHO_BLOCK, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).strength(1.5f).sounds(ModBlockSoundGroups.ECHO_BLOCK).requiresTool());
 
-    public static final AmethystClusterBlock ECHO_CLUSTER = new AmethystClusterBlock(7, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.ECHO_CLUSTER).strength(1.5f).luminance((blockState) -> 5));
-    public static final AmethystClusterBlock LARGE_ECHO_BUD = new AmethystClusterBlock(5, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.LARGE_ECHO_BUD).strength(1.5f).luminance((blockState) -> 4));
-    public static final AmethystClusterBlock MEDIUM_ECHO_BUD = new AmethystClusterBlock(4, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.MEDIUM_ECHO_BUD).strength(1.5f).luminance((blockState) -> 2));
-    public static final AmethystClusterBlock SMALL_ECHO_BUD = new AmethystClusterBlock(3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.SMALL_ECHO_BUD).strength(1.5f).luminance((blockState) -> 1));
+    public static final Block ECHO_CLUSTER = new CrystalClusterBlock(CrystalBlockSoundGroup.ECHO_BLOCK, 7, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.ECHO_CLUSTER).strength(1.5f).luminance((blockState) -> 5));
+    public static final Block LARGE_ECHO_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.ECHO_BLOCK, 5, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.LARGE_ECHO_BUD).strength(1.5f).luminance((blockState) -> 4));
+    public static final Block MEDIUM_ECHO_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.ECHO_BLOCK, 4, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.MEDIUM_ECHO_BUD).strength(1.5f).luminance((blockState) -> 2));
+    public static final Block SMALL_ECHO_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.ECHO_BLOCK, 3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.SMALL_ECHO_BUD).strength(1.5f).luminance((blockState) -> 1));
 
     public static final Block EMERALD_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.EMERALD_GEODE_LOCATOR, FabricBlockSettings.of(Material.STONE).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR));
     public static final Block QUARTZ_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.QUARTZ_GEODE_LOCATOR, FabricBlockSettings.of(Material.STONE).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR));
@@ -45,16 +45,19 @@ public class ModBlocks {
     public static final Block ECHO_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.ECHO_GEODE_LOCATOR, FabricBlockSettings.of(Material.STONE).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR));
 
     public static final GeodeBuddingBlock BUDDING_EMERALD = new GeodeBuddingBlock(
+            CrystalBlockSoundGroup.EMERALD_GEODE,
             FabricBlockSettings.of(Material.AMETHYST, MapColor.EMERALD_GREEN).ticksRandomly().strength(1.5F).sounds(ModBlockSoundGroups.EMERALD_GEODE).requiresTool(),
             ImmutableList.of(SMALL_EMERALD_BUD, MEDIUM_EMERALD_BUD, LARGE_EMERALD_BUD, EMERALD_CLUSTER)
     );
 
     public static final GeodeBuddingBlock BUDDING_QUARTZ = new GeodeBuddingBlock(
+            CrystalBlockSoundGroup.QUARTZ_GEODE,
             FabricBlockSettings.of(Material.AMETHYST, MapColor.OFF_WHITE).ticksRandomly().strength(1.5f).sounds(ModBlockSoundGroups.QUARTZ_GEODE).requiresTool(),
             ImmutableList.of(SMALL_QUARTZ_BUD, MEDIUM_QUARTZ_BUD, LARGE_QUARTZ_BUD, QUARTZ_CLUSTER)
     );
 
     public static final GeodeBuddingBlock BUDDING_ECHO_BLOCK = new GeodeBuddingBlock(
+            CrystalBlockSoundGroup.ECHO_BLOCK,
             FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).ticksRandomly().strength(1.5f).sounds(ModBlockSoundGroups.ECHO_BLOCK).requiresTool(),
             ImmutableList.of(SMALL_ECHO_BUD, MEDIUM_ECHO_BUD, LARGE_ECHO_BUD, ECHO_CLUSTER)
     );

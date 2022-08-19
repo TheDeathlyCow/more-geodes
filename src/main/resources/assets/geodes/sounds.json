@@ -5,6 +5,33 @@
     ],
     "subtitle": "subtitles.geodes.echo_locator.resonate"
   },
+  "block.geodes.emerald_geode.chime": {
+    "sounds": [
+      {
+        "name": "block/amethyst/shimmer",
+        "volume": 0.2
+      }
+    ],
+    "subtitle": "subtitles.block.geodes.emerald_geode.chime"
+  },
+  "block.geodes.quartz_geode.chime": {
+    "sounds": [
+      {
+        "name": "block/amethyst/shimmer",
+        "volume": 0.2
+      }
+    ],
+    "subtitle": "subtitles.block.geodes.quartz_geode.chime"
+  },
+  "block.geodes.diamond_geode.chime": {
+    "sounds": [
+      {
+        "name": "block/amethyst/shimmer",
+        "volume": 0.2
+      }
+    ],
+    "subtitle": "subtitles.block.geodes.diamond_geode.chime"
+  },
   "block.geodes.echo_block.break": {
     "sounds": [
       "geodes:block/echo_block/break1",

@@ -10,6 +10,11 @@ public class GeodesSoundEvents {
 
     public static final SoundEvent CRYSTAL_RESONATE = GeodesSoundEvents.of("block.geodes.echo_locator.resonate");
 
+    public static final SoundEvent BLOCK_EMERALD_GEODE_CHIME = GeodesSoundEvents.of("block.geodes.emerald_geode.chime");
+    public static final SoundEvent BLOCK_QUARTZ_GEODE_CHIME = GeodesSoundEvents.of("block.geodes.quartz_geode.chime");
+    public static final SoundEvent BLOCK_DIAMOND_GEODE_CHIME = GeodesSoundEvents.of("block.geodes.diamond_geode.chime");
+
+
     public static final SoundEvent BLOCK_ECHO_BLOCK_BREAK = GeodesSoundEvents.of("block.geodes.echo_block.break");
     public static final SoundEvent BLOCK_ECHO_BLOCK_CHIME = GeodesSoundEvents.of("block.geodes.echo_block.chime");
     public static final SoundEvent BLOCK_ECHO_BLOCK_FALL = GeodesSoundEvents.of("block.geodes.echo_block.fall");
@@ -35,6 +40,10 @@ public class GeodesSoundEvents {
 
     public static void registerSoundEvents() {
         register(CRYSTAL_RESONATE);
+
+        register(BLOCK_EMERALD_GEODE_CHIME);
+        register(BLOCK_QUARTZ_GEODE_CHIME);
+        register(BLOCK_DIAMOND_GEODE_CHIME);
 
         register(BLOCK_ECHO_BLOCK_BREAK);
         register(BLOCK_ECHO_BLOCK_CHIME);

@@ -15,17 +15,17 @@ public record CrystalBlockSoundGroup(
 
     public static final CrystalBlockSoundGroup DIAMOND_GEODE = new CrystalBlockSoundGroup(
             SoundEvents.BLOCK_AMETHYST_BLOCK_HIT,
-            GeodesSoundEvents.BLOCK_ECHO_BLOCK_CHIME
+            GeodesSoundEvents.BLOCK_DIAMOND_GEODE_CHIME
     );
 
     public static final CrystalBlockSoundGroup EMERALD_GEODE = new CrystalBlockSoundGroup(
             SoundEvents.BLOCK_AMETHYST_BLOCK_HIT,
-            GeodesSoundEvents.BLOCK_ECHO_BLOCK_CHIME
+            GeodesSoundEvents.BLOCK_EMERALD_GEODE_CHIME
     );
 
     public static final CrystalBlockSoundGroup QUARTZ_GEODE = new CrystalBlockSoundGroup(
             SoundEvents.BLOCK_AMETHYST_BLOCK_HIT,
-            GeodesSoundEvents.BLOCK_ECHO_BLOCK_CHIME
+            GeodesSoundEvents.BLOCK_QUARTZ_GEODE_CHIME
     );
 
 }
