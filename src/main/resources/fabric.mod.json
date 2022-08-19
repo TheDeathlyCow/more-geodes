@@ -34,5 +34,12 @@
   },
   "suggests": {
     "another-mod": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/aqASuWebRU"
+      }
+    }
   }
 }
