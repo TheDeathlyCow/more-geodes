@@ -27,5 +27,6 @@
     "block.geodes.echo_crystal_echo_locator": "Echo Crystal Echo Locator",
     "advancement.geodes.adventure.outrageous.title": "Gems Are Truly Outrageous",
     "advancement.geodes.adventure.outrageous.description": "Collect both an Emerald and Diamond geode block",
-    "subtitles.geodes.echo_locator.resonate": "Crystal resonates"
+    "subtitles.geodes.echo_locator.resonate": "Crystal resonates",
+    "subtitles.block.geodes.echo_block.chime": "Echo chimes"
 }

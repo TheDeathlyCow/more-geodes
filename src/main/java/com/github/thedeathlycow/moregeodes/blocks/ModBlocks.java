@@ -1,6 +1,7 @@
 package com.github.thedeathlycow.moregeodes.blocks;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
+import com.github.thedeathlycow.moregeodes.sounds.CrystalBlockSoundGroup;
 import com.github.thedeathlycow.moregeodes.sounds.ModBlockSoundGroups;
 import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -30,7 +31,7 @@ public class ModBlocks {
 
     public static final AmethystClusterBlock DIAMOND_CLUSTER = new AmethystClusterBlock(7, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.DIAMOND_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.DIAMOND_CLUSTER).strength(1.5f).luminance((blockState) -> 7));
 
-    public static final AmethystBlock ECHO_BLOCK = new AmethystBlock(FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).strength(1.5f).sounds(ModBlockSoundGroups.ECHO_BLOCK).requiresTool());
+    public static final AmethystBlock ECHO_BLOCK = new CrystalBlock(CrystalBlockSoundGroup.ECHO_BLOCK, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).strength(1.5f).sounds(ModBlockSoundGroups.ECHO_BLOCK).requiresTool());
 
     public static final AmethystClusterBlock ECHO_CLUSTER = new AmethystClusterBlock(7, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.ECHO_CLUSTER).strength(1.5f).luminance((blockState) -> 5));
     public static final AmethystClusterBlock LARGE_ECHO_BUD = new AmethystClusterBlock(5, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.LARGE_ECHO_BUD).strength(1.5f).luminance((blockState) -> 4));
