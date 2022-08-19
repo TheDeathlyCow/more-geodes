@@ -2,13 +2,13 @@ package com.github.thedeathlycow.moregeodes.sounds;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class GeodesSoundEvents {
 
-    public static final SoundEvent CRYSTAL_RESONATE = GeodesSoundEvents.of("block.geodes.echo_locator.resonate");
+    public static final SoundEvent BLOCK_ECHO_LOCATOR_RESONATE = GeodesSoundEvents.of("block.geodes.echo_locator.resonate");
+    public static final SoundEvent BLOCK_ECHO_LOCATOR_USE = GeodesSoundEvents.of("block.geodes.echo_locator.use");
 
     public static final SoundEvent BLOCK_EMERALD_GEODE_CHIME = GeodesSoundEvents.of("block.geodes.emerald_geode.chime");
     public static final SoundEvent BLOCK_QUARTZ_GEODE_CHIME = GeodesSoundEvents.of("block.geodes.quartz_geode.chime");
@@ -39,7 +39,8 @@ public class GeodesSoundEvents {
 
 
     public static void registerSoundEvents() {
-        register(CRYSTAL_RESONATE);
+        register(BLOCK_ECHO_LOCATOR_RESONATE);
+        register(BLOCK_ECHO_LOCATOR_USE);
 
         register(BLOCK_EMERALD_GEODE_CHIME);
         register(BLOCK_QUARTZ_GEODE_CHIME);

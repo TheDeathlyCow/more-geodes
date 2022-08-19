@@ -1,9 +1,15 @@
 {
   "block.geodes.echo_locator.resonate": {
     "sounds": [
-      "geodes:crystal_resonate"
+      "geodes:block/echo_locator/resonate"
     ],
-    "subtitle": "subtitles.geodes.echo_locator.resonate"
+    "subtitle": "subtitles.block.geodes.echo_locator.resonate"
+  },
+  "block.geodes.echo_locator.use": {
+    "sounds": [
+      "geodes:block/echo_locator/use"
+    ],
+    "subtitle": "subtitles.block.geodes.echo_locator.use"
   },
   "block.geodes.emerald_geode.chime": {
     "sounds": [

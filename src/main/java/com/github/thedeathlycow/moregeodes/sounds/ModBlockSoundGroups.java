@@ -21,11 +21,11 @@ public class ModBlockSoundGroups {
 
     public static final BlockSoundGroup ECHO_LOCATOR = new BlockSoundGroup(
             1.0F, 1.0F,
-            SoundEvents.BLOCK_SCULK_SHRIEKER_BREAK,
-            SoundEvents.BLOCK_SCULK_SHRIEKER_STEP,
-            SoundEvents.BLOCK_SCULK_SHRIEKER_PLACE,
-            SoundEvents.BLOCK_SCULK_SHRIEKER_HIT,
-            SoundEvents.BLOCK_SCULK_SHRIEKER_FALL
+            SoundEvents.BLOCK_METAL_BREAK,
+            SoundEvents.BLOCK_METAL_STEP,
+            SoundEvents.BLOCK_METAL_PLACE,
+            SoundEvents.BLOCK_METAL_HIT,
+            SoundEvents.BLOCK_METAL_FALL
     );
     public static final BlockSoundGroup ECHO_BLOCK = new BlockSoundGroup(
             1.0F, 1.0F,

@@ -2,6 +2,7 @@ package com.github.thedeathlycow.moregeodes.blocks;
 
 import com.github.thedeathlycow.moregeodes.blocks.entity.EchoLocatorBlockEntity;
 import com.github.thedeathlycow.moregeodes.blocks.entity.ModBlockEntities;
+import com.github.thedeathlycow.moregeodes.sounds.GeodesSoundEvents;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.*;
 import net.minecraft.entity.passive.AllayEntity;
@@ -167,7 +168,7 @@ public class EchoLocatorBlock extends BlockWithEntity implements Waterloggable {
     }
 
     private boolean ping(World world, BlockPos origin, BlockState state, BlockHitResult hit, PlayerEntity player) {
-        world.playSound(null, origin, SoundEvents.BLOCK_BELL_USE, SoundCategory.BLOCKS, 2.0F, 1.0F);
+        world.playSound(null, origin, type.activateSound(), SoundCategory.BLOCKS, 2.0F, 1.0F);
 
         EchoLocatorBlockEntity blockEntity = (EchoLocatorBlockEntity) world.getBlockEntity(origin);
 
