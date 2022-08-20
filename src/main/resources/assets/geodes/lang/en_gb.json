@@ -15,6 +15,25 @@
   "block.geodes.diamond_geode": "Stolen Diamond Geode",
   "block.geodes.diamond_cluster": "Stolen Diamond Cluster",
   "advancement.geodes.adventure.outrageous.title": "These Gems Are Definitely Bri'ish",
-  "advancement.geodes.adventure.outrageous.description": "Steal an Emerald and Diamond geode block from the colonies"
+  "advancement.geodes.adventure.outrageous.description": "Steal an Emerald and Diamond geode block from the colonies",
+  "block.geodes.echo_block": "Echoin' Block innit",
+  "block.geodes.budding_echo_block": "Buddin' Echoin' Block innit",
+  "block.geodes.echo_cluster": "Echo Clustah",
+  "block.geodes.large_echo_bud": "Lahge Echo Bud",
+  "block.geodes.medium_echo_bud": "Medum Echo Bud",
+  "block.geodes.small_echo_bud": "Small Echo Bud",
+  "block.geodes.emerald_crystal_echo_locator": "Imerald Crystal Echo Locator",
+  "block.geodes.quartz_crystal_echo_locator": "Queen's Crown Locator",
+  "block.geodes.amethyst_crystal_echo_locator": "Amefyst Crystal Echo Locator",
+  "block.geodes.diamond_crystal_echo_locator": "Stolen Diamond Crystal Echo Locator",
+  "block.geodes.echo_crystal_echo_locator": "Echo Crystal Echo Locator",
+  "advancement.geodes.adventure.use_echo_locator.title": "Is There an Echo in Here bruv?",
+  "advancement.geodes.adventure.use_echo_locator.description": "Use that Echo Locator innit",
+  "subtitles.block.geodes.echo_locator.resonate": "Crystal resonates",
+  "subtitles.block.geodes.echo_locator.use": "Echo locator humms",
+  "subtitles.block.geodes.echo_block.chime": "Echo echos",
+  "subtitles.block.geodes.emerald_geode.chime": "Imerald chimes",
+  "subtitles.block.geodes.quartz_geode.chime": "The queen's chimes",
+  "subtitles.block.geodes.diamond_geode.chime": "I hear diamonds to steal bruv"
 }
 

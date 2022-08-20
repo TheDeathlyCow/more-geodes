@@ -1,0 +1,365 @@
+{
+  "block.geodes.echo_locator.resonate": {
+    "sounds": [
+      "geodes:block/echo_locator/resonate"
+    ],
+    "subtitle": "subtitles.block.geodes.echo_locator.resonate"
+  },
+  "block.geodes.echo_locator.use": {
+    "sounds": [
+      "geodes:block/echo_locator/use"
+    ],
+    "subtitle": "subtitles.block.geodes.echo_locator.use"
+  },
+  "block.geodes.emerald_geode.chime": {
+    "sounds": [
+      {
+        "name": "block/amethyst/shimmer",
+        "volume": 0.2,
+        "pitch": 1.7
+      }
+    ],
+    "subtitle": "subtitles.block.geodes.emerald_geode.chime"
+  },
+  "block.geodes.quartz_geode.chime": {
+    "sounds": [
+      {
+        "name": "block/amethyst/shimmer",
+        "volume": 0.2,
+        "pitch": 0.5
+      }
+    ],
+    "subtitle": "subtitles.block.geodes.quartz_geode.chime"
+  },
+  "block.geodes.diamond_geode.chime": {
+    "sounds": [
+      {
+        "name": "block/amethyst/shimmer",
+        "volume": 0.2,
+        "pitch": 1.4
+      }
+    ],
+    "subtitle": "subtitles.block.geodes.diamond_geode.chime"
+  },
+  "block.geodes.echo_block.break": {
+    "sounds": [
+      "geodes:block/echo_block/break1",
+      "geodes:block/echo_block/break2",
+      "geodes:block/echo_block/break3",
+      "geodes:block/echo_block/break4"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.geodes.echo_block.chime": {
+    "sounds": [
+      {
+        "name": "geodes:block/echo_block/shimmer",
+        "volume": 0.2
+      }
+    ],
+    "subtitle": "subtitles.block.geodes.echo_block.chime"
+  },
+  "block.geodes.echo_block.fall": {
+    "sounds": [
+      "geodes:block/echo_block/step1",
+      "geodes:block/echo_block/step2",
+      "geodes:block/echo_block/step3",
+      "geodes:block/echo_block/step4",
+      "geodes:block/echo_block/step5",
+      "geodes:block/echo_block/step6",
+      "geodes:block/echo_block/step7",
+      "geodes:block/echo_block/step8",
+      "geodes:block/echo_block/step9",
+      "geodes:block/echo_block/step10",
+      "geodes:block/echo_block/step11",
+      "geodes:block/echo_block/step12",
+      "geodes:block/echo_block/step14"
+    ]
+  },
+  "block.geodes.echo_block.hit": {
+    "sounds": [
+      "geodes:block/echo_block/step1",
+      "geodes:block/echo_block/step2",
+      "geodes:block/echo_block/step3",
+      "geodes:block/echo_block/step4",
+      "geodes:block/echo_block/step5",
+      "geodes:block/echo_block/step6",
+      "geodes:block/echo_block/step7",
+      "geodes:block/echo_block/step8",
+      "geodes:block/echo_block/step9",
+      "geodes:block/echo_block/step10",
+      "geodes:block/echo_block/step11",
+      "geodes:block/echo_block/step12"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.geodes.echo_block.place": {
+    "sounds": [
+      "geodes:block/echo_block/place1",
+      "geodes:block/echo_block/place2",
+      "geodes:block/echo_block/place3",
+      "geodes:block/echo_block/place4"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.geodes.echo_block.step": {
+    "sounds": [
+      "geodes:block/echo_block/step1",
+      "geodes:block/echo_block/step2",
+      "geodes:block/echo_block/step3",
+      "geodes:block/echo_block/step4",
+      "geodes:block/echo_block/step5",
+      "geodes:block/echo_block/step6",
+      "geodes:block/echo_block/step7",
+      "geodes:block/echo_block/step8",
+      "geodes:block/echo_block/step9",
+      "geodes:block/echo_block/step10",
+      "geodes:block/echo_block/step11",
+      "geodes:block/echo_block/step12",
+      "geodes:block/echo_block/step13",
+      "geodes:block/echo_block/step14"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block.geodes.echo_cluster.break": {
+    "sounds": [
+      {
+        "name": "geodes:block/echo_cluster/break1",
+        "pitch": 0.8,
+        "volume": 0.8
+      },
+      {
+        "name": "geodes:block/echo_cluster/break2",
+        "pitch": 0.8,
+        "volume": 0.8
+      },
+      {
+        "name": "geodes:block/echo_cluster/break3",
+        "pitch": 0.8,
+        "volume": 0.8
+      },
+      {
+        "name": "geodes:block/echo_cluster/break4",
+        "pitch": 0.8,
+        "volume": 0.8
+      }
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.geodes.echo_cluster.fall": {
+    "sounds": [
+      "geodes:block/echo_block/step1",
+      "geodes:block/echo_block/step2",
+      "geodes:block/echo_block/step3",
+      "geodes:block/echo_block/step4",
+      "geodes:block/echo_block/step5",
+      "geodes:block/echo_block/step6",
+      "geodes:block/echo_block/step7",
+      "geodes:block/echo_block/step8",
+      "geodes:block/echo_block/step9",
+      "geodes:block/echo_block/step10",
+      "geodes:block/echo_block/step11",
+      "geodes:block/echo_block/step12",
+      "geodes:block/echo_block/step14"
+    ]
+  },
+  "block.geodes.echo_cluster.hit": {
+    "sounds": [
+      "geodes:block/echo_block/step1",
+      "geodes:block/echo_block/step2",
+      "geodes:block/echo_block/step3",
+      "geodes:block/echo_block/step4",
+      "geodes:block/echo_block/step5",
+      "geodes:block/echo_block/step6",
+      "geodes:block/echo_block/step7",
+      "geodes:block/echo_block/step8",
+      "geodes:block/echo_block/step9",
+      "geodes:block/echo_block/step10",
+      "geodes:block/echo_block/step11",
+      "geodes:block/echo_block/step12"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.geodes.echo_cluster.place": {
+    "sounds": [
+      {
+        "name": "geodes:block/echo_cluster/place1",
+        "volume": 0.9
+      },
+      {
+        "name": "geodes:block/echo_cluster/place2",
+        "volume": 0.9
+      },
+      {
+        "name": "geodes:block/echo_cluster/place3",
+        "volume": 0.9
+      },
+      {
+        "name": "geodes:block/echo_cluster/place4",
+        "volume": 0.9
+      }
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.geodes.echo_cluster.step": {
+    "sounds": [
+      "geodes:block/echo_block/step1",
+      "geodes:block/echo_block/step2",
+      "geodes:block/echo_block/step3",
+      "geodes:block/echo_block/step4",
+      "geodes:block/echo_block/step5",
+      "geodes:block/echo_block/step6",
+      "geodes:block/echo_block/step7",
+      "geodes:block/echo_block/step8",
+      "geodes:block/echo_block/step9",
+      "geodes:block/echo_block/step10",
+      "geodes:block/echo_block/step11",
+      "geodes:block/echo_block/step12",
+      "geodes:block/echo_block/step13",
+      "geodes:block/echo_block/step14"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block.geodes.large_echo_bud.break": {
+    "sounds": [
+      {
+        "name": "geodes:block/echo_cluster/break1",
+        "pitch": 0.85,
+        "volume": 0.7
+      },
+      {
+        "name": "geodes:block/echo_cluster/break2",
+        "pitch": 0.85,
+        "volume": 0.7
+      },
+      {
+        "name": "geodes:block/echo_cluster/break3",
+        "pitch": 0.85,
+        "volume": 0.7
+      },
+      {
+        "name": "geodes:block/echo_cluster/break4",
+        "pitch": 0.85,
+        "volume": 0.7
+      }
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.geodes.large_echo_bud.place": {
+    "sounds": [
+      {
+        "name": "geodes:block/echo_cluster/place1",
+        "volume": 0.75
+      },
+      {
+        "name": "geodes:block/echo_cluster/place2",
+        "volume": 0.75
+      },
+      {
+        "name": "geodes:block/echo_cluster/place3",
+        "volume": 0.75
+      },
+      {
+        "name": "geodes:block/echo_cluster/place4",
+        "volume": 0.75
+      }
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.geodes.medium_echo_bud.break": {
+    "sounds": [
+      {
+        "name": "geodes:block/echo_cluster/break1",
+        "pitch": 0.95,
+        "volume": 0.55
+      },
+      {
+        "name": "geodes:block/echo_cluster/break2",
+        "pitch": 0.95,
+        "volume": 0.55
+      },
+      {
+        "name": "geodes:block/echo_cluster/break3",
+        "pitch": 0.95,
+        "volume": 0.55
+      },
+      {
+        "name": "geodes:block/echo_cluster/break4",
+        "pitch": 0.95,
+        "volume": 0.55
+      }
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.geodes.medium_echo_bud.place": {
+    "sounds": [
+      {
+        "name": "geodes:block/echo_cluster/place1",
+        "pitch": 1.1,
+        "volume": 0.5
+      },
+      {
+        "name": "geodes:block/echo_cluster/place2",
+        "pitch": 1.1,
+        "volume": 0.5
+      },
+      {
+        "name": "geodes:block/echo_cluster/place3",
+        "pitch": 1.1,
+        "volume": 0.5
+      },
+      {
+        "name": "geodes:block/echo_cluster/place4",
+        "pitch": 1.1,
+        "volume": 0.5
+      }
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.geodes.small_echo_bud.break": {
+    "sounds": [
+      {
+        "name": "geodes:block/echo_cluster/break1",
+        "volume": 0.4
+      },
+      {
+        "name": "geodes:block/echo_cluster/break2",
+        "volume": 0.4
+      },
+      {
+        "name": "geodes:block/echo_cluster/break3",
+        "volume": 0.4
+      },
+      {
+        "name": "geodes:block/echo_cluster/break4",
+        "volume": 0.4
+      }
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.geodes.small_echo_bud.place": {
+    "sounds": [
+      {
+        "name": "geodes:block/echo_cluster/place1",
+        "pitch": 1.2,
+        "volume": 0.4
+      },
+      {
+        "name": "geodes:block/echo_cluster/place2",
+        "pitch": 1.2,
+        "volume": 0.4
+      },
+      {
+        "name": "geodes:block/echo_cluster/place3",
+        "pitch": 1.2,
+        "volume": 0.4
+      },
+      {
+        "name": "geodes:block/echo_cluster/place4",
+        "pitch": 1.2,
+        "volume": 0.4
+      }
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  }
+}

@@ -31,5 +31,12 @@ public class ModFeatures {
                         GenerationStep.Feature.UNDERGROUND_DECORATION,
                         Objects.requireNonNull(ModPlacedFeatures.DIAMOND_GEODE.getKey().orElse(null))
                 );
+
+        BiomeModifications.addFeature
+                (
+                        BiomeSelectors.tag(ModBiomeTags.HAS_ECHO_GEODE),
+                        GenerationStep.Feature.UNDERGROUND_DECORATION,
+                        Objects.requireNonNull(ModPlacedFeatures.ECHO_GEODE.getKey().orElse(null))
+                );
     }
 }

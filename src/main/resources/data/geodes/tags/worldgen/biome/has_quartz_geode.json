@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "#minecraft:is_nether",
     "#c:in_nether",
     {"id": "incendium:ash_barrens", "required": false},
     {"id": "incendium:infernal_dunes", "required": false},

@@ -2,8 +2,8 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1.0,
-      "bonus_rolls": 0.0,
+      "rolls": 1,
+      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:alternatives",
@@ -32,6 +32,7 @@
               "children": [
                 {
                   "type": "minecraft:item",
+                  "name": "minecraft:quartz",
                   "conditions": [
                     {
                       "condition": "minecraft:match_tool",
@@ -44,8 +45,8 @@
                     {
                       "function": "minecraft:set_count",
                       "count": {
-                        "min": 4.0,
-                        "max": 8.0,
+                        "min": 4,
+                        "max": 8,
                         "type": "minecraft:uniform"
                       },
                       "add": false
@@ -55,8 +56,21 @@
                       "enchantment": "minecraft:fortune",
                       "formula": "minecraft:ore_drops"
                     }
-                  ],
-                  "name": "minecraft:quartz"
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:quartz",
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": 4,
+                      "add": false
+                    },
+                    {
+                      "function": "minecraft:explosion_decay"
+                    }
+                  ]
                 }
               ]
             }

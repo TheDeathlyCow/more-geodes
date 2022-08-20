@@ -1,0 +1,9 @@
+{
+    "replace": false,
+    "values": [
+        "geodes:small_echo_bud",
+        "geodes:medium_echo_bud",
+        "geodes:large_echo_bud",
+        "geodes:echo_cluster"
+    ]
+}

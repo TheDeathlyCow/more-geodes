@@ -1,0 +1,6 @@
+{
+    "parent": "geodes:block/echo_locator",
+    "textures": {
+        "material": "geodes:block/echo_locator/emerald_material"
+    }
+}

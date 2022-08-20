@@ -1,5 +1,6 @@
 package com.github.thedeathlycow.moregeodes.blocks;
 
+import com.github.thedeathlycow.moregeodes.sounds.CrystalBlockSoundGroup;
 import net.minecraft.block.AmethystClusterBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -16,14 +17,14 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
-public class QuartzClusterBlock extends AmethystClusterBlock {
+public class QuartzClusterBlock extends CrystalClusterBlock {
 
     public static final BooleanProperty POWERED;
     private final int SIGNAL_STRENGTH;
     private final int ON_TIME;
 
     public QuartzClusterBlock(int height, int xzOffset, Settings settings, int signalStrength, int onTime) {
-        super(height, xzOffset, settings);
+        super(CrystalBlockSoundGroup.QUARTZ_GEODE, height, xzOffset, settings);
         this.SIGNAL_STRENGTH = signalStrength;
         this.ON_TIME = onTime;
         this.setDefaultState(this.getDefaultState().with(POWERED, false));

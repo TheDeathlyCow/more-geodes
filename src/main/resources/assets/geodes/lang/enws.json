@@ -6,5 +6,13 @@
   "block.geodes.diamond_geode": "Diamond Crystal",
   "block.geodes.diamond_cluster": "Diamond Clust'r",
   "advancement.geodes.adventure.outrageous.title": "Gems Art Truly Outrageous",
-  "advancement.geodes.adventure.outrageous.description": "Collecteth ye both thy Em'rald and Diamond crystal"
+  "advancement.geodes.adventure.outrageous.description": "Collecteth ye both thy Em'rald and Diamond crystal",
+  "block.geodes.echo_block": "Bruit Block",
+  "block.geodes.budding_echo_block": "Budding Bruit Block",
+  "block.geodes.echo_cluster": "Bruit Cluster",
+  "block.geodes.large_echo_bud": "Large Bruit Bud",
+  "block.geodes.medium_echo_bud": "Medium Bruit Bud",
+  "block.geodes.small_echo_bud": "Small Bruit Bud",
+  "advancement.geodes.adventure.use_echo_locator.title": "Hasth an Echo occured?",
+  "advancement.geodes.adventure.use_echo_locator.description": "Useth thy Echo Locator",
 }

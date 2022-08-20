@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"E E",
+		"E#E",
+		" S "
+	],
+	"key": {
+		"#": {
+			"item": "minecraft:echo_shard"
+		},
+		"E": {
+			"item": "minecraft:echo_shard"
+		},
+		"S": {
+			"item": "minecraft:bone"
+		}
+	},
+	"result": {
+		"item": "geodes:echo_crystal_echo_locator"
+	}
+}

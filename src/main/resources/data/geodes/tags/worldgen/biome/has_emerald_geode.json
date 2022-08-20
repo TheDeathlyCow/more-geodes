@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "#minecraft:is_mountain",
     "#c:mountain",
     "minecraft:grove",
     {"id": "terralith:alpine_grove", "required": false},
