@@ -1,0 +1,6 @@
+{
+    "pack": {
+        "pack_format": 10,
+        "description": "Makes budding blocks drop themselves with Silk Touch. Optional companion to the Geodes mod by TheDeathlyCow."
+    }
+}
