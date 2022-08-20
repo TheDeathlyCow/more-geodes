@@ -15,7 +15,8 @@
     "sounds": [
       {
         "name": "block/amethyst/shimmer",
-        "volume": 0.2
+        "volume": 0.2,
+        "pitch": 1.7
       }
     ],
     "subtitle": "subtitles.block.geodes.emerald_geode.chime"
@@ -24,7 +25,8 @@
     "sounds": [
       {
         "name": "block/amethyst/shimmer",
-        "volume": 0.2
+        "volume": 0.2,
+        "pitch": 0.5
       }
     ],
     "subtitle": "subtitles.block.geodes.quartz_geode.chime"
@@ -33,7 +35,8 @@
     "sounds": [
       {
         "name": "block/amethyst/shimmer",
-        "volume": 0.2
+        "volume": 0.2,
+        "pitch": 1.4
       }
     ],
     "subtitle": "subtitles.block.geodes.diamond_geode.chime"
