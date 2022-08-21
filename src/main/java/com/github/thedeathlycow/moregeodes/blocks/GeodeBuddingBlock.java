@@ -5,14 +5,23 @@ import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * An extension of {@link CrystalBlock} that provides for more cluster states, rather
+ * than hardcoded amethyst growth states. Otherwise, this is an essence of a copy of
+ * {@link BuddingAmethystBlock}.
+ */
 @SuppressWarnings("deprecation")
 public class GeodeBuddingBlock extends CrystalBlock {
 
@@ -32,31 +41,26 @@ public class GeodeBuddingBlock extends CrystalBlock {
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (random.nextInt(5) == 0) {
-            Direction direction = DIRECTIONS[random.nextInt(DIRECTIONS.length)];
-            BlockPos blockPos = pos.offset(direction);
-            BlockState blockState = world.getBlockState(blockPos);
-            Block blockStateBlock = blockState.getBlock();
-            Block nextBlock = null;
+        if (random.nextInt(5) == 0) { // modulate the speed of the budding growth
+            // the direction we want to try growing in
+            Direction directionToGrow = DIRECTIONS[random.nextInt(DIRECTIONS.length)];
 
-            if (canGrowNewClusterIn(blockState)) {
-                nextBlock = clusters.get(0);
-            } else if (blockState.contains(CrystalClusterBlock.FACING) && blockState.get(CrystalClusterBlock.FACING) == direction) {
-                if (clusters.contains(blockStateBlock)) {
-                    int nextBlockIndex = clusters.indexOf(blockStateBlock) + 1;
-                    if (nextBlockIndex < clusters.size()) {
-                        nextBlock = clusters.get(nextBlockIndex);
-                    }
-                }
-            }
+            // the position of the block to try growing in
+            BlockPos positionToGrow = pos.offset(directionToGrow);
 
-            if (nextBlock != null) {
-                BlockState toSet = nextBlock.getDefaultState()
-                        .with(AmethystClusterBlock.FACING, direction)
-                        .with(AmethystClusterBlock.WATERLOGGED, blockState.getFluidState().getFluid() == Fluids.WATER);
-                world.setBlockState(blockPos, toSet);
-            }
+            // the current state of the block to try growing in
+            BlockState currentStateInGrow = world.getBlockState(positionToGrow);
 
+            // get an optional of the next bud to grow
+            Optional<Block> nextBud = getNextBlockForGrowth(currentStateInGrow, directionToGrow);
+
+            // set the next bud state if present
+            nextBud.ifPresent((nextGrowth) -> {
+                BlockState toSet = nextGrowth.getDefaultState()
+                        .with(CrystalClusterBlock.FACING, directionToGrow)
+                        .with(CrystalClusterBlock.WATERLOGGED, currentStateInGrow.getFluidState().getFluid() == Fluids.WATER);
+                world.setBlockState(positionToGrow, toSet);
+            });
         }
     }
 
@@ -70,7 +74,35 @@ public class GeodeBuddingBlock extends CrystalBlock {
                 .collect(Collectors.toList());
     }
 
-    public static boolean canGrowNewClusterIn(BlockState state) {
+    private Optional<Block> getNextBlockForGrowth(BlockState currentState, Direction offsetFromSource) {
+        // the current block where are trying to grow
+        Block currentBlock = currentState.getBlock();
+        // iterator of buds
+        Iterator<Block> buds = this.clusters.iterator();
+
+        if (stateCanGrowNewBud(currentState) && buds.hasNext()) {
+            // grow a new cluster
+            return Optional.of(buds.next());
+        } else if (stateCanGrowBud(currentState, offsetFromSource)) {
+
+            // iterate over buds, and look for the current block
+            // then, return the next block if it exists
+            for (Block bud = buds.next(); buds.hasNext(); bud = buds.next()) {
+                if (bud == currentBlock) {
+                    return Optional.of(buds.next());
+                }
+            }
+        }
+        return Optional.empty();
+    }
+
+
+    private static boolean stateCanGrowBud(BlockState state, Direction direction) {
+        return state.contains(CrystalClusterBlock.FACING)
+                && state.get(CrystalClusterBlock.FACING) == direction;
+    }
+
+    private static boolean stateCanGrowNewBud(BlockState state) {
         return state.isAir() || state.isOf(Blocks.WATER) && state.getFluidState().getLevel() == 8;
     }
 }

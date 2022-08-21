@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  * Copied from {@link AmethystClusterBlock}, expect that it has been made to extend the class
- * {@link CrystalBlock}
+ * {@link CrystalBlock} rather than {@link AmethystBlock}
  */
 @SuppressWarnings("deprecation")
 public class CrystalClusterBlock extends CrystalBlock implements Waterloggable {
