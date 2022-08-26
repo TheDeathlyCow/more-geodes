@@ -27,21 +27,21 @@ public class ModPlacedFeatures {
     static {
         EMERALD_GEODE = register("emerald_geode", new PlacedFeature(ModConfiguredFeatures.EMERALD_GEODE,
                 List.of(
-                        RarityFilterPlacementModifier.of(24),
+                        RarityFilterPlacementModifier.of(12),
                         SquarePlacementModifier.of(),
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(6), YOffset.fixed(64)),
                         BiomePlacementModifier.of()
                 )));
         QUARTZ_GEODE = register("quartz_geode", new PlacedFeature(ModConfiguredFeatures.QUARTZ_GEODE,
                 List.of(
-                        RarityFilterPlacementModifier.of(24),
+                        RarityFilterPlacementModifier.of(12),
                         SquarePlacementModifier.of(),
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(6), YOffset.belowTop(6)),
                         BiomePlacementModifier.of()
                 )));
         DIAMOND_GEODE = register("diamond_geode", new PlacedFeature(ModConfiguredFeatures.DIAMOND_GEODE,
                 List.of(
-                        RarityFilterPlacementModifier.of(200),
+                        RarityFilterPlacementModifier.of(400),
                         SquarePlacementModifier.of(),
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(4), YOffset.aboveBottom(60)),
                         BiomePlacementModifier.of()
