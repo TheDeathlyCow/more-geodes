@@ -29,19 +29,19 @@ public final class GeodesConfig {
     }
 
     public boolean generateEmeraldGeodes() {
-        return Boolean.getBoolean(properties.getProperty(generateEmeraldGeodes));
+        return Boolean.parseBoolean(properties.getProperty(generateEmeraldGeodes));
     }
 
     public boolean generateQuartzGeodes() {
-        return Boolean.getBoolean(properties.getProperty(generateQuartzGeodes));
+        return Boolean.parseBoolean(properties.getProperty(generateQuartzGeodes));
     }
 
     public boolean generateDiamondGeodes() {
-        return Boolean.getBoolean(properties.getProperty(generateDiamondGeodes));
+        return Boolean.parseBoolean(properties.getProperty(generateDiamondGeodes));
     }
 
     public boolean generateEchoGeodes() {
-        return Boolean.getBoolean(properties.getProperty(generateEchoGeodes));
+        return Boolean.parseBoolean(properties.getProperty(generateEchoGeodes));
     }
 
     public void loadConfig() {
@@ -51,7 +51,9 @@ public final class GeodesConfig {
             this.properties.load(reader);
         } catch (IOException e) {
             LOGGER.error("Could not load More Geodes config, using default config instead. Failed with exception: " + e);
+            return;
         }
+        LOGGER.info("Loaded geodes config!");
     }
 
     private void loadDefaultConfig() {

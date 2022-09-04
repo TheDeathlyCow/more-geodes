@@ -1,42 +1,59 @@
 package com.github.thedeathlycow.moregeodes.features;
 
+import com.github.thedeathlycow.moregeodes.MoreGeodes;
+import com.github.thedeathlycow.moregeodes.config.GeodesConfig;
 import com.github.thedeathlycow.moregeodes.tag.ModBiomeTags;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.feature.PlacedFeature;
 
 import java.util.Objects;
+import java.util.function.Predicate;
 
 public class ModFeatures {
 
     public static void placeFeaturesInBiomes() {
-        BiomeModifications.addFeature
-                (
-                        BiomeSelectors.tag(ModBiomeTags.HAS_EMERALD_GEODE),
-                        GenerationStep.Feature.UNDERGROUND_DECORATION,
-                        Objects.requireNonNull(ModPlacedFeatures.EMERALD_GEODE.getKey().orElse(null))
-                );
 
-        BiomeModifications.addFeature
-                (
-                        BiomeSelectors.tag(ModBiomeTags.HAS_QUARTZ_GEODE),
-                        GenerationStep.Feature.UNDERGROUND_DECORATION,
-                        Objects.requireNonNull(ModPlacedFeatures.QUARTZ_GEODE.getKey().orElse(null))
-                );
+        addGeodeToBiomes(
+                BiomeSelectors.tag(ModBiomeTags.HAS_EMERALD_GEODE),
+                ModPlacedFeatures.EMERALD_GEODE,
+                MoreGeodes.CONFIG::generateEmeraldGeodes
+        );
 
-        BiomeModifications.addFeature
-                (
-                        BiomeSelectors.tag(ModBiomeTags.HAS_DIAMOND_GEODE),
-                        GenerationStep.Feature.UNDERGROUND_DECORATION,
-                        Objects.requireNonNull(ModPlacedFeatures.DIAMOND_GEODE.getKey().orElse(null))
-                );
+        addGeodeToBiomes(
+                BiomeSelectors.tag(ModBiomeTags.HAS_QUARTZ_GEODE),
+                ModPlacedFeatures.QUARTZ_GEODE,
+                MoreGeodes.CONFIG::generateQuartzGeodes
+        );
 
-        BiomeModifications.addFeature
-                (
-                        BiomeSelectors.tag(ModBiomeTags.HAS_ECHO_GEODE),
-                        GenerationStep.Feature.UNDERGROUND_DECORATION,
-                        Objects.requireNonNull(ModPlacedFeatures.ECHO_GEODE.getKey().orElse(null))
-                );
+        addGeodeToBiomes(
+                BiomeSelectors.tag(ModBiomeTags.HAS_DIAMOND_GEODE),
+                ModPlacedFeatures.DIAMOND_GEODE,
+                MoreGeodes.CONFIG::generateDiamondGeodes
+        );
+
+        addGeodeToBiomes(
+                BiomeSelectors.tag(ModBiomeTags.HAS_ECHO_GEODE),
+                ModPlacedFeatures.ECHO_GEODE,
+                MoreGeodes.CONFIG::generateEchoGeodes
+        );
+    }
+
+    private static void addGeodeToBiomes(Predicate<BiomeSelectionContext> biomeSelector, RegistryEntry<PlacedFeature> geode, ConfigProvider configProvider) {
+        if (configProvider.shouldGenerateGeode()) {
+            BiomeModifications.addFeature(
+                    biomeSelector,
+                    GenerationStep.Feature.UNDERGROUND_DECORATION,
+                    Objects.requireNonNull(geode.getKey().orElse(null))
+            );
+        }
+    }
+
+    @FunctionalInterface
+    public interface ConfigProvider {
+        boolean shouldGenerateGeode();
     }
 }
