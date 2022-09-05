@@ -4,7 +4,7 @@ Curse Forge mod page: https://www.curseforge.com/minecraft/mc-mods/emerald-geode
 
 Modrinth mod page: https://modrinth.com/mod/more-geodes
 
-The CurseForge and Modrinth mod pages and this repository are the only official download pages for this mod, do not trust any version of this mod from elsewhere! 
+The CurseForge and Modrinth mod pages as well as this repository are the only official download pages for this mod, do not trust any version of this mod from elsewhere! 
 
 # New Geodes
 
