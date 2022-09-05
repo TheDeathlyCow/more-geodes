@@ -42,6 +42,10 @@ Each geode type (amethyst, emerald, quartz, diamond, and echo) has an Echo Locat
 
 This mod uses the namespace `geodes`. If you wish to make changes to the features in this mod using a datapack, all files must be put under that namespace. The emerald and quartz geodes use very similar values to the amethyst geode, and it can be used as an example for how to configure them. Slicedlime provides an example worldgen datapack that can be used as a reference [here](https://github.com/slicedlime/examples/blob/master/vanilla_worldgen.zip), or alternatively you can use Misode's datapack generators to generate these for you, which can be found [here](https://misode.github.io/). 
 
+## Datapack Addons
+
+In the [releases tab](https://github.com/TheDeathlyCow/more-geodes/releases/) you can find downloads for two datapack addons for this mod. They're each pretty self explanatory, and act as ideas for how one might decide to try and make a datapack configuration for this mod. 
+
 ## Configured features
 You can make changes to the geode configured features by replacing their files in the directories `geodes/worldgen/configured_feature/emerald_geode.json`, `geodes/worldgen/configured_feature/quartz_geode.json`, etc. 
 
@@ -49,7 +53,7 @@ You can make changes to the geode configured features by replacing their files i
 Similar to the configured features, you can edit the geode placed features by replacing their files in the directories `geodes/worldgen/placed_feature/emerald_geode.json`, `geodes/worldgen/placed_feature/quartz_geode.json`, etc. 
 
 ## Biome placement
-Rather than editing or overriding specific biomes in order to add emerald and quartz geode feature, it would instead be better to edit the biome tags `geodes:has_emerald_geode`, `geodes:has_quartz_geode`, etc. These tags exist in the directory `geodes/tags/worldgen/biome/`, and the default tags for them can be found [here](https://github.com/TheDeathlyCow/more-geodes/tree/main/src/main/resources/data/geodes/tags/worldgen/biome).
+Rather than editing or overriding specific biomes in order to add or remove different geode features, it would instead be better to edit the biome tags `geodes:has_emerald_geode`, `geodes:has_quartz_geode`, etc. These tags exist in the directory `geodes/tags/worldgen/biome/`, and the default tags for them can be found [here](https://github.com/TheDeathlyCow/more-geodes/tree/main/src/main/resources/data/geodes/tags/worldgen/biome).
 
 **Important note**: These changes can ONLY take affect after a server or world restart. A simple reload is not sufficient! 
 
