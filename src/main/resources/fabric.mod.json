@@ -11,7 +11,8 @@
   "contact": {
     "homepage": "https://github.com/TheDeathlyCow/more-geodes",
     "sources": "https://github.com/TheDeathlyCow/more-geodes",
-    "issues":  "https://github.com/TheDeathlyCow/more-geodes/issues"
+    "issues":  "https://github.com/TheDeathlyCow/more-geodes/issues",
+    "wiki": "https://github.com/TheDeathlyCow/more-geodes/blob/main/README.md"
   },
   "license": "LGPL-3.0",
   "icon": "assets/geodes/icon.png",
