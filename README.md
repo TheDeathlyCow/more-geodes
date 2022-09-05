@@ -41,3 +41,19 @@ Similar to the configured features, you can edit the emerald and quartz geode pl
 Rather than editing or overriding specific biomes in order to add emerald and quartz geode feature, it would instead be better to edit the biome tags `geodes:has_emerald_geode` and `geodes:has_quartz_geode`. These tags exist in the directory `geodes/tags/worldgen/biome/`, and the default tags for them can be found [here](https://github.com/TheDeathlyCow/more-geodes/tree/main/src/main/resources/data/geodes/tags/worldgen/biome).
 
 **Important note**: These changes can ONLY take affect after a server or world restart. A simple reload is not sufficient! 
+
+# Configuration
+
+The generation of each geode can be independently disabled via a config. The config is in your standard config directory, under the file name `geodes.properties`. Any changes to the config require a game or server restart.
+
+The default config is as follows:
+```properties
+generate_emerald_geodes=true
+generate_quartz_geodes=true
+generate_diamond_geodes=true
+generate_echo_geodes=true
+```
+
+Note that this only disables the biome modifications, so the command `/place feature` should still work for disabled geodes, and it *shouldn't* break any pre-existing worlds that had these enabled.
+
+Each of these values are booleans and are parsed using [Boolean#parseBoolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html#parseBoolean(java.lang.String)). Therefore, entering anything other than a case insentive version of "true" will be interpreted as false. 
