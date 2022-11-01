@@ -26,4 +26,8 @@ public class CrystalBlock extends AmethystBlock {
             world.playSound(null, blockPos, hitSoundGroup.chimeSound(), SoundCategory.BLOCKS, 1.0F, 0.5F + world.random.nextFloat());
         }
     }
+
+    public CrystalBlockSoundGroup getHitSoundGroup() {
+        return this.hitSoundGroup;
+    }
 }
