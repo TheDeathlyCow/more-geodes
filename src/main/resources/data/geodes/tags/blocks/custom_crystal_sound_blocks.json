@@ -1,0 +1,12 @@
+{
+	"replace": false,
+	"values": [
+		"geodes:emerald_geode",
+		"geodes:budding_emerald",
+		"geodes:quartz_geode",
+		"geodes:budding_quartz",
+		"geodes:diamond_geode",
+		"geodes:echo_block",
+		"geodes:budding_echo_block"
+	]
+}

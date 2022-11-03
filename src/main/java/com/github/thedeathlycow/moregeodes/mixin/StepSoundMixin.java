@@ -1,6 +1,7 @@
 package com.github.thedeathlycow.moregeodes.mixin;
 
 import com.github.thedeathlycow.moregeodes.blocks.CrystalBlock;
+import com.github.thedeathlycow.moregeodes.tag.ModBlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -33,8 +34,12 @@ public abstract class StepSoundMixin {
             at = @At("HEAD")
     )
     private void playCustomCrystalBlockChime(BlockState state, CallbackInfo ci) {
-        Block block = state.getBlock();
-        if (block instanceof CrystalBlock crystalBlock && this.age >= this.lastChimeAge + 20) {
+
+        if (state.isIn(ModBlockTags.CUSTOM_CRYSTAL_SOUND_BLOCKS) && this.age >= this.lastChimeAge + 20) {
+            if (!(state.getBlock() instanceof CrystalBlock crystalBlock)) {
+                return;
+            }
+
             this.lastChimeIntensity *= (float)Math.pow(0.997, this.age - this.lastChimeAge);
             this.lastChimeIntensity = Math.min(1.0F, this.lastChimeIntensity + 0.07F);
             float f = 0.5F + this.lastChimeIntensity * this.random.nextFloat() * 1.2F;
