@@ -27,7 +27,7 @@ public class ModPlacedFeatures {
     static {
         EMERALD_GEODE = register("emerald_geode", new PlacedFeature(ModConfiguredFeatures.EMERALD_GEODE,
                 List.of(
-                        RarityFilterPlacementModifier.of(12),
+                        RarityFilterPlacementModifier.of(24),
                         SquarePlacementModifier.of(),
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(6), YOffset.fixed(64)),
                         BiomePlacementModifier.of()
