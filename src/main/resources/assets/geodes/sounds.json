@@ -41,6 +41,16 @@
     ],
     "subtitle": "subtitles.block.geodes.diamond_geode.chime"
   },
+  "block.geodes.lapis_crystal_block.chime": {
+    "sounds": [
+      {
+        "name": "block/amethyst/shimmer",
+        "volume": 0.2,
+        "pitch": 1.4
+      }
+    ],
+    "subtitle": "subtitles.block.geodes.lapis_crystal_block.chime"
+  },
   "block.geodes.echo_block.break": {
     "sounds": [
       "geodes:block/echo_block/break1",

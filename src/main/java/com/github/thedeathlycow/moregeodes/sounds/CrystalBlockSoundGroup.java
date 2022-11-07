@@ -28,4 +28,8 @@ public record CrystalBlockSoundGroup(
             GeodesSoundEvents.BLOCK_QUARTZ_GEODE_CHIME
     );
 
+    public static final CrystalBlockSoundGroup LAPIS = new CrystalBlockSoundGroup(
+            SoundEvents.BLOCK_AMETHYST_BLOCK_HIT,
+            GeodesSoundEvents.BLOCK_QUARTZ_GEODE_CHIME
+    );
 }
