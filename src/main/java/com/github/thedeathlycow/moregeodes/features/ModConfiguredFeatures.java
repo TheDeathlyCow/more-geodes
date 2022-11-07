@@ -24,6 +24,8 @@ public class ModConfiguredFeatures {
     public static final RegistryEntry<ConfiguredFeature<?, ?>> DIAMOND_GEODE;
     public static final RegistryEntry<ConfiguredFeature<?, ?>> ECHO_GEODE;
 
+    public static final RegistryEntry<ConfiguredFeature<?, ?>> LAPIS_GEODE;
+
     private static RegistryEntry<ConfiguredFeature<?, ?>> register(String id, ConfiguredFeature<?, ?> configuredFeature) {
         return BuiltinRegistries.add(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MoreGeodes.MODID, id), configuredFeature);
     }
@@ -115,6 +117,29 @@ public class ModConfiguredFeatures {
                                         SimpleBlockStateProvider.of(Blocks.SCULK.getDefaultState()),
                                         SimpleBlockStateProvider.of(Blocks.BLACKSTONE.getDefaultState()),
                                         ModBlocks.BUDDING_ECHO_BLOCK.getClusterStates(),
+                                        BlockTags.FEATURES_CANNOT_REPLACE,
+                                        BlockTags.GEODE_INVALID_BLOCKS
+                                ),
+                        new GeodeLayerThicknessConfig(1.7D, 2.2D, 3.2D, 4.2D),
+                        new GeodeCrackConfig(0.95D, 2.0D, 2),
+                        0.35D, 0.083D, true,
+                        UniformIntProvider.create(4, 6),
+                        UniformIntProvider.create(3, 4),
+                        UniformIntProvider.create(1, 2),
+                        -16, 16, 0.05D, 1
+                )
+        ));
+
+        LAPIS_GEODE = register("lapis_geode", new ConfiguredFeature<>(Feature.GEODE, new GeodeFeatureConfig
+                (
+                        new GeodeLayerConfig
+                                (
+                                        SimpleBlockStateProvider.of(Blocks.AIR.getDefaultState()),
+                                        SimpleBlockStateProvider.of(ModBlocks.LAPIS_CRYSTAL_BLOCK.getDefaultState()),
+                                        SimpleBlockStateProvider.of(ModBlocks.BUDDING_LAPIS.getDefaultState()),
+                                        SimpleBlockStateProvider.of(ModBlocks.PYRITE.getDefaultState()),
+                                        SimpleBlockStateProvider.of(Blocks.TUFF.getDefaultState()),
+                                        ModBlocks.BUDDING_LAPIS.getClusterStates(),
                                         BlockTags.FEATURES_CANNOT_REPLACE,
                                         BlockTags.GEODE_INVALID_BLOCKS
                                 ),

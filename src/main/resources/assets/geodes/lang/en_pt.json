@@ -34,5 +34,13 @@
   "subtitles.block.geodes.echo_block.chime": "Echo echos",
   "subtitles.block.geodes.emerald_geode.chime": "Emerald clinks",
   "subtitles.block.geodes.quartz_geode.chime": "White crystal clinks",
-  "subtitles.block.geodes.diamond_geode.chime": "Diamond clinks"
+  "subtitles.block.geodes.diamond_geode.chime": "Diamond clinks",
+  "block.geodes.lapis_crystal_block": "Lapis Lazuli Crystal Block",
+  "block.geodes.budding_lapis": "Budding Lapis Lazuli",
+  "block.geodes.lapis_cluster": "Lapis Lazuli Cluster",
+  "block.geodes.large_lapis_bud": "Large Lapis Lazuli Bud",
+  "block.geodes.medium_lapis_bud": "Medium Lapis Lazuli Bud",
+  "block.geodes.small_lapis_bud": "Small Lapis Lazuli Bud",
+  "block.geodes.pyrite": "Fool's gold",
+  "subtitles.block.geodes.lapis_crystal_block.chime": "Lapis lazuli chimes"
 }

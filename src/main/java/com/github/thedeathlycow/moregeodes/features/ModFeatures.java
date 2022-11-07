@@ -40,6 +40,12 @@ public class ModFeatures {
                 ModPlacedFeatures.ECHO_GEODE,
                 MoreGeodes.CONFIG::generateEchoGeodes
         );
+
+        addGeodeToBiomes(
+                BiomeSelectors.tag(ModBiomeTags.HAS_LAPIS_GEODE),
+                ModPlacedFeatures.LAPIS_GEODE,
+                MoreGeodes.CONFIG::generateLapisGeodes
+        );
     }
 
     private static void addGeodeToBiomes(Predicate<BiomeSelectionContext> biomeSelector, RegistryEntry<PlacedFeature> geode, ConfigProvider configProvider) {
