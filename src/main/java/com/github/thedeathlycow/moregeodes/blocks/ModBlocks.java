@@ -73,7 +73,7 @@ public class ModBlocks {
 
     public static final GeodeBuddingBlock BUDDING_LAPIS = new GeodeBuddingBlock(
             CrystalBlockSoundGroup.LAPIS,
-            FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).ticksRandomly().strength(1.5f).sounds(ModBlockSoundGroups.ECHO_BLOCK).requiresTool(),
+            FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).ticksRandomly().strength(1.5f).sounds(ModBlockSoundGroups.LAPIS_CRYSTAL_BLOCK).requiresTool(),
             ImmutableList.of(SMALL_LAPIS_BUD, MEDIUM_LAPIS_BUD, LARGE_LAPIS_BUD, LAPIS_CLUSTER)
     );
 

@@ -138,7 +138,7 @@ public class ModConfiguredFeatures {
                                         SimpleBlockStateProvider.of(ModBlocks.LAPIS_CRYSTAL_BLOCK.getDefaultState()),
                                         SimpleBlockStateProvider.of(ModBlocks.BUDDING_LAPIS.getDefaultState()),
                                         SimpleBlockStateProvider.of(ModBlocks.PYRITE.getDefaultState()),
-                                        SimpleBlockStateProvider.of(Blocks.TUFF.getDefaultState()),
+                                        SimpleBlockStateProvider.of(Blocks.SMOOTH_BASALT.getDefaultState()),
                                         ModBlocks.BUDDING_LAPIS.getClusterStates(),
                                         BlockTags.FEATURES_CANNOT_REPLACE,
                                         BlockTags.GEODE_INVALID_BLOCKS
