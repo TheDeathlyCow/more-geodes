@@ -49,6 +49,9 @@ public class ModItems {
     public static final Item PYRITE_SLAB = new BlockItem(ModBlocks.PYRITE_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
     public static final Item PYRITE_WALL = new BlockItem(ModBlocks.PYRITE_WALL, new FabricItemSettings().group(ItemGroup.DECORATIONS));
 
+    public static final Item CALCITE_STAIRS = new BlockItem(ModBlocks.CALCITE_STAIRS, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final Item CALCITE_SLAB = new BlockItem(ModBlocks.CALCITE_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final Item CALCITE_WALL = new BlockItem(ModBlocks.CALCITE_WALL, new FabricItemSettings().group(ItemGroup.DECORATIONS));
 
     public static final Item EMERALD_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.EMERALD_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().group(ItemGroup.DECORATIONS).maxCount(1));
     public static final Item QUARTZ_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.QUARTZ_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().group(ItemGroup.DECORATIONS).maxCount(1));
@@ -93,6 +96,9 @@ public class ModItems {
         register("pyrite_stairs", PYRITE_STAIRS);
         register("pyrite_slab", PYRITE_SLAB);
         register("pyrite_wall", PYRITE_WALL);
+        register("calcite_stairs", CALCITE_STAIRS);
+        register("calcite_slab", CALCITE_SLAB);
+        register("calcite_wall", CALCITE_WALL);
     }
 
     private static void register(String name, Item item) {

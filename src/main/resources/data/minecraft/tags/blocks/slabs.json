@@ -1,6 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		"geodes:pyrite_slab"
+		"geodes:pyrite_slab",
+		"geodes:calcite_slab"
 	]
 }

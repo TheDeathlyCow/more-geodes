@@ -95,6 +95,20 @@ public class ModBlocks {
             FabricBlockSettings.copyOf(PYRITE)
     );
 
+    public static final Block CALCITE_STAIRS = new StairsBlock(
+            Blocks.CALCITE.getDefaultState(),
+            FabricBlockSettings.copyOf(Blocks.CALCITE)
+    );
+
+    public static final Block CALCITE_SLAB = new SlabBlock(
+            FabricBlockSettings.copyOf(Blocks.CALCITE)
+    );
+
+    public static final Block CALCITE_WALL = new WallBlock(
+            FabricBlockSettings.copyOf(Blocks.CALCITE)
+    );
+
+
     public static void registerBlocks() {
         register("emerald_geode", EMERALD_GEODE);
         register("budding_emerald", BUDDING_EMERALD);
@@ -131,6 +145,9 @@ public class ModBlocks {
         register("pyrite_stairs", PYRITE_STAIRS);
         register("pyrite_slab", PYRITE_SLAB);
         register("pyrite_wall", PYRITE_WALL);
+        register("calcite_stairs", CALCITE_STAIRS);
+        register("calcite_slab", CALCITE_SLAB);
+        register("calcite_wall", CALCITE_WALL);
     }
 
     private static void register(String name, Block block) {
