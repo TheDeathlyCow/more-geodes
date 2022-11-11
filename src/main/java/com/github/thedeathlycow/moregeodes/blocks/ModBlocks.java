@@ -5,9 +5,7 @@ import com.github.thedeathlycow.moregeodes.sounds.CrystalBlockSoundGroup;
 import com.github.thedeathlycow.moregeodes.sounds.ModBlockSoundGroups;
 import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.MapColor;
-import net.minecraft.block.Material;
+import net.minecraft.block.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -77,7 +75,25 @@ public class ModBlocks {
             ImmutableList.of(SMALL_LAPIS_BUD, MEDIUM_LAPIS_BUD, LARGE_LAPIS_BUD, LAPIS_CLUSTER)
     );
 
-    public static final Block PYRITE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.GOLD).sounds(BlockSoundGroup.CALCITE).requiresTool().strength(0.75F));
+    public static final Block PYRITE = new Block(
+            FabricBlockSettings.of(Material.STONE, MapColor.GOLD)
+                    .sounds(BlockSoundGroup.CALCITE)
+                    .requiresTool()
+                    .strength(0.75F)
+    );
+
+    public static final Block PYRITE_STAIRS = new StairsBlock(
+            PYRITE.getDefaultState(),
+            FabricBlockSettings.copyOf(PYRITE)
+    );
+
+    public static final Block PYRITE_SLAB = new SlabBlock(
+            FabricBlockSettings.copyOf(PYRITE)
+    );
+
+    public static final Block PYRITE_WALL = new WallBlock(
+            FabricBlockSettings.copyOf(PYRITE)
+    );
 
     public static void registerBlocks() {
         register("emerald_geode", EMERALD_GEODE);
@@ -112,6 +128,9 @@ public class ModBlocks {
         register("small_lapis_bud", SMALL_LAPIS_BUD);
         register("budding_lapis", BUDDING_LAPIS);
         register("pyrite", PYRITE);
+        register("pyrite_stairs", PYRITE_STAIRS);
+        register("pyrite_slab", PYRITE_SLAB);
+        register("pyrite_wall", PYRITE_WALL);
     }
 
     private static void register(String name, Block block) {

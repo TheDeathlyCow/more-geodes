@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "minecraft:block/pyrite",
+    "side": "minecraft:block/pyrite",
+    "top": "minecraft:block/pyrite"
+  }
+}

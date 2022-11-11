@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "minecraft:block/pyrite_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/pyrite"
+    },
+    "type=top": {
+      "model": "minecraft:block/pyrite_slab_top"
+    }
+  }
+}
