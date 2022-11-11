@@ -28,6 +28,6 @@
     "geodes:large_lapis_bud",
     "geodes:medium_lapis_bud",
     "geodes:small_lapis_bud",
-    "geodes:pyrite"
+    "#geodes:pyrite"
   ]
 }
