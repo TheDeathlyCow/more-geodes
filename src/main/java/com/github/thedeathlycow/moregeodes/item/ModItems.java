@@ -47,7 +47,7 @@ public class ModItems {
     public static final Item PYRITE = new BlockItem(ModBlocks.PYRITE, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
     public static final Item PYRITE_STAIRS = new BlockItem(ModBlocks.PYRITE_STAIRS, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
     public static final Item PYRITE_SLAB = new BlockItem(ModBlocks.PYRITE_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item PYRITE_WALL = new BlockItem(ModBlocks.PYRITE_WALL, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final Item PYRITE_WALL = new BlockItem(ModBlocks.PYRITE_WALL, new FabricItemSettings().group(ItemGroup.DECORATIONS));
 
 
     public static final Item EMERALD_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.EMERALD_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().group(ItemGroup.DECORATIONS).maxCount(1));
