@@ -1,0 +1,51 @@
+{
+	"display": {
+		"icon": {
+			"item": "geodes:pyrite"
+		},
+		"title": {
+			"translate": "advancement.geodes.nether.barter_fools_gold_again.title"
+		},
+		"description": {
+			"translate": "advancement.geodes.nether.barter_fools_gold_again.description"
+		},
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": true
+	},
+	"parent": "geodes:nether/barter_fools_gold",
+	"criteria": {
+		"throw_fools_gold_to_piglin_with_advancement": {
+			"trigger": "minecraft:thrown_item_picked_up_by_entity",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"type_specific": {
+								"type": "player",
+								"advancements": {
+									"geodes:nether/barter_fools_gold": true
+								}
+							}
+						}
+					}
+				],
+				"entity": {
+					"type": "minecraft:piglin"
+				},
+				"item": {
+					"tag": "geodes:pyrite"
+				}
+			}
+		}
+	},
+	"requirements": [
+		[
+			"throw_fools_gold_to_piglin_with_advancement"
+		]
+	],
+	"rewards": {}
+}

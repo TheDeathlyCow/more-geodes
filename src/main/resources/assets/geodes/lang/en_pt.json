@@ -42,5 +42,12 @@
   "block.geodes.medium_lapis_bud": "Medium Lapis Lazuli Bud",
   "block.geodes.small_lapis_bud": "Small Lapis Lazuli Bud",
   "block.geodes.pyrite": "Fool's gold",
-  "subtitles.block.geodes.lapis_crystal_block.chime": "Lapis lazuli chimes"
+  "subtitles.block.geodes.lapis_crystal_block.chime": "Lapis lazuli chimes",
+  "block.geodes.pyrite_slab": "Fool's Slab",
+  "block.geodes.pyrite_stairs": "Fool's Stair",
+  "block.geodes.pyrite_wall": "Fool's Wall",
+  "advancement.geodes.nether.barter_fools_gold.title": "This do not be booty!",
+  "advancement.geodes.nether.barter_fools_gold.description": "Trick a piglin with Fool's Gold",
+  "advancement.geodes.nether.barter_fools_gold_again.title": "Foolin' the Captain",
+  "advancement.geodes.nether.barter_fools_gold_again.description": "Trick a piglin with Fool's Gold... again!"
 }
