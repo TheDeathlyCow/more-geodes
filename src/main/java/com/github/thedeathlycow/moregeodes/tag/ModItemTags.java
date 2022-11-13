@@ -8,7 +8,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ModItemTags {
 
-    public static final TagKey<Item> PYRITE = create("pyrite");
+    public static final TagKey<Item> FOOLS_GOLD = create("fools_gold");
 
     private static TagKey<Item> create(String id) {
         return TagKey.of(Registry.ITEM_KEY, new Identifier(MoreGeodes.MODID, id));

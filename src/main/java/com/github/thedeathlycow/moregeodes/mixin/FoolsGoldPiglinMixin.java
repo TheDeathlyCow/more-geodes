@@ -36,7 +36,7 @@ public abstract class FoolsGoldPiglinMixin {
     private static void angerPiglinWhenBarterWithFoolsGold(PiglinEntity piglin, boolean barter, CallbackInfo ci) {
         ItemStack holding = piglin.getStackInHand(Hand.OFF_HAND);
 
-        if (holding.isIn(ModItemTags.PYRITE)) {
+        if (holding.isIn(ModItemTags.FOOLS_GOLD)) {
             Optional<PlayerEntity> rememberedPlayer = piglin.getBrain()
                     .getOptionalMemory(MemoryModuleType.NEAREST_VISIBLE_PLAYER);
 
