@@ -37,7 +37,8 @@ public abstract class FoolsGoldPiglinMixin {
         ItemStack holding = piglin.getStackInHand(Hand.OFF_HAND);
 
         if (holding.isIn(ModItemTags.FOOLS_GOLD)) {
-            Optional<PlayerEntity> rememberedPlayer = piglin.getBrain()
+            var brain = piglin.getBrain();
+            Optional<PlayerEntity> rememberedPlayer = brain
                     .getOptionalMemory(MemoryModuleType.NEAREST_VISIBLE_PLAYER);
 
             rememberedPlayer.ifPresent(player -> {

@@ -4,7 +4,7 @@
       "model": "geodes:block/calcite_slab"
     },
     "type=double": {
-      "model": "geodes:block/calcite"
+      "model": "minecraft:block/calcite"
     },
     "type=top": {
       "model": "geodes:block/calcite_slab_top"
