@@ -39,6 +39,7 @@ public class ModBlocks {
     public static final Block SMALL_ECHO_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.ECHO_BLOCK, 3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.BLACK).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.SMALL_ECHO_BUD).strength(1.5f).luminance((blockState) -> 1));
 
     public static final Block LAPIS_CRYSTAL_BLOCK = new CrystalBlock(CrystalBlockSoundGroup.LAPIS, FabricBlockSettings.of(Material.AMETHYST, MapColor.LAPIS_BLUE).strength(1.5f).sounds(ModBlockSoundGroups.LAPIS_CRYSTAL_BLOCK).requiresTool());
+    public static final Block PYRITE_INFUSED_LAPIS_CRYSTAL_BLOCK = new CrystalBlock(CrystalBlockSoundGroup.LAPIS, FabricBlockSettings.copyOf(LAPIS_CRYSTAL_BLOCK));
     public static final Block LAPIS_CLUSTER = new CrystalClusterBlock(CrystalBlockSoundGroup.LAPIS, 7, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.LAPIS_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.LAPIS_CLUSTER).strength(1.5f).luminance((blockState) -> 5));
     public static final Block LARGE_LAPIS_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.LAPIS, 5, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.LAPIS_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.LARGE_LAPIS_BUD).strength(1.5f).luminance((blockState) -> 4));
     public static final Block MEDIUM_LAPIS_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.LAPIS, 4, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.LAPIS_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.MEDIUM_LAPIS_BUD).strength(1.5f).luminance((blockState) -> 2));
@@ -136,6 +137,7 @@ public class ModBlocks {
         register("diamond_crystal_echo_locator", DIAMOND_CRYSTAL_ECHO_LOCATOR);
         register("echo_crystal_echo_locator", ECHO_CRYSTAL_ECHO_LOCATOR);
         register("lapis_crystal_block", LAPIS_CRYSTAL_BLOCK);
+        register("pyrite_infused_lapis_crystal_block", PYRITE_INFUSED_LAPIS_CRYSTAL_BLOCK);
         register("lapis_cluster", LAPIS_CLUSTER);
         register("large_lapis_bud", LARGE_LAPIS_BUD);
         register("medium_lapis_bud", MEDIUM_LAPIS_BUD);
