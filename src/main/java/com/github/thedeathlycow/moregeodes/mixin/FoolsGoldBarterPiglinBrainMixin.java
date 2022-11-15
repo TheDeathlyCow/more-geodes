@@ -1,7 +1,6 @@
 package com.github.thedeathlycow.moregeodes.mixin;
 
 import com.github.thedeathlycow.moregeodes.entity.FoolsGoldBarterer;
-import com.github.thedeathlycow.moregeodes.entity.GeodesMemoryModuleTypes;
 import com.github.thedeathlycow.moregeodes.tag.ModItemTags;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
