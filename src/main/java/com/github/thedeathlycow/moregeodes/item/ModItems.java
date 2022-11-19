@@ -12,6 +12,7 @@ import net.minecraft.util.registry.Registry;
 public class ModItems {
 
     public static final Item EMERALD_SHARD = new Item(new FabricItemSettings().group(ItemGroup.MISC));
+    public static final Item PYRITE_CHUNK = new Item(new FabricItemSettings().group(ItemGroup.MISC));
     public static final Item EMERALD_GEODE = new BlockItem(ModBlocks.EMERALD_GEODE, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
     public static final Item BUDDING_EMERALD = new BlockItem(ModBlocks.BUDDING_EMERALD, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
     public static final Item SMALL_EMERALD_BUD = new BlockItem(ModBlocks.SMALL_EMERALD_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
@@ -62,6 +63,7 @@ public class ModItems {
 
     public static void registerItems() {
         register("emerald_shard", EMERALD_SHARD);
+        register("pyrite_chunk", PYRITE_CHUNK);
         register("emerald_geode", EMERALD_GEODE);
         register("budding_emerald", BUDDING_EMERALD);
         register("small_emerald_bud", SMALL_EMERALD_BUD);
@@ -88,10 +90,10 @@ public class ModItems {
         register("diamond_crystal_echo_locator", DIAMOND_CRYSTAL_ECHO_LOCATOR);
         register("echo_crystal_echo_locator", ECHO_CRYSTAL_ECHO_LOCATOR);
         register("lapis_crystal_block", LAPIS_CRYSTAL_BLOCK);
-        register("lapis_cluster", LAPIS_CLUSTER);
-        register("large_lapis_bud", LARGE_LAPIS_BUD);
-        register("medium_lapis_bud", MEDIUM_LAPIS_BUD);
         register("small_lapis_bud", SMALL_LAPIS_BUD);
+        register("medium_lapis_bud", MEDIUM_LAPIS_BUD);
+        register("large_lapis_bud", LARGE_LAPIS_BUD);
+        register("lapis_cluster", LAPIS_CLUSTER);
         register("budding_lapis", BUDDING_LAPIS);
         register("pyrite", PYRITE);
         register("pyrite_stairs", PYRITE_STAIRS);

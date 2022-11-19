@@ -25,14 +25,14 @@
 									}
 								}
 							],
-							"name": "geodes:emerald_cluster"
+							"name": "geodes:large_lapis_bud"
 						},
 						{
 							"type": "minecraft:alternatives",
 							"children": [
 								{
 									"type": "minecraft:item",
-									"name": "minecraft:emerald",
+									"name": "minecraft:lapis_lazuli",
 									"conditions": [
 										{
 											"condition": "minecraft:match_tool",
@@ -44,7 +44,7 @@
 									"functions": [
 										{
 											"function": "minecraft:set_count",
-											"count": 4,
+											"count": 2,
 											"add": false
 										},
 										{
@@ -56,11 +56,11 @@
 								},
 								{
 									"type": "minecraft:item",
-									"name": "minecraft:emerald",
+									"name": "minecraft:lapis_lazuli",
 									"functions": [
 										{
 											"function": "minecraft:set_count",
-											"count": 4,
+											"count": 2,
 											"add": false
 										},
 										{

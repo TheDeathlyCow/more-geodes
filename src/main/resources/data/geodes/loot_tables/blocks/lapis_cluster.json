@@ -25,14 +25,14 @@
 									}
 								}
 							],
-							"name": "geodes:emerald_cluster"
+							"name": "geodes:lapis_cluster"
 						},
 						{
 							"type": "minecraft:alternatives",
 							"children": [
 								{
 									"type": "minecraft:item",
-									"name": "minecraft:emerald",
+									"name": "minecraft:lapis_lazuli",
 									"conditions": [
 										{
 											"condition": "minecraft:match_tool",
@@ -56,7 +56,7 @@
 								},
 								{
 									"type": "minecraft:item",
-									"name": "minecraft:emerald",
+									"name": "minecraft:lapis_lazuli",
 									"functions": [
 										{
 											"function": "minecraft:set_count",
@@ -69,6 +69,35 @@
 									]
 								}
 							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "geodes:pyrite_chunk",
+					"conditions": [
+						{
+							"condition": "minecraft:random_chance",
+							"chance": 0.5
+						}
+					],
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1,
+								"max": 2
+							}
+						},
+						{
+							"function": "minecraft:apply_bonus",
+							"enchantment": "minecraft:fortune",
+							"formula": "minecraft:ore_drops"
 						}
 					]
 				}

@@ -9,7 +9,6 @@
 		"geodes:echo_block",
 		"geodes:budding_echo_block",
 		"geodes:lapis_crystal_block",
-		"geodes:pyrite_infused_lapis_crystal_block",
 		"geodes:budding_lapis"
 	]
 }

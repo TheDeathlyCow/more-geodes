@@ -1,12 +1,12 @@
 {
 	"parent": "minecraft:recipes/root",
 	"criteria": {
-		"has_calcite": {
+		"has_pyrite_chunk": {
 			"conditions": {
 				"items": [
 					{
 						"items": [
-							"minecraft:calcite"
+							"geodes:pyrite_chunk"
 						]
 					}
 				]
@@ -15,20 +15,20 @@
 		},
 		"has_the_recipe": {
 			"conditions": {
-				"recipe": "geodes:calcite_wall_from_stonecutting"
+				"recipe": "geodes:pyrite"
 			},
 			"trigger": "minecraft:recipe_unlocked"
 		}
 	},
 	"requirements": [
 		[
-			"has_calcite",
+			"has_pyrite_chunk",
 			"has_the_recipe"
 		]
 	],
 	"rewards": {
 		"recipes": [
-			"geodes:calcite_wall_from_stonecutting"
+			"geodes:pyrite"
 		]
 	}
 }
