@@ -135,12 +135,7 @@ public class ModConfiguredFeatures {
                         new GeodeLayerConfig
                                 (
                                         SimpleBlockStateProvider.of(Blocks.AIR.getDefaultState()),
-                                        new WeightedBlockStateProvider(
-                                                DataPool.<BlockState>builder()
-                                                        .add(ModBlocks.LAPIS_CRYSTAL_BLOCK.getDefaultState(), 4)
-                                                        .add(ModBlocks.PYRITE_INFUSED_LAPIS_CRYSTAL_BLOCK.getDefaultState(), 1)
-                                                        .build()
-                                        ),
+                                        SimpleBlockStateProvider.of(ModBlocks.LAPIS_CRYSTAL_BLOCK.getDefaultState()),
                                         SimpleBlockStateProvider.of(ModBlocks.BUDDING_LAPIS.getDefaultState()),
                                         SimpleBlockStateProvider.of(ModBlocks.PYRITE.getDefaultState()),
                                         SimpleBlockStateProvider.of(Blocks.SMOOTH_BASALT.getDefaultState()),

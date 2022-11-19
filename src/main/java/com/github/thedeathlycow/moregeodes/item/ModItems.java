@@ -37,7 +37,6 @@ public class ModItems {
     public static final Item ECHO_CLUSTER = new BlockItem(ModBlocks.ECHO_CLUSTER, new FabricItemSettings().group(ItemGroup.DECORATIONS));
 
     public static final Item LAPIS_CRYSTAL_BLOCK = new BlockItem(ModBlocks.LAPIS_CRYSTAL_BLOCK, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item PYRITE_INFUSED_LAPIS_CRYSTAL_BLOCK = new BlockItem(ModBlocks.PYRITE_INFUSED_LAPIS_CRYSTAL_BLOCK, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
 
     public static final Item BUDDING_LAPIS = new BlockItem(ModBlocks.BUDDING_LAPIS, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
 
@@ -89,7 +88,6 @@ public class ModItems {
         register("diamond_crystal_echo_locator", DIAMOND_CRYSTAL_ECHO_LOCATOR);
         register("echo_crystal_echo_locator", ECHO_CRYSTAL_ECHO_LOCATOR);
         register("lapis_crystal_block", LAPIS_CRYSTAL_BLOCK);
-        register("pyrite_infused_lapis_crystal_block", PYRITE_INFUSED_LAPIS_CRYSTAL_BLOCK);
         register("lapis_cluster", LAPIS_CLUSTER);
         register("large_lapis_bud", LARGE_LAPIS_BUD);
         register("medium_lapis_bud", MEDIUM_LAPIS_BUD);

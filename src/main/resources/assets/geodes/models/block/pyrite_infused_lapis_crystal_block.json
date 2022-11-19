@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "geodes:block/pyrite_infused_lapis_crystal_block"
-  }
-}
