@@ -11,7 +11,7 @@
     ],
     "subtitle": "subtitles.block.geodes.echo_locator.use"
   },
-  "block.geodes.emerald_geode.chime": {
+  "block.geodes.emerald_crystal_block.chime": {
     "sounds": [
       {
         "name": "block/amethyst/shimmer",
@@ -19,9 +19,9 @@
         "pitch": 1.7
       }
     ],
-    "subtitle": "subtitles.block.geodes.emerald_geode.chime"
+    "subtitle": "subtitles.block.geodes.emerald_crystal_block.chime"
   },
-  "block.geodes.quartz_geode.chime": {
+  "block.geodes.quartz_crystal_block.chime": {
     "sounds": [
       {
         "name": "block/amethyst/shimmer",
@@ -29,9 +29,9 @@
         "pitch": 0.5
       }
     ],
-    "subtitle": "subtitles.block.geodes.quartz_geode.chime"
+    "subtitle": "subtitles.block.geodes.quartz_crystal_block.chime"
   },
-  "block.geodes.diamond_geode.chime": {
+  "block.geodes.diamond_crystal_block.chime": {
     "sounds": [
       {
         "name": "block/amethyst/shimmer",
@@ -39,7 +39,7 @@
         "pitch": 1.4
       }
     ],
-    "subtitle": "subtitles.block.geodes.diamond_geode.chime"
+    "subtitle": "subtitles.block.geodes.diamond_crystal_block.chime"
   },
   "block.geodes.lapis_crystal_block.chime": {
     "sounds": [

@@ -12,25 +12,25 @@
   },
   "parent": "minecraft:adventure/root",
   "criteria": {
-    "collect_emerald_geode": {
+    "collect_emerald_crystal_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "geodes:emerald_geode"
+              "geodes:emerald_crystal_block"
             ]
           }
         ]
       }
     },
-    "collect_diamond_geode": {
+    "collect_diamond_crystal_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "geodes:diamond_geode"
+              "geodes:diamond_crystal_block"
             ]
           }
         ]
@@ -39,10 +39,10 @@
   },
   "requirements": [
     [
-      "collect_emerald_geode"
+      "collect_emerald_crystal_block"
     ],
     [
-      "collect_diamond_geode"
+      "collect_diamond_crystal_block"
     ]
   ],
   "rewards": {

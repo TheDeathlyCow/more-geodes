@@ -36,7 +36,7 @@ public class ModConfiguredFeatures {
                         new GeodeLayerConfig
                                 (
                                         SimpleBlockStateProvider.of(Blocks.AIR.getDefaultState()),
-                                        SimpleBlockStateProvider.of(ModBlocks.EMERALD_GEODE.getDefaultState()),
+                                        SimpleBlockStateProvider.of(ModBlocks.EMERALD_CRYSTAL_BLOCK.getDefaultState()),
                                         SimpleBlockStateProvider.of(ModBlocks.BUDDING_EMERALD.getDefaultState()),
                                         SimpleBlockStateProvider.of(Blocks.CALCITE.getDefaultState()),
                                         SimpleBlockStateProvider.of(Blocks.SMOOTH_BASALT.getDefaultState()),
@@ -59,7 +59,7 @@ public class ModConfiguredFeatures {
                         new GeodeLayerConfig
                                 (
                                         SimpleBlockStateProvider.of(Blocks.AIR.getDefaultState()),
-                                        SimpleBlockStateProvider.of(ModBlocks.QUARTZ_GEODE.getDefaultState()),
+                                        SimpleBlockStateProvider.of(ModBlocks.QUARTZ_CRYSTAL_BLOCK.getDefaultState()),
                                         SimpleBlockStateProvider.of(ModBlocks.BUDDING_QUARTZ.getDefaultState()),
                                         SimpleBlockStateProvider.of(Blocks.TUFF.getDefaultState()),
                                         SimpleBlockStateProvider.of(Blocks.SMOOTH_BASALT.getDefaultState()),
@@ -89,8 +89,8 @@ public class ModConfiguredFeatures {
                         new GeodeLayerConfig
                                 (
                                         SimpleBlockStateProvider.of(Blocks.WATER.getDefaultState()),
-                                        SimpleBlockStateProvider.of(ModBlocks.DIAMOND_GEODE.getDefaultState()),
-                                        SimpleBlockStateProvider.of(ModBlocks.DIAMOND_GEODE.getDefaultState()),
+                                        SimpleBlockStateProvider.of(ModBlocks.DIAMOND_CRYSTAL_BLOCK.getDefaultState()),
+                                        SimpleBlockStateProvider.of(ModBlocks.DIAMOND_CRYSTAL_BLOCK.getDefaultState()),
                                         middleLayer,
                                         SimpleBlockStateProvider.of(Blocks.SMOOTH_BASALT.getDefaultState()),
                                         List.of(ModBlocks.DIAMOND_CLUSTER.getDefaultState(), ModBlocks.DIAMOND_CLUSTER.getDefaultState()),

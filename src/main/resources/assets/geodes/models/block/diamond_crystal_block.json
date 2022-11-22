@@ -1,6 +1,6 @@
 {
 	"parent": "minecraft:block/cube_all",
 	"textures": {
-		"all": "geodes:block/diamond_geode"
+		"all": "geodes:block/diamond_crystal_block"
 	}
 }

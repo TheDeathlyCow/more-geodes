@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "geodes:emerald_from_stonecutting"
+      "geodes:quartz_crystal_block"
     ]
   },
   "criteria": {
-    "has_emerald_shard": {
+    "has_quartz": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "geodes:emerald_shard"
+              "minecraft:quartz"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "geodes:emerald_from_stonecutting"
+        "recipe": "geodes:quartz_crystal_block"
       }
     }
   },
   "requirements": [
     [
-      "has_emerald_shard",
+      "has_quartz",
       "has_the_recipe"
     ]
   ]
