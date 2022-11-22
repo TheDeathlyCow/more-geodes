@@ -2,7 +2,7 @@
 	"parent": "minecraft:recipes/root",
 	"rewards": {
 		"recipes": [
-			"geodes:echo_locator/echo"
+			"geodes:echo_locator"
 		]
 	},
 	"criteria": {
@@ -21,7 +21,7 @@
 		"has_the_recipe": {
 			"trigger": "minecraft:recipe_unlocked",
 			"conditions": {
-				"recipe": "geodes:echo_locator/echo"
+				"recipe": "geodes:echo_locator"
 			}
 		}
 	},

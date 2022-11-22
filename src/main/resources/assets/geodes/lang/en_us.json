@@ -34,6 +34,7 @@
     "block.geodes.large_echo_bud": "Large Echo Bud",
     "block.geodes.medium_echo_bud": "Medium Echo Bud",
     "block.geodes.small_echo_bud": "Small Echo Bud",
+    "block.geodes.echo_locator": "Echo Locator",
     "block.geodes.emerald_crystal_echo_locator": "Emerald Crystal Echo Locator",
     "block.geodes.quartz_crystal_echo_locator": "Quartz Crystal Echo Locator",
     "block.geodes.amethyst_crystal_echo_locator": "Amethyst Crystal Echo Locator",

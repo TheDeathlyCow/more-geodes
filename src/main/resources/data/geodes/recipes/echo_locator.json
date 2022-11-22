@@ -7,7 +7,7 @@
 	],
 	"key": {
 		"#": {
-			"item": "minecraft:diamond"
+			"tag": "geodes:crystals"
 		},
 		"E": {
 			"item": "minecraft:echo_shard"
@@ -17,6 +17,6 @@
 		}
 	},
 	"result": {
-		"item": "geodes:diamond_crystal_echo_locator"
+		"item": "geodes:amethyst_crystal_echo_locator"
 	}
 }

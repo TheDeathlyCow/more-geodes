@@ -15,6 +15,8 @@ public class ModBlockTags {
     public static final TagKey<Block> ECHO_LOCATABLE_DIAMOND = create("echo_locatable/diamond");
     public static final TagKey<Block> ECHO_LOCATABLE_ECHO = create("echo_locatable/echo");
 
+    public static final TagKey<Block> ECHO_LOCATABLE = create("echo_locatable");
+
     public static final TagKey<Block> CUSTOM_CRYSTAL_SOUND_BLOCKS = create("custom_crystal_sound_blocks");
 
     private static TagKey<Block> create(String id) {
