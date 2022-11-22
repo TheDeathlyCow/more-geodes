@@ -44,18 +44,7 @@ public class ModBlocks {
     public static final Block MEDIUM_LAPIS_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.LAPIS, 4, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.LAPIS_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.MEDIUM_LAPIS_BUD).strength(1.5f).luminance((blockState) -> 2));
     public static final Block SMALL_LAPIS_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.LAPIS, 3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.LAPIS_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.SMALL_LAPIS_BUD).strength(1.5f).luminance((blockState) -> 1));
 
-
-
     public static final Block ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.ALL, FabricBlockSettings.of(GeodeMaterials.ECHO_LOCATOR).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
-
-
-    public static final Block EMERALD_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.EMERALD_GEODE_LOCATOR, FabricBlockSettings.of(GeodeMaterials.ECHO_LOCATOR).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
-    public static final Block QUARTZ_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.QUARTZ_GEODE_LOCATOR, FabricBlockSettings.of(GeodeMaterials.ECHO_LOCATOR).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
-    public static final Block AMETHYST_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.AMETHYST_GEODE_LOCATOR, FabricBlockSettings.of(GeodeMaterials.ECHO_LOCATOR).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
-    public static final Block DIAMOND_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.DIAMOND_GEODE_LOCATOR, FabricBlockSettings.of(GeodeMaterials.ECHO_LOCATOR).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
-    public static final Block ECHO_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.ECHO_GEODE_LOCATOR, FabricBlockSettings.of(GeodeMaterials.ECHO_LOCATOR).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
-
-
 
     public static final GeodeBuddingBlock BUDDING_EMERALD = new GeodeBuddingBlock(
             CrystalBlockSoundGroup.EMERALD_GEODE,
@@ -137,11 +126,6 @@ public class ModBlocks {
         register("medium_echo_bud", MEDIUM_ECHO_BUD);
         register("small_echo_bud", SMALL_ECHO_BUD);
         register("echo_locator", ECHO_LOCATOR);
-        register("emerald_crystal_echo_locator", EMERALD_CRYSTAL_ECHO_LOCATOR);
-        register("quartz_crystal_echo_locator", QUARTZ_CRYSTAL_ECHO_LOCATOR);
-        register("amethyst_crystal_echo_locator", AMETHYST_CRYSTAL_ECHO_LOCATOR);
-        register("diamond_crystal_echo_locator", DIAMOND_CRYSTAL_ECHO_LOCATOR);
-        register("echo_crystal_echo_locator", ECHO_CRYSTAL_ECHO_LOCATOR);
         register("lapis_crystal_block", LAPIS_CRYSTAL_BLOCK);
         register("lapis_cluster", LAPIS_CLUSTER);
         register("large_lapis_bud", LARGE_LAPIS_BUD);

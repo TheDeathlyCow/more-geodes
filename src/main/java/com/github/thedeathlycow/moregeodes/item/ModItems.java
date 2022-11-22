@@ -56,12 +56,6 @@ public class ModItems {
 
     public static final Item ECHO_LOCATOR = new BlockItem(ModBlocks.ECHO_LOCATOR, new FabricItemSettings().group(ItemGroup.DECORATIONS).maxCount(1));
 
-    public static final Item EMERALD_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.EMERALD_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
-    public static final Item QUARTZ_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.QUARTZ_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
-    public static final Item AMETHYST_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.AMETHYST_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
-    public static final Item DIAMOND_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.DIAMOND_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
-    public static final Item ECHO_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.ECHO_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
-
     public static void registerItems() {
         register("pyrite_chunk", PYRITE_CHUNK);
         register("emerald_crystal_block", EMERALD_CRYSTAL_BLOCK);
@@ -85,11 +79,6 @@ public class ModItems {
         register("large_echo_bud", LARGE_ECHO_BUD);
         register("echo_cluster", ECHO_CLUSTER);
         register("echo_locator", ECHO_LOCATOR);
-        register("emerald_crystal_echo_locator", EMERALD_CRYSTAL_ECHO_LOCATOR);
-        register("quartz_crystal_echo_locator", QUARTZ_CRYSTAL_ECHO_LOCATOR);
-        register("amethyst_crystal_echo_locator", AMETHYST_CRYSTAL_ECHO_LOCATOR);
-        register("diamond_crystal_echo_locator", DIAMOND_CRYSTAL_ECHO_LOCATOR);
-        register("echo_crystal_echo_locator", ECHO_CRYSTAL_ECHO_LOCATOR);
         register("lapis_crystal_block", LAPIS_CRYSTAL_BLOCK);
         register("small_lapis_bud", SMALL_LAPIS_BUD);
         register("medium_lapis_bud", MEDIUM_LAPIS_BUD);
