@@ -4,46 +4,39 @@ import com.github.thedeathlycow.moregeodes.sounds.CrystalBlockSoundGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldView;
 
 import java.util.List;
 
-public class GypsumBuddingBlock extends GeodeBuddingBlock {
+public class EvaporativeBuddingBlock extends GeodeBuddingBlock {
 
     public static final IntProperty MOISTURE = Properties.MOISTURE;
-    public static final BooleanProperty HAS_EVAPORATED = GeodesBlockStateProperties.HAS_EVAPORATED;
     public static final int MAX_MOISTURE = 7;
 
-    public GypsumBuddingBlock(CrystalBlockSoundGroup hitSoundGroup, Settings settings, List<Block> clusters) {
+    public EvaporativeBuddingBlock(CrystalBlockSoundGroup hitSoundGroup, Settings settings, List<Block> clusters) {
         super(hitSoundGroup, settings, clusters);
         this.setDefaultState(
                 this.getDefaultState()
                         .with(MOISTURE, 0)
-                        .with(HAS_EVAPORATED, false)
         );
     }
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        super.randomTick(state, world, pos, random);
         this.updateMoisture(state, world, pos, random);
     }
 
     @Override
-    protected void growCrystalOnce(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (state.get(HAS_EVAPORATED)) {
-            super.growCrystalOnce(state, world, pos, random);
-            world.setBlockState(pos, state.with(HAS_EVAPORATED, false), Block.NOTIFY_LISTENERS);
-        }
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        super.appendProperties(builder);
+        builder.add(MOISTURE);
     }
 
     private void updateMoisture(BlockState state, ServerWorld world, BlockPos pos, Random random) {
@@ -54,24 +47,25 @@ public class GypsumBuddingBlock extends GeodeBuddingBlock {
             if (currentMoisture < MAX_MOISTURE) {
                 world.setBlockState(
                         pos,
-                        state.with(MOISTURE, currentMoisture + 1)
-                                .with(HAS_EVAPORATED, false),
+                        state.with(MOISTURE, currentMoisture + 1),
                         Block.NOTIFY_LISTENERS
                 );
             }
         } else {
             // decrease moisture
-            if (currentMoisture > 0 && random.nextInt(5) == 0) {
+            if (currentMoisture > 0) {
                 world.setBlockState(
                         pos,
-                        state.with(MOISTURE, currentMoisture - 1)
-                                .with(HAS_EVAPORATED, true),
+                        state.with(MOISTURE, currentMoisture - 1),
                         Block.NOTIFY_LISTENERS
                 );
+
+                if (random.nextInt(currentMoisture) == 0) {
+                    this.growCrystalOnce(state, world, pos, random);
+                }
             }
         }
     }
-
 
     private static boolean isNextToWater(WorldView world, BlockPos pos) {
         BlockPos.Mutable mutable = pos.mutableCopy();
