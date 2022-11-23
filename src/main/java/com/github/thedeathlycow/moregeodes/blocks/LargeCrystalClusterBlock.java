@@ -3,9 +3,12 @@ package com.github.thedeathlycow.moregeodes.blocks;
 import com.github.thedeathlycow.moregeodes.sounds.CrystalBlockSoundGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
@@ -16,6 +19,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldEvents;
 import net.minecraft.world.WorldView;
 
 public class LargeCrystalClusterBlock extends CrystalClusterBlock {
@@ -77,6 +81,21 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
         };
     }
 
+    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (!world.isClient) {
+            if (state.get(HALF) == DoubleBlockHalf.UPPER) {
+                BlockPos anchorPos = pos.offset(state.get(FACING).getOpposite());
+                BlockState anchorState = world.getBlockState(anchorPos);
+                if (anchorState.isOf(this) && anchorState.get(HALF) == DoubleBlockHalf.LOWER) {
+                    world.setBlockState(anchorPos, Blocks.AIR.getDefaultState(), Block.SKIP_DROPS | Block.NOTIFY_ALL);
+                    world.syncWorldEvent(player, WorldEvents.BLOCK_BROKEN, anchorPos, Block.getRawIdFromState(anchorState));
+                }
+            }
+        }
+
+        super.onBreak(world, pos, state, player);
+    }
+
     @SuppressWarnings("deprecation")
     public long getRenderingSeed(BlockState state, BlockPos pos) {
         return MathHelper.hashCode(
@@ -88,8 +107,9 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
 
     private boolean canPlaceUpper(BlockState state, WorldView world, BlockPos pos) {
         Direction direction = state.get(FACING);
-        BlockPos blockPos = pos.offset(direction.getOpposite());
-        BlockState anchorState = world.getBlockState(blockPos);
-        return anchorState.isOf(this) && anchorState.get(HALF) == DoubleBlockHalf.LOWER;
+        BlockPos anchorPos = pos.offset(direction.getOpposite());
+        BlockState anchorState = world.getBlockState(anchorPos);
+        return anchorState.isOf(this)
+                && anchorState.get(HALF) == DoubleBlockHalf.LOWER;
     }
 }
