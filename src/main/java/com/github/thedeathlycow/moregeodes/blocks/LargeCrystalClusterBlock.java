@@ -5,7 +5,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,10 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldEvents;
-import net.minecraft.world.WorldView;
+import net.minecraft.world.*;
 
 public class LargeCrystalClusterBlock extends CrystalClusterBlock {
 
@@ -79,6 +75,20 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
             case LOWER -> super.canPlaceAt(state, world, pos);
             case UPPER -> this.canPlaceUpper(state, world, pos);
         };
+    }
+
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction dirToNeighbour, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        DoubleBlockHalf half = state.get(HALF);
+
+        boolean shouldBreakBlock = half == DoubleBlockHalf.LOWER
+                && dirToNeighbour == state.get(FACING)
+                && (!neighborState.isOf(this) || neighborState.get(HALF) == half);
+
+        if (shouldBreakBlock) {
+            return Blocks.AIR.getDefaultState();
+        } else {
+            return super.getStateForNeighborUpdate(state, dirToNeighbour, neighborState, world, pos, neighborPos);
+        }
     }
 
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
