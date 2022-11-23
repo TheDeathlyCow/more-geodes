@@ -29,7 +29,6 @@ public class GeodeBuddingBlock extends CrystalBlock {
 
     public GeodeBuddingBlock(CrystalBlockSoundGroup hitSoundGroup, AbstractBlock.Settings settings, List<Block> clusters) {
         super(hitSoundGroup, settings);
-        assert clusters.size() > 0;
         this.clusters = clusters;
     }
 

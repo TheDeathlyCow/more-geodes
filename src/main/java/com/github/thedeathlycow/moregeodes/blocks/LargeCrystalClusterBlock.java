@@ -3,18 +3,21 @@ package com.github.thedeathlycow.moregeodes.blocks;
 import com.github.thedeathlycow.moregeodes.sounds.CrystalBlockSoundGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.GrassBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.enums.DoubleBlockHalf;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-public class GypsumClusterBlock extends CrystalClusterBlock {
+public class LargeCrystalClusterBlock extends CrystalClusterBlock {
 
     public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
 
@@ -25,15 +28,21 @@ public class GypsumClusterBlock extends CrystalClusterBlock {
     protected final VoxelShape lowerUpShape;
     protected final VoxelShape lowerDownShape;
 
-    public GypsumClusterBlock(CrystalBlockSoundGroup hitSoundGroup, int height, int xzOffset, Settings settings) {
+    public LargeCrystalClusterBlock(CrystalBlockSoundGroup hitSoundGroup, int height, int xzOffset, Settings settings) {
         super(hitSoundGroup, height, xzOffset, settings);
         this.setDefaultState(this.getDefaultState().with(HALF, DoubleBlockHalf.LOWER));
-        this.lowerUpShape = Block.createCuboidShape(xzOffset, 0.0, xzOffset, (16 - xzOffset), height, (16 - xzOffset));
-        this.lowerDownShape = Block.createCuboidShape(xzOffset, (16 - height), xzOffset, (16 - xzOffset), 16.0, (16 - xzOffset));
-        this.lowerNorthShape = Block.createCuboidShape(xzOffset, xzOffset, (16 - height), (16 - xzOffset), (16 - xzOffset), 16.0);
-        this.lowerSouthShape = Block.createCuboidShape(xzOffset, xzOffset, 0.0, (16 - xzOffset), (16 - xzOffset), height);
-        this.lowerEastShape = Block.createCuboidShape(0.0, xzOffset, xzOffset, height, (16 - xzOffset), (16 - xzOffset));
-        this.lowerWestShape = Block.createCuboidShape((16 - height), xzOffset, xzOffset, 16.0, (16 - xzOffset), (16 - xzOffset));
+//        height = 1;
+        this.lowerUpShape = Block.createCuboidShape(xzOffset, 0.0, xzOffset, (16 - xzOffset), 1, (16 - xzOffset));
+        this.lowerDownShape = Block.createCuboidShape(xzOffset, 15, xzOffset, (16 - xzOffset), 16.0, (16 - xzOffset));
+        this.lowerNorthShape = Block.createCuboidShape(xzOffset, xzOffset, 15, (16 - xzOffset), (16 - xzOffset), 16.0);
+        this.lowerSouthShape = Block.createCuboidShape(xzOffset, xzOffset, 0.0, (16 - xzOffset), (16 - xzOffset), 1);
+        this.lowerEastShape = Block.createCuboidShape(0.0, xzOffset, xzOffset, 1, (16 - xzOffset), (16 - xzOffset));
+        this.lowerWestShape = Block.createCuboidShape(15, xzOffset, xzOffset, 16.0, (16 - xzOffset), (16 - xzOffset));
+    }
+
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        super.appendProperties(builder);
+        builder.add(HALF);
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -50,6 +59,15 @@ public class GypsumClusterBlock extends CrystalClusterBlock {
                 case UP -> this.lowerUpShape;
             };
         }
+    }
+
+    public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
+        BlockPos blockPos = pos.offset(state.get(CrystalClusterBlock.FACING));
+        world.setBlockState(
+                blockPos,
+                state.with(HALF, DoubleBlockHalf.UPPER),
+                3
+        );
     }
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {

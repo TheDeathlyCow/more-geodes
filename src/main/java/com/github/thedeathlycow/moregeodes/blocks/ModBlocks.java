@@ -46,7 +46,7 @@ public class ModBlocks {
 
 
     public static final Block GYPSUM_CRYSTAL_BLOCK = new CrystalBlock(CrystalBlockSoundGroup.GYPSUM, FabricBlockSettings.of(Material.AMETHYST, MapColor.WHITE_GRAY).strength(1.3f).sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).requiresTool());
-
+    public static final Block GYPSUM_CLUSTER = new LargeCrystalClusterBlock(CrystalBlockSoundGroup.GYPSUM, 3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.WHITE_GRAY).strength(1.3f).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).luminance((blockState) -> 5));
 
     public static final Block ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.ALL, FabricBlockSettings.of(GeodeMaterials.ECHO_LOCATOR).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
 
@@ -83,11 +83,11 @@ public class ModBlocks {
             ImmutableList.of(SMALL_LAPIS_BUD, MEDIUM_LAPIS_BUD, LARGE_LAPIS_BUD, LAPIS_CLUSTER)
     );
 
-    public static final Block BUDDING_GYPSUM = new EvaporativeBuddingBlock(
-            CrystalBlockSoundGroup.GYPSUM,
-            FabricBlockSettings.of(Material.AMETHYST, MapColor.WHITE_GRAY).strength(1.3f).sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).requiresTool(),
-            ImmutableList.of()
-    );
+//    public static final Block BUDDING_GYPSUM = new EvaporativeBuddingBlock(
+//            CrystalBlockSoundGroup.GYPSUM,
+//            FabricBlockSettings.of(Material.AMETHYST, MapColor.WHITE_GRAY).strength(1.3f).sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).requiresTool(),
+//            ImmutableList.of()
+//    );
 
 
     public static final Block PYRITE = new Block(
@@ -165,6 +165,7 @@ public class ModBlocks {
         register("calcite_slab", CALCITE_SLAB);
         register("calcite_wall", CALCITE_WALL);
         register("gypsum_crystal_block", GYPSUM_CRYSTAL_BLOCK);
+        register("gypsum_cluster", GYPSUM_CLUSTER);
     }
 
     private static void register(String name, Block block) {
