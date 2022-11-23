@@ -5,11 +5,9 @@ import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -42,25 +40,7 @@ public class GeodeBuddingBlock extends CrystalBlock {
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (random.nextInt(5) == 0) { // modulate the speed of the budding growth
-            // the direction we want to try growing in
-            Direction directionToGrow = DIRECTIONS[random.nextInt(DIRECTIONS.length)];
-
-            // the position of the block to try growing in
-            BlockPos positionToGrow = pos.offset(directionToGrow);
-
-            // the current state of the block to try growing in
-            BlockState currentStateInGrow = world.getBlockState(positionToGrow);
-
-            // get an optional of the next bud to grow
-            Optional<Block> nextBud = getNextBlockForGrowth(currentStateInGrow, directionToGrow);
-
-            // set the next bud state if present
-            nextBud.ifPresent((nextGrowth) -> {
-                BlockState toSet = nextGrowth.getDefaultState()
-                        .with(CrystalClusterBlock.FACING, directionToGrow)
-                        .with(CrystalClusterBlock.WATERLOGGED, currentStateInGrow.getFluidState().getFluid() == Fluids.WATER);
-                world.setBlockState(positionToGrow, toSet);
-            });
+            this.growCrystalOnce(state, world, pos, random);
         }
     }
 
@@ -72,6 +52,28 @@ public class GeodeBuddingBlock extends CrystalBlock {
         return this.getClusters().stream()
                 .map((Block::getDefaultState))
                 .collect(Collectors.toList());
+    }
+
+    protected void growCrystalOnce(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        // the direction we want to try growing in
+        Direction directionToGrow = DIRECTIONS[random.nextInt(DIRECTIONS.length)];
+
+        // the position of the block to try growing in
+        BlockPos positionToGrow = pos.offset(directionToGrow);
+
+        // the current state of the block to try growing in
+        BlockState currentStateInGrow = world.getBlockState(positionToGrow);
+
+        // get an optional of the next bud to grow
+        Optional<Block> nextBud = getNextBlockForGrowth(currentStateInGrow, directionToGrow);
+
+        // set the next bud state if present
+        nextBud.ifPresent((nextGrowth) -> {
+            BlockState toSet = nextGrowth.getDefaultState()
+                    .with(CrystalClusterBlock.FACING, directionToGrow)
+                    .with(CrystalClusterBlock.WATERLOGGED, currentStateInGrow.getFluidState().getFluid() == Fluids.WATER);
+            world.setBlockState(positionToGrow, toSet);
+        });
     }
 
     private Optional<Block> getNextBlockForGrowth(BlockState currentState, Direction offsetFromSource) {
