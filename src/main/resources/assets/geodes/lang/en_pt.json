@@ -55,7 +55,7 @@
   "block.geodes.calcite_wall": "Wall o' Fool's quartz",
   "item.geodes.pyrite_chunk": "Pyrite Chunk",
   "block.geodes.gypsum_crystal_block": "Gypsum Crystal Block",
-  "block.geodes.gypsum_cluster": "Gypsum Cluster",
+  "block.geodes.gypsum_rose": "Gypsum Rose",
   "block.geodes.echo_locator": "Echo Locator",
   "subtitles.block.geodes.gypsum_crystal_block.chime": "Gypsum chimes"
 }

@@ -47,7 +47,11 @@ public class ModItems {
     public static final Item LAPIS_CLUSTER = new BlockItem(ModBlocks.LAPIS_CLUSTER, new FabricItemSettings().group(ItemGroup.DECORATIONS));
 
     public static final Item GYPSUM_CRYSTAL_BLOCK = new BlockItem(ModBlocks.GYPSUM_CRYSTAL_BLOCK, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item GYPSUM_CLUSTER = new BlockItem(ModBlocks.GYPSUM_CLUSTER, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final Item BUDDING_GYPSUM = new BlockItem(ModBlocks.BUDDING_GYPSUM, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final Item SMALL_GYPSUM_BUD = new BlockItem(ModBlocks.SMALL_GYPSUM_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final Item MEDIUM_GYPSUM_BUD = new BlockItem(ModBlocks.MEDIUM_GYPSUM_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final Item LARGE_GYPSUM_BUD = new BlockItem(ModBlocks.LARGE_GYPSUM_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final Item GYPSUM_ROSE = new BlockItem(ModBlocks.GYPSUM_ROSE, new FabricItemSettings().group(ItemGroup.DECORATIONS));
 
 
     public static final Item PYRITE = new BlockItem(ModBlocks.PYRITE, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
@@ -97,7 +101,11 @@ public class ModItems {
         register("lapis_cluster", LAPIS_CLUSTER);
         register("budding_lapis", BUDDING_LAPIS);
         register("gypsum_crystal_block", GYPSUM_CRYSTAL_BLOCK);
-        register("gypsum_cluster", GYPSUM_CLUSTER);
+        register("budding_gypsum", BUDDING_GYPSUM);
+        register("small_gypsum_bud", SMALL_GYPSUM_BUD);
+        register("medium_gypsum_bud", MEDIUM_GYPSUM_BUD);
+        register("large_gypsum_bud", LARGE_GYPSUM_BUD);
+        register("gypsum_rose", GYPSUM_ROSE);
         register("echo_locator", ECHO_LOCATOR);
         register("emerald_crystal_echo_locator", EMERALD_CRYSTAL_ECHO_LOCATOR);
         register("quartz_crystal_echo_locator", QUARTZ_CRYSTAL_ECHO_LOCATOR);
