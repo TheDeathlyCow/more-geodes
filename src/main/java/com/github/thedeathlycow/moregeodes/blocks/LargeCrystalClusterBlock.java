@@ -12,6 +12,7 @@ import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -74,6 +75,15 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
             case LOWER -> super.canPlaceAt(state, world, pos);
             case UPPER -> this.canPlaceUpper(state, world, pos);
         };
+    }
+
+    @SuppressWarnings("deprecation")
+    public long getRenderingSeed(BlockState state, BlockPos pos) {
+        return MathHelper.hashCode(
+                pos.getX(),
+                pos.down(state.get(HALF) == DoubleBlockHalf.LOWER ? 0 : 1).getY(),
+                pos.getZ()
+        );
     }
 
     private boolean canPlaceUpper(BlockState state, WorldView world, BlockPos pos) {
