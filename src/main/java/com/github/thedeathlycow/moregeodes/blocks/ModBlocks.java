@@ -46,7 +46,7 @@ public class ModBlocks {
 
 
     public static final Block GYPSUM_CRYSTAL_BLOCK = new CrystalBlock(CrystalBlockSoundGroup.GYPSUM, FabricBlockSettings.of(Material.AMETHYST, MapColor.WHITE_GRAY).strength(1.3f).sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).requiresTool());
-    public static final Block GYPSUM_CLUSTER = new LargeCrystalClusterBlock(CrystalBlockSoundGroup.GYPSUM, 3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.WHITE_GRAY).strength(1.3f).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).luminance((blockState) -> 5));
+    public static final Block GYPSUM_CLUSTER = new LargeCrystalClusterBlock(CrystalBlockSoundGroup.GYPSUM, 7, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.WHITE_GRAY).strength(1.3f).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).luminance((blockState) -> 5));
 
     public static final Block ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.ALL, FabricBlockSettings.of(GeodeMaterials.ECHO_LOCATOR).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
 

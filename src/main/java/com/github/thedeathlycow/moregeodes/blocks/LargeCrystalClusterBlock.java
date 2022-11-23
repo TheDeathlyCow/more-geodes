@@ -31,13 +31,13 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
     public LargeCrystalClusterBlock(CrystalBlockSoundGroup hitSoundGroup, int height, int xzOffset, Settings settings) {
         super(hitSoundGroup, height, xzOffset, settings);
         this.setDefaultState(this.getDefaultState().with(HALF, DoubleBlockHalf.LOWER));
-//        height = 1;
-        this.lowerUpShape = Block.createCuboidShape(xzOffset, 0.0, xzOffset, (16 - xzOffset), 1, (16 - xzOffset));
-        this.lowerDownShape = Block.createCuboidShape(xzOffset, 15, xzOffset, (16 - xzOffset), 16.0, (16 - xzOffset));
-        this.lowerNorthShape = Block.createCuboidShape(xzOffset, xzOffset, 15, (16 - xzOffset), (16 - xzOffset), 16.0);
-        this.lowerSouthShape = Block.createCuboidShape(xzOffset, xzOffset, 0.0, (16 - xzOffset), (16 - xzOffset), 1);
-        this.lowerEastShape = Block.createCuboidShape(0.0, xzOffset, xzOffset, 1, (16 - xzOffset), (16 - xzOffset));
-        this.lowerWestShape = Block.createCuboidShape(15, xzOffset, xzOffset, 16.0, (16 - xzOffset), (16 - xzOffset));
+        height = 16; // imagine reassigning params lol
+        this.lowerUpShape = Block.createCuboidShape(xzOffset, 0.0, xzOffset, (16 - xzOffset), height, (16 - xzOffset));
+        this.lowerDownShape = Block.createCuboidShape(xzOffset, (16 - height), xzOffset, (16 - xzOffset), 16.0, (16 - xzOffset));
+        this.lowerNorthShape = Block.createCuboidShape(xzOffset, xzOffset, (16 - height), (16 - xzOffset), (16 - xzOffset), 16.0);
+        this.lowerSouthShape = Block.createCuboidShape(xzOffset, xzOffset, 0.0, (16 - xzOffset), (16 - xzOffset), height);
+        this.lowerEastShape = Block.createCuboidShape(0.0, xzOffset, xzOffset, height, (16 - xzOffset), (16 - xzOffset));
+        this.lowerWestShape = Block.createCuboidShape((16 - height), xzOffset, xzOffset, 16.0, (16 - xzOffset), (16 - xzOffset));
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
@@ -49,8 +49,7 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
         if (state.get(HALF) == DoubleBlockHalf.UPPER) {
             return super.getOutlineShape(state, world, pos, context);
         } else {
-            Direction direction = state.get(FACING);
-            return switch (direction) {
+            return switch (state.get(FACING)) {
                 case NORTH -> this.lowerNorthShape;
                 case SOUTH -> this.lowerSouthShape;
                 case EAST -> this.lowerEastShape;
