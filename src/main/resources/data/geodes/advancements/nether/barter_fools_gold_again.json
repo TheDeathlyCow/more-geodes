@@ -19,22 +19,9 @@
 		"throw_fools_gold_to_piglin_with_advancement": {
 			"trigger": "minecraft:thrown_item_picked_up_by_entity",
 			"conditions": {
-				"player": [
-					{
-						"condition": "minecraft:entity_properties",
-						"entity": "this",
-						"predicate": {
-							"type_specific": {
-								"type": "player",
-								"advancements": {
-									"geodes:nether/barter_fools_gold": true
-								}
-							}
-						}
-					}
-				],
 				"entity": {
-					"type": "minecraft:piglin"
+					"type": "minecraft:piglin",
+					"nbt": "{geodes:{RemembersFoolsGold:1b}}"
 				},
 				"item": {
 					"tag": "geodes:fools_gold"

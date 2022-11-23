@@ -40,6 +40,7 @@ public abstract class FoolsGoldBarterPiglinBrainMixin {
             )
     )
     private static void piglinsRememberFoolsGold(PiglinEntity piglin, ItemEntity drop, CallbackInfo ci) {
+        // TODO: this breaks regular bartering lol
         if (((FoolsGoldBarterer) piglin).geodes$remembersFoolsGold()) {
             piglin.getBrain().forget(MemoryModuleType.ADMIRING_ITEM);
             angerAtNearbyPlayers(piglin);

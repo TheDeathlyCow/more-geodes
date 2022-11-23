@@ -49,7 +49,7 @@
     "advancement.geodes.nether.barter_fools_gold.title": "Fool Me Once",
     "advancement.geodes.nether.barter_fools_gold.description": "Try to distract a Piglin with Pyrite",
     "advancement.geodes.nether.barter_fools_gold_again.title": "Fool Me Twice",
-    "advancement.geodes.nether.barter_fools_gold_again.description": "Try to distract a Piglin with Pyrite... again!",
+    "advancement.geodes.nether.barter_fools_gold_again.description": "Try to distract a the same Piglin with Pyrite... again!",
     "subtitles.block.geodes.echo_locator.resonate": "Crystal resonates",
     "subtitles.block.geodes.echo_locator.use": "Echo locator humms",
     "subtitles.block.geodes.echo_block.chime": "Echo echos",
