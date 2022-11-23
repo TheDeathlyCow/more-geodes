@@ -54,5 +54,6 @@
     "subtitles.block.geodes.emerald_geode.chime": "Emerald chimes",
     "subtitles.block.geodes.quartz_geode.chime": "Quartz chimes",
     "subtitles.block.geodes.diamond_geode.chime": "Diamond chimes",
-    "subtitles.block.geodes.lapis_crystal_block.chime": "Lapis lazuli chimes"
+    "subtitles.block.geodes.lapis_crystal_block.chime": "Lapis lazuli chimes",
+    "subtitles.block.geodes.gypsum_crystal_block.chime": "Gypsum chimes"
 }

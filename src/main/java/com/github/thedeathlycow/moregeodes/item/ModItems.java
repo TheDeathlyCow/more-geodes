@@ -46,6 +46,9 @@ public class ModItems {
     public static final Item LARGE_LAPIS_BUD = new BlockItem(ModBlocks.LARGE_LAPIS_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
     public static final Item LAPIS_CLUSTER = new BlockItem(ModBlocks.LAPIS_CLUSTER, new FabricItemSettings().group(ItemGroup.DECORATIONS));
 
+    public static final Item GYPSUM_CRYSTAL_BLOCK = new BlockItem(ModBlocks.GYPSUM_CRYSTAL_BLOCK, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
+
+
     public static final Item PYRITE = new BlockItem(ModBlocks.PYRITE, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
     public static final Item PYRITE_STAIRS = new BlockItem(ModBlocks.PYRITE_STAIRS, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
     public static final Item PYRITE_SLAB = new BlockItem(ModBlocks.PYRITE_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
@@ -86,18 +89,19 @@ public class ModItems {
         register("medium_echo_bud", MEDIUM_ECHO_BUD);
         register("large_echo_bud", LARGE_ECHO_BUD);
         register("echo_cluster", ECHO_CLUSTER);
-        register("echo_locator", ECHO_LOCATOR);
-        register("emerald_crystal_echo_locator", EMERALD_CRYSTAL_ECHO_LOCATOR);
-        register("quartz_crystal_echo_locator", QUARTZ_CRYSTAL_ECHO_LOCATOR);
-        register("amethyst_crystal_echo_locator", AMETHYST_CRYSTAL_ECHO_LOCATOR);
-        register("diamond_crystal_echo_locator", DIAMOND_CRYSTAL_ECHO_LOCATOR);
-        register("echo_crystal_echo_locator", ECHO_CRYSTAL_ECHO_LOCATOR);
         register("lapis_crystal_block", LAPIS_CRYSTAL_BLOCK);
         register("small_lapis_bud", SMALL_LAPIS_BUD);
         register("medium_lapis_bud", MEDIUM_LAPIS_BUD);
         register("large_lapis_bud", LARGE_LAPIS_BUD);
         register("lapis_cluster", LAPIS_CLUSTER);
         register("budding_lapis", BUDDING_LAPIS);
+        register("gypsum_crystal_block", GYPSUM_CRYSTAL_BLOCK);
+        register("echo_locator", ECHO_LOCATOR);
+        register("emerald_crystal_echo_locator", EMERALD_CRYSTAL_ECHO_LOCATOR);
+        register("quartz_crystal_echo_locator", QUARTZ_CRYSTAL_ECHO_LOCATOR);
+        register("amethyst_crystal_echo_locator", AMETHYST_CRYSTAL_ECHO_LOCATOR);
+        register("diamond_crystal_echo_locator", DIAMOND_CRYSTAL_ECHO_LOCATOR);
+        register("echo_crystal_echo_locator", ECHO_CRYSTAL_ECHO_LOCATOR);
         register("pyrite", PYRITE);
         register("pyrite_stairs", PYRITE_STAIRS);
         register("pyrite_slab", PYRITE_SLAB);
