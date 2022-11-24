@@ -1,17 +1,17 @@
 package com.github.thedeathlycow.moregeodes.blocks;
 
 import com.github.thedeathlycow.moregeodes.sounds.CrystalBlockSoundGroup;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.item.*;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
@@ -72,7 +72,7 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         return switch (state.get(HALF)) {
-            case LOWER -> super.canPlaceAt(state, world, pos);
+            case LOWER -> this.canPlaceLower(state, world, pos);
             case UPPER -> this.canPlaceUpper(state, world, pos);
         };
     }
@@ -102,7 +102,6 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
                 }
             }
         }
-
         super.onBreak(world, pos, state, player);
     }
 
@@ -113,6 +112,12 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
                 pos.down(state.get(HALF) == DoubleBlockHalf.LOWER ? 0 : 1).getY(),
                 pos.getZ()
         );
+    }
+
+    private boolean canPlaceLower(BlockState state, WorldView world, BlockPos pos) {
+        BlockPos headPos = pos.offset(state.get(FACING));
+        BlockState headState = world.getBlockState(headPos);
+        return (headState.isAir() || headState.isOf(Blocks.WATER)) && super.canPlaceAt(state, world, pos);
     }
 
     private boolean canPlaceUpper(BlockState state, WorldView world, BlockPos pos) {
