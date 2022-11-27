@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "geodes:block/lapis_cluster"
+    "cross": "geodes:block/gypsum_rose_base"
   }
 }

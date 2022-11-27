@@ -35,7 +35,11 @@
     "block.geodes.medium_echo_bud": "Medium Echo Bud",
     "block.geodes.small_echo_bud": "Small Echo Bud",
     "block.geodes.gypsum_crystal_block": "Gypsum Crystal Block",
+    "block.geodes.budding_gypsum": "Budding Gypsum",
     "block.geodes.gypsum_rose": "Gypsum Rose",
+    "block.geodes.large_gypsum_bud": "Large Gypsum Bud",
+    "block.geodes.medium_gypsum_bud": "Medium Gypsum Bud",
+    "block.geodes.small_gypsum_bud": "Small Gypsum Bud",
     "block.geodes.echo_locator": "Echo Locator",
     "block.geodes.emerald_crystal_echo_locator": "Emerald Crystal Echo Locator",
     "block.geodes.quartz_crystal_echo_locator": "Quartz Crystal Echo Locator",
@@ -53,9 +57,9 @@
     "subtitles.block.geodes.echo_locator.resonate": "Crystal resonates",
     "subtitles.block.geodes.echo_locator.use": "Echo locator humms",
     "subtitles.block.geodes.echo_block.chime": "Echo echos",
-    "subtitles.block.geodes.emerald_geode.chime": "Emerald chimes",
-    "subtitles.block.geodes.quartz_geode.chime": "Quartz chimes",
-    "subtitles.block.geodes.diamond_geode.chime": "Diamond chimes",
-    "subtitles.block.geodes.lapis_crystal_block.chime": "Lapis lazuli chimes",
-    "subtitles.block.geodes.gypsum_crystal_block.chime": "Gypsum chimes"
+    "subtitles.block.geodes.emerald_geode.chime": "Emerald jingles",
+    "subtitles.block.geodes.quartz_geode.chime": "Quartz humms",
+    "subtitles.block.geodes.diamond_geode.chime": "Diamond sparkles",
+    "subtitles.block.geodes.lapis_crystal_block.chime": "Lapis lazuli clinks",
+    "subtitles.block.geodes.gypsum_crystal_block.chime": "Gypsum clinks"
 }
