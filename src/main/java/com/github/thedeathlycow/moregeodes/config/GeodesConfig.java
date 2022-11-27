@@ -22,6 +22,7 @@ public final class GeodesConfig {
     private static final String generateDiamondGeodes = "generate_diamond_geodes";
     private static final String generateEchoGeodes = "generate_echo_geodes";
     private static final String generateLapisGeodes = "generate_lapis_geodes";
+    private static final String generateGypsumPatches = "generate_gypsum_patches";
 
     private Properties properties;
     private final Properties defaultProperties = new Properties();
@@ -47,6 +48,10 @@ public final class GeodesConfig {
 
     public boolean generateLapisGeodes() {
         return Boolean.parseBoolean(properties.getProperty(generateLapisGeodes));
+    }
+
+    public boolean generateGypsumPatches() {
+        return Boolean.parseBoolean(properties.getProperty(generateGypsumPatches));
     }
 
     public void loadConfig() {

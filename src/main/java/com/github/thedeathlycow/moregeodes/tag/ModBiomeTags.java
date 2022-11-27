@@ -13,6 +13,8 @@ public class ModBiomeTags {
     public static final TagKey<Biome> HAS_DIAMOND_GEODE = of("has_diamond_geode");
     public static final TagKey<Biome> HAS_ECHO_GEODE = of("has_echo_geode");
     public static final TagKey<Biome> HAS_LAPIS_GEODE = of("has_lapis_geode");
+    public static final TagKey<Biome> HAS_GYPSUM_PATCH = of("has_gypsum_patch");
+
 
 
     private static TagKey<Biome> of(String id) {

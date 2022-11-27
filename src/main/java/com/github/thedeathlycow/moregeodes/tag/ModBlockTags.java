@@ -19,6 +19,8 @@ public class ModBlockTags {
 
     public static final TagKey<Block> CUSTOM_CRYSTAL_SOUND_BLOCKS = create("custom_crystal_sound_blocks");
 
+    public static final TagKey<Block> GYPSUM_PATCH_REPLACEABLE = create("gypsum_patch_replaceable");
+
     private static TagKey<Block> create(String id) {
         return TagKey.of(Registry.BLOCK_KEY, new Identifier(MoreGeodes.MODID, id));
     }

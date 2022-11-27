@@ -46,13 +46,32 @@ public class ModFeatures {
                 ModPlacedFeatures.LAPIS_GEODE,
                 MoreGeodes.CONFIG::generateLapisGeodes
         );
+        addGeodeToBiomes(
+                BiomeSelectors.tag(ModBiomeTags.HAS_GYPSUM_PATCH),
+                ModPlacedFeatures.GYPSUM_PATCH,
+                MoreGeodes.CONFIG::generateGypsumPatches,
+                GenerationStep.Feature.VEGETAL_DECORATION
+        );
     }
 
-    private static void addGeodeToBiomes(Predicate<BiomeSelectionContext> biomeSelector, RegistryEntry<PlacedFeature> geode, ConfigProvider configProvider) {
+    private static void addGeodeToBiomes(
+            Predicate<BiomeSelectionContext> biomeSelector,
+            RegistryEntry<PlacedFeature> geode,
+            ConfigProvider configProvider
+    ) {
+        addGeodeToBiomes(biomeSelector, geode, configProvider, GenerationStep.Feature.UNDERGROUND_DECORATION);
+    }
+
+    private static void addGeodeToBiomes(
+            Predicate<BiomeSelectionContext> biomeSelector,
+            RegistryEntry<PlacedFeature> geode,
+            ConfigProvider configProvider,
+            GenerationStep.Feature step
+    ) {
         if (configProvider.shouldGenerateGeode()) {
             BiomeModifications.addFeature(
                     biomeSelector,
-                    GenerationStep.Feature.UNDERGROUND_DECORATION,
+                    step,
                     Objects.requireNonNull(geode.getKey().orElse(null))
             );
         }
