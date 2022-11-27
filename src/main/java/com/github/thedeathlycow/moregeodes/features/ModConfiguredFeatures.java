@@ -2,10 +2,12 @@ package com.github.thedeathlycow.moregeodes.features;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.blocks.CrystalClusterBlock;
+import com.github.thedeathlycow.moregeodes.blocks.LargeCrystalClusterBlock;
 import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
 import com.github.thedeathlycow.moregeodes.tag.ModBlockTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
@@ -166,11 +168,13 @@ public class ModConfiguredFeatures {
                                 new DataPool.Builder<BlockState>()
                                         .add(
                                                 ModBlocks.GYPSUM_ROSE.getDefaultState()
+                                                        .with(LargeCrystalClusterBlock.HALF, DoubleBlockHalf.LOWER)
                                                         .with(CrystalClusterBlock.FACING, Direction.UP),
                                                 1
                                         )
                                         .add(
                                                 ModBlocks.LARGE_GYPSUM_BUD.getDefaultState()
+                                                        .with(LargeCrystalClusterBlock.HALF, DoubleBlockHalf.LOWER)
                                                         .with(CrystalClusterBlock.FACING, Direction.UP),
                                                 1
                                         )

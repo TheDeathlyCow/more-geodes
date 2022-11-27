@@ -5,13 +5,10 @@ import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
@@ -39,6 +36,20 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
         this.lowerSouthShape = Block.createCuboidShape(xzOffset, xzOffset, 0.0, (16 - xzOffset), (16 - xzOffset), height);
         this.lowerEastShape = Block.createCuboidShape(0.0, xzOffset, xzOffset, height, (16 - xzOffset), (16 - xzOffset));
         this.lowerWestShape = Block.createCuboidShape((16 - height), xzOffset, xzOffset, 16.0, (16 - xzOffset), (16 - xzOffset));
+    }
+
+    public static void placeAt(WorldAccess world, BlockState state, BlockPos pos, int flags) {
+        BlockPos headPos = pos.offset(state.get(FACING));
+        world.setBlockState(
+                pos,
+                TallPlantBlock.withWaterloggedState(world, pos, state.with(HALF, DoubleBlockHalf.LOWER)),
+                flags
+        );
+        world.setBlockState(
+                headPos,
+                TallPlantBlock.withWaterloggedState(world, headPos, state.with(HALF, DoubleBlockHalf.UPPER)),
+                flags
+        );
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
