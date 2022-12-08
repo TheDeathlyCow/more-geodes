@@ -1,0 +1,56 @@
+{
+	"variants": {
+		"half=upper,facing=down": {
+			"model": "geodes:block/gypsum_rose",
+			"x": 180
+		},
+		"half=upper,facing=east": {
+			"model": "geodes:block/gypsum_rose",
+			"x": 90,
+			"y": 90
+		},
+		"half=upper,facing=north": {
+			"model": "geodes:block/gypsum_rose",
+			"x": 90
+		},
+		"half=upper,facing=south": {
+			"model": "geodes:block/gypsum_rose",
+			"x": 90,
+			"y": 180
+		},
+		"half=upper,facing=up": {
+			"model": "geodes:block/gypsum_rose"
+		},
+		"half=upper,facing=west": {
+			"model": "geodes:block/gypsum_rose",
+			"x": 90,
+			"y": 270
+		},
+		"half=lower,facing=down": {
+			"model": "geodes:block/gypsum_rose_base",
+			"x": 180
+		},
+		"half=lower,facing=east": {
+			"model": "geodes:block/gypsum_rose_base",
+			"x": 90,
+			"y": 90
+		},
+		"half=lower,facing=north": {
+			"model": "geodes:block/gypsum_rose_base",
+			"x": 90
+		},
+		"half=lower,facing=south": {
+			"model": "geodes:block/gypsum_rose_base",
+			"x": 90,
+			"y": 180
+		},
+		"half=lower,facing=up": {
+			"model": "geodes:block/gypsum_rose_base"
+		},
+		"half=lower,facing=west": {
+			"model": "geodes:block/gypsum_rose_base",
+			"x": 90,
+			"y": 270
+		}
+	}
+}

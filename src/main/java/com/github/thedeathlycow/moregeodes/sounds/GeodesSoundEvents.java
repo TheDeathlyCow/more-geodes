@@ -13,6 +13,8 @@ public class GeodesSoundEvents {
     public static final SoundEvent BLOCK_EMERALD_GEODE_CHIME = GeodesSoundEvents.of("block.geodes.emerald_geode.chime");
     public static final SoundEvent BLOCK_QUARTZ_GEODE_CHIME = GeodesSoundEvents.of("block.geodes.quartz_geode.chime");
     public static final SoundEvent BLOCK_DIAMOND_GEODE_CHIME = GeodesSoundEvents.of("block.geodes.diamond_geode.chime");
+    public static final SoundEvent BLOCK_LAPIS_CRYSTAL_BLOCK_CHIME = GeodesSoundEvents.of("block.geodes.lapis_crystal_block.chime");
+    public static final SoundEvent BLOCK_GYPSUM_CRYSTAL_BLOCK_CHIME = GeodesSoundEvents.of("block.geodes.gypsum_crystal_block.chime");
 
 
     public static final SoundEvent BLOCK_ECHO_BLOCK_BREAK = GeodesSoundEvents.of("block.geodes.echo_block.break");

@@ -4,12 +4,10 @@ import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.placementmodifier.BiomePlacementModifier;
-import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
-import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
-import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
+import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
 
@@ -19,6 +17,9 @@ public class ModPlacedFeatures {
     public static final RegistryEntry<PlacedFeature> QUARTZ_GEODE;
     public static final RegistryEntry<PlacedFeature> DIAMOND_GEODE;
     public static final RegistryEntry<PlacedFeature> ECHO_GEODE;
+
+    public static final RegistryEntry<PlacedFeature> LAPIS_GEODE;
+    public static final RegistryEntry<PlacedFeature> GYPSUM_PATCH;
 
     private static RegistryEntry<PlacedFeature> register(String id, PlacedFeature placedFeature) {
         return BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(MoreGeodes.MODID, id), placedFeature);
@@ -53,5 +54,21 @@ public class ModPlacedFeatures {
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(6), YOffset.fixed(32)),
                         BiomePlacementModifier.of()
                 )));
+        LAPIS_GEODE = register("lapis_geode", new PlacedFeature(ModConfiguredFeatures.LAPIS_GEODE,
+                List.of(
+                        RarityFilterPlacementModifier.of(24),
+                        SquarePlacementModifier.of(),
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(6), YOffset.fixed(32)),
+                        BiomePlacementModifier.of()
+                )));
+        GYPSUM_PATCH = register("gypsum_patch", new PlacedFeature(
+                ModConfiguredFeatures.GYPSUM_PATCH,
+                List.of(
+                        RarityFilterPlacementModifier.of(42),
+                        SquarePlacementModifier.of(),
+                        HeightmapPlacementModifier.of(Heightmap.Type.WORLD_SURFACE),
+                        BiomePlacementModifier.of()
+                )
+        ));
     }
 }

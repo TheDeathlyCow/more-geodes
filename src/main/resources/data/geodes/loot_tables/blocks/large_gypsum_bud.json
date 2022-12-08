@@ -1,0 +1,87 @@
+{
+	"type": "minecraft:block",
+	"pools": [
+		{
+			"rolls": 1,
+			"bonus_rolls": 0,
+			"entries": [
+				{
+					"type": "minecraft:alternatives",
+					"children": [
+						{
+							"type": "minecraft:item",
+							"conditions": [
+								{
+									"condition": "minecraft:match_tool",
+									"predicate": {
+										"enchantments": [
+											{
+												"enchantment": "minecraft:silk_touch",
+												"levels": {
+													"min": 1
+												}
+											}
+										]
+									}
+								}
+							],
+							"name": "geodes:large_gypsum_bud"
+						},
+						{
+							"type": "minecraft:alternatives",
+							"children": [
+								{
+									"type": "minecraft:item",
+									"name": "geodes:gypsum_shard",
+									"conditions": [
+										{
+											"condition": "minecraft:match_tool",
+											"predicate": {
+												"tag": "minecraft:cluster_max_harvestables"
+											}
+										}
+									],
+									"functions": [
+										{
+											"function": "minecraft:set_count",
+											"count": 2,
+											"add": false
+										},
+										{
+											"function": "minecraft:apply_bonus",
+											"enchantment": "minecraft:fortune",
+											"formula": "minecraft:ore_drops"
+										}
+									]
+								},
+								{
+									"type": "minecraft:item",
+									"name": "geodes:gypsum_shard",
+									"functions": [
+										{
+											"function": "minecraft:set_count",
+											"count": 2,
+											"add": false
+										},
+										{
+											"function": "minecraft:explosion_decay"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"conditions": [
+				{
+					"condition": "minecraft:block_state_property",
+					"block": "geodes:large_gypsum_bud",
+					"properties": {
+						"half": "lower"
+					}
+				}
+			]
+		}
+	]
+}

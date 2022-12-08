@@ -1,0 +1,38 @@
+{
+  "variants": {
+    "facing=up,axis=x": {
+      "model": "geodes:block/echo_locator"
+    },
+    "facing=up,axis=z": {
+      "y": 90,
+      "model": "geodes:block/echo_locator"
+    },
+    "facing=down,axis=x": {
+      "x": 180,
+      "model": "geodes:block/echo_locator"
+    },
+    "facing=down,axis=z": {
+      "x": 180,
+      "y": 90,
+      "model": "geodes:block/echo_locator"
+    },
+    "facing=north": {
+      "x": 90,
+      "model": "geodes:block/echo_locator"
+    },
+    "facing=south": {
+      "x": 270,
+      "model": "geodes:block/echo_locator"
+    },
+    "facing=west": {
+      "x": 270,
+      "y": 90,
+      "model": "geodes:block/echo_locator"
+    },
+    "facing=east": {
+      "x": 90,
+      "y": 90,
+      "model": "geodes:block/echo_locator"
+    }
+  }
+}

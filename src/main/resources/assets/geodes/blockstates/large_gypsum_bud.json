@@ -1,0 +1,56 @@
+{
+	"variants": {
+		"half=upper,facing=down": {
+			"model": "geodes:block/large_gypsum_bud",
+			"x": 180
+		},
+		"half=upper,facing=east": {
+			"model": "geodes:block/large_gypsum_bud",
+			"x": 90,
+			"y": 90
+		},
+		"half=upper,facing=north": {
+			"model": "geodes:block/large_gypsum_bud",
+			"x": 90
+		},
+		"half=upper,facing=south": {
+			"model": "geodes:block/large_gypsum_bud",
+			"x": 90,
+			"y": 180
+		},
+		"half=upper,facing=up": {
+			"model": "geodes:block/large_gypsum_bud"
+		},
+		"half=upper,facing=west": {
+			"model": "geodes:block/large_gypsum_bud",
+			"x": 90,
+			"y": 270
+		},
+		"half=lower,facing=down": {
+			"model": "geodes:block/large_gypsum_bud_base",
+			"x": 180
+		},
+		"half=lower,facing=east": {
+			"model": "geodes:block/large_gypsum_bud_base",
+			"x": 90,
+			"y": 90
+		},
+		"half=lower,facing=north": {
+			"model": "geodes:block/large_gypsum_bud_base",
+			"x": 90
+		},
+		"half=lower,facing=south": {
+			"model": "geodes:block/large_gypsum_bud_base",
+			"x": 90,
+			"y": 180
+		},
+		"half=lower,facing=up": {
+			"model": "geodes:block/large_gypsum_bud_base"
+		},
+		"half=lower,facing=west": {
+			"model": "geodes:block/large_gypsum_bud_base",
+			"x": 90,
+			"y": 270
+		}
+	}
+}

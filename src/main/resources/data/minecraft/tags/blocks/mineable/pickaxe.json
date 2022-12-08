@@ -21,6 +21,22 @@
     "geodes:large_echo_bud",
     "geodes:medium_echo_bud",
     "geodes:small_echo_bud",
-    "#geodes:echo_locators"
+    "#geodes:echo_locators",
+    "geodes:lapis_crystal_block",
+    "geodes:budding_lapis",
+    "geodes:lapis_cluster",
+    "geodes:large_lapis_bud",
+    "geodes:medium_lapis_bud",
+    "geodes:small_lapis_bud",
+    "#geodes:pyrite",
+    "geodes:calcite_slab",
+    "geodes:calcite_stairs",
+    "geodes:calcite_wall",
+    "geodes:gypsum_crystal_block",
+    "geodes:budding_gypsum",
+    "geodes:gypsum_rose",
+    "geodes:large_gypsum_bud",
+    "geodes:medium_gypsum_bud",
+    "geodes:small_gypsum_bud"
   ]
 }

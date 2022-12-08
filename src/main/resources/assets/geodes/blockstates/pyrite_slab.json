@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "geodes:block/pyrite_slab"
+    },
+    "type=double": {
+      "model": "geodes:block/pyrite"
+    },
+    "type=top": {
+      "model": "geodes:block/pyrite_slab_top"
+    }
+  }
+}

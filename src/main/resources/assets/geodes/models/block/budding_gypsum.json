@@ -1,0 +1,12 @@
+{
+    "parent": "minecraft:block/cube",
+    "textures": {
+        "down": "geodes:block/gypsum_crystal_block",
+        "east": "geodes:block/gypsum_crystal_block",
+        "north": "geodes:block/gypsum_crystal_block",
+        "particle": "geodes:block/gypsum_crystal_block",
+        "south": "geodes:block/gypsum_crystal_block",
+        "up": "geodes:block/budding_gypsum",
+        "west": "geodes:block/gypsum_crystal_block"
+    }
+}

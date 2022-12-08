@@ -7,6 +7,10 @@
 		"geodes:budding_quartz",
 		"geodes:diamond_geode",
 		"geodes:echo_block",
-		"geodes:budding_echo_block"
+		"geodes:budding_echo_block",
+		"geodes:lapis_crystal_block",
+		"geodes:budding_lapis",
+		"geodes:gypsum_crystal_block",
+		"geodes:budding_gypsum"
 	]
 }

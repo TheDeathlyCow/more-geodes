@@ -16,7 +16,8 @@ public class ModBlockEntities {
                             ModBlocks.QUARTZ_CRYSTAL_ECHO_LOCATOR,
                             ModBlocks.AMETHYST_CRYSTAL_ECHO_LOCATOR,
                             ModBlocks.DIAMOND_CRYSTAL_ECHO_LOCATOR,
-                            ModBlocks.ECHO_CRYSTAL_ECHO_LOCATOR
+                            ModBlocks.ECHO_CRYSTAL_ECHO_LOCATOR,
+                            ModBlocks.ECHO_LOCATOR
                     )
                     .build();
 

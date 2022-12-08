@@ -7,7 +7,7 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "geodes:diamond_crystal_echo_locator"
+					"name": "geodes:echo_locator"
 				}
 			],
 			"conditions": [

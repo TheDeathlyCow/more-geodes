@@ -21,6 +21,8 @@ public final class GeodesConfig {
     private static final String generateQuartzGeodes = "generate_quartz_geodes";
     private static final String generateDiamondGeodes = "generate_diamond_geodes";
     private static final String generateEchoGeodes = "generate_echo_geodes";
+    private static final String generateLapisGeodes = "generate_lapis_geodes";
+    private static final String generateGypsumPatches = "generate_gypsum_patches";
 
     private Properties properties;
     private final Properties defaultProperties = new Properties();
@@ -44,6 +46,14 @@ public final class GeodesConfig {
         return Boolean.parseBoolean(properties.getProperty(generateEchoGeodes));
     }
 
+    public boolean generateLapisGeodes() {
+        return Boolean.parseBoolean(properties.getProperty(generateLapisGeodes));
+    }
+
+    public boolean generateGypsumPatches() {
+        return Boolean.parseBoolean(properties.getProperty(generateGypsumPatches));
+    }
+
     public void loadConfig() {
         this.loadDefaultConfig();
         this.properties = new Properties(this.defaultProperties);
@@ -61,6 +71,8 @@ public final class GeodesConfig {
         defaultProperties.setProperty(generateQuartzGeodes, "true");
         defaultProperties.setProperty(generateDiamondGeodes, "true");
         defaultProperties.setProperty(generateEchoGeodes, "true");
+        defaultProperties.setProperty(generateLapisGeodes, "true");
+        defaultProperties.setProperty(generateGypsumPatches, "true");
     }
 
     private File getConfigFile() {

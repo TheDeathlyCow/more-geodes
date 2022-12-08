@@ -5,6 +5,7 @@
         "geodes:quartz_crystal_echo_locator",
         "geodes:amethyst_crystal_echo_locator",
         "geodes:diamond_crystal_echo_locator",
-        "geodes:echo_crystal_echo_locator"
+        "geodes:echo_crystal_echo_locator",
+        "geodes:echo_locator"
     ]
 }

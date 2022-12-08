@@ -1,0 +1,9 @@
+{
+	"values": [
+		"geodes:pyrite",
+		"geodes:pyrite_stairs",
+		"geodes:pyrite_slab",
+		"geodes:pyrite_wall",
+		"geodes:pyrite_chunk"
+	]
+}
