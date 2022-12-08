@@ -4,6 +4,7 @@ import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
 public class GeodesItemGroup {
@@ -62,6 +63,7 @@ public class GeodesItemGroup {
                 stacks.add(new ItemStack(ModItems.PYRITE_STAIRS));
                 stacks.add(new ItemStack(ModItems.PYRITE_SLAB));
                 stacks.add(new ItemStack(ModItems.PYRITE_WALL));
+                stacks.add(new ItemStack(Items.CALCITE));
                 stacks.add(new ItemStack(ModItems.CALCITE_STAIRS));
                 stacks.add(new ItemStack(ModItems.CALCITE_SLAB));
                 stacks.add(new ItemStack(ModItems.CALCITE_WALL));
