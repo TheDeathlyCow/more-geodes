@@ -73,35 +73,6 @@
 					]
 				}
 			]
-		},
-		{
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"name": "geodes:pyrite_chunk",
-					"conditions": [
-						{
-							"condition": "minecraft:random_chance",
-							"chance": 0.5
-						}
-					],
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1,
-								"max": 2
-							}
-						},
-						{
-							"function": "minecraft:apply_bonus",
-							"enchantment": "minecraft:fortune",
-							"formula": "minecraft:ore_drops"
-						}
-					]
-				}
-			]
 		}
 	]
 }

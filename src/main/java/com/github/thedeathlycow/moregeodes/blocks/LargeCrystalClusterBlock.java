@@ -92,10 +92,10 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
     }
 
     public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
-        BlockPos blockPos = pos.offset(state.get(CrystalClusterBlock.FACING));
+        BlockPos headPos = pos.offset(state.get(CrystalClusterBlock.FACING));
         world.setBlockState(
-                blockPos,
-                state.with(HALF, DoubleBlockHalf.UPPER),
+                headPos,
+                TallPlantBlock.withWaterloggedState(world, headPos, state.with(HALF, DoubleBlockHalf.UPPER)),
                 Block.NOTIFY_ALL
         );
     }
