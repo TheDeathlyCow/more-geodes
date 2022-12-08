@@ -50,12 +50,16 @@
   "block.geodes.calcite_stairs": "Calcit Stairs",
   "block.geodes.calcite_wall": "Calcit Wall",
   "block.geodes.gypsum_crystal_block": "Gypsum Crystal Block",
-  "block.geodes.gypsum_cluster": "Gypsum Cluster",
+  "block.geodes.gypsum_rose": "Gypsum Rose",
   "block.geodes.echo_locator": "Echolot",
   "advancement.geodes.nether.barter_fools_gold.title": "Fool Me Once",
   "advancement.geodes.nether.barter_fools_gold.description": "Try to distract a Piglin with Pyrite",
-  "advancement.geodes.nether.barter_fools_gold_again.title": "Fool Me Twice",
-  "advancement.geodes.nether.barter_fools_gold_again.description": "Try to distract a Piglin with Pyrite... again!",
   "subtitles.block.geodes.lapis_crystal_block.chime": "Lapis lazuli chimes",
-  "subtitles.block.geodes.gypsum_crystal_block.chime": "Gypsum chimes"
+  "subtitles.block.geodes.gypsum_crystal_block.chime": "Gypsum chimes",
+  "itemGroup.geodes.more_geodes": "More Geodes",
+  "block.geodes.budding_gypsum": "Budding Gypsum",
+  "block.geodes.large_gypsum_bud": "Large Gypsum Bud",
+  "block.geodes.medium_gypsum_bud": "Medium Gypsum Bud",
+  "block.geodes.small_gypsum_bud": "Small Gypsum Bud",
+  "item.geodes.gypsum_shard": "Gypsum Shard"
 }
