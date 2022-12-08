@@ -96,7 +96,7 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
         world.setBlockState(
                 blockPos,
                 state.with(HALF, DoubleBlockHalf.UPPER),
-                3
+                Block.NOTIFY_ALL
         );
     }
 
@@ -123,14 +123,30 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
 
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         if (!world.isClient) {
+            // server break
+
             if (state.get(HALF) == DoubleBlockHalf.UPPER) {
+                // when upper half is broken
                 BlockPos anchorPos = pos.offset(state.get(FACING).getOpposite());
                 BlockState anchorState = world.getBlockState(anchorPos);
+
                 if (anchorState.isOf(this) && anchorState.get(HALF) == DoubleBlockHalf.LOWER) {
-                    world.setBlockState(anchorPos, Blocks.AIR.getDefaultState(), Block.SKIP_DROPS | Block.NOTIFY_ALL);
-                    world.syncWorldEvent(player, WorldEvents.BLOCK_BROKEN, anchorPos, Block.getRawIdFromState(anchorState));
+
+                    world.setBlockState(
+                            anchorPos,
+                            Blocks.AIR.getDefaultState(),
+                            Block.SKIP_DROPS | Block.NOTIFY_ALL
+                    );
+
+                    world.syncWorldEvent(
+                            player,
+                            WorldEvents.BLOCK_BROKEN,
+                            anchorPos,
+                            Block.getRawIdFromState(anchorState)
+                    );
                 }
             }
+
         }
         super.onBreak(world, pos, state, player);
     }
@@ -148,7 +164,7 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
         Direction direction = state.get(FACING);
         BlockPos anchorPos = pos.offset(direction.getOpposite());
         BlockState anchorState = world.getBlockState(anchorPos);
-        return anchorState.isOf(this)
+        return anchorState.getBlock() instanceof LargeCrystalClusterBlock // allow anchor to not always be strictly 'this' for budding growth
                 && anchorState.get(HALF) == DoubleBlockHalf.LOWER;
     }
 }

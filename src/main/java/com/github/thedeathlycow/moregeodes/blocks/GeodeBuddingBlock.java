@@ -41,6 +41,7 @@ public class GeodeBuddingBlock extends CrystalBlock {
         if (this.shouldGrow(random)) { // modulate the speed of the budding growth
             // the direction we want to try growing in
             Direction directionToGrow = DIRECTIONS[random.nextInt(DIRECTIONS.length)];
+
             this.growCrystalOnce(world, pos, directionToGrow);
         }
     }
@@ -85,8 +86,14 @@ public class GeodeBuddingBlock extends CrystalBlock {
 
             boolean shouldGrowLargeCluster = nextGrowth instanceof LargeCrystalClusterBlock
                     && nextBudState.canPlaceAt(world, positionToGrow);
+
             if (shouldGrowLargeCluster) {
-                LargeCrystalClusterBlock.placeAt(world, nextBudState, positionToGrow, Block.NOTIFY_ALL);
+                LargeCrystalClusterBlock.placeAt(
+                        world,
+                        nextBudState,
+                        positionToGrow,
+                        Block.NOTIFY_LISTENERS
+                );
             } else {
                 world.setBlockState(positionToGrow, nextBudState, Block.NOTIFY_ALL);
             }
