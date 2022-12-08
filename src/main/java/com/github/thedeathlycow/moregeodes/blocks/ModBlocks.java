@@ -47,10 +47,10 @@ public class ModBlocks {
 
 
     public static final Block GYPSUM_CRYSTAL_BLOCK = new CrystalBlock(CrystalBlockSoundGroup.GYPSUM, FabricBlockSettings.of(Material.AMETHYST, MapColor.WHITE_GRAY).strength(1.3f).sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).requiresTool());
-    public static final Block GYPSUM_ROSE = new LargeCrystalClusterBlock(CrystalBlockSoundGroup.GYPSUM, 7, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.WHITE_GRAY).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).strength(1.3f).luminance((blockState) -> 5));
-    public static final Block LARGE_GYPSUM_BUD = new LargeCrystalClusterBlock(CrystalBlockSoundGroup.GYPSUM, 5, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.WHITE_GRAY).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).strength(1.3f).luminance((blockState) -> 4));
-    public static final Block MEDIUM_GYPSUM_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.LAPIS, 4, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.LAPIS_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).strength(1.3f).luminance((blockState) -> 2));
-    public static final Block SMALL_GYPSUM_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.LAPIS, 3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.LAPIS_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).strength(1.3f).luminance((blockState) -> 1));
+    public static final Block GYPSUM_ROSE = new LargeCrystalClusterBlock(CrystalBlockSoundGroup.GYPSUM, 7, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.WHITE_GRAY).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).strength(1.3f));
+    public static final Block LARGE_GYPSUM_BUD = new LargeCrystalClusterBlock(CrystalBlockSoundGroup.GYPSUM, 5, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.WHITE_GRAY).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).strength(1.3f));
+    public static final Block MEDIUM_GYPSUM_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.LAPIS, 4, 3, FabricBlockSettings.of(Material.AMETHYST, MapColor.LAPIS_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).strength(1.3f));
+    public static final Block SMALL_GYPSUM_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.LAPIS, 3, 4, FabricBlockSettings.of(Material.AMETHYST, MapColor.LAPIS_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).strength(1.3f));
 
     public static final Block ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.ALL, FabricBlockSettings.of(GeodeMaterials.ECHO_LOCATOR).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
 
