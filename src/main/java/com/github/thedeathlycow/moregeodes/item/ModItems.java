@@ -3,6 +3,8 @@ package com.github.thedeathlycow.moregeodes.item;
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.minecraft.block.ComposterBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -12,6 +14,8 @@ public class ModItems {
 
     public static final Item EMERALD_SHARD = new Item(new FabricItemSettings());
     public static final Item PYRITE_CHUNK = new Item(new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item GYPSUM_SHARD = new Item(new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+
     public static final Item EMERALD_GEODE = new BlockItem(ModBlocks.EMERALD_GEODE, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
     public static final Item BUDDING_EMERALD = new BlockItem(ModBlocks.BUDDING_EMERALD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
     public static final Item SMALL_EMERALD_BUD = new BlockItem(ModBlocks.SMALL_EMERALD_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
@@ -73,6 +77,7 @@ public class ModItems {
     public static void registerItems() {
         register("emerald_shard", EMERALD_SHARD);
         register("pyrite_chunk", PYRITE_CHUNK);
+        register("gypsum_shard", GYPSUM_SHARD);
         register("emerald_geode", EMERALD_GEODE);
         register("budding_emerald", BUDDING_EMERALD);
         register("small_emerald_bud", SMALL_EMERALD_BUD);
@@ -118,6 +123,8 @@ public class ModItems {
         register("calcite_stairs", CALCITE_STAIRS);
         register("calcite_slab", CALCITE_SLAB);
         register("calcite_wall", CALCITE_WALL);
+
+        CompostingChanceRegistry.INSTANCE.add(GYPSUM_SHARD, 1.0f);
     }
 
     private static void register(String name, Item item) {

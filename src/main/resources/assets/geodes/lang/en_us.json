@@ -41,6 +41,7 @@
     "block.geodes.large_gypsum_bud": "Large Gypsum Bud",
     "block.geodes.medium_gypsum_bud": "Medium Gypsum Bud",
     "block.geodes.small_gypsum_bud": "Small Gypsum Bud",
+    "item.geodes.gypsum_shard": "Gypsum Shard",
     "block.geodes.echo_locator": "Echo Locator",
     "block.geodes.emerald_crystal_echo_locator": "Emerald Crystal Echo Locator",
     "block.geodes.quartz_crystal_echo_locator": "Quartz Crystal Echo Locator",

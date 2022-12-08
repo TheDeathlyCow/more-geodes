@@ -54,6 +54,7 @@ public class GeodesItemGroup {
                 stacks.add(new ItemStack(ModItems.LARGE_GYPSUM_BUD));
                 stacks.add(new ItemStack(ModItems.MEDIUM_GYPSUM_BUD));
                 stacks.add(new ItemStack(ModItems.SMALL_GYPSUM_BUD));
+                stacks.add(new ItemStack(ModItems.GYPSUM_SHARD));
 
                 // pyrite and calcite
                 stacks.add(new ItemStack(ModItems.PYRITE_CHUNK));
