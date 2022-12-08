@@ -5,65 +5,64 @@ import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ModItems {
 
-    public static final Item EMERALD_SHARD = new Item(new FabricItemSettings().group(ItemGroup.MISC));
-    public static final Item PYRITE_CHUNK = new Item(new FabricItemSettings().group(ItemGroup.MISC));
-    public static final Item EMERALD_GEODE = new BlockItem(ModBlocks.EMERALD_GEODE, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item BUDDING_EMERALD = new BlockItem(ModBlocks.BUDDING_EMERALD, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item SMALL_EMERALD_BUD = new BlockItem(ModBlocks.SMALL_EMERALD_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item MEDIUM_EMERALD_BUD = new BlockItem(ModBlocks.MEDIUM_EMERALD_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item LARGE_EMERALD_BUD = new BlockItem(ModBlocks.LARGE_EMERALD_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item EMERALD_CLUSTER = new BlockItem(ModBlocks.EMERALD_CLUSTER, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final Item EMERALD_SHARD = new Item(new FabricItemSettings());
+    public static final Item PYRITE_CHUNK = new Item(new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item EMERALD_GEODE = new BlockItem(ModBlocks.EMERALD_GEODE, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item BUDDING_EMERALD = new BlockItem(ModBlocks.BUDDING_EMERALD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item SMALL_EMERALD_BUD = new BlockItem(ModBlocks.SMALL_EMERALD_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item MEDIUM_EMERALD_BUD = new BlockItem(ModBlocks.MEDIUM_EMERALD_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item LARGE_EMERALD_BUD = new BlockItem(ModBlocks.LARGE_EMERALD_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item EMERALD_CLUSTER = new BlockItem(ModBlocks.EMERALD_CLUSTER, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
 
-    public static final Item QUARTZ_GEODE = new BlockItem(ModBlocks.QUARTZ_GEODE, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item BUDDING_QUARTZ = new BlockItem(ModBlocks.BUDDING_QUARTZ, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item SMALL_QUARTZ_BUD = new BlockItem(ModBlocks.SMALL_QUARTZ_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item MEDIUM_QUARTZ_BUD = new BlockItem(ModBlocks.MEDIUM_QUARTZ_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item LARGE_QUARTZ_BUD = new BlockItem(ModBlocks.LARGE_QUARTZ_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item QUARTZ_CLUSTER = new BlockItem(ModBlocks.QUARTZ_CLUSTER, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final Item QUARTZ_GEODE = new BlockItem(ModBlocks.QUARTZ_GEODE, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item BUDDING_QUARTZ = new BlockItem(ModBlocks.BUDDING_QUARTZ, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item SMALL_QUARTZ_BUD = new BlockItem(ModBlocks.SMALL_QUARTZ_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item MEDIUM_QUARTZ_BUD = new BlockItem(ModBlocks.MEDIUM_QUARTZ_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item LARGE_QUARTZ_BUD = new BlockItem(ModBlocks.LARGE_QUARTZ_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item QUARTZ_CLUSTER = new BlockItem(ModBlocks.QUARTZ_CLUSTER, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
 
-    public static final Item DIAMOND_GEODE = new BlockItem(ModBlocks.DIAMOND_GEODE, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item DIAMOND_CLUSTER = new BlockItem(ModBlocks.DIAMOND_CLUSTER, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final Item DIAMOND_GEODE = new BlockItem(ModBlocks.DIAMOND_GEODE, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item DIAMOND_CLUSTER = new BlockItem(ModBlocks.DIAMOND_CLUSTER, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
 
-    public static final Item ECHO_BLOCK = new BlockItem(ModBlocks.ECHO_BLOCK, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item BUDDING_ECHO_BLOCK = new BlockItem(ModBlocks.BUDDING_ECHO_BLOCK, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item SMALL_ECHO_BUD = new BlockItem(ModBlocks.SMALL_ECHO_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item MEDIUM_ECHO_BUD = new BlockItem(ModBlocks.MEDIUM_ECHO_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item LARGE_ECHO_BUD = new BlockItem(ModBlocks.LARGE_ECHO_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item ECHO_CLUSTER = new BlockItem(ModBlocks.ECHO_CLUSTER, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final Item ECHO_BLOCK = new BlockItem(ModBlocks.ECHO_BLOCK, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item BUDDING_ECHO_BLOCK = new BlockItem(ModBlocks.BUDDING_ECHO_BLOCK, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item SMALL_ECHO_BUD = new BlockItem(ModBlocks.SMALL_ECHO_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item MEDIUM_ECHO_BUD = new BlockItem(ModBlocks.MEDIUM_ECHO_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item LARGE_ECHO_BUD = new BlockItem(ModBlocks.LARGE_ECHO_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item ECHO_CLUSTER = new BlockItem(ModBlocks.ECHO_CLUSTER, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
 
-    public static final Item LAPIS_CRYSTAL_BLOCK = new BlockItem(ModBlocks.LAPIS_CRYSTAL_BLOCK, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final Item LAPIS_CRYSTAL_BLOCK = new BlockItem(ModBlocks.LAPIS_CRYSTAL_BLOCK, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
 
-    public static final Item BUDDING_LAPIS = new BlockItem(ModBlocks.BUDDING_LAPIS, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
+    public static final Item BUDDING_LAPIS = new BlockItem(ModBlocks.BUDDING_LAPIS, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
 
-    public static final Item SMALL_LAPIS_BUD = new BlockItem(ModBlocks.SMALL_LAPIS_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item MEDIUM_LAPIS_BUD = new BlockItem(ModBlocks.MEDIUM_LAPIS_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item LARGE_LAPIS_BUD = new BlockItem(ModBlocks.LARGE_LAPIS_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item LAPIS_CLUSTER = new BlockItem(ModBlocks.LAPIS_CLUSTER, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final Item SMALL_LAPIS_BUD = new BlockItem(ModBlocks.SMALL_LAPIS_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item MEDIUM_LAPIS_BUD = new BlockItem(ModBlocks.MEDIUM_LAPIS_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item LARGE_LAPIS_BUD = new BlockItem(ModBlocks.LARGE_LAPIS_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item LAPIS_CLUSTER = new BlockItem(ModBlocks.LAPIS_CLUSTER, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
 
-    public static final Item GYPSUM_CRYSTAL_BLOCK = new BlockItem(ModBlocks.GYPSUM_CRYSTAL_BLOCK, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item BUDDING_GYPSUM = new BlockItem(ModBlocks.BUDDING_GYPSUM, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item SMALL_GYPSUM_BUD = new BlockItem(ModBlocks.SMALL_GYPSUM_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item MEDIUM_GYPSUM_BUD = new BlockItem(ModBlocks.MEDIUM_GYPSUM_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item LARGE_GYPSUM_BUD = new BlockItem(ModBlocks.LARGE_GYPSUM_BUD, new FabricItemSettings().group(ItemGroup.DECORATIONS));
-    public static final Item GYPSUM_ROSE = new BlockItem(ModBlocks.GYPSUM_ROSE, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final Item GYPSUM_CRYSTAL_BLOCK = new BlockItem(ModBlocks.GYPSUM_CRYSTAL_BLOCK, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item BUDDING_GYPSUM = new BlockItem(ModBlocks.BUDDING_GYPSUM, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item SMALL_GYPSUM_BUD = new BlockItem(ModBlocks.SMALL_GYPSUM_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item MEDIUM_GYPSUM_BUD = new BlockItem(ModBlocks.MEDIUM_GYPSUM_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item LARGE_GYPSUM_BUD = new BlockItem(ModBlocks.LARGE_GYPSUM_BUD, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item GYPSUM_ROSE = new BlockItem(ModBlocks.GYPSUM_ROSE, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
 
 
-    public static final Item PYRITE = new BlockItem(ModBlocks.PYRITE, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item PYRITE_STAIRS = new BlockItem(ModBlocks.PYRITE_STAIRS, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item PYRITE_SLAB = new BlockItem(ModBlocks.PYRITE_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item PYRITE_WALL = new BlockItem(ModBlocks.PYRITE_WALL, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final Item PYRITE = new BlockItem(ModBlocks.PYRITE, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item PYRITE_STAIRS = new BlockItem(ModBlocks.PYRITE_STAIRS, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item PYRITE_SLAB = new BlockItem(ModBlocks.PYRITE_SLAB, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item PYRITE_WALL = new BlockItem(ModBlocks.PYRITE_WALL, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
 
-    public static final Item CALCITE_STAIRS = new BlockItem(ModBlocks.CALCITE_STAIRS, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item CALCITE_SLAB = new BlockItem(ModBlocks.CALCITE_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-    public static final Item CALCITE_WALL = new BlockItem(ModBlocks.CALCITE_WALL, new FabricItemSettings().group(ItemGroup.DECORATIONS));
+    public static final Item CALCITE_STAIRS = new BlockItem(ModBlocks.CALCITE_STAIRS, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item CALCITE_SLAB = new BlockItem(ModBlocks.CALCITE_SLAB, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
+    public static final Item CALCITE_WALL = new BlockItem(ModBlocks.CALCITE_WALL, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES));
 
-    public static final Item ECHO_LOCATOR = new BlockItem(ModBlocks.ECHO_LOCATOR, new FabricItemSettings().group(ItemGroup.DECORATIONS).maxCount(1));
+    public static final Item ECHO_LOCATOR = new BlockItem(ModBlocks.ECHO_LOCATOR, new FabricItemSettings().group(GeodesItemGroup.MORE_GEODES).maxCount(1));
 
     public static final Item EMERALD_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.EMERALD_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
     public static final Item QUARTZ_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.QUARTZ_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
