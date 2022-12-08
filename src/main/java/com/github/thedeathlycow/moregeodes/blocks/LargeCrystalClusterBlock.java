@@ -5,6 +5,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
@@ -14,6 +15,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.*;
+import org.jetbrains.annotations.Nullable;
 
 public class LargeCrystalClusterBlock extends CrystalClusterBlock {
 
@@ -52,6 +54,23 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
         );
     }
 
+    @Nullable
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+
+        @Nullable BlockState baseState = super.getPlacementState(ctx);
+        if (baseState == null) {
+            return null;
+        }
+
+        BlockPos blockPos = ctx.getBlockPos();
+        World world = ctx.getWorld();
+
+        boolean canPlace = blockPos.getY() < world.getTopY() - 1
+                && world.getBlockState(blockPos.offset(baseState.get(FACING))).canReplace(ctx);
+
+        return canPlace ? baseState : null;
+    }
+
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
         builder.add(HALF);
@@ -83,7 +102,7 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         return switch (state.get(HALF)) {
-            case LOWER -> this.canPlaceLower(state, world, pos);
+            case LOWER -> super.canPlaceAt(state, world, pos);
             case UPPER -> this.canPlaceUpper(state, world, pos);
         };
     }
@@ -123,12 +142,6 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
                 pos.down(state.get(HALF) == DoubleBlockHalf.LOWER ? 0 : 1).getY(),
                 pos.getZ()
         );
-    }
-
-    private boolean canPlaceLower(BlockState state, WorldView world, BlockPos pos) {
-        BlockPos headPos = pos.offset(state.get(FACING));
-        BlockState headState = world.getBlockState(headPos);
-        return (headState.isAir() || headState.isOf(Blocks.WATER)) && super.canPlaceAt(state, world, pos);
     }
 
     private boolean canPlaceUpper(BlockState state, WorldView world, BlockPos pos) {

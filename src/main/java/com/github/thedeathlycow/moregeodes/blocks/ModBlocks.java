@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 
 
@@ -86,7 +87,8 @@ public class ModBlocks {
             ImmutableList.of(SMALL_LAPIS_BUD, MEDIUM_LAPIS_BUD, LARGE_LAPIS_BUD, LAPIS_CLUSTER)
     );
 
-    public static final Block BUDDING_GYPSUM = new EvaporativeBuddingBlock(
+    public static final Block BUDDING_GYPSUM = new DirectedBuddingBlock(
+            Direction.UP,
             CrystalBlockSoundGroup.GYPSUM,
             FabricBlockSettings.of(Material.AMETHYST, MapColor.WHITE_GRAY).ticksRandomly().strength(1.3f).sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).requiresTool(),
             ImmutableList.of(SMALL_GYPSUM_BUD, MEDIUM_GYPSUM_BUD, LARGE_GYPSUM_BUD, GYPSUM_ROSE)
