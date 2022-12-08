@@ -25,14 +25,14 @@
 									}
 								}
 							],
-							"name": "geodes:medium_quartz_bud"
+							"name": "geodes:gypsum_rose"
 						},
 						{
 							"type": "minecraft:alternatives",
 							"children": [
 								{
 									"type": "minecraft:item",
-									"name": "minecraft:quartz",
+									"name": "geodes:gypsum_shard",
 									"conditions": [
 										{
 											"condition": "minecraft:match_tool",
@@ -44,7 +44,7 @@
 									"functions": [
 										{
 											"function": "minecraft:set_count",
-											"count": 2,
+											"count": 4,
 											"add": false
 										},
 										{
@@ -56,7 +56,7 @@
 								},
 								{
 									"type": "minecraft:item",
-									"name": "minecraft:quartz",
+									"name": "geodes:gypsum_shard",
 									"functions": [
 										{
 											"function": "minecraft:set_count",
@@ -71,6 +71,15 @@
 							]
 						}
 					]
+				}
+			],
+			"conditions": [
+				{
+					"condition": "minecraft:block_state_property",
+					"block": "geodes:gypsum_rose",
+					"properties": {
+						"half": "lower"
+					}
 				}
 			]
 		}

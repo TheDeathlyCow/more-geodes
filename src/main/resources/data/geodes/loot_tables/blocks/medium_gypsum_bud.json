@@ -25,14 +25,14 @@
 									}
 								}
 							],
-							"name": "geodes:medium_quartz_bud"
+							"name": "geodes:medium_gypsum_bud"
 						},
 						{
 							"type": "minecraft:alternatives",
 							"children": [
 								{
 									"type": "minecraft:item",
-									"name": "minecraft:quartz",
+									"name": "geodes:gypsum_shard",
 									"conditions": [
 										{
 											"condition": "minecraft:match_tool",
@@ -44,7 +44,7 @@
 									"functions": [
 										{
 											"function": "minecraft:set_count",
-											"count": 2,
+											"count": 1,
 											"add": false
 										},
 										{
@@ -56,11 +56,11 @@
 								},
 								{
 									"type": "minecraft:item",
-									"name": "minecraft:quartz",
+									"name": "geodes:gypsum_shard",
 									"functions": [
 										{
 											"function": "minecraft:set_count",
-											"count": 2,
+											"count": 1,
 											"add": false
 										},
 										{

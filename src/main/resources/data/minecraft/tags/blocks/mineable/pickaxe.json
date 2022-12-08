@@ -31,6 +31,12 @@
     "#geodes:pyrite",
     "geodes:calcite_slab",
     "geodes:calcite_stairs",
-    "geodes:calcite_wall"
+    "geodes:calcite_wall",
+    "geodes:gypsum_crystal_block",
+    "geodes:budding_gypsum",
+    "geodes:gypsum_rose",
+    "geodes:large_gypsum_bud",
+    "geodes:medium_gypsum_bud",
+    "geodes:small_gypsum_bud"
   ]
 }
