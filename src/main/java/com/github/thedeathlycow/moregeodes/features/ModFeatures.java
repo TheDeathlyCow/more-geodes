@@ -20,36 +20,36 @@ public class ModFeatures {
         addGeodeToBiomes(
                 BiomeSelectors.tag(ModBiomeTags.HAS_EMERALD_GEODE),
                 ModPlacedFeatures.EMERALD_GEODE,
-                MoreGeodes.CONFIG::generateEmeraldGeodes
+                MoreGeodes.CONFIG.generateEmeraldGeodes()
         );
 
         addGeodeToBiomes(
                 BiomeSelectors.tag(ModBiomeTags.HAS_QUARTZ_GEODE),
                 ModPlacedFeatures.QUARTZ_GEODE,
-                MoreGeodes.CONFIG::generateQuartzGeodes
+                MoreGeodes.CONFIG.generateQuartzGeodes()
         );
 
         addGeodeToBiomes(
                 BiomeSelectors.tag(ModBiomeTags.HAS_DIAMOND_GEODE),
                 ModPlacedFeatures.DIAMOND_GEODE,
-                MoreGeodes.CONFIG::generateDiamondGeodes
+                MoreGeodes.CONFIG.generateDiamondGeodes()
         );
 
         addGeodeToBiomes(
                 BiomeSelectors.tag(ModBiomeTags.HAS_ECHO_GEODE),
                 ModPlacedFeatures.ECHO_GEODE,
-                MoreGeodes.CONFIG::generateEchoGeodes
+                MoreGeodes.CONFIG.generateEchoGeodes()
         );
 
         addGeodeToBiomes(
                 BiomeSelectors.tag(ModBiomeTags.HAS_LAPIS_GEODE),
                 ModPlacedFeatures.LAPIS_GEODE,
-                MoreGeodes.CONFIG::generateLapisGeodes
+                MoreGeodes.CONFIG.generateLapisGeodes()
         );
         addGeodeToBiomes(
                 BiomeSelectors.tag(ModBiomeTags.HAS_GYPSUM_PATCH),
                 ModPlacedFeatures.GYPSUM_PATCH,
-                MoreGeodes.CONFIG::generateGypsumPatches,
+                MoreGeodes.CONFIG.generateGypsumPatches(),
                 GenerationStep.Feature.VEGETAL_DECORATION
         );
     }
@@ -57,28 +57,23 @@ public class ModFeatures {
     private static void addGeodeToBiomes(
             Predicate<BiomeSelectionContext> biomeSelector,
             RegistryEntry<PlacedFeature> geode,
-            ConfigProvider configProvider
+            boolean shouldAdd
     ) {
-        addGeodeToBiomes(biomeSelector, geode, configProvider, GenerationStep.Feature.UNDERGROUND_DECORATION);
+        addGeodeToBiomes(biomeSelector, geode, shouldAdd, GenerationStep.Feature.UNDERGROUND_DECORATION);
     }
 
     private static void addGeodeToBiomes(
             Predicate<BiomeSelectionContext> biomeSelector,
             RegistryEntry<PlacedFeature> geode,
-            ConfigProvider configProvider,
+            boolean shouldAdd,
             GenerationStep.Feature step
     ) {
-        if (configProvider.shouldGenerateGeode()) {
+        if (shouldAdd) {
             BiomeModifications.addFeature(
                     biomeSelector,
                     step,
                     Objects.requireNonNull(geode.getKey().orElse(null))
             );
         }
-    }
-
-    @FunctionalInterface
-    public interface ConfigProvider {
-        boolean shouldGenerateGeode();
     }
 }

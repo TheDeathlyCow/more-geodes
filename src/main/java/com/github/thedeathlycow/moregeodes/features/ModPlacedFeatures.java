@@ -64,7 +64,7 @@ public class ModPlacedFeatures {
         GYPSUM_PATCH = register("gypsum_patch", new PlacedFeature(
                 ModConfiguredFeatures.GYPSUM_PATCH,
                 List.of(
-                        CountPlacementModifier.of(4),
+                        RarityFilterPlacementModifier.of(36),
                         SquarePlacementModifier.of(),
                         HeightmapPlacementModifier.of(Heightmap.Type.WORLD_SURFACE),
                         BiomePlacementModifier.of()

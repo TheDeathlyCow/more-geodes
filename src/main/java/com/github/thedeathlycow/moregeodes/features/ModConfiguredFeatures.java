@@ -13,6 +13,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.VerticalSurfaceType;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.util.math.intprovider.IntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.RegistryEntry;
@@ -85,13 +87,6 @@ public class ModConfiguredFeatures {
                 )
         ));
 
-        BlockStateProvider middleLayer = new WeightedBlockStateProvider(
-                DataPool.<BlockState>builder()
-                        .add(Blocks.DEEPSLATE_COAL_ORE.getDefaultState(), 1)
-                        .add(Blocks.SMOOTH_BASALT.getDefaultState(), 4)
-                        .build()
-        );
-
         DIAMOND_GEODE = register("diamond_geode", new ConfiguredFeature<>(Feature.GEODE, new GeodeFeatureConfig
                 (
                         new GeodeLayerConfig
@@ -99,7 +94,12 @@ public class ModConfiguredFeatures {
                                         SimpleBlockStateProvider.of(Blocks.WATER.getDefaultState()),
                                         SimpleBlockStateProvider.of(ModBlocks.DIAMOND_GEODE.getDefaultState()),
                                         SimpleBlockStateProvider.of(ModBlocks.DIAMOND_GEODE.getDefaultState()),
-                                        middleLayer,
+                                        new WeightedBlockStateProvider(
+                                                DataPool.<BlockState>builder()
+                                                        .add(Blocks.DEEPSLATE_COAL_ORE.getDefaultState(), 1)
+                                                        .add(Blocks.SMOOTH_BASALT.getDefaultState(), 4)
+                                                        .build()
+                                        ),
                                         SimpleBlockStateProvider.of(Blocks.SMOOTH_BASALT.getDefaultState()),
                                         List.of(ModBlocks.DIAMOND_CLUSTER.getDefaultState(), ModBlocks.DIAMOND_CLUSTER.getDefaultState()),
                                         BlockTags.FEATURES_CANNOT_REPLACE,
@@ -176,17 +176,17 @@ public class ModConfiguredFeatures {
                                                 ModBlocks.LARGE_GYPSUM_BUD.getDefaultState()
                                                         .with(LargeCrystalClusterBlock.HALF, DoubleBlockHalf.LOWER)
                                                         .with(CrystalClusterBlock.FACING, Direction.UP),
-                                                1
+                                                2
                                         )
                                         .add(
                                                 ModBlocks.MEDIUM_GYPSUM_BUD.getDefaultState()
                                                         .with(CrystalClusterBlock.FACING, Direction.UP),
-                                                1
+                                                3
                                         )
                                         .add(
                                                 ModBlocks.SMALL_GYPSUM_BUD.getDefaultState()
                                                         .with(CrystalClusterBlock.FACING, Direction.UP),
-                                                1
+                                                4
                                         )
                                         .build()
                         )
@@ -199,17 +199,17 @@ public class ModConfiguredFeatures {
                         ModBlockTags.GYPSUM_PATCH_REPLACEABLE,
                         new WeightedBlockStateProvider(
                                 new DataPool.Builder<BlockState>()
-                                        .add(ModBlocks.GYPSUM_CRYSTAL_BLOCK.getDefaultState(), 10)
+                                        .add(ModBlocks.GYPSUM_CRYSTAL_BLOCK.getDefaultState(), 9)
                                         .add(ModBlocks.BUDDING_GYPSUM.getDefaultState(), 1)
                                         .build()
                         ),
                         PlacedFeatures.createEntry(GYPSUM_CRYSTALS),
                         VerticalSurfaceType.FLOOR,
-                        UniformIntProvider.create(3, 5),
+                        UniformIntProvider.create(2, 3),
                         0,
                         5,
                         0.4f,
-                        UniformIntProvider.create(5, 15),
+                        UniformIntProvider.create(1, 3),
                         0.3f
                 )
         ));
