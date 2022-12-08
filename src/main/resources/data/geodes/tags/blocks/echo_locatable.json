@@ -25,6 +25,10 @@
 		{
 			"required": false,
 			"id": "#geodes:echo_locatable/geodeplus"
+		},
+		{
+			"required": false,
+			"id": "#geodes:echo_locatable/spectrum"
 		}
 	]
 }
