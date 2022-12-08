@@ -72,6 +72,7 @@ public final class GeodesConfig {
         defaultProperties.setProperty(generateDiamondGeodes, "true");
         defaultProperties.setProperty(generateEchoGeodes, "true");
         defaultProperties.setProperty(generateLapisGeodes, "true");
+        defaultProperties.setProperty(generateGypsumPatches, "true");
     }
 
     private File getConfigFile() {
