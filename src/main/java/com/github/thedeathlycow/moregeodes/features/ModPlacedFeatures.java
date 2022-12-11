@@ -42,7 +42,7 @@ public class ModPlacedFeatures {
                 )));
         DIAMOND_GEODE = register("diamond_geode", new PlacedFeature(ModConfiguredFeatures.DIAMOND_GEODE,
                 List.of(
-                        RarityFilterPlacementModifier.of(400),
+                        RarityFilterPlacementModifier.of(250),
                         SquarePlacementModifier.of(),
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(4), YOffset.aboveBottom(60)),
                         BiomePlacementModifier.of()
