@@ -63,8 +63,8 @@ public class GeodeBuddingBlock extends CrystalBlock {
     /**
      * Grows a crystal once in the given direction
      *
-     * @param world The level to grow in
-     * @param pos The position of the budding block
+     * @param world           The level to grow in
+     * @param pos             The position of the budding block
      * @param directionToGrow The direction of the crystal to be grown
      */
     protected void growCrystalOnce(ServerWorld world, BlockPos pos, Direction directionToGrow) {
@@ -84,16 +84,24 @@ public class GeodeBuddingBlock extends CrystalBlock {
                     .with(CrystalClusterBlock.FACING, directionToGrow)
                     .with(CrystalClusterBlock.WATERLOGGED, currentStateInGrow.getFluidState().getFluid() == Fluids.WATER);
 
-            boolean shouldGrowLargeCluster = nextGrowth instanceof LargeCrystalClusterBlock
-                    && nextBudState.canPlaceAt(world, positionToGrow);
+            if (nextGrowth instanceof LargeCrystalClusterBlock) {
 
-            if (shouldGrowLargeCluster) {
-                LargeCrystalClusterBlock.placeAt(
-                        world,
-                        nextBudState,
-                        positionToGrow,
-                        Block.NOTIFY_LISTENERS
-                );
+                Direction facing = nextBudState.get(CrystalClusterBlock.FACING);
+                BlockPos headPos = positionToGrow.offset(facing);
+                BlockState headState = world.getBlockState(headPos);
+
+                boolean canGrow = (this.stateCanGrowNewBud(headState) || this.stateCanGrowBud(headState, facing))
+                        && nextBudState.canPlaceAt(world, positionToGrow);
+
+                if (canGrow) {
+                    LargeCrystalClusterBlock.placeAt(
+                            world,
+                            nextBudState,
+                            positionToGrow,
+                            Block.NOTIFY_ALL
+                    );
+                }
+
             } else {
                 world.setBlockState(positionToGrow, nextBudState, Block.NOTIFY_ALL);
             }
@@ -106,10 +114,10 @@ public class GeodeBuddingBlock extends CrystalBlock {
         // iterator of buds
         Iterator<Block> buds = this.clusters.iterator();
 
-        if (stateCanGrowNewBud(currentState) && buds.hasNext()) {
+        if (this.stateCanGrowNewBud(currentState) && buds.hasNext()) {
             // grow a new cluster
             return Optional.of(buds.next());
-        } else if (stateCanGrowBud(currentState, offsetFromSource)) {
+        } else if (this.stateCanGrowBud(currentState, offsetFromSource)) {
 
             // iterate over buds, and look for the current block
             // then, return the next block if it exists
@@ -123,12 +131,13 @@ public class GeodeBuddingBlock extends CrystalBlock {
     }
 
 
-    private static boolean stateCanGrowBud(BlockState state, Direction direction) {
+    private boolean stateCanGrowBud(BlockState state, Direction direction) {
         return state.contains(CrystalClusterBlock.FACING)
-                && state.get(CrystalClusterBlock.FACING) == direction;
+                && state.get(CrystalClusterBlock.FACING) == direction
+                && this.clusters.contains(state.getBlock());
     }
 
-    private static boolean stateCanGrowNewBud(BlockState state) {
+    private boolean stateCanGrowNewBud(BlockState state) {
         return state.isAir() || state.isOf(Blocks.WATER) && state.getFluidState().getLevel() == 8;
     }
 }
