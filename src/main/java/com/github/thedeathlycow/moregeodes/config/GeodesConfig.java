@@ -4,10 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.nio.file.Path;
 import java.util.Objects;
@@ -59,11 +56,26 @@ public final class GeodesConfig {
         this.properties = new Properties(this.defaultProperties);
         try (FileReader reader = new FileReader(this.getConfigFile())) {
             this.properties.load(reader);
+        } catch (FileNotFoundException ignored) {
+            this.generateDefaultConfig();
         } catch (IOException e) {
             LOGGER.error("Could not load More Geodes config, using default config instead. Failed with exception: " + e);
             return;
         }
-        LOGGER.info("Loaded geodes config!");
+        LOGGER.info("Loaded More Geodes config!");
+    }
+
+    private void generateDefaultConfig() {
+
+        try (FileWriter writer = new FileWriter(this.getConfigFile())) {
+            this.defaultProperties.store(writer, "Default config file for More Geodes. See the readme on GitHub for more information: https://github.com/TheDeathlyCow/more-geodes/blob/main/README.md");
+        } catch (IOException e) {
+            LOGGER.error("Error creating default More Geodes config: " + e);
+            return;
+        }
+
+        LOGGER.info("Generated default config for More Geodes");
+
     }
 
     private void loadDefaultConfig() {
