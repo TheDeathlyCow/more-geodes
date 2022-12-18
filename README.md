@@ -34,13 +34,31 @@ Diamond geodes generate in all biomes of the Overworld filled with water. Diamon
 
 Echo geodes generate exclusively in the Deep Dark. The budding echo block provides a renewable source of Echo Clusters, which can be harvested to obtain Echo Shards. This mod also adds a new use for echo geodes in crafting the Echo Locator.
 
+## Lapis Lazuli Geodes
+
+Lapis Lazuli Geodes are a blue geode that generate in deserts and have a middle layer of [Pyrite](#Pyrite). While you can harvest Medium and Large Lapis Lazuli Buds and Lapis Lazuli Clusters to get Lapis Lazuli, you can also harvest Small Lapis Lazuli Buds to get Pyrite Chunks, which can be used to craft Pyrite
+
+## Gypsum Patches
+
+Gypsum Patches are a new type of feature that grow Gypum Roses and can be found in Deserts and Badlands. While not technically a Geode, they are a quite similar idea with crystal blocks, budding blocks, and growable crystals. There are still a number of notable differences though. Firstly, Gypsum Patches generate on the surface rather than underground. The budding blocks also only grow crystals upwards, rather than to any side (though the crystals can still be placed in any direction). Finally, Gypsum Roses can grow to be 2 blocks tall. 
+
+When harvested Gypsum Roses drop Gypsum Shards, which can be composted or used to craft sand. More features are planned.
+
 # Echo Locators
 
-Each geode type (amethyst, emerald, quartz, diamond, and echo) has an Echo Locator that can be used to help find it. These are sort of like tuning forks that, when used, will cause any nearby crystal clusters or buds of the corresponding type to resonate for 30 seconds. The nearest crystal will also emit a sculk vibration particle back to the Echo Locator to provide a visual guide for anyone who cannot hear well or use directional audio. They are crafted using 4 echo shards, a bone, and a piece of the crystal they are used to locate (for example: the amethyst echo locator uses amethyst shards, the emerald echo locator uses emeralds, etc). 
+The Echo Locator is an item that can be used to help find geodes. These are sort of like tuning forks that, when used, will cause any nearby crystal clusters or buds to resonate for 30 seconds. The nearest crystal will also emit a sculk vibration particle back to the Echo Locator to provide a visual guide for anyone who cannot hear well or use directional audio. They are crafted using 4 echo shards and 2 bones. 
+
+# Pyrite
+
+Pyrite, commonly known as Fool's Gold, is the middle layer of Lapis Lazuli Geodes. It is a decorative block with a stair, slab, and wall variants. It also has some similar properties to gold, such as being able to be bartered with Piglins. Though once they figure out your ruse they will be quite angry indeed, and after seeing Pyrite once they will not forget it (though its shine will still be mildly distracting to them).
+
+# Calcite Blocks
+
+This mod also adds a stair, slab, and wall variant of Calcite. They use the vanilla Calcite texture, so resource packs that retexture calcite should work automatically.
 
 # Datapack Integration
 
-This mod uses the namespace `geodes`. If you wish to make changes to the features in this mod using a datapack, all files must be put under that namespace. The emerald and quartz geodes use very similar values to the amethyst geode, and it can be used as an example for how to configure them. Slicedlime provides an example worldgen datapack that can be used as a reference [here](https://github.com/slicedlime/examples/blob/master/vanilla_worldgen.zip), or alternatively you can use Misode's datapack generators to generate these for you, which can be found [here](https://misode.github.io/). 
+This mod uses the namespace `geodes`. If you wish to make changes to the features in this mod using a datapack, all files must be put under that namespace. The emerald and quartz geodes use very similar values to the amethyst geode, and it can be used as an example for how to configure them. Slicedlime provides an example worldgen datapack that can be used as a reference [here](https://github.com/slicedlime/examples/blob/master/vanilla_worldgen.zip), or alternatively you can use Misode's datapack generators to generate these for you, which can be found [here](https://misode.github.io/). As of 1.19.3, the amethyst geode definition is included in the jar of the game (unzip the jar file with your favourite zip-file unarchiver, jars are literally just zips with a different name).
 
 ## Datapack Addons
 
@@ -57,9 +75,9 @@ Rather than editing or overriding specific biomes in order to add or remove diff
 
 **Important note**: These changes can ONLY take affect after a server or world restart. A simple reload is not sufficient! 
 
-# Configuration
+# Configuration [Fabric Version Only]
 
-The generation of each geode can be independently disabled via a config. The config is in your standard config directory, under the file name `geodes.properties`. Any changes to the config require a game or server restart.
+The generation of each geode can be independently disabled via a config. The config should be placed in your standard config directory, under the file name `geodes.properties`. Any changes to the config require a game or server restart.
 
 The default config is as follows:
 ```properties
@@ -67,6 +85,8 @@ generate_emerald_geodes=true
 generate_quartz_geodes=true
 generate_diamond_geodes=true
 generate_echo_geodes=true
+generate_lapis_geodes=true
+generate_gypsum_patches=true
 ```
 
 Note that this only disables the biome modifications, so the command `/place feature` should still work for disabled geodes, and it *shouldn't* break any pre-existing worlds that had these enabled.
