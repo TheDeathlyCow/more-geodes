@@ -92,3 +92,10 @@ generate_gypsum_patches=true
 Note that this only disables the biome modifications, so the command `/place feature` should still work for disabled geodes, and it *shouldn't* break any pre-existing worlds that had these enabled.
 
 Each of these values are booleans and are parsed using [Boolean#parseBoolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html#parseBoolean(java.lang.String)). Therefore, entering anything other than a case insentive version of "true" will be interpreted as false. 
+
+# Translations
+
+If you'd like to create translations for More Geodes, the project is on [Crowdin](https://crowdin.com/project/more-geodes). You can also provide translations via issue or pull request if you so wish. Thanks for your contribution!
+
+
+
