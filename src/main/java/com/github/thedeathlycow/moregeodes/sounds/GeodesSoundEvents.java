@@ -47,6 +47,8 @@ public class GeodesSoundEvents {
         register(BLOCK_EMERALD_GEODE_CHIME);
         register(BLOCK_QUARTZ_GEODE_CHIME);
         register(BLOCK_DIAMOND_GEODE_CHIME);
+        register(BLOCK_LAPIS_CRYSTAL_BLOCK_CHIME);
+        register(BLOCK_GYPSUM_CRYSTAL_BLOCK_CHIME);
 
         register(BLOCK_ECHO_BLOCK_BREAK);
         register(BLOCK_ECHO_BLOCK_CHIME);
