@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values": [
+		"geodes:budding_emerald",
+		"geodes:budding_quartz",
+		"geodes:budding_echo_block",
+		"geodes:budding_lapis",
+		"geodes:budding_gypsum"
+	]
+}
