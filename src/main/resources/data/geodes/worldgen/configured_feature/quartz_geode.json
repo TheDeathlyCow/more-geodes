@@ -11,7 +11,7 @@
 			"inner_layer_provider": {
 				"type": "minecraft:simple_state_provider",
 				"state": {
-					"Name": "geodes:quartz_geodes"
+					"Name": "geodes:quartz_geode"
 				}
 			},
 			"alternate_inner_layer_provider": {
