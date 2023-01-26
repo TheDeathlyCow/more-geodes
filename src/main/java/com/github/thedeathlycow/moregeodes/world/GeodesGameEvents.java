@@ -1,7 +1,8 @@
 package com.github.thedeathlycow.moregeodes.world;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.world.event.GameEvent;
 
 public class GeodesGameEvents {
@@ -12,7 +13,7 @@ public class GeodesGameEvents {
     }
 
     private static void register(GameEvent event) {
-        Registry.register(Registry.GAME_EVENT, event.getId(), event);
+        Registry.register(Registries.GAME_EVENT, event.getId(), event);
     }
 
     public static GameEvent of(String name) {

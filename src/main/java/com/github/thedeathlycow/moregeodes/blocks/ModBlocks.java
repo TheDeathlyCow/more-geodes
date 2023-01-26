@@ -6,10 +6,11 @@ import com.github.thedeathlycow.moregeodes.sounds.ModBlockSoundGroups;
 import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.registry.Registries;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 
 
 public class ModBlocks {
@@ -178,7 +179,7 @@ public class ModBlocks {
     }
 
     private static void register(String name, Block block) {
-        Registry.register(Registry.BLOCK, new Identifier(MoreGeodes.MODID, name), block);
+        Registry.register(Registries.BLOCK, new Identifier(MoreGeodes.MODID, name), block);
     }
 
 }

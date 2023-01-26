@@ -1,6 +1,5 @@
 package com.github.thedeathlycow.moregeodes.mixin;
 
-import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.entity.GeodesMemoryModules;
 import com.github.thedeathlycow.moregeodes.tag.ModItemTags;
 import net.minecraft.entity.ItemEntity;
@@ -49,6 +48,7 @@ public abstract class FoolsGoldBarterPiglinBrainMixin {
         Optional<Boolean> memory = brain.getOptionalMemory(GeodesMemoryModules.REMEMBERS_FOOLS_GOLD);
 
         boolean remembersFoolsGold = brain.hasMemoryModule(GeodesMemoryModules.REMEMBERS_FOOLS_GOLD)
+                && memory != null
                 && memory.isPresent()
                 && memory.get();
         

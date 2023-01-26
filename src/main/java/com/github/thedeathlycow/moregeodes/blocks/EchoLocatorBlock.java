@@ -109,7 +109,7 @@ public class EchoLocatorBlock extends BlockWithEntity implements Waterloggable {
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
-            world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
 
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
@@ -124,7 +124,7 @@ public class EchoLocatorBlock extends BlockWithEntity implements Waterloggable {
     public void powerLocator(World world, BlockState state, BlockPos pos) {
         world.setBlockState(pos, state.with(POWERED, true));
         this.updateNeighbors(state, world, pos);
-        world.createAndScheduleBlockTick(pos, this, 8);
+        world.scheduleBlockTick(pos, this, 8);
     }
 
     @Override
