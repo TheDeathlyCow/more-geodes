@@ -10,6 +10,7 @@ import com.github.thedeathlycow.moregeodes.sounds.GeodesSoundEvents;
 import com.github.thedeathlycow.moregeodes.world.GeodesGameEvents;
 import com.mojang.logging.LogUtils;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 
 public class MoreGeodes implements ModInitializer {
@@ -31,5 +32,9 @@ public class MoreGeodes implements ModInitializer {
         GeodesGameEvents.registerEvents();
         GeodesMemoryModules.registerModules();
         LOGGER.info("More Geodes initialized!");
+    }
+
+    public static boolean isCarpetLoaded() {
+        return FabricLoader.getInstance().isModLoaded("carpet");
     }
 }

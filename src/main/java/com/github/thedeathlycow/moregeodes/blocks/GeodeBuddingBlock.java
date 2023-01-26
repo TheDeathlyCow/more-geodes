@@ -1,13 +1,25 @@
 package com.github.thedeathlycow.moregeodes.blocks;
 
+import carpet.CarpetSettings;
+import com.github.thedeathlycow.moregeodes.MoreGeodes;
+import com.github.thedeathlycow.moregeodes.item.ModItems;
 import com.github.thedeathlycow.moregeodes.sounds.CrystalBlockSoundGroup;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -32,8 +44,35 @@ public class GeodeBuddingBlock extends CrystalBlock {
         this.clusters = clusters;
     }
 
-    public PistonBehavior getPistonBehavior() {
+    @Override
+    public PistonBehavior getPistonBehavior(BlockState state) {
+        if (MoreGeodes.isCarpetLoaded()) {
+            if (CarpetSettings.movableAmethyst) {
+                return PistonBehavior.NORMAL;
+            }
+        }
+
         return PistonBehavior.DESTROY;
+    }
+
+    @Override
+    public void afterBreak(
+            World world,
+            PlayerEntity player,
+            BlockPos pos,
+            BlockState state,
+            @Nullable BlockEntity blockEntity,
+            ItemStack stack
+    ) {
+        super.afterBreak(world, player, pos, state, blockEntity, stack);
+        if (MoreGeodes.isCarpetLoaded()) {
+            if (CarpetSettings.movableAmethyst
+                    && stack.getItem() instanceof PickaxeItem
+                    && EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) > 0
+            ) {
+                dropStack(world, pos, this.asItem().getDefaultStack());
+            }
+        }
     }
 
     @Override
