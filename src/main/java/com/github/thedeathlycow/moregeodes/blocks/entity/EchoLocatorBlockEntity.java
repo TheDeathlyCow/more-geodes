@@ -49,9 +49,13 @@ public class EchoLocatorBlockEntity extends BlockEntity implements VibrationList
             if (blockEntity.pingTicks % TICKS_PER_PING != 0) {
                 return;
             }
+
+            boolean shouldHighlight = true;
             for (BlockPos pos : List.copyOf(blockEntity.pinging)) {
                 BlockState atState = world.getBlockState(pos);
-                if (!highlightBlock(blockEntity, world, pos, atState)) {
+                if (checkBlock(blockEntity, world, pos, atState, shouldHighlight)) {
+                    shouldHighlight = false;
+                } else {
                     blockEntity.pinging.remove(pos);
                 }
             }
@@ -67,14 +71,31 @@ public class EchoLocatorBlockEntity extends BlockEntity implements VibrationList
     }
 
     /**
-     * Highlights the block at the given location.
+     * Checks if the state at the given pos in world is echo-locatable.
+     * <p>
+     * If it is echo-locatable, and shouldHighlight is true, the block will be highlighted.
      *
-     * @return Returns whether the state was highlighted
+     * @param blockEntity     The Echo Locator source
+     * @param world           The world to check
+     * @param pos             The position to check
+     * @param state           The state to check
+     * @param shouldHighlight Whether the state should be highlighted if echo-locatable
+     * @return Returns true if the state is echo-locatable
      */
-    private static boolean highlightBlock(EchoLocatorBlockEntity blockEntity, ServerWorld world, BlockPos pos, BlockState state) {
+    private static boolean checkBlock(
+            EchoLocatorBlockEntity blockEntity,
+            ServerWorld world,
+            BlockPos pos,
+            BlockState state,
+            boolean shouldHighlight
+    ) {
         if (state.isIn(blockEntity.type.canLocate())) {
-            world.emitGameEvent(null, GeodesGameEvents.CRYSTAL_RESONATE, pos);
-            world.playSound(null, pos, blockEntity.type.resonateSound(), SoundCategory.BLOCKS, 2.5f, 1.0f);
+
+            if (shouldHighlight) {
+                world.emitGameEvent(null, GeodesGameEvents.CRYSTAL_RESONATE, pos);
+                world.playSound(null, pos, blockEntity.type.resonateSound(), SoundCategory.BLOCKS, 2.5f, 1.0f);
+            }
+
             return true;
         } else {
             return false;
