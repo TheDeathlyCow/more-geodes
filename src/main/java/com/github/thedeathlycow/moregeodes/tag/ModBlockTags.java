@@ -2,9 +2,10 @@ package com.github.thedeathlycow.moregeodes.tag;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import net.minecraft.block.Block;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 
 public class ModBlockTags {
 
@@ -22,6 +23,6 @@ public class ModBlockTags {
     public static final TagKey<Block> GYPSUM_PATCH_REPLACEABLE = create("gypsum_patch_replaceable");
 
     private static TagKey<Block> create(String id) {
-        return TagKey.of(Registry.BLOCK_KEY, new Identifier(MoreGeodes.MODID, id));
+        return TagKey.of(RegistryKeys.BLOCK, new Identifier(MoreGeodes.MODID, id));
     }
 }

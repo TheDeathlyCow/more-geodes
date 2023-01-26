@@ -10,9 +10,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.*;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.tag.TagKey;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3i;
@@ -39,7 +39,7 @@ public class EchoLocatorBlockEntity extends BlockEntity implements VibrationList
 
     public EchoLocatorBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ECHO_LOCATOR, pos, state);
-        this.vibrationListener = new VibrationListener(new BlockPositionSource(this.pos), SCAN_RADIUS, this, null, 0.0F, 0);
+        this.vibrationListener = new VibrationListener(new BlockPositionSource(this.pos), SCAN_RADIUS, this);
     }
 
     public static void tick(ServerWorld world, BlockPos origin, BlockState state, EchoLocatorBlockEntity blockEntity) {

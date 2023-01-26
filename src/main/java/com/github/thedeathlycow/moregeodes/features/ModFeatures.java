@@ -1,12 +1,11 @@
 package com.github.thedeathlycow.moregeodes.features;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
-import com.github.thedeathlycow.moregeodes.config.GeodesConfig;
 import com.github.thedeathlycow.moregeodes.tag.ModBiomeTags;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
@@ -56,7 +55,7 @@ public class ModFeatures {
 
     private static void addGeodeToBiomes(
             Predicate<BiomeSelectionContext> biomeSelector,
-            RegistryEntry<PlacedFeature> geode,
+            RegistryKey<PlacedFeature> geode,
             boolean shouldAdd
     ) {
         addGeodeToBiomes(biomeSelector, geode, shouldAdd, GenerationStep.Feature.UNDERGROUND_DECORATION);
@@ -64,7 +63,7 @@ public class ModFeatures {
 
     private static void addGeodeToBiomes(
             Predicate<BiomeSelectionContext> biomeSelector,
-            RegistryEntry<PlacedFeature> geode,
+            RegistryKey<PlacedFeature> geode,
             boolean shouldAdd,
             GenerationStep.Feature step
     ) {
@@ -72,7 +71,7 @@ public class ModFeatures {
             BiomeModifications.addFeature(
                     biomeSelector,
                     step,
-                    Objects.requireNonNull(geode.getKey().orElse(null))
+                    Objects.requireNonNull(geode)
             );
         }
     }

@@ -2,12 +2,9 @@ package com.github.thedeathlycow.moregeodes.mixin;
 
 import com.github.thedeathlycow.moregeodes.blocks.CrystalBlock;
 import com.github.thedeathlycow.moregeodes.tag.ModBlockTags;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.random.Random;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

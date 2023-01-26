@@ -39,7 +39,7 @@ public class QuartzClusterBlock extends CrystalClusterBlock {
 
     @Override
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
-        world.createAndScheduleBlockTick(pos, this, ON_TIME);
+        world.scheduleBlockTick(pos, this, ON_TIME);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class QuartzClusterBlock extends CrystalClusterBlock {
         if (world.isReceivingRedstonePower(pos)) {
             boolean powered = state.get(POWERED);
             world.setBlockState(pos, state.with(POWERED, !powered));
-            world.createAndScheduleBlockTick(pos, this, ON_TIME);
+            world.scheduleBlockTick(pos, this, ON_TIME);
         } else {
             world.setBlockState(pos, state.with(POWERED, false));
         }
