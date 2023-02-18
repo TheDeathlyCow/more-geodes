@@ -1,10 +1,12 @@
 package com.github.thedeathlycow.moregeodes.features;
 
+import appeng.core.definitions.AEBlocks;
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.blocks.CrystalClusterBlock;
 import com.github.thedeathlycow.moregeodes.blocks.LargeCrystalClusterBlock;
 import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
 import com.github.thedeathlycow.moregeodes.tag.ModBlockTags;
+import net.fabricmc.loader.impl.FabricLoaderImpl;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.enums.DoubleBlockHalf;
@@ -13,13 +15,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.VerticalSurfaceType;
-import net.minecraft.util.math.intprovider.ConstantIntProvider;
-import net.minecraft.util.math.intprovider.IntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 
@@ -35,6 +34,7 @@ public class ModConfiguredFeatures {
 
     public static final RegistryEntry<ConfiguredFeature<?, ?>> GYPSUM_CRYSTALS;
     public static final RegistryEntry<ConfiguredFeature<?, ?>> GYPSUM_PATCH;
+    public static final RegistryEntry<ConfiguredFeature<?, ?>> CERTUS_GEODE;
 
     private static RegistryEntry<ConfiguredFeature<?, ?>> register(String id, ConfiguredFeature<?, ?> configuredFeature) {
         return BuiltinRegistries.add(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MoreGeodes.MODID, id), configuredFeature);
@@ -213,6 +213,35 @@ public class ModConfiguredFeatures {
                         0.3f
                 )
         ));
+
+        if (FabricLoaderImpl.INSTANCE.isModLoaded("ae2")) {
+            CERTUS_GEODE = register("certus_geode", new ConfiguredFeature<>(Feature.GEODE, new GeodeFeatureConfig(
+                    new GeodeLayerConfig(
+                            SimpleBlockStateProvider.of(Blocks.WATER.getDefaultState()),
+                            SimpleBlockStateProvider.of(AEBlocks.DAMAGED_BUDDING_QUARTZ.block()),
+                            SimpleBlockStateProvider.of(AEBlocks.QUARTZ_BLOCK.block()),
+                            SimpleBlockStateProvider.of(Blocks.OBSIDIAN),
+                            SimpleBlockStateProvider.of(AEBlocks.SKY_STONE_BLOCK.block()),
+                            List.of(AEBlocks.SMALL_QUARTZ_BUD.block().getDefaultState(),AEBlocks.MEDIUM_QUARTZ_BUD.block().getDefaultState()),
+                            BlockTags.FEATURES_CANNOT_REPLACE,
+                            BlockTags.GEODE_INVALID_BLOCKS
+                    ),
+                    new GeodeLayerThicknessConfig(1d, 1d, 1.5d, 2d),
+                    new GeodeCrackConfig(0.2d, 0.5d, 2),
+                    0.25d,
+                    0.85d,
+                    true,
+                    UniformIntProvider.create(3, 5),
+                    UniformIntProvider.create(3, 4),
+                    UniformIntProvider.create(1, 2),
+                    -16,
+                    16,
+                    0.05d,
+                    1
+            )));
+        } else  {
+            CERTUS_GEODE = null;
+        }
     }
 
 }

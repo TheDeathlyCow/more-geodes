@@ -1,11 +1,11 @@
 package com.github.thedeathlycow.moregeodes.features;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
-import com.github.thedeathlycow.moregeodes.config.GeodesConfig;
 import com.github.thedeathlycow.moregeodes.tag.ModBiomeTags;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.loader.impl.FabricLoaderImpl;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.PlacedFeature;
@@ -52,6 +52,14 @@ public class ModFeatures {
                 MoreGeodes.CONFIG.generateGypsumPatches(),
                 GenerationStep.Feature.VEGETAL_DECORATION
         );
+
+        if (FabricLoaderImpl.INSTANCE.isModLoaded("ae2")) {
+            addGeodeToBiomes(
+                    BiomeSelectors.tag(ModBiomeTags.HAS_CERTUS_GEODE),
+                    ModPlacedFeatures.CERTUS_GEODE,
+                    MoreGeodes.CONFIG.generateCertusGeodes()
+            );
+        }
     }
 
     private static void addGeodeToBiomes(
