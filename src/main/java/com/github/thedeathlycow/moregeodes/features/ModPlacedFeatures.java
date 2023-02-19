@@ -22,7 +22,9 @@ public class ModPlacedFeatures {
 
     public static final RegistryEntry<PlacedFeature> LAPIS_GEODE;
     public static final RegistryEntry<PlacedFeature> GYPSUM_PATCH;
-    public static final @Nullable RegistryEntry<PlacedFeature> CERTUS_GEODE;
+
+    @Nullable
+    public static final RegistryEntry<PlacedFeature> CERTUS_GEODE;
 
     private static RegistryEntry<PlacedFeature> register(String id, PlacedFeature placedFeature) {
         return BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(MoreGeodes.MODID, id), placedFeature);
@@ -74,13 +76,16 @@ public class ModPlacedFeatures {
                 )
         ));
 
-        if (FabricLoader.getInstance().isModLoaded("ae2")) {
+        if (MoreGeodes.isAE2Loaded() && ModConfiguredFeatures.CERTUS_GEODE != null) {
             CERTUS_GEODE = register("certus_geode", new PlacedFeature(
                     ModConfiguredFeatures.CERTUS_GEODE,
                     List.of(
                             RarityFilterPlacementModifier.of(350),
                             SquarePlacementModifier.of(),
-                            HeightRangePlacementModifier.uniform(YOffset.aboveBottom(20), YOffset.aboveBottom(40)),
+                            HeightRangePlacementModifier.uniform(
+                                    YOffset.aboveBottom(20),
+                                    YOffset.aboveBottom(40)
+                            ),
                             BiomePlacementModifier.of()
                     )
             ));

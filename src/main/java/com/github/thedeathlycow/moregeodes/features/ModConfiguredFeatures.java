@@ -6,7 +6,6 @@ import com.github.thedeathlycow.moregeodes.blocks.CrystalClusterBlock;
 import com.github.thedeathlycow.moregeodes.blocks.LargeCrystalClusterBlock;
 import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
 import com.github.thedeathlycow.moregeodes.tag.ModBlockTags;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.enums.DoubleBlockHalf;
@@ -35,7 +34,9 @@ public class ModConfiguredFeatures {
 
     public static final RegistryEntry<ConfiguredFeature<?, ?>> GYPSUM_CRYSTALS;
     public static final RegistryEntry<ConfiguredFeature<?, ?>> GYPSUM_PATCH;
-    public static final @Nullable RegistryEntry<ConfiguredFeature<?, ?>> CERTUS_GEODE;
+
+    @Nullable
+    public static final RegistryEntry<ConfiguredFeature<?, ?>> CERTUS_GEODE;
 
     private static RegistryEntry<ConfiguredFeature<?, ?>> register(String id, ConfiguredFeature<?, ?> configuredFeature) {
         return BuiltinRegistries.add(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MoreGeodes.MODID, id), configuredFeature);
@@ -215,7 +216,7 @@ public class ModConfiguredFeatures {
                 )
         ));
 
-        if (FabricLoader.getInstance().isModLoaded("ae2")) {
+        if (MoreGeodes.isAE2Loaded()) {
             CERTUS_GEODE = register("certus_geode", new ConfiguredFeature<>(Feature.GEODE, new GeodeFeatureConfig(
                     new GeodeLayerConfig(
                             SimpleBlockStateProvider.of(Blocks.WATER.getDefaultState()),
@@ -223,7 +224,10 @@ public class ModConfiguredFeatures {
                             SimpleBlockStateProvider.of(AEBlocks.QUARTZ_BLOCK.block()),
                             SimpleBlockStateProvider.of(Blocks.OBSIDIAN),
                             SimpleBlockStateProvider.of(AEBlocks.SKY_STONE_BLOCK.block()),
-                            List.of(AEBlocks.SMALL_QUARTZ_BUD.block().getDefaultState(),AEBlocks.MEDIUM_QUARTZ_BUD.block().getDefaultState()),
+                            List.of(
+                                    AEBlocks.SMALL_QUARTZ_BUD.block().getDefaultState(),
+                                    AEBlocks.MEDIUM_QUARTZ_BUD.block().getDefaultState()
+                            ),
                             BlockTags.FEATURES_CANNOT_REPLACE,
                             BlockTags.GEODE_INVALID_BLOCKS
                     ),
@@ -240,7 +244,7 @@ public class ModConfiguredFeatures {
                     0.05d,
                     1
             )));
-        } else  {
+        } else {
             CERTUS_GEODE = null;
         }
     }

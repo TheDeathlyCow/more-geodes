@@ -53,7 +53,7 @@ public class ModFeatures {
                 GenerationStep.Feature.VEGETAL_DECORATION
         );
 
-        if (FabricLoader.getInstance().isModLoaded("ae2")) {
+        if (MoreGeodes.isAE2Loaded() && ModPlacedFeatures.CERTUS_GEODE != null) {
             addGeodeToBiomes(
                     BiomeSelectors.tag(ModBiomeTags.HAS_CERTUS_GEODE),
                     ModPlacedFeatures.CERTUS_GEODE,
