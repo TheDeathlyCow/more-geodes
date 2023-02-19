@@ -1,7 +1,7 @@
 package com.github.thedeathlycow.moregeodes.features;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
-import net.fabricmc.loader.impl.FabricLoaderImpl;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.RegistryEntry;
@@ -9,6 +9,7 @@ import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.placementmodifier.*;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class ModPlacedFeatures {
 
     public static final RegistryEntry<PlacedFeature> LAPIS_GEODE;
     public static final RegistryEntry<PlacedFeature> GYPSUM_PATCH;
-    public static final RegistryEntry<PlacedFeature> CERTUS_GEODE;
+    public static final @Nullable RegistryEntry<PlacedFeature> CERTUS_GEODE;
 
     private static RegistryEntry<PlacedFeature> register(String id, PlacedFeature placedFeature) {
         return BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(MoreGeodes.MODID, id), placedFeature);
@@ -73,7 +74,7 @@ public class ModPlacedFeatures {
                 )
         ));
 
-        if (FabricLoaderImpl.INSTANCE.isModLoaded("ae2")) {
+        if (FabricLoader.getInstance().isModLoaded("ae2")) {
             CERTUS_GEODE = register("certus_geode", new PlacedFeature(
                     ModConfiguredFeatures.CERTUS_GEODE,
                     List.of(

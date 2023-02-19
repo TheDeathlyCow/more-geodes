@@ -46,7 +46,7 @@ dependencies {
 	modCompileOnly "carpet:fabric-carpet:${project.minecraft_version}-${project.carpet_version}"
 
 	// AE2 integration
-	modImplementation ("appeng:appliedenergistics2-fabric:${project.ae2_version}") {
+	modCompileOnly ("appeng:appliedenergistics2-fabric:${project.ae2_version}") {
 		exclude group: "mezz.jei", module: "${project.jei_module}"
 		exclude group: "mcp.mobius.waila", module: "${project.waila_module}"
 		exclude group: "me.shedaniel", module: "${project.rei_module}"

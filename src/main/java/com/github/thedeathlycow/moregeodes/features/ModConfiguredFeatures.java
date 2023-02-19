@@ -6,7 +6,7 @@ import com.github.thedeathlycow.moregeodes.blocks.CrystalClusterBlock;
 import com.github.thedeathlycow.moregeodes.blocks.LargeCrystalClusterBlock;
 import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
 import com.github.thedeathlycow.moregeodes.tag.ModBlockTags;
-import net.fabricmc.loader.impl.FabricLoaderImpl;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.enums.DoubleBlockHalf;
@@ -21,6 +21,7 @@ import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class ModConfiguredFeatures {
 
     public static final RegistryEntry<ConfiguredFeature<?, ?>> GYPSUM_CRYSTALS;
     public static final RegistryEntry<ConfiguredFeature<?, ?>> GYPSUM_PATCH;
-    public static final RegistryEntry<ConfiguredFeature<?, ?>> CERTUS_GEODE;
+    public static final @Nullable RegistryEntry<ConfiguredFeature<?, ?>> CERTUS_GEODE;
 
     private static RegistryEntry<ConfiguredFeature<?, ?>> register(String id, ConfiguredFeature<?, ?> configuredFeature) {
         return BuiltinRegistries.add(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MoreGeodes.MODID, id), configuredFeature);
@@ -214,7 +215,7 @@ public class ModConfiguredFeatures {
                 )
         ));
 
-        if (FabricLoaderImpl.INSTANCE.isModLoaded("ae2")) {
+        if (FabricLoader.getInstance().isModLoaded("ae2")) {
             CERTUS_GEODE = register("certus_geode", new ConfiguredFeature<>(Feature.GEODE, new GeodeFeatureConfig(
                     new GeodeLayerConfig(
                             SimpleBlockStateProvider.of(Blocks.WATER.getDefaultState()),

@@ -5,7 +5,7 @@ import com.github.thedeathlycow.moregeodes.tag.ModBiomeTags;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.loader.impl.FabricLoaderImpl;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.PlacedFeature;
@@ -53,7 +53,7 @@ public class ModFeatures {
                 GenerationStep.Feature.VEGETAL_DECORATION
         );
 
-        if (FabricLoaderImpl.INSTANCE.isModLoaded("ae2")) {
+        if (FabricLoader.getInstance().isModLoaded("ae2")) {
             addGeodeToBiomes(
                     BiomeSelectors.tag(ModBiomeTags.HAS_CERTUS_GEODE),
                     ModPlacedFeatures.CERTUS_GEODE,
