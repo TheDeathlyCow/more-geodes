@@ -5,9 +5,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 
 import java.io.*;
-import java.net.URL;
 import java.nio.file.Path;
-import java.util.Objects;
 import java.util.Properties;
 
 public final class GeodesConfig {
@@ -20,6 +18,7 @@ public final class GeodesConfig {
     private static final String generateEchoGeodes = "generate_echo_geodes";
     private static final String generateLapisGeodes = "generate_lapis_geodes";
     private static final String generateGypsumPatches = "generate_gypsum_patches";
+    private static final String generateCertusGeodes = "generate_certus_geodes";
 
     private Properties properties;
     private final Properties defaultProperties = new Properties();
@@ -49,6 +48,10 @@ public final class GeodesConfig {
 
     public boolean generateGypsumPatches() {
         return Boolean.parseBoolean(properties.getProperty(generateGypsumPatches));
+    }
+
+    public boolean generateCertusGeodes() {
+        return Boolean.parseBoolean(properties.getProperty(generateCertusGeodes));
     }
 
     public void loadConfig() {
@@ -85,6 +88,7 @@ public final class GeodesConfig {
         defaultProperties.setProperty(generateEchoGeodes, "true");
         defaultProperties.setProperty(generateLapisGeodes, "true");
         defaultProperties.setProperty(generateGypsumPatches, "true");
+        defaultProperties.setProperty(generateCertusGeodes, "true");
     }
 
     private File getConfigFile() {

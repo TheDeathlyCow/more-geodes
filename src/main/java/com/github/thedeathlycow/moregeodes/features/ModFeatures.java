@@ -14,7 +14,11 @@ public class ModFeatures {
 
     public static void placeFeaturesInBiomes() {
 
-        BiomeModifications.create(new Identifier(MoreGeodes.MODID, "geode_additions"))
+        BiomeModification modification = BiomeModifications.create(
+                new Identifier(MoreGeodes.MODID, "geode_additions")
+        );
+
+        modification
                 .add(
                         ModificationPhase.ADDITIONS,
                         BiomeSelectors.tag(ModBiomeTags.HAS_EMERALD_GEODE),
@@ -69,6 +73,18 @@ public class ModFeatures {
                                 MoreGeodes.CONFIG.generateGypsumPatches()
                         )
                 );
+
+        if (MoreGeodes.isAE2Loaded()) {
+            modification.add(
+                    ModificationPhase.ADDITIONS,
+                    BiomeSelectors.tag(ModBiomeTags.HAS_CERTUS_GEODE),
+                    modifier(
+                            ModPlacedFeatures.CERTUS_GEODE,
+                            GenerationStep.Feature.UNDERGROUND_DECORATION,
+                            MoreGeodes.CONFIG.generateCertusGeodes()
+                    )
+            );
+        }
     }
 
     private static BiConsumer<BiomeSelectionContext, BiomeModificationContext> modifier(
