@@ -34,6 +34,10 @@ public class MoreGeodes implements ModInitializer {
         LOGGER.info("More Geodes initialized!");
     }
 
+    public static boolean isAE2Loaded() {
+        return FabricLoader.getInstance().isModLoaded("ae2");
+    }
+
     public static boolean isCarpetLoaded() {
         return FabricLoader.getInstance().isModLoaded("carpet");
     }
