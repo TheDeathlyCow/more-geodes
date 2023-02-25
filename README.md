@@ -95,7 +95,11 @@ Each of these values are booleans and are parsed using [Boolean#parseBoolean](ht
 
 ## Carpet Integration
 
-If you have [Carpet](https://modrinth.com/mod/carpet) mod installed, turning on the setting `moveableAmethyst` will allow you to pick up Budding blocks with silk touch and push them with pistons.
+If you have the [Carpet](https://modrinth.com/mod/carpet) mod installed, turning on the setting `moveableAmethyst` will allow you to pick up Budding blocks with silk touch and push them with pistons.
+
+## AE2 Integration
+
+If you have the [Applied Energistics 2](https://modrinth.com/ae2) mod installed, you'll be able to use the `generate_certus_geodes` setting to find certus quartz geodes in your world. Also, all of this here mod's budding blocks will be able to generate clusters more efficiently using AE2's `Crystal Growth Accelerator`.
 
 # Translations
 

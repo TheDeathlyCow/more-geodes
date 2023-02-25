@@ -16,9 +16,21 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
+
 	maven {
 		name "Carpet"
 		url 'https://masa.dy.fi/maven'
+	}
+	maven {
+		name "Modmaven"
+		url 'https://modmaven.dev/'
+		content { // limit maven to AE2
+			includeGroup 'appeng'
+		}
+	}
+	maven {
+		name "Shedaniel"
+		url 'https://maven.shedaniel.me/'
 	}
 }
 
@@ -32,6 +44,13 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	modCompileOnly "carpet:fabric-carpet:${project.minecraft_version}-${project.carpet_version}"
+
+	// AE2 integration
+	modCompileOnly ("appeng:appliedenergistics2-fabric:${project.ae2_version}") {
+		exclude group: "mezz.jei", module: "${project.jei_module}"
+		exclude group: "mcp.mobius.waila", module: "${project.waila_module}"
+		exclude group: "me.shedaniel", module: "${project.rei_module}"
+	}
 
 	afterEvaluate {
 		subprojects.each {
