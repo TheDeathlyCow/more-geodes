@@ -12,7 +12,7 @@ public class GeodesItemGroup {
 
     public static final ItemGroup MORE_GEODES = FabricItemGroup.builder(new Identifier(MoreGeodes.MODID, "more_geodes"))
             .icon(() -> new ItemStack(ModItems.EMERALD_CLUSTER))
-            .entries(((enabledFeatures, entries, operatorEnabled) -> {
+            .entries(((context, entries) -> {
                 // emerald
                 entries.add(new ItemStack(ModItems.EMERALD_GEODE));
                 entries.add(new ItemStack(ModItems.BUDDING_EMERALD));

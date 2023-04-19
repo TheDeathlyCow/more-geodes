@@ -93,7 +93,7 @@ public class EchoLocatorBlock extends BlockWithEntity implements Waterloggable {
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
         boolean isWater = fluidState.getFluid() == Fluids.WATER;
-        Direction.Axis playerAxis = ctx.getPlayerFacing().getAxis();
+        Direction.Axis playerAxis = ctx.getPlayerLookDirection().getAxis();
 
         BlockState state = this.getDefaultState()
                 .with(FACING, ctx.getSide())
