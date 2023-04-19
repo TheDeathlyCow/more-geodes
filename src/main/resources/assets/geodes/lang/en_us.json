@@ -48,6 +48,7 @@
     "block.geodes.amethyst_crystal_echo_locator": "Amethyst Crystal Echo Locator",
     "block.geodes.diamond_crystal_echo_locator": "Diamond Crystal Echo Locator",
     "block.geodes.echo_crystal_echo_locator": "Echo Crystal Echo Locator",
+    "block.geodes.gabbro": "Gabbro",
     "advancement.geodes.adventure.outrageous.title": "Gems Are Truly Outrageous",
     "advancement.geodes.adventure.outrageous.description": "Collect both an Emerald and Diamond geode block",
     "advancement.geodes.adventure.use_echo_locator.title": "Is There an Echo in Here?",

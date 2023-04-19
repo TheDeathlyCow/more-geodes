@@ -69,6 +69,8 @@ public class GeodesItemGroup {
                 entries.add(new ItemStack(ModItems.CALCITE_SLAB));
                 entries.add(new ItemStack(ModItems.CALCITE_WALL));
 
+                entries.add(new ItemStack(ModItems.GABRRO));
+
                 // echo locator
                 entries.add(new ItemStack(ModItems.ECHO_LOCATOR));
             }))
