@@ -61,7 +61,7 @@ public class ModBlocks {
     public static final Block DIAMOND_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.DIAMOND_GEODE_LOCATOR, FabricBlockSettings.of(GeodeMaterials.ECHO_LOCATOR).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
     public static final Block ECHO_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.ECHO_GEODE_LOCATOR, FabricBlockSettings.of(GeodeMaterials.ECHO_LOCATOR).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
 
-
+    public static final Block GABBRO = new Block(FabricBlockSettings.of(Material.STONE, MapColor.BLACK).requiresTool().strength(1.25F, 4.2F).sounds(BlockSoundGroup.BASALT));
 
     public static final GeodeBuddingBlock BUDDING_EMERALD = new GeodeBuddingBlock(
             CrystalBlockSoundGroup.EMERALD_GEODE,
@@ -175,6 +175,7 @@ public class ModBlocks {
         register("medium_gypsum_bud", MEDIUM_GYPSUM_BUD);
         register("small_gypsum_bud", SMALL_GYPSUM_BUD);
         register("budding_gypsum", BUDDING_GYPSUM);
+        register("gabbro", GABBRO);
     }
 
     private static void register(String name, Block block) {

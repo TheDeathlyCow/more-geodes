@@ -37,6 +37,7 @@
     "geodes:gypsum_rose",
     "geodes:large_gypsum_bud",
     "geodes:medium_gypsum_bud",
-    "geodes:small_gypsum_bud"
+    "geodes:small_gypsum_bud",
+    "geodes:gabbro"
   ]
 }

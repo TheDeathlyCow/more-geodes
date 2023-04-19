@@ -74,6 +74,8 @@ public class ModItems {
     public static final Item DIAMOND_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.DIAMOND_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
     public static final Item ECHO_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.ECHO_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
 
+    public static final Item GABRRO = new BlockItem(ModBlocks.GABBRO, new FabricItemSettings());
+
     public static void registerItems() {
         register("emerald_shard", EMERALD_SHARD);
         register("pyrite_chunk", PYRITE_CHUNK);
@@ -123,6 +125,7 @@ public class ModItems {
         register("calcite_stairs", CALCITE_STAIRS);
         register("calcite_slab", CALCITE_SLAB);
         register("calcite_wall", CALCITE_WALL);
+        register("gabbro", GABRRO);
 
         CompostingChanceRegistry.INSTANCE.add(GYPSUM_SHARD, 1.0f);
     }
