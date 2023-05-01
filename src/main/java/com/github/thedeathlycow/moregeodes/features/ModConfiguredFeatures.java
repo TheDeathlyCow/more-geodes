@@ -219,11 +219,17 @@ public class ModConfiguredFeatures {
         if (MoreGeodes.isAE2Loaded()) {
             CERTUS_GEODE = register("certus_geode", new ConfiguredFeature<>(Feature.GEODE, new GeodeFeatureConfig(
                     new GeodeLayerConfig(
-                            SimpleBlockStateProvider.of(Blocks.WATER.getDefaultState()),
-                            SimpleBlockStateProvider.of(AEBlocks.DAMAGED_BUDDING_QUARTZ.block()),
+                            SimpleBlockStateProvider.of(Blocks.WATER),
                             SimpleBlockStateProvider.of(AEBlocks.QUARTZ_BLOCK.block()),
-                            SimpleBlockStateProvider.of(Blocks.OBSIDIAN),
-                            SimpleBlockStateProvider.of(AEBlocks.SKY_STONE_BLOCK.block()),
+                            new WeightedBlockStateProvider(
+                                    new DataPool.Builder<BlockState>()
+                                            .add(AEBlocks.FLAWED_BUDDING_QUARTZ.block().getDefaultState(), 1)
+                                            .add(AEBlocks.CHIPPED_BUDDING_QUARTZ.block().getDefaultState(), 2)
+                                            .add(AEBlocks.DAMAGED_BUDDING_QUARTZ.block().getDefaultState(), 3)
+                                            .build()
+                            ),
+                            SimpleBlockStateProvider.of(Blocks.TUFF),
+                            SimpleBlockStateProvider.of(ModBlocks.GABBRO),
                             List.of(
                                     AEBlocks.SMALL_QUARTZ_BUD.block().getDefaultState(),
                                     AEBlocks.MEDIUM_QUARTZ_BUD.block().getDefaultState()
