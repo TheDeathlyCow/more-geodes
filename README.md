@@ -99,11 +99,8 @@ If you have the [Carpet](https://modrinth.com/mod/carpet) mod installed, turning
 
 ## AE2 Integration
 
-If you have the [Applied Energistics 2](https://modrinth.com/ae2) mod installed, you'll be able to use the `generate_certus_geodes` setting to find certus quartz geodes in your world. Also, all of this here mod's budding blocks will be able to generate clusters more efficiently using AE2's `Crystal Growth Accelerator`.
+If you have the [Applied Energistics 2](https://modrinth.com/mod/ae2) mod installed, you'll be able to use the `generate_certus_geodes` setting to find certus quartz geodes in your world. Also, all of this here mod's budding blocks will be able to generate clusters more efficiently using AE2's `Crystal Growth Accelerator`.
 
 # Translations
 
 If you'd like to create translations for More Geodes, the project is on [Crowdin](https://crowdin.com/project/more-geodes). You can also provide translations via issue or pull request if you so wish. Thanks for your contribution!
-
-
-
