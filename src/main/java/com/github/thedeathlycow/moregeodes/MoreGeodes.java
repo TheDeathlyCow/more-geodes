@@ -3,6 +3,7 @@ package com.github.thedeathlycow.moregeodes;
 import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
 import com.github.thedeathlycow.moregeodes.blocks.entity.ModBlockEntities;
 import com.github.thedeathlycow.moregeodes.config.GeodesConfig;
+import com.github.thedeathlycow.moregeodes.entity.GeodesEntityTypes;
 import com.github.thedeathlycow.moregeodes.entity.GeodesMemoryModules;
 import com.github.thedeathlycow.moregeodes.features.ModFeatures;
 import com.github.thedeathlycow.moregeodes.item.ModItems;
@@ -28,6 +29,7 @@ public class MoreGeodes implements ModInitializer {
         ModItems.registerItems();
         ModFeatures.placeFeaturesInBiomes();
         ModBlockEntities.registerBlockEntities();
+        GeodesEntityTypes.registerAll();
         GeodesSoundEvents.registerSoundEvents();
         GeodesGameEvents.registerEvents();
         GeodesMemoryModules.registerModules();

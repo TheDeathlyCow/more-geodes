@@ -4,6 +4,7 @@
 	"package": "com.github.thedeathlycow.moregeodes.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
+		"BlockDisplayInvoker",
 		"FoolsGoldBarterPiglinBrainMixin",
 		"PiglinMemoryMixin",
 		"SimpleBlockFeatureMixin",

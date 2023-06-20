@@ -2,6 +2,8 @@ package com.github.thedeathlycow.moregeodes.blocks.entity;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.blocks.EchoLocatorType;
+import com.github.thedeathlycow.moregeodes.entity.GeodesEntityTypes;
+import com.github.thedeathlycow.moregeodes.mixin.BlockDisplayInvoker;
 import com.github.thedeathlycow.moregeodes.tag.GeodesGameEventTags;
 import com.github.thedeathlycow.moregeodes.world.GeodesGameEvents;
 import com.mojang.serialization.DataResult;
@@ -12,6 +14,8 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.SculkSensorBlockEntity;
 import net.minecraft.block.entity.SculkShriekerBlockEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.decoration.DisplayEntity;
 import net.minecraft.nbt.*;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.world.ServerWorld;
@@ -39,7 +43,7 @@ public class EchoLocatorBlockEntity extends BlockEntity implements
     public static final int SCAN_RADIUS = 30;
     private static final Vec3i SCAN_BOX = new Vec3i(SCAN_RADIUS, SCAN_RADIUS, SCAN_RADIUS);
     private static final int MAX_PING_TIME = 20 * 20;
-    private static final int TICKS_PER_PING = 20;
+    public static final int TICKS_PER_PING = 20;
 
     private int pingTicks = 0;
     private final List<BlockPos> pinging = new ArrayList<>();
@@ -105,14 +109,36 @@ public class EchoLocatorBlockEntity extends BlockEntity implements
         if (state.isIn(blockEntity.type.canLocate())) {
 
             if (shouldHighlight) {
-                world.emitGameEvent(null, GeodesGameEvents.CRYSTAL_RESONATE, pos);
-                world.playSound(null, pos, blockEntity.type.resonateSound(), SoundCategory.BLOCKS, 2.5f, 1.0f);
+                highlightCrystal(blockEntity, world, pos, state);
             }
 
             return true;
         } else {
             return false;
         }
+    }
+
+    private static void highlightCrystal(
+            EchoLocatorBlockEntity blockEntity,
+            ServerWorld world,
+            BlockPos pos,
+            BlockState state
+    ) {
+        world.emitGameEvent(null, GeodesGameEvents.CRYSTAL_RESONATE, pos);
+
+        world.playSound(null, pos, blockEntity.type.resonateSound(), SoundCategory.BLOCKS, 2.5f, 1.0f);
+
+        DisplayEntity.BlockDisplayEntity blockDisplay = GeodesEntityTypes.ECHO_DISPLAY.create(world);
+
+        if (blockDisplay == null) {
+            return;
+        }
+        ((BlockDisplayInvoker) blockDisplay).geodes$setBlockState(state);
+        blockDisplay.setPos(pos.getX(), pos.getY(), pos.getZ());
+        blockDisplay.setGlowing(true);
+        blockDisplay.setInvulnerable(true);
+
+        world.spawnEntity(blockDisplay);
     }
 
     public void activate(World world, BlockPos origin) {
