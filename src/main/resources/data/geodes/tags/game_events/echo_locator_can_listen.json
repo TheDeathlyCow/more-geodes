@@ -1,6 +1,6 @@
 {
-  "replace": false,
-  "values": [
-    "geodes:crystal_resonate"
-  ]
+	"replace": false,
+	"values": [
+		"geodes:crystal_resonate"
+	]
 }
