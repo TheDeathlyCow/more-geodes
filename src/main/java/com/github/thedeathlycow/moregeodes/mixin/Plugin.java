@@ -1,6 +1,7 @@
 package com.github.thedeathlycow.moregeodes.mixin;
 
 import net.fabricmc.loader.api.FabricLoader;
+import org.jetbrains.annotations.NotNull;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -19,10 +20,13 @@ public class Plugin implements IMixinConfigPlugin {
     }
 
     @Override
-    public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        String[] s = mixinClassName.split(",");
-        if (s.length > 5 && s[5].equalsIgnoreCase("compat")) {
-            return switch (s[6]) {
+    public boolean shouldApplyMixin(String targetClassName, @NotNull String mixinClassName) {
+        String l = Plugin.class.getPackageName();
+        if (!targetClassName.startsWith(l)) return true;
+        int i = l.split("\\.").length;
+        String[] s = mixinClassName.split("\\.");
+        if (s.length > i && s[i].equalsIgnoreCase("compat")) {
+            return switch (s[i+1]) {
                 case "carpet" -> FabricLoader.getInstance().isModLoaded("carpet");
                 default -> true;
             };
