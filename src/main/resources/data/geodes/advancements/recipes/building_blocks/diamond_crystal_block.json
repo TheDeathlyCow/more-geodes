@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "geodes:diamond_geode"
+      "geodes:diamond_crystal_block"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "geodes:diamond_geode"
+        "recipe": "geodes:diamond_crystal_block"
       }
     }
   },
