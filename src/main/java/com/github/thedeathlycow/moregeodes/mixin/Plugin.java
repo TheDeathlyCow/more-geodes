@@ -22,7 +22,7 @@ public class Plugin implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String targetClassName, @NotNull String mixinClassName) {
         String l = Plugin.class.getPackageName();
-        if (!targetClassName.startsWith(l)) return true;
+        if (!mixinClassName.startsWith(l)) return true;
         int i = l.split("\\.").length;
         String[] s = mixinClassName.split("\\.");
         if (s.length > i && s[i].equalsIgnoreCase("compat")) {
