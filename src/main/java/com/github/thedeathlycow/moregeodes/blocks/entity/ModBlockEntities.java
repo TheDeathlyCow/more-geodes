@@ -13,11 +13,6 @@ public class ModBlockEntities {
     public static final BlockEntityType<EchoLocatorBlockEntity> ECHO_LOCATOR =
             FabricBlockEntityTypeBuilder.create(
                             EchoLocatorBlockEntity::new,
-                            ModBlocks.EMERALD_CRYSTAL_ECHO_LOCATOR,
-                            ModBlocks.QUARTZ_CRYSTAL_ECHO_LOCATOR,
-                            ModBlocks.AMETHYST_CRYSTAL_ECHO_LOCATOR,
-                            ModBlocks.DIAMOND_CRYSTAL_ECHO_LOCATOR,
-                            ModBlocks.ECHO_CRYSTAL_ECHO_LOCATOR,
                             ModBlocks.ECHO_LOCATOR
                     )
                     .build();

@@ -55,13 +55,6 @@ public class ModBlocks {
 
     public static final Block ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.ALL, FabricBlockSettings.create().mapColor(MapColor.BLACK).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
 
-
-    public static final Block EMERALD_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.EMERALD_GEODE_LOCATOR, FabricBlockSettings.create().mapColor(MapColor.BLACK).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
-    public static final Block QUARTZ_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.QUARTZ_GEODE_LOCATOR, FabricBlockSettings.create().mapColor(MapColor.BLACK).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
-    public static final Block AMETHYST_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.AMETHYST_GEODE_LOCATOR, FabricBlockSettings.create().mapColor(MapColor.BLACK).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
-    public static final Block DIAMOND_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.DIAMOND_GEODE_LOCATOR, FabricBlockSettings.create().mapColor(MapColor.BLACK).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
-    public static final Block ECHO_CRYSTAL_ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.ECHO_GEODE_LOCATOR, FabricBlockSettings.create().mapColor(MapColor.BLACK).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
-
     public static final Block GABBRO = new Block(FabricBlockSettings.create().mapColor(MapColor.BLACK).requiresTool().strength(1.25F, 4.2F).sounds(BlockSoundGroup.BASALT));
 
     public static final GeodeBuddingBlock BUDDING_EMERALD = new GeodeBuddingBlock(
@@ -153,11 +146,6 @@ public class ModBlocks {
         register("medium_echo_bud", MEDIUM_ECHO_BUD);
         register("small_echo_bud", SMALL_ECHO_BUD);
         register("echo_locator", ECHO_LOCATOR);
-        register("emerald_crystal_echo_locator", EMERALD_CRYSTAL_ECHO_LOCATOR);
-        register("quartz_crystal_echo_locator", QUARTZ_CRYSTAL_ECHO_LOCATOR);
-        register("amethyst_crystal_echo_locator", AMETHYST_CRYSTAL_ECHO_LOCATOR);
-        register("diamond_crystal_echo_locator", DIAMOND_CRYSTAL_ECHO_LOCATOR);
-        register("echo_crystal_echo_locator", ECHO_CRYSTAL_ECHO_LOCATOR);
         register("lapis_crystal_block", LAPIS_CRYSTAL_BLOCK);
         register("lapis_cluster", LAPIS_CLUSTER);
         register("large_lapis_bud", LARGE_LAPIS_BUD);

@@ -67,13 +67,6 @@ public class ModItems {
     public static final Item CALCITE_WALL = new BlockItem(ModBlocks.CALCITE_WALL, new FabricItemSettings());
 
     public static final Item ECHO_LOCATOR = new BlockItem(ModBlocks.ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
-
-    public static final Item EMERALD_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.EMERALD_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
-    public static final Item QUARTZ_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.QUARTZ_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
-    public static final Item AMETHYST_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.AMETHYST_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
-    public static final Item DIAMOND_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.DIAMOND_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
-    public static final Item ECHO_CRYSTAL_ECHO_LOCATOR = new BlockItem(ModBlocks.ECHO_CRYSTAL_ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
-
     public static final Item GABRRO = new BlockItem(ModBlocks.GABBRO, new FabricItemSettings());
 
     public static void registerItems() {
@@ -113,11 +106,6 @@ public class ModItems {
         register("large_gypsum_bud", LARGE_GYPSUM_BUD);
         register("gypsum_rose", GYPSUM_ROSE);
         register("echo_locator", ECHO_LOCATOR);
-        register("emerald_crystal_echo_locator", EMERALD_CRYSTAL_ECHO_LOCATOR);
-        register("quartz_crystal_echo_locator", QUARTZ_CRYSTAL_ECHO_LOCATOR);
-        register("amethyst_crystal_echo_locator", AMETHYST_CRYSTAL_ECHO_LOCATOR);
-        register("diamond_crystal_echo_locator", DIAMOND_CRYSTAL_ECHO_LOCATOR);
-        register("echo_crystal_echo_locator", ECHO_CRYSTAL_ECHO_LOCATOR);
         register("pyrite", PYRITE);
         register("pyrite_stairs", PYRITE_STAIRS);
         register("pyrite_slab", PYRITE_SLAB);
