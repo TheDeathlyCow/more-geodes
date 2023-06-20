@@ -1,9 +1,9 @@
 {
-  "block.geodes.emerald_geode": "Emerald Crystal",
+  "block.geodes.emerald_crystal_block": "Emerald Crystal",
   "block.geodes.emerald_cluster": "Emerald Clust'r",
-  "block.geodes.quartz_geode": "Quartz Crystal",
+  "block.geodes.quartz_crystal_block": "Quartz Crystal",
   "block.geodes.quartz_cluster": "Quartz Clust'r",
-  "block.geodes.diamond_geode": "Diamond Crystal",
+  "block.geodes.diamond_crystal_block": "Diamond Crystal",
   "block.geodes.diamond_cluster": "Diamond Clust'r",
   "advancement.geodes.adventure.outrageous.title": "Gems Art Truly Outrageous",
   "advancement.geodes.adventure.outrageous.description": "Collecteth ye both thy Em'rald and Diamond crystal",
@@ -57,9 +57,9 @@
   "subtitles.block.geodes.echo_locator.resonate": "Crystal resonates",
   "subtitles.block.geodes.echo_locator.use": "Echo locator sings",
   "subtitles.block.geodes.echo_block.chime": "Echo echos",
-  "subtitles.block.geodes.emerald_geode.chime": "Emerald jingles",
-  "subtitles.block.geodes.quartz_geode.chime": "Quarz humms",
-  "subtitles.block.geodes.diamond_geode.chime": "Diamond sparkles",
+  "subtitles.block.geodes.emerald_crystal_block.chime": "Emerald jingles",
+  "subtitles.block.geodes.quartz_crystal_block.chime": "Quarz humms",
+  "subtitles.block.geodes.diamond_crystal_block.chime": "Diamond sparkles",
   "subtitles.block.geodes.lapis_crystal_block.chime": "Lapis lazuli clinks",
   "subtitles.block.geodes.gypsum_crystal_block.chime": "Gypsum clinks"
 }
