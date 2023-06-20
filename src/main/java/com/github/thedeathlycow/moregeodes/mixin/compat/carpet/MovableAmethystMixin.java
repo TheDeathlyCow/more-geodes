@@ -1,4 +1,4 @@
-package com.github.thedeathlycow.moregeodes.mixin;
+package com.github.thedeathlycow.moregeodes.mixin.compat.carpet;
 
 import carpet.CarpetSettings;
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
