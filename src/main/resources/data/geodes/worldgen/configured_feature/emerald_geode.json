@@ -11,7 +11,7 @@
 			"inner_layer_provider": {
 				"type": "minecraft:simple_state_provider",
 				"state": {
-					"Name": "geodes:emerald_geode"
+					"Name": "geodes:emerald_crystal_block"
 				}
 			},
 			"alternate_inner_layer_provider": {
