@@ -129,7 +129,7 @@ public class ModItems {
 
         CompostingChanceRegistry.INSTANCE.add(GYPSUM_SHARD, 1.0f);
 
-        GeodesItemGroup.check();
+        GeodesItemGroup.register();
     }
 
     private static void register(String name, Item item) {

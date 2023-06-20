@@ -5,78 +5,91 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class GeodesItemGroup {
 
 
-    public static final ItemGroup MORE_GEODES = FabricItemGroup.builder(new Identifier(MoreGeodes.MODID, "more_geodes"))
-            .icon(() -> new ItemStack(ModItems.EMERALD_CLUSTER))
-            .entries(((context, entries) -> {
-                // emerald
-                entries.add(new ItemStack(ModItems.EMERALD_GEODE));
-                entries.add(new ItemStack(ModItems.BUDDING_EMERALD));
-                entries.add(new ItemStack(ModItems.EMERALD_CLUSTER));
-                entries.add(new ItemStack(ModItems.LARGE_EMERALD_BUD));
-                entries.add(new ItemStack(ModItems.MEDIUM_EMERALD_BUD));
-                entries.add(new ItemStack(ModItems.SMALL_EMERALD_BUD));
+    public static final RegistryKey<ItemGroup> MORE_GEODES = RegistryKey.of(
+            RegistryKeys.ITEM_GROUP,
+            new Identifier(MoreGeodes.MODID, "main")
+    );
 
-                // quartz
-                entries.add(new ItemStack(ModItems.QUARTZ_GEODE));
-                entries.add(new ItemStack(ModItems.BUDDING_QUARTZ));
-                entries.add(new ItemStack(ModItems.QUARTZ_CLUSTER));
-                entries.add(new ItemStack(ModItems.LARGE_QUARTZ_BUD));
-                entries.add(new ItemStack(ModItems.MEDIUM_QUARTZ_BUD));
-                entries.add(new ItemStack(ModItems.SMALL_QUARTZ_BUD));
+    public static void register() {
+        Registry.register(
+                Registries.ITEM_GROUP,
+                MORE_GEODES,
+                FabricItemGroup.builder()
+                        .icon(() -> new ItemStack(ModItems.EMERALD_CLUSTER))
+                        .displayName(Text.translatable("itemGroup.geodes.more_geodes"))
+                        .entries(((context, entries) -> {
+                            // emerald
+                            entries.add(new ItemStack(ModItems.EMERALD_GEODE));
+                            entries.add(new ItemStack(ModItems.BUDDING_EMERALD));
+                            entries.add(new ItemStack(ModItems.EMERALD_CLUSTER));
+                            entries.add(new ItemStack(ModItems.LARGE_EMERALD_BUD));
+                            entries.add(new ItemStack(ModItems.MEDIUM_EMERALD_BUD));
+                            entries.add(new ItemStack(ModItems.SMALL_EMERALD_BUD));
 
-                // diamond
-                entries.add(new ItemStack(ModItems.DIAMOND_GEODE));
-                entries.add(new ItemStack(ModItems.DIAMOND_CLUSTER));
+                            // quartz
+                            entries.add(new ItemStack(ModItems.QUARTZ_GEODE));
+                            entries.add(new ItemStack(ModItems.BUDDING_QUARTZ));
+                            entries.add(new ItemStack(ModItems.QUARTZ_CLUSTER));
+                            entries.add(new ItemStack(ModItems.LARGE_QUARTZ_BUD));
+                            entries.add(new ItemStack(ModItems.MEDIUM_QUARTZ_BUD));
+                            entries.add(new ItemStack(ModItems.SMALL_QUARTZ_BUD));
 
-                // echo
-                entries.add(new ItemStack(ModItems.ECHO_BLOCK));
-                entries.add(new ItemStack(ModItems.BUDDING_ECHO_BLOCK));
-                entries.add(new ItemStack(ModItems.ECHO_CLUSTER));
-                entries.add(new ItemStack(ModItems.LARGE_ECHO_BUD));
-                entries.add(new ItemStack(ModItems.MEDIUM_ECHO_BUD));
-                entries.add(new ItemStack(ModItems.SMALL_ECHO_BUD));
+                            // diamond
+                            entries.add(new ItemStack(ModItems.DIAMOND_GEODE));
+                            entries.add(new ItemStack(ModItems.DIAMOND_CLUSTER));
 
-                // lapis
-                entries.add(new ItemStack(ModItems.LAPIS_CRYSTAL_BLOCK));
-                entries.add(new ItemStack(ModItems.BUDDING_LAPIS));
-                entries.add(new ItemStack(ModItems.LAPIS_CLUSTER));
-                entries.add(new ItemStack(ModItems.LARGE_LAPIS_BUD));
-                entries.add(new ItemStack(ModItems.MEDIUM_LAPIS_BUD));
-                entries.add(new ItemStack(ModItems.SMALL_LAPIS_BUD));
+                            // echo
+                            entries.add(new ItemStack(ModItems.ECHO_BLOCK));
+                            entries.add(new ItemStack(ModItems.BUDDING_ECHO_BLOCK));
+                            entries.add(new ItemStack(ModItems.ECHO_CLUSTER));
+                            entries.add(new ItemStack(ModItems.LARGE_ECHO_BUD));
+                            entries.add(new ItemStack(ModItems.MEDIUM_ECHO_BUD));
+                            entries.add(new ItemStack(ModItems.SMALL_ECHO_BUD));
 
-                // gypsum
-                entries.add(new ItemStack(ModItems.GYPSUM_CRYSTAL_BLOCK));
-                entries.add(new ItemStack(ModItems.BUDDING_GYPSUM));
-                entries.add(new ItemStack(ModItems.GYPSUM_ROSE));
-                entries.add(new ItemStack(ModItems.LARGE_GYPSUM_BUD));
-                entries.add(new ItemStack(ModItems.MEDIUM_GYPSUM_BUD));
-                entries.add(new ItemStack(ModItems.SMALL_GYPSUM_BUD));
-                entries.add(new ItemStack(ModItems.GYPSUM_SHARD));
+                            // lapis
+                            entries.add(new ItemStack(ModItems.LAPIS_CRYSTAL_BLOCK));
+                            entries.add(new ItemStack(ModItems.BUDDING_LAPIS));
+                            entries.add(new ItemStack(ModItems.LAPIS_CLUSTER));
+                            entries.add(new ItemStack(ModItems.LARGE_LAPIS_BUD));
+                            entries.add(new ItemStack(ModItems.MEDIUM_LAPIS_BUD));
+                            entries.add(new ItemStack(ModItems.SMALL_LAPIS_BUD));
 
-                // pyrite and calcite
-                entries.add(new ItemStack(ModItems.PYRITE_CHUNK));
-                entries.add(new ItemStack(ModItems.PYRITE));
-                entries.add(new ItemStack(ModItems.PYRITE_STAIRS));
-                entries.add(new ItemStack(ModItems.PYRITE_SLAB));
-                entries.add(new ItemStack(ModItems.PYRITE_WALL));
-                entries.add(new ItemStack(Items.CALCITE));
-                entries.add(new ItemStack(ModItems.CALCITE_STAIRS));
-                entries.add(new ItemStack(ModItems.CALCITE_SLAB));
-                entries.add(new ItemStack(ModItems.CALCITE_WALL));
+                            // gypsum
+                            entries.add(new ItemStack(ModItems.GYPSUM_CRYSTAL_BLOCK));
+                            entries.add(new ItemStack(ModItems.BUDDING_GYPSUM));
+                            entries.add(new ItemStack(ModItems.GYPSUM_ROSE));
+                            entries.add(new ItemStack(ModItems.LARGE_GYPSUM_BUD));
+                            entries.add(new ItemStack(ModItems.MEDIUM_GYPSUM_BUD));
+                            entries.add(new ItemStack(ModItems.SMALL_GYPSUM_BUD));
+                            entries.add(new ItemStack(ModItems.GYPSUM_SHARD));
 
-                entries.add(new ItemStack(ModItems.GABRRO));
+                            // pyrite and calcite
+                            entries.add(new ItemStack(ModItems.PYRITE_CHUNK));
+                            entries.add(new ItemStack(ModItems.PYRITE));
+                            entries.add(new ItemStack(ModItems.PYRITE_STAIRS));
+                            entries.add(new ItemStack(ModItems.PYRITE_SLAB));
+                            entries.add(new ItemStack(ModItems.PYRITE_WALL));
+                            entries.add(new ItemStack(Items.CALCITE));
+                            entries.add(new ItemStack(ModItems.CALCITE_STAIRS));
+                            entries.add(new ItemStack(ModItems.CALCITE_SLAB));
+                            entries.add(new ItemStack(ModItems.CALCITE_WALL));
 
-                // echo locator
-                entries.add(new ItemStack(ModItems.ECHO_LOCATOR));
-            }))
-            .build();
+                            entries.add(new ItemStack(ModItems.GABRRO));
 
-    public static void check() {
-        // do nothing, just make sure the class isnt stripped
+                            // echo locator
+                            entries.add(new ItemStack(ModItems.ECHO_LOCATOR));
+                        }))
+                        .build()
+        );
     }
 }

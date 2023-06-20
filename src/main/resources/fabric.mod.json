@@ -5,11 +5,11 @@
   "name": "More Geodes",
   "description": "Adds more geode variants including Diamond, Emerald, and Quartz.",
   "authors": [
-    "TheDeathlyCow",
-    "SalveMundiProd"
+    "TheDeathlyCow"
   ],
   "contributors": [
-    "Nerjal Nosk"
+    "Nerjal Nosk",
+    "SalveMundiProd"
   ],
   "contact": {
     "homepage": "https://github.com/TheDeathlyCow/more-geodes/blob/main/README.md",
@@ -31,9 +31,9 @@
     "geodes.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.19",
+    "fabricloader": ">=0.14.21",
     "fabric": "*",
-    "minecraft": "1.19.4",
+    "minecraft": "1.20.1",
     "java": ">=17"
   },
   "suggests": {

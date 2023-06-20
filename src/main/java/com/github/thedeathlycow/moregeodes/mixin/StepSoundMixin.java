@@ -5,6 +5,7 @@ import com.github.thedeathlycow.moregeodes.tag.ModBlockTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -27,10 +28,10 @@ public abstract class StepSoundMixin {
     @Shadow public abstract void playSound(SoundEvent sound, float volume, float pitch);
 
     @Inject(
-            method = "playAmethystChimeSound",
-            at = @At("HEAD")
+            method = "playStepSounds",
+            at = @At("TAIL")
     )
-    private void playCustomCrystalBlockChime(BlockState state, CallbackInfo ci) {
+    private void playCustomCrystalBlockChime(BlockPos pos, BlockState state, CallbackInfo ci) {
 
         if (state.isIn(ModBlockTags.CUSTOM_CRYSTAL_SOUND_BLOCKS) && this.age >= this.lastChimeAge + 20) {
             if (!(state.getBlock() instanceof CrystalBlock crystalBlock)) {

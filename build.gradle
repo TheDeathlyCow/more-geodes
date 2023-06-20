@@ -43,7 +43,7 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modCompileOnly "carpet:fabric-carpet:${project.minecraft_version}-${project.carpet_version}"
+	modCompileOnly "carpet:fabric-carpet:${project.carpet_version}"
 
 	// AE2 integration
 	modCompileOnly ("appeng:appliedenergistics2-fabric:${project.ae2_version}") {
