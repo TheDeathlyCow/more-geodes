@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "geodes:emerald_geode"
+      "geodes:emerald_crystal_block"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "geodes:emerald_geode"
+        "recipe": "geodes:emerald_crystal_block"
       }
     }
   },

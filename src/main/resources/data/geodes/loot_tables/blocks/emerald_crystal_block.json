@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "geodes:diamond_geode"
+          "name": "geodes:emerald_crystal_block"
         }
       ],
       "conditions": [

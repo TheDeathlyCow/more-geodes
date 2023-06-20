@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:block/cube_all",
     "textures": {
-        "all": "geodes:block/emerald_geode"
+        "all": "geodes:block/emerald_crystal_block"
     }
 }

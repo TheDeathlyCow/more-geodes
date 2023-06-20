@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:diamond"
+      "item": "minecraft:quartz"
     }
   },
   "result": {
-    "item": "geodes:diamond_geode"
+    "item": "geodes:quartz_crystal_block"
   }
 }

@@ -2,13 +2,20 @@ package com.github.thedeathlycow.moregeodes.blocks.entity;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.blocks.EchoLocatorType;
+import com.github.thedeathlycow.moregeodes.entity.GeodesEntityTypes;
+import com.github.thedeathlycow.moregeodes.mixin.BlockDisplayInvoker;
 import com.github.thedeathlycow.moregeodes.tag.GeodesGameEventTags;
 import com.github.thedeathlycow.moregeodes.world.GeodesGameEvents;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.Dynamic;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.SculkShriekerBlock;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.SculkSensorBlockEntity;
+import net.minecraft.block.entity.SculkShriekerBlockEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.decoration.DisplayEntity;
 import net.minecraft.nbt.*;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.world.ServerWorld;
@@ -19,50 +26,60 @@ import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import net.minecraft.world.event.BlockPositionSource;
 import net.minecraft.world.event.GameEvent;
+import net.minecraft.world.event.Vibrations;
 import net.minecraft.world.event.listener.GameEventListener;
-import net.minecraft.world.event.listener.VibrationListener;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
-public class EchoLocatorBlockEntity extends BlockEntity implements VibrationListener.Callback {
+public class EchoLocatorBlockEntity extends BlockEntity implements
+        GameEventListener.Holder<Vibrations.VibrationListener>,
+        Vibrations
+{
     public static final int SCAN_RADIUS = 30;
     private static final Vec3i SCAN_BOX = new Vec3i(SCAN_RADIUS, SCAN_RADIUS, SCAN_RADIUS);
     private static final int MAX_PING_TIME = 20 * 20;
-    private static final int TICKS_PER_PING = 20;
+    public static final int TICKS_PER_PING = 20;
 
     private int pingTicks = 0;
     private final List<BlockPos> pinging = new ArrayList<>();
     private EchoLocatorType type = EchoLocatorType.EMPTY;
-    private VibrationListener vibrationListener;
+    private Vibrations.VibrationListener vibrationListener;
+    private Vibrations.ListenerData listenerData;
+    private Vibrations.Callback callback;
 
     public EchoLocatorBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ECHO_LOCATOR, pos, state);
-        this.vibrationListener = new VibrationListener(new BlockPositionSource(this.pos), SCAN_RADIUS, this);
+        this.callback = new EchoLocatorCallback(this, SCAN_RADIUS, new BlockPositionSource(this.getPos()));
+        this.listenerData = new Vibrations.ListenerData();
+        this.vibrationListener = new Vibrations.VibrationListener(this);
     }
 
     public static void tick(ServerWorld world, BlockPos origin, BlockState state, EchoLocatorBlockEntity blockEntity) {
         if (blockEntity.isPinging() && !world.isClient()) {
             blockEntity.pingTicks++;
-            blockEntity.vibrationListener.tick(world);
             if (blockEntity.pingTicks % TICKS_PER_PING != 0) {
                 return;
             }
 
             boolean shouldHighlight = true;
-            for (BlockPos pos : List.copyOf(blockEntity.pinging)) {
+            // use explicit iterator to avoid concurrent modification error
+            Iterator<BlockPos> pinging = blockEntity.pinging.iterator();
+            BlockPos pos;
+            while (pinging.hasNext()) {
+                pos = pinging.next();
                 BlockState atState = world.getBlockState(pos);
                 if (checkBlock(blockEntity, world, pos, atState, shouldHighlight)) {
                     shouldHighlight = false;
                 } else {
-                    blockEntity.pinging.remove(pos);
+                    pinging.remove();
                 }
             }
         }
-    }
-
-    public static void clientTick(World world, BlockPos pos, BlockState state, EchoLocatorBlockEntity blockEntity) {
     }
 
 
@@ -92,14 +109,36 @@ public class EchoLocatorBlockEntity extends BlockEntity implements VibrationList
         if (state.isIn(blockEntity.type.canLocate())) {
 
             if (shouldHighlight) {
-                world.emitGameEvent(null, GeodesGameEvents.CRYSTAL_RESONATE, pos);
-                world.playSound(null, pos, blockEntity.type.resonateSound(), SoundCategory.BLOCKS, 2.5f, 1.0f);
+                highlightCrystal(blockEntity, world, pos, state);
             }
 
             return true;
         } else {
             return false;
         }
+    }
+
+    private static void highlightCrystal(
+            EchoLocatorBlockEntity blockEntity,
+            ServerWorld world,
+            BlockPos pos,
+            BlockState state
+    ) {
+        world.emitGameEvent(null, GeodesGameEvents.CRYSTAL_RESONATE, pos);
+
+        world.playSound(null, pos, blockEntity.type.resonateSound(), SoundCategory.BLOCKS, 2.5f, 1.0f);
+
+        DisplayEntity.BlockDisplayEntity blockDisplay = GeodesEntityTypes.ECHO_DISPLAY.create(world);
+
+        if (blockDisplay == null) {
+            return;
+        }
+        ((BlockDisplayInvoker) blockDisplay).geodes$setBlockState(state);
+        blockDisplay.setPos(pos.getX(), pos.getY(), pos.getZ());
+        blockDisplay.setGlowing(true);
+        blockDisplay.setInvulnerable(true);
+
+        world.spawnEntity(blockDisplay);
     }
 
     public void activate(World world, BlockPos origin) {
@@ -114,27 +153,6 @@ public class EchoLocatorBlockEntity extends BlockEntity implements VibrationList
                 this.pinging.add(pos.toImmutable());
             }
         }
-    }
-
-    @Override
-    public TagKey<GameEvent> getTag() {
-        return GeodesGameEventTags.ECHO_LOCATOR_CAN_LISTEN;
-    }
-
-    @Override
-    public boolean accepts(ServerWorld world, GameEventListener listener, BlockPos pos, GameEvent event, GameEvent.Emitter emitter) {
-        return !this.isRemoved()
-                && event.equals(GeodesGameEvents.CRYSTAL_RESONATE)
-                && this.isPinging();
-    }
-
-    @Override
-    public void accept(ServerWorld world, GameEventListener listener, BlockPos pos, GameEvent event, @Nullable Entity entity, @Nullable Entity sourceEntity, float distance) {
-
-    }
-
-    public VibrationListener getVibrationListener() {
-        return this.vibrationListener;
     }
 
     public boolean isPinging() {
@@ -159,7 +177,7 @@ public class EchoLocatorBlockEntity extends BlockEntity implements VibrationList
         }
         nbt.put("Pinging", pinging);
 
-        DataResult<NbtElement> listener = VibrationListener.createCodec(this).encodeStart(NbtOps.INSTANCE, this.vibrationListener);
+        DataResult<NbtElement> listener = ListenerData.CODEC.encodeStart(NbtOps.INSTANCE, this.listenerData);
         listener.resultOrPartial(MoreGeodes.LOGGER::error).ifPresent((nbtElement) -> {
             nbt.put("listener", nbtElement);
         });
@@ -184,12 +202,27 @@ public class EchoLocatorBlockEntity extends BlockEntity implements VibrationList
         }
 
         if (nbt.contains("listener", NbtElement.COMPOUND_TYPE)) {
-            DataResult<VibrationListener> listener = VibrationListener.createCodec(this)
-                    .parse(new Dynamic<>(NbtOps.INSTANCE, nbt.getCompound("listener")));
-
-            listener.resultOrPartial(MoreGeodes.LOGGER::error).ifPresent((ls) -> {
-                this.vibrationListener = ls;
+            DataResult<ListenerData> listener = ListenerData.CODEC.parse(
+                    new Dynamic<>(NbtOps.INSTANCE, nbt.getCompound("listener"))
+            );
+            listener.resultOrPartial(MoreGeodes.LOGGER::error).ifPresent((lsData) -> {
+                this.listenerData = lsData;
             });
         }
+    }
+
+    @Override
+    public Vibrations.VibrationListener getEventListener() {
+        return this.vibrationListener;
+    }
+
+    @Override
+    public ListenerData getVibrationListenerData() {
+        return this.listenerData;
+    }
+
+    @Override
+    public Callback getVibrationCallback() {
+        return this.callback;
     }
 }

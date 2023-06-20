@@ -2,17 +2,14 @@ package com.github.thedeathlycow.moregeodes.blocks;
 
 import com.github.thedeathlycow.moregeodes.blocks.entity.EchoLocatorBlockEntity;
 import com.github.thedeathlycow.moregeodes.blocks.entity.ModBlockEntities;
-import com.github.thedeathlycow.moregeodes.sounds.GeodesSoundEvents;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.*;
-import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -31,6 +28,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
+import net.minecraft.world.event.Vibrations;
 import net.minecraft.world.event.listener.GameEventListener;
 import org.jetbrains.annotations.Nullable;
 
@@ -63,7 +61,7 @@ public class EchoLocatorBlock extends BlockWithEntity implements Waterloggable {
     @Override
     public <T extends BlockEntity> GameEventListener getGameEventListener(ServerWorld world, T blockEntity) {
         if (blockEntity instanceof EchoLocatorBlockEntity echoLocatorBlockEntity) {
-            return echoLocatorBlockEntity.getVibrationListener();
+            return echoLocatorBlockEntity.getEventListener();
         } else {
             return null;
         }
@@ -80,7 +78,10 @@ public class EchoLocatorBlock extends BlockWithEntity implements Waterloggable {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.ECHO_LOCATOR, world.isClient ? EchoLocatorBlockEntity::clientTick : EchoLocatorBlockEntity::serverTick);
+        return !world.isClient ? checkType(type, ModBlockEntities.ECHO_LOCATOR, (worldx, pos, statex, blockEntity) -> {
+            Vibrations.Ticker.tick(worldx, blockEntity.getVibrationListenerData(), blockEntity.getVibrationCallback());
+            EchoLocatorBlockEntity.serverTick(worldx, pos, statex, blockEntity);
+        }) : null;
     }
 
     @Override

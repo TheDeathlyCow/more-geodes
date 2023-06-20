@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "geodes:quartz_geode"
+          "name": "geodes:quartz_crystal_block"
         }
       ],
       "conditions": [

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "geodes:block/quartz_geode"
+    "all": "geodes:block/quartz_crystal_block"
   }
 }

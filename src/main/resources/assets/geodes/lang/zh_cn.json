@@ -1,18 +1,18 @@
 {
-    "block.geodes.emerald_geode": "绿宝石晶洞方块",
+    "block.geodes.emerald_crystal_block": "绿宝石晶洞方块",
     "block.geodes.budding_emerald": "绿宝石母岩",
     "block.geodes.emerald_cluster": "绿宝石晶簇",
     "block.geodes.large_emerald_bud": "大型绿宝石晶芽",
     "block.geodes.medium_emerald_bud": "中型绿宝石晶芽",
     "block.geodes.small_emerald_bud": "小型绿宝石晶芽",
     "item.geodes.emerald_shard": "绿宝石碎片",
-    "block.geodes.quartz_geode": "石英晶洞方块",
+    "block.geodes.quartz_crystal_block": "石英晶洞方块",
     "block.geodes.budding_quartz": "石英母岩",
     "block.geodes.quartz_cluster": "石英晶簇",
     "block.geodes.large_quartz_bud": "大型石英晶芽",
     "block.geodes.medium_quartz_bud": "中型石英晶芽",
     "block.geodes.small_quartz_bud": "小型石英晶芽",
-    "block.geodes.diamond_geode": "钻石晶洞方块",
+    "block.geodes.diamond_crystal_block": "钻石晶洞方块",
     "block.geodes.diamond_cluster": "钻石晶簇",
     "block.geodes.echo_block": "回响晶块",
     "block.geodes.budding_echo_block": "回响晶母岩",
@@ -32,7 +32,7 @@
     "subtitles.block.geodes.echo_locator.resonate": "水晶：共鸣",
     "subtitles.block.geodes.echo_locator.use": "回声定位器：嗡鸣",
     "subtitles.block.geodes.echo_block.chime": "回声：回响",
-    "subtitles.block.geodes.emerald_geode.chime": "绿宝石：叮铃",
-    "subtitles.block.geodes.quartz_geode.chime": "石英：叮铃",
-    "subtitles.block.geodes.diamond_geode.chime": "钻石：叮铃"
+    "subtitles.block.geodes.emerald_crystal_block.chime": "绿宝石：叮铃",
+    "subtitles.block.geodes.quartz_crystal_block.chime": "石英：叮铃",
+    "subtitles.block.geodes.diamond_crystal_block.chime": "钻石：叮铃"
 }

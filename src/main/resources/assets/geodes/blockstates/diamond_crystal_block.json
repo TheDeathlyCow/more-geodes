@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "geodes:block/diamond_crystal_block"
+    }
+  }
+}
