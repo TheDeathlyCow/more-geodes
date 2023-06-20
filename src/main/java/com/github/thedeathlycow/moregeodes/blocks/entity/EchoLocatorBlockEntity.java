@@ -28,6 +28,7 @@ import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
@@ -57,18 +58,21 @@ public class EchoLocatorBlockEntity extends BlockEntity implements
     public static void tick(ServerWorld world, BlockPos origin, BlockState state, EchoLocatorBlockEntity blockEntity) {
         if (blockEntity.isPinging() && !world.isClient()) {
             blockEntity.pingTicks++;
-//            blockEntity.vibrationListener.tick(world);
             if (blockEntity.pingTicks % TICKS_PER_PING != 0) {
                 return;
             }
 
             boolean shouldHighlight = true;
-            for (BlockPos pos : List.copyOf(blockEntity.pinging)) {
+            // use explicit iterator to avoid concurrent modification error
+            Iterator<BlockPos> pinging = blockEntity.pinging.iterator();
+            BlockPos pos;
+            while (pinging.hasNext()) {
+                pos = pinging.next();
                 BlockState atState = world.getBlockState(pos);
                 if (checkBlock(blockEntity, world, pos, atState, shouldHighlight)) {
                     shouldHighlight = false;
                 } else {
-                    blockEntity.pinging.remove(pos);
+                    pinging.remove();
                 }
             }
         }
