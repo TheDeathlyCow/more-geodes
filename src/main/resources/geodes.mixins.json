@@ -6,6 +6,7 @@
 	"mixins": [
 		"BlockDisplayInvoker",
 		"FoolsGoldBarterPiglinBrainMixin",
+		"MovableAmethystMixin",
 		"PiglinMemoryMixin",
 		"SimpleBlockFeatureMixin",
 		"StepSoundMixin",

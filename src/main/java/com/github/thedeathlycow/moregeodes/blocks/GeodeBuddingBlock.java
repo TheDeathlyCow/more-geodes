@@ -40,16 +40,8 @@ public class GeodeBuddingBlock extends CrystalBlock {
     private final List<Block> clusters;
 
     public GeodeBuddingBlock(CrystalBlockSoundGroup hitSoundGroup, AbstractBlock.Settings settings, List<Block> clusters) {
-        super(hitSoundGroup, settings.pistonBehavior(getPistonBehavior()));
+        super(hitSoundGroup, settings.pistonBehavior(PistonBehavior.DESTROY));
         this.clusters = clusters;
-    }
-
-    private static PistonBehavior getPistonBehavior() {
-        if (MoreGeodes.isCarpetLoaded() && CarpetSettings.movableAmethyst) {
-            return PistonBehavior.NORMAL;
-        }
-
-        return PistonBehavior.DESTROY;
     }
 
 
