@@ -15,21 +15,21 @@ import net.minecraft.registry.Registry;
 
 public class ModBlocks {
 
-    public static final Block EMERALD_GEODE = new CrystalBlock(CrystalBlockSoundGroup.EMERALD_GEODE, FabricBlockSettings.create().mapColor(MapColor.EMERALD_GREEN).strength(1.5F).sounds(ModBlockSoundGroups.EMERALD_GEODE).requiresTool());
+    public static final Block EMERALD_CRYSTAL_BLOCK = new CrystalBlock(CrystalBlockSoundGroup.EMERALD_GEODE, FabricBlockSettings.create().mapColor(MapColor.EMERALD_GREEN).strength(1.5F).sounds(ModBlockSoundGroups.EMERALD_GEODE).requiresTool());
 
     public static final Block EMERALD_CLUSTER = new CrystalClusterBlock(CrystalBlockSoundGroup.EMERALD_GEODE, 7, 3, FabricBlockSettings.create().mapColor(MapColor.EMERALD_GREEN).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.EMERALD_CLUSTER).strength(1.5f).luminance((blockState) -> 5));
     public static final Block LARGE_EMERALD_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.EMERALD_GEODE, 5, 3, FabricBlockSettings.create().mapColor(MapColor.EMERALD_GREEN).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.LARGE_EMERALD_BUD).strength(1.5f).luminance((blockState) -> 4));
     public static final Block MEDIUM_EMERALD_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.EMERALD_GEODE, 4, 3, FabricBlockSettings.create().mapColor(MapColor.EMERALD_GREEN).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.MEDIUM_EMERALD_BUD).strength(1.5f).luminance((blockState) -> 2));
     public static final Block SMALL_EMERALD_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.EMERALD_GEODE, 3, 4, FabricBlockSettings.create().mapColor(MapColor.EMERALD_GREEN).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.SMALL_EMERALD_BUD).strength(1.5f).luminance((blockState) -> 1));
 
-    public static final Block QUARTZ_GEODE = new CrystalBlock(CrystalBlockSoundGroup.QUARTZ_GEODE, FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).strength(1.5F).sounds(ModBlockSoundGroups.QUARTZ_GEODE).requiresTool());
+    public static final Block QUARTZ_CRYSTAL_BLOCK = new CrystalBlock(CrystalBlockSoundGroup.QUARTZ_GEODE, FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).strength(1.5F).sounds(ModBlockSoundGroups.QUARTZ_GEODE).requiresTool());
 
     public static final Block QUARTZ_CLUSTER = new QuartzClusterBlock(7, 3, FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.QUARTZ_CLUSTER).strength(1.5f).luminance((blockState) -> 5), 15, 1);
     public static final Block LARGE_QUARTZ_BUD = new QuartzClusterBlock(5, 3, FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.LARGE_QUARTZ_BUD).strength(1.5f).luminance((blockState) -> 4), 15, 5);
     public static final Block MEDIUM_QUARTZ_BUD = new QuartzClusterBlock(4, 3, FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.MEDIUM_QUARTZ_BUD).strength(1.5f).luminance((blockState) -> 2), 15, 10);
     public static final Block SMALL_QUARTZ_BUD = new QuartzClusterBlock(3, 4, FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.SMALL_QUARTZ_BUD).strength(1.5f).luminance((blockState) -> 1), 15, 20);
 
-    public static final Block DIAMOND_GEODE = new CrystalBlock(CrystalBlockSoundGroup.DIAMOND_GEODE, FabricBlockSettings.create().mapColor(MapColor.DIAMOND_BLUE).strength(1.5F).sounds(ModBlockSoundGroups.DIAMOND_GEODE).requiresTool());
+    public static final Block DIAMOND_CRYSTAL_BLOCK = new CrystalBlock(CrystalBlockSoundGroup.DIAMOND_GEODE, FabricBlockSettings.create().mapColor(MapColor.DIAMOND_BLUE).strength(1.5F).sounds(ModBlockSoundGroups.DIAMOND_GEODE).requiresTool());
 
     public static final Block DIAMOND_CLUSTER = new CrystalClusterBlock(CrystalBlockSoundGroup.DIAMOND_GEODE, 7, 3, FabricBlockSettings.create().mapColor(MapColor.DIAMOND_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.DIAMOND_CLUSTER).strength(1.5f).luminance((blockState) -> 7));
 
@@ -132,19 +132,19 @@ public class ModBlocks {
 
 
     public static void registerBlocks() {
-        register("emerald_geode", EMERALD_GEODE);
+        register("emerald_crystal_block", EMERALD_CRYSTAL_BLOCK);
         register("budding_emerald", BUDDING_EMERALD);
         register("emerald_cluster", EMERALD_CLUSTER);
         register("large_emerald_bud", LARGE_EMERALD_BUD);
         register("medium_emerald_bud", MEDIUM_EMERALD_BUD);
         register("small_emerald_bud", SMALL_EMERALD_BUD);
-        register("quartz_geode", QUARTZ_GEODE);
+        register("quartz_crystal_block", QUARTZ_CRYSTAL_BLOCK);
         register("budding_quartz", BUDDING_QUARTZ);
         register("quartz_cluster", QUARTZ_CLUSTER);
         register("large_quartz_bud", LARGE_QUARTZ_BUD);
         register("medium_quartz_bud", MEDIUM_QUARTZ_BUD);
         register("small_quartz_bud", SMALL_QUARTZ_BUD);
-        register("diamond_geode", DIAMOND_GEODE);
+        register("diamond_crystal_block", DIAMOND_CRYSTAL_BLOCK);
         register("diamond_cluster", DIAMOND_CLUSTER);
         register("echo_block", ECHO_BLOCK);
         register("budding_echo_block", BUDDING_ECHO_BLOCK);

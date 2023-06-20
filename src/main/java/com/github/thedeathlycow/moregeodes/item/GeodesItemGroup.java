@@ -29,7 +29,7 @@ public class GeodesItemGroup {
                         .displayName(Text.translatable("itemGroup.geodes.more_geodes"))
                         .entries(((context, entries) -> {
                             // emerald
-                            entries.add(new ItemStack(ModItems.EMERALD_GEODE));
+                            entries.add(new ItemStack(ModItems.EMERALD_CRYSTAL_BLOCK));
                             entries.add(new ItemStack(ModItems.BUDDING_EMERALD));
                             entries.add(new ItemStack(ModItems.EMERALD_CLUSTER));
                             entries.add(new ItemStack(ModItems.LARGE_EMERALD_BUD));
@@ -37,7 +37,7 @@ public class GeodesItemGroup {
                             entries.add(new ItemStack(ModItems.SMALL_EMERALD_BUD));
 
                             // quartz
-                            entries.add(new ItemStack(ModItems.QUARTZ_GEODE));
+                            entries.add(new ItemStack(ModItems.QUARTZ_CRYSTAL_BLOCK));
                             entries.add(new ItemStack(ModItems.BUDDING_QUARTZ));
                             entries.add(new ItemStack(ModItems.QUARTZ_CLUSTER));
                             entries.add(new ItemStack(ModItems.LARGE_QUARTZ_BUD));
@@ -45,7 +45,7 @@ public class GeodesItemGroup {
                             entries.add(new ItemStack(ModItems.SMALL_QUARTZ_BUD));
 
                             // diamond
-                            entries.add(new ItemStack(ModItems.DIAMOND_GEODE));
+                            entries.add(new ItemStack(ModItems.DIAMOND_CRYSTAL_BLOCK));
                             entries.add(new ItemStack(ModItems.DIAMOND_CLUSTER));
 
                             // echo
