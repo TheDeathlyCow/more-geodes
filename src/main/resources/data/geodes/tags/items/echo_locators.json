@@ -1,11 +1,11 @@
 {
     "replace": false,
     "values": [
-        "geodes:emerald_crystal_echo_locator",
-        "geodes:quartz_crystal_echo_locator",
-        "geodes:amethyst_crystal_echo_locator",
-        "geodes:diamond_crystal_echo_locator",
-        "geodes:echo_crystal_echo_locator",
-        "geodes:echo_locator"
+        {"id":"geodes:emerald_crystal_echo_locator","required":false},
+        {"id":"geodes:quartz_crystal_echo_locator","required":false},
+        {"id":"geodes:amethyst_crystal_echo_locator","required":false},
+        {"id":"geodes:diamond_crystal_echo_locator","required":false},
+        {"id":"geodes:echo_crystal_echo_locator","required":false},
+        {"id":"geodes:echo_locator","required":false}
     ]
 }
