@@ -49,7 +49,7 @@
     "block.geodes.diamond_crystal_echo_locator": "Алмазный камертон",
     "block.geodes.echo_crystal_echo_locator": "Эхо-камертон",
     "block.geodes.gabbro": "Габбро",
-    "entity.geodes.echo_display": "Подставка из эхо-блоков",
+    "entity.geodes.echo_display": "Эхо-свечение",
     "advancement.geodes.adventure.outrageous.title": "Короли среди самоцветов",
     "advancement.geodes.adventure.outrageous.description": "Получите блоки изумрудных и алмазных кристаллов",
     "advancement.geodes.adventure.use_echo_locator.title": "Вы тоже это слышите?",
