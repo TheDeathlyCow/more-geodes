@@ -87,6 +87,7 @@ public class GeodesItemGroup {
                             entries.add(new ItemStack(ModItems.GABRRO));
 
                             // echo locator
+                            entries.add(new ItemStack(ModItems.CRYSTAL_LOCATOR));
                             entries.add(new ItemStack(ModItems.ECHO_LOCATOR));
                         }))
                         .build()
