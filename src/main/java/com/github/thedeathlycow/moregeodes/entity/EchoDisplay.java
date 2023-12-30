@@ -38,6 +38,7 @@ public class EchoDisplay extends DisplayEntity.BlockDisplayEntity {
 
     public EchoDisplay(EntityType<?> entityType, World world) {
         super(entityType, world);
+        this.setInvisible(true);
         this.setInvulnerable(true);
     }
 
@@ -91,6 +92,7 @@ public class EchoDisplay extends DisplayEntity.BlockDisplayEntity {
     }
 
     private void ping() {
+        this.setInvisible(false);
         this.setPinged(true);
         this.setGlowing(true);
         World world = this.getWorld();

@@ -30,8 +30,12 @@ public class CrystalLocator extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient) {
-            this.activate(world, user.getBlockPos());
-            itemStack.damage(1, user, player -> player.sendToolBreakStatus(hand));
+            int blocksPinged = this.activate(world, user.getBlockPos());
+
+            if (blocksPinged > 0) {
+                itemStack.damage(1, user, player -> player.sendToolBreakStatus(hand));
+            }
+
             user.getItemCooldownManager().set(this, COOL_DOWN);
         }
         user.playSound(GeodesSoundEvents.BLOCK_ECHO_LOCATOR_USE, user.getSoundCategory(), 1.0f, 1.0f);
@@ -43,31 +47,36 @@ public class CrystalLocator extends Item {
         return state.isIn(ModBlockTags.ECHO_LOCATABLE);
     }
 
-    private void activate(World world, BlockPos origin) {
+    private int activate(World world, BlockPos origin) {
 
         var scanVector = new Vec3i(range, range, range);
         BlockPos from = origin.subtract(scanVector);
         BlockPos to = origin.add(scanVector);
         final int rangeSquared = this.range * this.range;
+        int blocksPinged = 0;
 
         for (BlockPos pos : BlockPos.iterate(from, to)) {
-            double distanceToPos = origin.getSquaredDistance(pos);
+            double distanceToPos = origin.getSquaredDistance(pos) * 3;
             if (distanceToPos <= rangeSquared) {
-                this.tryPing(world, pos, distanceToPos);
+                blocksPinged += this.tryPing(world, pos, distanceToPos);
             }
         }
+
+        return blocksPinged;
     }
 
-    private void tryPing(World world, BlockPos pos, double distanceToPosSquared) {
+    private int tryPing(World world, BlockPos pos, double distanceToPosSquared) {
         if (this.isPingableCrystal(world.getBlockState(pos))) {
-            int delay = MathHelper.ceil(Math.sqrt(distanceToPosSquared)) * 10;
+            int delay = MathHelper.ceil(Math.sqrt(distanceToPosSquared));
             highlightCrystal(
                     world,
                     pos,
                     world.getBlockState(pos),
                     delay
             );
+            return 1;
         }
+        return 0;
     }
 
     private static void highlightCrystal(
