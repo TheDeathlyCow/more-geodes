@@ -67,6 +67,9 @@ public class ModItems {
     public static final Item CALCITE_WALL = new BlockItem(ModBlocks.CALCITE_WALL, new FabricItemSettings());
 
     public static final Item CRYSTAL_LOCATOR = new CrystalLocator(new FabricItemSettings().maxDamage(16), CrystalLocator.BASE_RANGE);
+
+    public static final Item TUNED_CRYSTAL_LOCATOR = new TunedCrystalLocator(new FabricItemSettings().maxDamage(16), CrystalLocator.BASE_RANGE);
+
     public static final Item ECHO_LOCATOR = new BlockItem(ModBlocks.ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
     public static final Item GABRRO = new BlockItem(ModBlocks.GABBRO, new FabricItemSettings());
 
@@ -107,6 +110,7 @@ public class ModItems {
         register("large_gypsum_bud", LARGE_GYPSUM_BUD);
         register("gypsum_rose", GYPSUM_ROSE);
         register("crystal_locator", CRYSTAL_LOCATOR);
+        register("tuned_crystal_locator", TUNED_CRYSTAL_LOCATOR);
         register("echo_locator", ECHO_LOCATOR);
         register("pyrite", PYRITE);
         register("pyrite_stairs", PYRITE_STAIRS);

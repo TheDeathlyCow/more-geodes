@@ -1,28 +1,37 @@
 package com.github.thedeathlycow.moregeodes.item.tuning;
 
 import com.google.gson.*;
-import net.minecraft.item.ItemStack;
-import net.minecraft.predicate.item.ItemPredicate;
+import net.minecraft.predicate.BlockPredicate;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
+import net.minecraft.util.math.BlockPos;
 
 import java.lang.reflect.Type;
 
 public class Tuning {
 
-    public static final Tuning NO_TUNING = new Tuning(0, ItemPredicate.ANY);
+    public static final Tuning NO_TUNING = new Tuning(0, Text.literal(""), BlockPredicate.ANY);
 
     private static final String COLOR_KEY = "color";
+    private static final String DESCRIPTION_KEY = "description";
     private static final String PREDICATE_KEY = "tuned_to";
 
     private final int color;
-    private final ItemPredicate isTunedToItem;
+    private final Text description;
+    private final BlockPredicate isTunedToBlock;
 
-    public Tuning(int color, ItemPredicate isTunedToItem) {
+    public Tuning(int color, Text description, BlockPredicate isTunedToBlock) {
         this.color = color;
-        this.isTunedToItem = isTunedToItem;
+        this.description = description;
+        this.isTunedToBlock = isTunedToBlock;
     }
 
-    public boolean test(ItemStack item) {
-        return this.isTunedToItem.test(item);
+    public boolean test(ServerWorld world, BlockPos pos) {
+        return this.isTunedToBlock.test(world, pos);
+    }
+
+    public Text getDescription() {
+        return description;
     }
 
     public int getColor() {
@@ -33,9 +42,10 @@ public class Tuning {
         JsonObject json = jsonElement.getAsJsonObject();
 
         int color = json.get(COLOR_KEY).getAsInt();
-        ItemPredicate isTunedToItem = ItemPredicate.fromJson(json.get(PREDICATE_KEY));
+        Text description = Text.Serializer.fromJson(json.get(DESCRIPTION_KEY));
+        BlockPredicate isTunedToBlock = BlockPredicate.fromJson(json.get(PREDICATE_KEY));
 
-        return new Tuning(color, isTunedToItem);
+        return new Tuning(color, description, isTunedToBlock);
     }
 
     public JsonElement toJson() {
@@ -47,7 +57,8 @@ public class Tuning {
         var json = new JsonObject();
 
         json.addProperty(COLOR_KEY, this.color);
-        json.add(PREDICATE_KEY, this.isTunedToItem.toJson());
+        json.add(DESCRIPTION_KEY, Text.Serializer.toJsonTree(this.description));
+        json.add(PREDICATE_KEY, this.isTunedToBlock.toJson());
 
         return json;
     }

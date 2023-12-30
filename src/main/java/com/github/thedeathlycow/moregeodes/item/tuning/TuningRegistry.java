@@ -49,7 +49,7 @@ public class TuningRegistry implements SimpleSynchronousResourceReloadListener {
 
         var resources = manager.findResources(
                 "geodes_tunings",
-                path -> path.getPath().endsWith(".json")
+                path -> true
         );
 
         for (Map.Entry<Identifier, Resource> entry : resources.entrySet()) {
@@ -57,6 +57,7 @@ public class TuningRegistry implements SimpleSynchronousResourceReloadListener {
             try (BufferedReader reader = entry.getValue().getReader()) {
                 Tuning tuning = Tuning.Serializer.GSON.fromJson(reader, Tuning.class);
                 newTunings.put(entry.getKey(), tuning);
+                MoreGeodes.LOGGER.info("Added new Tuning ID {}", entry.getKey());
             } catch (Exception e) {
                 MoreGeodes.LOGGER.error("Error occurred while loading tuning ID " + entry.getKey().toString(), e);
             }

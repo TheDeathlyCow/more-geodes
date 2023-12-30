@@ -1,0 +1,11 @@
+{
+    "color": 0,
+    "description": "Amethyst",
+    "tuned_to": {
+        "block": {
+            "blocks": [
+                "minecraft:amethyst_cluster"
+            ]
+        }
+    }
+}
