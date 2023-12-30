@@ -66,7 +66,7 @@ public class ModItems {
     public static final Item CALCITE_SLAB = new BlockItem(ModBlocks.CALCITE_SLAB, new FabricItemSettings());
     public static final Item CALCITE_WALL = new BlockItem(ModBlocks.CALCITE_WALL, new FabricItemSettings());
 
-    public static final Item CRYSTAL_LOCATOR = new CrystalLocator(new FabricItemSettings().maxDamage(16), 48);
+    public static final Item CRYSTAL_LOCATOR = new CrystalLocator(new FabricItemSettings().maxDamage(16), CrystalLocator.BASE_RANGE);
     public static final Item ECHO_LOCATOR = new BlockItem(ModBlocks.ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
     public static final Item GABRRO = new BlockItem(ModBlocks.GABBRO, new FabricItemSettings());
 

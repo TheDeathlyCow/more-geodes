@@ -7,11 +7,15 @@ import com.github.thedeathlycow.moregeodes.entity.GeodesEntityTypes;
 import com.github.thedeathlycow.moregeodes.entity.GeodesMemoryModules;
 import com.github.thedeathlycow.moregeodes.features.ModFeatures;
 import com.github.thedeathlycow.moregeodes.item.ModItems;
+import com.github.thedeathlycow.moregeodes.item.TunedCrystalLocator;
+import com.github.thedeathlycow.moregeodes.item.tuning.TuningRegistry;
 import com.github.thedeathlycow.moregeodes.sounds.GeodesSoundEvents;
 import com.github.thedeathlycow.moregeodes.world.GeodesGameEvents;
 import com.mojang.logging.LogUtils;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.resource.ResourceType;
 import org.slf4j.Logger;
 
 public class MoreGeodes implements ModInitializer {
@@ -25,6 +29,7 @@ public class MoreGeodes implements ModInitializer {
     public void onInitialize() {
         LOGGER.info("Beginning More Geodes initialization");
         CONFIG.loadConfig();
+
         ModBlocks.registerBlocks();
         ModItems.registerItems();
         ModFeatures.placeFeaturesInBiomes();
@@ -33,6 +38,11 @@ public class MoreGeodes implements ModInitializer {
         GeodesSoundEvents.registerSoundEvents();
         GeodesGameEvents.registerEvents();
         GeodesMemoryModules.registerModules();
+
+        ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(
+                TuningRegistry.getInstance()
+        );
+
         LOGGER.info("More Geodes initialized!");
     }
 

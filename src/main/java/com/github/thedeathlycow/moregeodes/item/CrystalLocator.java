@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 
 public class CrystalLocator extends Item {
 
+    public static final int BASE_RANGE = 48;
     private static final int COOL_DOWN = 20;
     private final int range;
 
@@ -30,7 +31,7 @@ public class CrystalLocator extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient) {
-            int blocksPinged = this.activate(world, user.getBlockPos());
+            int blocksPinged = this.activate(world, user.getBlockPos(), itemStack);
 
             if (blocksPinged > 0) {
                 itemStack.damage(1, user, player -> player.sendToolBreakStatus(hand));
@@ -43,11 +44,11 @@ public class CrystalLocator extends Item {
         return TypedActionResult.success(itemStack, world.isClient());
     }
 
-    protected boolean isPingableCrystal(BlockState state) {
+    protected boolean isPingableCrystal(ItemStack itemStack, BlockState state) {
         return state.isIn(ModBlockTags.ECHO_LOCATABLE);
     }
 
-    private int activate(World world, BlockPos origin) {
+    private int activate(World world, BlockPos origin, ItemStack itemStack) {
 
         var scanVector = new Vec3i(range, range, range);
         BlockPos from = origin.subtract(scanVector);
@@ -58,15 +59,15 @@ public class CrystalLocator extends Item {
         for (BlockPos pos : BlockPos.iterate(from, to)) {
             double distanceToPos = origin.getSquaredDistance(pos) * 3;
             if (distanceToPos <= rangeSquared) {
-                blocksPinged += this.tryPing(world, pos, distanceToPos);
+                blocksPinged += this.tryPing(world, pos, itemStack, distanceToPos);
             }
         }
 
         return blocksPinged;
     }
 
-    private int tryPing(World world, BlockPos pos, double distanceToPosSquared) {
-        if (this.isPingableCrystal(world.getBlockState(pos))) {
+    private int tryPing(World world, BlockPos pos, ItemStack itemStack, double distanceToPosSquared) {
+        if (this.isPingableCrystal(itemStack, world.getBlockState(pos))) {
             int delay = MathHelper.ceil(Math.sqrt(distanceToPosSquared));
             highlightCrystal(
                     world,
