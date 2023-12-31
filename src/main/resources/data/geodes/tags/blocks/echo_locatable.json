@@ -32,10 +32,6 @@
 		},
 		{
 			"required": false,
-			"id": "#geodes:echo_locatable/spectrum"
-		},
-		{
-			"required": false,
 			"id": "#geodes:echo_locatable/ae2"
 		},
 		{
