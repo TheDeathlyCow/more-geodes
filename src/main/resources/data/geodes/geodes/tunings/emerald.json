@@ -1,0 +1,14 @@
+{
+    "color": 0,
+    "description": {
+        "text": "Tuned to Emerald Crystals",
+        "color": "green"
+    },
+    "tuned_to": {
+        "block": {
+            "blocks": [
+                "geodes:emerald_cluster"
+            ]
+        }
+    }
+}

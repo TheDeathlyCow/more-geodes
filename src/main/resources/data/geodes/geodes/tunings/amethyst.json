@@ -1,6 +1,9 @@
 {
     "color": 0,
-    "description": "Amethyst",
+    "description": {
+        "text": "Tuned to Amethyst Crystals",
+        "color": "dark_purple"
+    },
     "tuned_to": {
         "block": {
             "blocks": [

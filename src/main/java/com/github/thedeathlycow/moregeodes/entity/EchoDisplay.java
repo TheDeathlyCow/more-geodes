@@ -61,7 +61,6 @@ public class EchoDisplay extends DisplayEntity.BlockDisplayEntity {
         }
 
         if (timeToLive <= 0) {
-            MoreGeodes.LOGGER.info("Died at age {}", this.age);
             this.discard();
         }
 

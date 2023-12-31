@@ -1,12 +1,12 @@
 package com.github.thedeathlycow.moregeodes.item.tuning;
 
-import com.google.gson.*;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.predicate.BlockPredicate;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
-
-import java.lang.reflect.Type;
+import org.jetbrains.annotations.Nullable;
 
 public class Tuning {
 
@@ -16,17 +16,38 @@ public class Tuning {
     private static final String DESCRIPTION_KEY = "description";
     private static final String PREDICATE_KEY = "tuned_to";
 
+    public static final Codec<Tuning> DATAPACK_CODEC = RecordCodecBuilder.create(instance -> instance.group(
+            Codec.INT.fieldOf(COLOR_KEY).forGetter(Tuning::getColor),
+            CodecExtensions.TEXT_CODEC.fieldOf(DESCRIPTION_KEY).forGetter(Tuning::getDescription),
+            CodecExtensions.BLOCK_PREDICATE_CODEC.fieldOf(PREDICATE_KEY).forGetter(Tuning::getIsTunedToBlock)
+    ).apply(instance, Tuning::new));
+
+    public static final Codec<Tuning> NETWORK_CODEC = RecordCodecBuilder.create(instance -> instance.group(
+            Codec.INT.fieldOf(COLOR_KEY).forGetter(Tuning::getColor),
+            CodecExtensions.TEXT_CODEC.fieldOf(DESCRIPTION_KEY).forGetter(Tuning::getDescription)
+            ).apply(instance, Tuning::new));
+
     private final int color;
     private final Text description;
+    @Nullable
     private final BlockPredicate isTunedToBlock;
 
-    public Tuning(int color, Text description, BlockPredicate isTunedToBlock) {
+    public Tuning(int color, Text description, @Nullable BlockPredicate isTunedToBlock) {
         this.color = color;
         this.description = description;
         this.isTunedToBlock = isTunedToBlock;
     }
 
+    private Tuning(int color, Text description) {
+        this(color, description, null);
+    }
+
     public boolean test(ServerWorld world, BlockPos pos) {
+
+        if (this.isTunedToBlock == null) {
+            return false;
+        }
+
         return this.isTunedToBlock.test(world, pos);
     }
 
@@ -38,41 +59,9 @@ public class Tuning {
         return this.color;
     }
 
-    public static Tuning fromJson(JsonElement jsonElement) {
-        JsonObject json = jsonElement.getAsJsonObject();
-
-        int color = json.get(COLOR_KEY).getAsInt();
-        Text description = Text.Serializer.fromJson(json.get(DESCRIPTION_KEY));
-        BlockPredicate isTunedToBlock = BlockPredicate.fromJson(json.get(PREDICATE_KEY));
-
-        return new Tuning(color, description, isTunedToBlock);
-    }
-
-    public JsonElement toJson() {
-
-        if (this == NO_TUNING) {
-            return JsonNull.INSTANCE;
-        }
-
-        var json = new JsonObject();
-
-        json.addProperty(COLOR_KEY, this.color);
-        json.add(DESCRIPTION_KEY, Text.Serializer.toJsonTree(this.description));
-        json.add(PREDICATE_KEY, this.isTunedToBlock.toJson());
-
-        return json;
-    }
-
-    public static class Serializer implements JsonDeserializer<Tuning> {
-
-        public static final Gson GSON = new GsonBuilder()
-                .registerTypeAdapter(Tuning.class, new Tuning.Serializer())
-                .create();
-
-        @Override
-        public Tuning deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-            return Tuning.fromJson(json);
-        }
+    @Nullable
+    public BlockPredicate getIsTunedToBlock() {
+        return isTunedToBlock;
     }
 
 }

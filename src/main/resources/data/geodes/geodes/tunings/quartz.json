@@ -1,0 +1,14 @@
+{
+    "color": 0,
+    "description": {
+        "text": "Tuned to Quartz",
+        "color": "#f7f1df"
+    },
+    "tuned_to": {
+        "block": {
+            "blocks": [
+                "geodes:quartz_cluster"
+            ]
+        }
+    }
+}
