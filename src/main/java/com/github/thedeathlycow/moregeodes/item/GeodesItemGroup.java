@@ -2,15 +2,20 @@ package com.github.thedeathlycow.moregeodes.item;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GeodesItemGroup {
 
@@ -86,11 +91,36 @@ public class GeodesItemGroup {
 
                             entries.add(new ItemStack(ModItems.GABRRO));
 
-                            // echo locator
+                            // locators
                             entries.add(new ItemStack(ModItems.CRYSTAL_LOCATOR));
                             entries.add(new ItemStack(ModItems.ECHO_LOCATOR));
+                            entries.addAll(getTunedCrystalLocators());
                         }))
                         .build()
         );
     }
+
+    private static List<ItemStack> getTunedCrystalLocators() {
+
+        return List.of(
+                makeTunedLocatorStack("geodes:amethyst"),
+                makeTunedLocatorStack("geodes:emerald"),
+                makeTunedLocatorStack("geodes:quartz"),
+                makeTunedLocatorStack("geodes:diamond"),
+                makeTunedLocatorStack("geodes:echo"),
+                makeTunedLocatorStack("geodes:lapis"),
+                makeTunedLocatorStack("geodes:gypsum")
+        );
+    }
+
+    private static ItemStack makeTunedLocatorStack(String tuningId) {
+        var stack = new ItemStack(ModItems.TUNED_CRYSTAL_LOCATOR);
+
+        var nbt = new NbtCompound();
+        nbt.putString(TunedCrystalLocator.TUNING_ID_NBT_KEY, tuningId);
+        stack.setSubNbt(TunedCrystalLocator.TUNING_NBT_KEY, nbt);
+
+        return stack;
+    }
+
 }

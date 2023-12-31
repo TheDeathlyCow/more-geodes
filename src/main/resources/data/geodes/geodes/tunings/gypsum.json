@@ -1,8 +1,8 @@
 {
-    "color": 14272183,
+    "color": 12876881,
     "description": {
         "translate": "geodes.tunings.geodes.gypsum",
-        "color": "#d9c6b7"
+        "color": "#c47c51"
     },
     "tuned_to": {
         "blocks": [
