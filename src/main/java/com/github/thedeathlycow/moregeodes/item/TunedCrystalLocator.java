@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.event.registry.DynamicRegistrySetupCallback;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.registry.Registry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
@@ -29,7 +30,7 @@ public class TunedCrystalLocator extends CrystalLocator {
 
     @Override
     protected boolean isPingableCrystal(ItemStack locatorStack, ServerWorld world, BlockPos pos) {
-        Tuning tuning = this.getTuning(world, locatorStack);
+        Tuning tuning = this.getTuning(world.getRegistryManager(), locatorStack);
         if (tuning == null) {
             return super.isPingableCrystal(locatorStack, world, pos);
         }
@@ -41,7 +42,7 @@ public class TunedCrystalLocator extends CrystalLocator {
 
         Tuning tuning = null;
         if (world != null) {
-            tuning = this.getTuning(world, stack);
+            tuning = this.getTuning(world.getRegistryManager(), stack);
         }
         tooltip.add(tuning != null ? tuning.getDescription() : Tuning.UNTUNED.getDescription());
 
@@ -49,10 +50,9 @@ public class TunedCrystalLocator extends CrystalLocator {
     }
 
     @Nullable
-    private Tuning getTuning(World world, ItemStack stack) {
+    public static Tuning getTuning(DynamicRegistryManager registryManager, ItemStack stack) {
 
-        Registry<Tuning> tuningRegistry = world.getRegistryManager()
-                .get(Tunings.REGISTRY_KEY);
+        Registry<Tuning> tuningRegistry = registryManager.get(Tunings.REGISTRY_KEY);
         if (tuningRegistry == null) {
             return null;
         }
