@@ -1,0 +1,15 @@
+{
+    "color": 14272183,
+    "description": {
+        "translate": "geodes.tunings.geodes.gypsum",
+        "color": "#d9c6b7"
+    },
+    "tuned_to": {
+        "blocks": [
+            "geodes:gypsum_rose",
+            "geodes:large_gypsum_bud",
+            "geodes:medium_gypsum_bud",
+            "geodes:small_gypsum_bud"
+        ]
+    }
+}

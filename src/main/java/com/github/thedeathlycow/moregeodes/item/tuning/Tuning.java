@@ -9,11 +9,12 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TextColor;
 import net.minecraft.util.Colors;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ColorHelper;
 
 public class Tuning {
 
     public static final Tuning UNTUNED = new Tuning(
-            Colors.BLACK,
+            ColorHelper.Argb.getArgb(0xff, 0x44, 0x44, 0x44),
             Text.translatable("geodes.tunings.untuned")
                     .setStyle(Style.EMPTY.withColor(TextColor.parse("gray"))),
             BlockPredicate.ANY

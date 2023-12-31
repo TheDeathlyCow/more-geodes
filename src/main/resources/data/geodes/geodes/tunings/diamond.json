@@ -1,0 +1,12 @@
+{
+    "color": 13238269,
+    "description": {
+        "translate": "geodes.tunings.geodes.diamond",
+        "color": "#c9fff1"
+    },
+    "tuned_to": {
+        "blocks": [
+            "geodes:diamond_cluster"
+        ]
+    }
+}

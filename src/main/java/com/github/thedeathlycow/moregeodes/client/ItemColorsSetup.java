@@ -8,6 +8,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.event.registry.DynamicRegistrySetupCallback;
 import net.minecraft.client.color.item.ItemColors;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.DynamicRegistryManager;
 import org.jetbrains.annotations.Nullable;
 
@@ -29,18 +30,23 @@ public class ItemColorsSetup {
 
     public static void registerItemColors(ItemColors itemColors) {
         itemColors.register(
-                (stack, tintIndex) -> {
-                    if (tintIndex == 0 && registryManager != null) {
-                        Tuning tuning = TunedCrystalLocator.getTuning(
-                                registryManager, stack
-                        );
-                        return tuning != null ? tuning.getColor() : -1;
-                    }
-                    return -1;
-                },
+                ItemColorsSetup::getColor,
                 ModItems.TUNED_CRYSTAL_LOCATOR
         );
     }
+
+    private static int getColor(ItemStack stack, int tintIndex) {
+        if (tintIndex == 0 && registryManager != null) {
+            Tuning tuning = TunedCrystalLocator.getTuning(
+                    registryManager, stack
+            );
+            return tuning != null
+                    ? tuning.getColor()
+                    : Tuning.UNTUNED.getColor();
+        }
+        return -1;
+    }
+
 
     private ItemColorsSetup() {
 

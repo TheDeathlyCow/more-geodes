@@ -37,6 +37,14 @@
 		{
 			"required": false,
 			"id": "#geodes:echo_locatable/ae2"
+		},
+		{
+			"required": false,
+			"id": "#c:clusters"
+		},
+		{
+			"required": false,
+			"id": "#c:buds"
 		}
 	]
 }
