@@ -31,24 +31,21 @@ public class TunedCrystalLocator extends CrystalLocator {
     protected boolean isPingableCrystal(ItemStack locatorStack, ServerWorld world, BlockPos pos) {
         Tuning tuning = this.getTuning(world, locatorStack);
         if (tuning == null) {
-            MoreGeodes.LOGGER.info("Unable to get tuning");
-            return false;
+            return super.isPingableCrystal(locatorStack, world, pos);
         }
         return tuning.test(world, pos);
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+
+        Tuning tuning = null;
+        if (world != null) {
+            tuning = this.getTuning(world, stack);
+        }
+        tooltip.add(tuning != null ? tuning.getDescription() : Tuning.UNTUNED.getDescription());
+
         super.appendTooltip(stack, world, tooltip, context);
-
-        if (world == null) {
-            return;
-        }
-
-        Tuning tuning = this.getTuning(world, stack);
-        if (tuning != null) {
-            tooltip.add(tuning.getDescription());
-        }
     }
 
     @Nullable
@@ -57,7 +54,6 @@ public class TunedCrystalLocator extends CrystalLocator {
         Registry<Tuning> tuningRegistry = world.getRegistryManager()
                 .get(Tunings.REGISTRY_KEY);
         if (tuningRegistry == null) {
-            MoreGeodes.LOGGER.info("Unable to get tuning registry");
             return null;
         }
 

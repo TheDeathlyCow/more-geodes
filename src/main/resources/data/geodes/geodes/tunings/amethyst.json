@@ -1,7 +1,7 @@
 {
     "color": 0,
     "description": {
-        "text": "Tuned to Amethyst Crystals",
+        "translate": "geodes.tunings.geodes.amethyst",
         "color": "dark_purple"
     },
     "tuned_to": {

@@ -1,7 +1,7 @@
 {
     "color": 0,
     "description": {
-        "text": "Tuned to Emerald Crystals",
+        "translate": "geodes.tunings.geodes.emerald",
         "color": "green"
     },
     "tuned_to": {

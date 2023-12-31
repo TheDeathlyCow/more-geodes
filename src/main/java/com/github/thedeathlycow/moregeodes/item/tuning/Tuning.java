@@ -2,16 +2,22 @@ package com.github.thedeathlycow.moregeodes.item.tuning;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.block.Block;
 import net.minecraft.predicate.BlockPredicate;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
+import net.minecraft.text.TextColor;
+import net.minecraft.util.Colors;
 import net.minecraft.util.math.BlockPos;
-import org.jetbrains.annotations.Nullable;
 
 public class Tuning {
 
-    public static final Tuning NO_TUNING = new Tuning(0, Text.literal(""), BlockPredicate.ANY);
+    public static final Tuning UNTUNED = new Tuning(
+            Colors.BLACK,
+            Text.translatable("geodes.tunings.untuned")
+                    .setStyle(Style.EMPTY.withColor(TextColor.parse("gray"))),
+            BlockPredicate.ANY
+    );
 
     private static final String COLOR_KEY = "color";
     private static final String DESCRIPTION_KEY = "description";

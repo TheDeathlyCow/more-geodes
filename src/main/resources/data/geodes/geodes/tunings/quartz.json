@@ -1,7 +1,7 @@
 {
     "color": 0,
     "description": {
-        "text": "Tuned to Quartz",
+        "translate": "geodes.tunings.geodes.quartz",
         "color": "#f7f1df"
     },
     "tuned_to": {
