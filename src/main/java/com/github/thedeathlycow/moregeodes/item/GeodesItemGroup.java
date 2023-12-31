@@ -102,15 +102,24 @@ public class GeodesItemGroup {
 
     private static List<ItemStack> getTunedCrystalLocators() {
 
-        return List.of(
-                makeTunedLocatorStack("geodes:amethyst"),
-                makeTunedLocatorStack("geodes:emerald"),
-                makeTunedLocatorStack("geodes:quartz"),
-                makeTunedLocatorStack("geodes:diamond"),
-                makeTunedLocatorStack("geodes:echo"),
-                makeTunedLocatorStack("geodes:lapis"),
-                makeTunedLocatorStack("geodes:gypsum")
+        List<ItemStack> entries = new ArrayList<>(
+                List.of(
+                        makeTunedLocatorStack("geodes:amethyst"),
+                        makeTunedLocatorStack("geodes:emerald"),
+                        makeTunedLocatorStack("geodes:quartz"),
+                        makeTunedLocatorStack("geodes:diamond"),
+                        makeTunedLocatorStack("geodes:echo"),
+                        makeTunedLocatorStack("geodes:lapis"),
+                        makeTunedLocatorStack("geodes:gypsum")
+                )
         );
+
+        if (FabricLoader.getInstance().isModLoaded("spectrum")) {
+            entries.add(makeTunedLocatorStack("geodes:spectrum/topaz"));
+            entries.add(makeTunedLocatorStack("geodes:spectrum/citrine"));
+        }
+
+        return entries;
     }
 
     private static ItemStack makeTunedLocatorStack(String tuningId) {

@@ -66,6 +66,8 @@
     "geodes.tunings.geodes.echo": "Tuned to Echo Crystals",
     "geodes.tunings.geodes.gypsum": "Tuned to Gypsum Roses",
     "geodes.tunings.geodes.lapis": "Tuned to Lapis Lazuli Crystals",
+    "geodes.tunings.spectrum.topaz": "Tuned to Topaz Crystals",
+    "geodes.tunings.spectrum.citrine": "Tuned to Citrine Crystals",
     "subtitles.block.geodes.echo_locator.resonate": "Crystal resonates",
     "subtitles.block.geodes.echo_locator.use": "Echo locator humms",
     "subtitles.block.geodes.echo_block.chime": "Echo echos",
