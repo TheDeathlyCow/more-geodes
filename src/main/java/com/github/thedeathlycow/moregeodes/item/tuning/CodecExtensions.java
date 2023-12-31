@@ -6,6 +6,10 @@ import com.mojang.serialization.*;
 import net.minecraft.predicate.BlockPredicate;
 import net.minecraft.text.Text;
 
+/**
+ * @deprecated Please remove this if an actual codec ever appears in the vanilla game, this is horrendous
+ */
+@Deprecated
 public class CodecExtensions {
     public static final Codec<BlockPredicate> BLOCK_PREDICATE_CODEC = new Codec<>() {
         @Override

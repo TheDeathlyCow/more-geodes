@@ -5,10 +5,8 @@
         "color": "dark_purple"
     },
     "tuned_to": {
-        "block": {
-            "blocks": [
-                "minecraft:amethyst_cluster"
-            ]
-        }
+        "blocks": [
+            "minecraft:amethyst_cluster"
+        ]
     }
 }

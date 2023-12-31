@@ -5,10 +5,8 @@
         "color": "#f7f1df"
     },
     "tuned_to": {
-        "block": {
-            "blocks": [
-                "geodes:quartz_cluster"
-            ]
-        }
+        "blocks": [
+            "geodes:quartz_cluster"
+        ]
     }
 }

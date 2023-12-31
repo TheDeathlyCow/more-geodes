@@ -5,10 +5,8 @@
         "color": "green"
     },
     "tuned_to": {
-        "block": {
-            "blocks": [
-                "geodes:emerald_cluster"
-            ]
-        }
+        "blocks": [
+            "geodes:emerald_cluster"
+        ]
     }
 }
