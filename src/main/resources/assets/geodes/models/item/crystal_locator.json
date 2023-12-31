@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "geodes:item/crystal_locator"
-  }
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "geodes:item/crystal_locator"
+    }
 }

@@ -1,8 +1,8 @@
 {
-    "color": 0,
+    "color": 6109850,
     "description": {
         "translate": "geodes.tunings.geodes.amethyst",
-        "color": "dark_purple"
+        "color": "#5d3a9a"
     },
     "tuned_to": {
         "blocks": [

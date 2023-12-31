@@ -1,8 +1,8 @@
 {
-    "color": 0,
+    "color": 14537926,
     "description": {
         "translate": "geodes.tunings.geodes.quartz",
-        "color": "#f7f1df"
+        "color": "#ddd4c6"
     },
     "tuned_to": {
         "blocks": [
