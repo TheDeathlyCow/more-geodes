@@ -7,6 +7,7 @@ import com.github.thedeathlycow.moregeodes.entity.GeodesEntityTypes;
 import com.github.thedeathlycow.moregeodes.entity.GeodesMemoryModules;
 import com.github.thedeathlycow.moregeodes.features.ModFeatures;
 import com.github.thedeathlycow.moregeodes.item.ModItems;
+import com.github.thedeathlycow.moregeodes.item.recipe.GeodesRecipeSerializers;
 import com.github.thedeathlycow.moregeodes.item.tuning.Tunings;
 import com.github.thedeathlycow.moregeodes.sounds.GeodesSoundEvents;
 import com.github.thedeathlycow.moregeodes.world.GeodesGameEvents;
@@ -35,6 +36,7 @@ public class MoreGeodes implements ModInitializer {
         GeodesSoundEvents.registerSoundEvents();
         GeodesGameEvents.registerEvents();
         GeodesMemoryModules.registerModules();
+        GeodesRecipeSerializers.registerAll();
         Tunings.onInitialize();
 
         LOGGER.info("More Geodes initialized!");

@@ -122,7 +122,7 @@ public class GeodesItemGroup {
         return entries;
     }
 
-    private static ItemStack makeTunedLocatorStack(String tuningId) {
+    public static ItemStack makeTunedLocatorStack(String tuningId) {
         var stack = new ItemStack(ModItems.TUNED_CRYSTAL_LOCATOR);
 
         var nbt = new NbtCompound();

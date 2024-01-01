@@ -1,0 +1,13 @@
+{
+    "type": "geodes:crystal_tuning",
+    "group": "geodes_tunings",
+    "ingredients": [
+        {
+            "item": "minecraft:lapis_lazuli"
+        },
+        {
+            "item": "geodes:crystal_locator"
+        }
+    ],
+    "tuning": "geodes:lapis"
+}
