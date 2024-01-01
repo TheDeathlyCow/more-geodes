@@ -1,0 +1,34 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "geodes:tuning/amethyst_tuning"
+        ]
+    },
+    "criteria": {
+        "has_crystal_locator": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "geodes:crystal_locator"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "geodes:tuning/amethyst_tuning"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_crystal_locator",
+            "has_the_recipe"
+        ]
+    ]
+}
