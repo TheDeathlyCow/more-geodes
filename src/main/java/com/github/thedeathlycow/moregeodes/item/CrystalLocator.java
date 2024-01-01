@@ -6,6 +6,7 @@ import com.github.thedeathlycow.moregeodes.mixin.BlockDisplayInvoker;
 import com.github.thedeathlycow.moregeodes.sounds.GeodesSoundEvents;
 import com.github.thedeathlycow.moregeodes.tag.ModBlockTags;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -38,7 +39,9 @@ public class CrystalLocator extends Item {
                 itemStack.damage(1, user, player -> player.sendToolBreakStatus(hand));
             }
 
-            user.getItemCooldownManager().set(this, COOL_DOWN);
+            ItemCooldownManager cooldownManager = user.getItemCooldownManager();
+            cooldownManager.set(ModItems.CRYSTAL_LOCATOR, COOL_DOWN);
+            cooldownManager.set(ModItems.TUNED_CRYSTAL_LOCATOR, COOL_DOWN);
         }
         user.playSound(GeodesSoundEvents.BLOCK_ECHO_LOCATOR_USE, user.getSoundCategory(), 1.0f, 1.0f);
 
