@@ -1,0 +1,10 @@
+{
+    "color": 12244987,
+    "description": {
+        "translate": "geodes.tunings.spectrum.moonstone",
+        "color": "#bad7fb"
+    },
+    "tuned_to": {
+        "tag": "geodes:echo_locatable/moonstone"
+    }
+}

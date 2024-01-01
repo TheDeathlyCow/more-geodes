@@ -117,6 +117,7 @@ public class GeodesItemGroup {
         if (FabricLoader.getInstance().isModLoaded("spectrum")) {
             entries.add(makeTunedLocatorStack("geodes:spectrum/topaz"));
             entries.add(makeTunedLocatorStack("geodes:spectrum/citrine"));
+            entries.add(makeTunedLocatorStack("geodes:spectrum/moonstone"));
         }
 
         return entries;
