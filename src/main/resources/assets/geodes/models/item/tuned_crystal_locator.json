@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:item/handheld",
+    "textures": {
+        "layer0": "geodes:item/tuned_crystal_locator_overlay",
+        "layer1": "geodes:item/tuned_crystal_locator"
+    }
+}

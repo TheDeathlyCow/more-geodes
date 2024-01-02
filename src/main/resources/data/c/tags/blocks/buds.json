@@ -1,0 +1,20 @@
+{
+    "replace": false,
+    "values": [
+        "geodes:small_emerald_bud",
+        "geodes:medium_emerald_bud",
+        "geodes:large_emerald_bud",
+        "geodes:small_echo_bud",
+        "geodes:medium_echo_bud",
+        "geodes:large_echo_bud",
+        "geodes:small_quartz_bud",
+        "geodes:medium_quartz_bud",
+        "geodes:large_quartz_bud",
+        "geodes:small_lapis_bud",
+        "geodes:medium_lapis_bud",
+        "geodes:large_lapis_bud",
+        "geodes:small_gypsum_bud",
+        "geodes:medium_gypsum_bud",
+        "geodes:large_gypsum_bud"
+    ]
+}

@@ -20,6 +20,7 @@ import net.minecraft.nbt.*;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3i;
@@ -109,7 +110,7 @@ public class EchoLocatorBlockEntity extends BlockEntity implements
         if (state.isIn(blockEntity.type.canLocate())) {
 
             if (shouldHighlight) {
-                highlightCrystal(blockEntity, world, pos, state);
+                highlightCrystal(blockEntity.type.resonateSound(), world, pos, state);
             }
 
             return true;
@@ -118,15 +119,15 @@ public class EchoLocatorBlockEntity extends BlockEntity implements
         }
     }
 
-    private static void highlightCrystal(
-            EchoLocatorBlockEntity blockEntity,
+    public static void highlightCrystal(
+            SoundEvent resonateSound,
             ServerWorld world,
             BlockPos pos,
             BlockState state
     ) {
         world.emitGameEvent(null, GeodesGameEvents.CRYSTAL_RESONATE, pos);
 
-        world.playSound(null, pos, blockEntity.type.resonateSound(), SoundCategory.BLOCKS, 2.5f, 1.0f);
+        world.playSound(null, pos, resonateSound, SoundCategory.BLOCKS, 2.5f, 1.0f);
 
         DisplayEntity.BlockDisplayEntity blockDisplay = GeodesEntityTypes.ECHO_DISPLAY.create(world);
 

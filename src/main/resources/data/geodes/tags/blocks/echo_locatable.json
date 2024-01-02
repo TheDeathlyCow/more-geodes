@@ -32,11 +32,15 @@
 		},
 		{
 			"required": false,
-			"id": "#geodes:echo_locatable/spectrum"
+			"id": "#geodes:echo_locatable/ae2"
 		},
 		{
 			"required": false,
-			"id": "#geodes:echo_locatable/ae2"
+			"id": "#c:clusters"
+		},
+		{
+			"required": false,
+			"id": "#c:buds"
 		}
 	]
 }

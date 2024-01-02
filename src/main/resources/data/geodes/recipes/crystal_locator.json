@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"E E",
+		"ESE",
+		" S "
+	],
+	"key": {
+		"E": {
+			"item": "geodes:gypsum_shard"
+		},
+		"S": {
+			"item": "minecraft:stick"
+		}
+	},
+	"result": {
+		"item": "geodes:crystal_locator"
+	}
+}

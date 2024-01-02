@@ -1,0 +1,17 @@
+{
+    "color": 3432131,
+    "description": {
+        "translate": "geodes.tunings.geodes.lapis",
+        "color": "#345ec3"
+    },
+    "tuned_to": {
+        "block": {
+            "blocks": [
+                "geodes:lapis_cluster",
+                "geodes:large_lapis_bud",
+                "geodes:medium_lapis_bud",
+                "geodes:small_lapis_bud"
+            ]
+        }
+    }
+}

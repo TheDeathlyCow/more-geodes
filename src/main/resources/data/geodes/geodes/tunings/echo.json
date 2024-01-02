@@ -1,0 +1,17 @@
+{
+    "color": 425086,
+    "description": {
+        "translate": "geodes.tunings.geodes.echo",
+        "color": "#067c7e"
+    },
+    "tuned_to": {
+        "block": {
+            "blocks": [
+                "geodes:echo_cluster",
+                "geodes:large_echo_bud",
+                "geodes:medium_echo_bud",
+                "geodes:small_echo_bud"
+            ]
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "replace": false,
+    "values": [
+        {
+            "required": false,
+            "id": "spectrum:citrine_cluster"
+        },
+        {
+            "required": false,
+            "id": "spectrum:large_citrine_bud"
+        },
+        {
+            "required": false,
+            "id": "spectrum:medium_citrine_bud"
+        },
+        {
+            "required": false,
+            "id": "spectrum:small_citrine_bud"
+        }
+    ]
+}
