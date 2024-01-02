@@ -11,6 +11,12 @@
     ],
     "subtitle": "subtitles.block.geodes.echo_locator.use"
   },
+  "item.geodes.crystal_locator.use": {
+    "sounds": [
+      "geodes:block/echo_locator/use"
+    ],
+    "subtitle": "subtitles.item.geodes.crystal_locator.use"
+  },
   "block.geodes.emerald_crystal_block.chime": {
     "sounds": [
       {

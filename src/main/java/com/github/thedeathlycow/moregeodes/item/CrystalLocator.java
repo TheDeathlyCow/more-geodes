@@ -42,8 +42,8 @@ public class CrystalLocator extends Item {
             ItemCooldownManager cooldownManager = user.getItemCooldownManager();
             cooldownManager.set(ModItems.CRYSTAL_LOCATOR, COOL_DOWN);
             cooldownManager.set(ModItems.TUNED_CRYSTAL_LOCATOR, COOL_DOWN);
+            user.playSound(GeodesSoundEvents.BLOCK_ECHO_LOCATOR_USE, user.getSoundCategory(), 1.0f, 1.0f);
         }
-        user.playSound(GeodesSoundEvents.BLOCK_ECHO_LOCATOR_USE, user.getSoundCategory(), 1.0f, 1.0f);
 
         return TypedActionResult.success(itemStack, world.isClient());
     }

@@ -71,6 +71,7 @@
     "geodes.tunings.spectrum.moonstone": "Tuned to Moonstone Crystals",
     "subtitles.block.geodes.echo_locator.resonate": "Crystal resonates",
     "subtitles.block.geodes.echo_locator.use": "Echo locator humms",
+    "subtitles.item.geodes.crystal_locator.use": "Crystal locator humms",
     "subtitles.block.geodes.echo_block.chime": "Echo echos",
     "subtitles.block.geodes.emerald_crystal_block.chime": "Emerald jingles",
     "subtitles.block.geodes.quartz_crystal_block.chime": "Quartz humms",
