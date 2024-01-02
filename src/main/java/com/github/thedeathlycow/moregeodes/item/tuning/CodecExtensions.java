@@ -3,7 +3,7 @@ package com.github.thedeathlycow.moregeodes.item.tuning;
 import com.google.gson.JsonElement;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.*;
-import net.minecraft.predicate.BlockPredicate;
+import net.minecraft.predicate.entity.LocationPredicate;
 import net.minecraft.text.Text;
 
 /**
@@ -11,12 +11,12 @@ import net.minecraft.text.Text;
  */
 @Deprecated
 public class CodecExtensions {
-    public static final Codec<BlockPredicate> BLOCK_PREDICATE_CODEC = new Codec<>() {
+    public static final Codec<LocationPredicate> LOCATION_PREDICATE_CODEC = new Codec<>() {
         @Override
-        public <T> DataResult<Pair<BlockPredicate, T>> decode(DynamicOps<T> ops, T input) {
+        public <T> DataResult<Pair<LocationPredicate, T>> decode(DynamicOps<T> ops, T input) {
             try {
                 JsonElement json = Dynamic.convert(ops, JsonOps.INSTANCE, input);
-                BlockPredicate predicate = BlockPredicate.fromJson(json);
+                LocationPredicate predicate = LocationPredicate.fromJson(json);
                 return DataResult.success(Pair.of(predicate, ops.empty()));
             } catch (Exception e) {
                 return DataResult.error(e::getMessage);
@@ -24,7 +24,7 @@ public class CodecExtensions {
         }
 
         @Override
-        public <T> DataResult<T> encode(BlockPredicate input, DynamicOps<T> ops, T prefix) {
+        public <T> DataResult<T> encode(LocationPredicate input, DynamicOps<T> ops, T prefix) {
             try {
                 return ops.mergeToPrimitive(prefix, Dynamic.convert(JsonOps.INSTANCE, ops, input.toJson()));
             } catch (Exception e) {

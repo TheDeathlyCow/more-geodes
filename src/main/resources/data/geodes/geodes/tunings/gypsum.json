@@ -5,11 +5,13 @@
         "color": "#c47c51"
     },
     "tuned_to": {
-        "blocks": [
-            "geodes:gypsum_rose",
-            "geodes:large_gypsum_bud",
-            "geodes:medium_gypsum_bud",
-            "geodes:small_gypsum_bud"
-        ]
+        "block": {
+            "blocks": [
+                "geodes:gypsum_rose",
+                "geodes:large_gypsum_bud",
+                "geodes:medium_gypsum_bud",
+                "geodes:small_gypsum_bud"
+            ]
+        }
     }
 }

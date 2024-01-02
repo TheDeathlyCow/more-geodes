@@ -5,8 +5,10 @@
         "color": "#68f8f0"
     },
     "tuned_to": {
-        "blocks": [
-            "geodes:diamond_cluster"
-        ]
+        "block": {
+            "blocks": [
+                "geodes:diamond_cluster"
+            ]
+        }
     }
 }

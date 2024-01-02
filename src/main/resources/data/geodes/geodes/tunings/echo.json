@@ -5,11 +5,13 @@
         "color": "#067c7e"
     },
     "tuned_to": {
-        "blocks": [
-            "geodes:echo_cluster",
-            "geodes:large_echo_bud",
-            "geodes:medium_echo_bud",
-            "geodes:small_echo_bud"
-        ]
+        "block": {
+            "blocks": [
+                "geodes:echo_cluster",
+                "geodes:large_echo_bud",
+                "geodes:medium_echo_bud",
+                "geodes:small_echo_bud"
+            ]
+        }
     }
 }

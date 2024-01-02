@@ -5,6 +5,8 @@
         "color": "#27b7e4"
     },
     "tuned_to": {
-        "tag": "geodes:echo_locatable/topaz"
+        "block": {
+            "tag": "geodes:echo_locatable/topaz"
+        }
     }
 }

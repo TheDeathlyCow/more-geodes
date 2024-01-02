@@ -5,11 +5,13 @@
         "color": "#345ec3"
     },
     "tuned_to": {
-        "blocks": [
-            "geodes:lapis_cluster",
-            "geodes:large_lapis_bud",
-            "geodes:medium_lapis_bud",
-            "geodes:small_lapis_bud"
-        ]
+        "block": {
+            "blocks": [
+                "geodes:lapis_cluster",
+                "geodes:large_lapis_bud",
+                "geodes:medium_lapis_bud",
+                "geodes:small_lapis_bud"
+            ]
+        }
     }
 }

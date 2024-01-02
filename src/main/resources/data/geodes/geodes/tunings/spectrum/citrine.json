@@ -5,6 +5,8 @@
         "color": "#ffda42"
     },
     "tuned_to": {
-        "tag": "geodes:echo_locatable/citrine"
+        "block": {
+            "tag": "geodes:echo_locatable/citrine"
+        }
     }
 }

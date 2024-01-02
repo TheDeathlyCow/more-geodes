@@ -2,12 +2,11 @@ package com.github.thedeathlycow.moregeodes.item.tuning;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.predicate.BlockPredicate;
+import net.minecraft.predicate.entity.LocationPredicate;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.text.TextColor;
-import net.minecraft.util.Colors;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ColorHelper;
 
@@ -17,7 +16,7 @@ public class Tuning {
             ColorHelper.Argb.getArgb(0xff, 0x44, 0x44, 0x44),
             Text.translatable("geodes.tunings.untuned")
                     .setStyle(Style.EMPTY.withColor(TextColor.parse("gray"))),
-            BlockPredicate.ANY
+            LocationPredicate.ANY
     );
 
     private static final String COLOR_KEY = "color";
@@ -28,7 +27,7 @@ public class Tuning {
             instance -> instance.group(
                     Codec.INT.fieldOf(COLOR_KEY).forGetter(Tuning::getColor),
                     CodecExtensions.TEXT_CODEC.fieldOf(DESCRIPTION_KEY).forGetter(Tuning::getDescription),
-                    CodecExtensions.BLOCK_PREDICATE_CODEC.fieldOf(PREDICATE_KEY).forGetter(Tuning::getIsTunedToBlock)
+                    CodecExtensions.LOCATION_PREDICATE_CODEC.fieldOf(PREDICATE_KEY).forGetter(Tuning::getIsTunedToBlock)
             ).apply(instance, Tuning::new)
     );
 
@@ -41,24 +40,24 @@ public class Tuning {
 
     private final int color;
     private final Text description;
-    private final BlockPredicate isTunedToBlock;
+    private final LocationPredicate isTunedToBlock;
 
-    public Tuning(int color, Text description, BlockPredicate isTunedToBlock) {
+    public Tuning(int color, Text description, LocationPredicate isTunedToBlock) {
         this.color = color;
         this.description = description;
         this.isTunedToBlock = isTunedToBlock;
     }
 
     private Tuning(int color, Text description) {
-        this(color, description, BlockPredicate.ANY);
+        this(color, description, LocationPredicate.ANY);
     }
 
     public boolean test(ServerWorld world, BlockPos pos) {
-        if (this.isTunedToBlock == null || this.isTunedToBlock == BlockPredicate.ANY) {
+        if (this.isTunedToBlock == null || this.isTunedToBlock == LocationPredicate.ANY) {
             return false;
         }
 
-        return this.isTunedToBlock.test(world, pos);
+        return this.isTunedToBlock.test(world, pos.getX(), pos.getY(), pos.getZ());
     }
 
     public Text getDescription() {
@@ -69,7 +68,7 @@ public class Tuning {
         return this.color;
     }
 
-    public BlockPredicate getIsTunedToBlock() {
+    public LocationPredicate getIsTunedToBlock() {
         return isTunedToBlock;
     }
 

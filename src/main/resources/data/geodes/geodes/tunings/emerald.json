@@ -5,11 +5,13 @@
         "color": "green"
     },
     "tuned_to": {
-        "blocks": [
-            "geodes:emerald_cluster",
-            "geodes:large_emerald_bud",
-            "geodes:medium_emerald_bud",
-            "geodes:small_emerald_bud"
-        ]
+        "block": {
+            "blocks": [
+                "geodes:emerald_cluster",
+                "geodes:large_emerald_bud",
+                "geodes:medium_emerald_bud",
+                "geodes:small_emerald_bud"
+            ]
+        }
     }
 }

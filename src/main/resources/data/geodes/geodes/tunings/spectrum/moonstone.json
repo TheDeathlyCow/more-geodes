@@ -5,6 +5,8 @@
         "color": "#bad7fb"
     },
     "tuned_to": {
-        "tag": "geodes:echo_locatable/moonstone"
+        "block": {
+            "tag": "geodes:echo_locatable/moonstone"
+        }
     }
 }

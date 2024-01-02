@@ -5,11 +5,13 @@
         "color": "#ddd4c6"
     },
     "tuned_to": {
-        "blocks": [
-            "geodes:quartz_cluster",
-            "geodes:large_quartz_bud",
-            "geodes:medium_quartz_bud",
-            "geodes:small_quartz_bud"
-        ]
+        "block": {
+            "blocks": [
+                "geodes:quartz_cluster",
+                "geodes:large_quartz_bud",
+                "geodes:medium_quartz_bud",
+                "geodes:small_quartz_bud"
+            ]
+        }
     }
 }
