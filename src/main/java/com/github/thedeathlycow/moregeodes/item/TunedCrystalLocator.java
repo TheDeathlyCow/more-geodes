@@ -29,8 +29,13 @@ public class TunedCrystalLocator extends CrystalLocator {
     }
 
     @Override
+    public boolean isTuned(ItemStack stack, @Nullable World world) {
+        return world != null && getTuning(world.getRegistryManager(), stack) != null;
+    }
+
+    @Override
     protected boolean isPingableCrystal(ItemStack locatorStack, ServerWorld world, BlockPos pos) {
-        Tuning tuning = this.getTuning(world.getRegistryManager(), locatorStack);
+        Tuning tuning = getTuning(world.getRegistryManager(), locatorStack);
         if (tuning == null) {
             return super.isPingableCrystal(locatorStack, world, pos);
         }
@@ -42,9 +47,12 @@ public class TunedCrystalLocator extends CrystalLocator {
 
         Tuning tuning = null;
         if (world != null) {
-            tuning = this.getTuning(world.getRegistryManager(), stack);
+            tuning = getTuning(world.getRegistryManager(), stack);
         }
-        tooltip.add(tuning != null ? tuning.getDescription() : Tuning.UNTUNED.getDescription());
+
+        if (tuning != null) {
+            tooltip.add(tuning.getDescription());
+        }
 
         super.appendTooltip(stack, world, tooltip, context);
     }

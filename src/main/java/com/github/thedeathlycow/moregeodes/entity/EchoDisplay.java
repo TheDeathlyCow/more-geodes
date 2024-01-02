@@ -101,7 +101,7 @@ public class EchoDisplay extends DisplayEntity.BlockDisplayEntity {
                 null,
                 pos,
                 GeodesSoundEvents.BLOCK_ECHO_LOCATOR_RESONATE, SoundCategory.BLOCKS,
-                1.0f, 1.0f
+                3.0f, 1.0f
         );
     }
 

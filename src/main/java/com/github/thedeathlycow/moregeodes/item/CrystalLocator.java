@@ -2,21 +2,27 @@ package com.github.thedeathlycow.moregeodes.item;
 
 import com.github.thedeathlycow.moregeodes.entity.EchoDisplay;
 import com.github.thedeathlycow.moregeodes.entity.GeodesEntityTypes;
+import com.github.thedeathlycow.moregeodes.item.tuning.Tuning;
 import com.github.thedeathlycow.moregeodes.mixin.BlockDisplayInvoker;
 import com.github.thedeathlycow.moregeodes.sounds.GeodesSoundEvents;
 import com.github.thedeathlycow.moregeodes.tag.ModBlockTags;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class CrystalLocator extends Item {
 
@@ -48,8 +54,20 @@ public class CrystalLocator extends Item {
         return TypedActionResult.success(itemStack, world.isClient());
     }
 
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        if (!this.isTuned(stack, world)) {
+            tooltip.add(Tuning.UNTUNED.getDescription());
+        }
+        super.appendTooltip(stack, world, tooltip, context);
+    }
+
+    public boolean isTuned(ItemStack stack, @Nullable World world) {
+        return false;
+    }
+
     protected boolean isPingableCrystal(ItemStack locatorStack, ServerWorld world, BlockPos pos) {
-        return world.getBlockState(pos).isIn(ModBlockTags.ECHO_LOCATABLE);
+        return false;
     }
 
     private int activate(ServerWorld world, BlockPos origin, ItemStack itemStack) {
