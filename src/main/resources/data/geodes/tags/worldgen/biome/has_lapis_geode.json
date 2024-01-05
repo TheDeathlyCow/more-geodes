@@ -1,10 +1,13 @@
 {
     "replace": false,
     "values": [
-        "minecraft:desert",
-        "#c:desert",
+        "#minecraft:is_overworld",
         {
-            "id": "#forge:is_desert",
+            "id": "#terralith:all_terralith_biomes",
+            "required": false
+        },
+        {
+            "id": "#c:in_overworld",
             "required": false
         }
     ]
