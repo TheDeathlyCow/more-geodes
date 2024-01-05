@@ -1,9 +1,9 @@
 {
-	"feature": "geodes:lapis_geode",
+	"feature": "geodes:emerald_geode",
 	"placement": [
 		{
 			"type": "minecraft:rarity_filter",
-			"chance": 64
+			"chance": 12
 		},
 		{
 			"type": "minecraft:in_square"
@@ -11,12 +11,12 @@
 		{
 			"type": "minecraft:height_range",
 			"height": {
-				"type": "minecraft:trapezoid",
+				"type": "minecraft:uniform",
 				"min_inclusive": {
-					"absolute": 0
+					"absolute": 64
 				},
 				"max_inclusive": {
-					"absolute": 64
+					"below_top": 0
 				}
 			}
 		},
