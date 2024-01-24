@@ -127,8 +127,8 @@ public class GeodesItemGroup {
         var stack = new ItemStack(ModItems.TUNED_CRYSTAL_LOCATOR);
 
         var nbt = new NbtCompound();
-        nbt.putString(TunedCrystalLocator.TUNING_ID_NBT_KEY, tuningId);
-        stack.setSubNbt(TunedCrystalLocator.TUNING_NBT_KEY, nbt);
+        nbt.putString(TunedCrystalLocatorItem.TUNING_ID_NBT_KEY, tuningId);
+        stack.setSubNbt(TunedCrystalLocatorItem.TUNING_NBT_KEY, nbt);
 
         return stack;
     }

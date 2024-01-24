@@ -44,7 +44,7 @@
     "item.geodes.gypsum_shard": "Gypsum Shard",
     "item.geodes.crystal_locator": "Crystal Locator",
     "item.geodes.tuned_crystal_locator": "Tuned Crystal Locator",
-    "block.geodes.echo_locator": "Echo Locator",
+    "item.geodes.echo_locator": "Echo Locator",
     "block.geodes.emerald_crystal_echo_locator": "Emerald Crystal Echo Locator",
     "block.geodes.quartz_crystal_echo_locator": "Quartz Crystal Echo Locator",
     "block.geodes.amethyst_crystal_echo_locator": "Amethyst Crystal Echo Locator",

@@ -1,46 +1,8 @@
 {
 	"replace": false,
 	"values": [
-		"minecraft:small_amethyst_bud",
-		"minecraft:medium_amethyst_bud",
-		"minecraft:large_amethyst_bud",
-		"minecraft:amethyst_cluster",
-		"geodes:diamond_cluster",
-		"geodes:small_echo_bud",
-		"geodes:medium_echo_bud",
-		"geodes:large_echo_bud",
-		"geodes:echo_cluster",
-		"geodes:small_emerald_bud",
-		"geodes:medium_emerald_bud",
-		"geodes:large_emerald_bud",
-		"geodes:emerald_cluster",
-		"geodes:small_quartz_bud",
-		"geodes:medium_quartz_bud",
-		"geodes:large_quartz_bud",
-		"geodes:quartz_cluster",
-		"geodes:small_lapis_bud",
-		"geodes:medium_lapis_bud",
-		"geodes:large_lapis_bud",
-		"geodes:lapis_cluster",
-		"geodes:small_gypsum_bud",
-		"geodes:medium_gypsum_bud",
-		"geodes:large_gypsum_bud",
-		"geodes:gypsum_rose",
-		{
-			"required": false,
-			"id": "#geodes:echo_locatable/geodeplus"
-		},
-		{
-			"required": false,
-			"id": "#geodes:echo_locatable/ae2"
-		},
-		{
-			"required": false,
-			"id": "#c:clusters"
-		},
-		{
-			"required": false,
-			"id": "#c:buds"
-		}
+		"#c:ores",
+		"#c:buds",
+		"#c:clusters"
 	]
 }
