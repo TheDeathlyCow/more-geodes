@@ -42,7 +42,7 @@
     "block.geodes.medium_gypsum_bud": "Середній зародок гіпсу",
     "block.geodes.small_gypsum_bud": "Малий зародок гіпсу",
     "item.geodes.gypsum_shard": "Уламок гіпсу",
-    "block.geodes.echo_locator": "Ехолокатор",
+    "item.geodes.echo_locator": "Ехолокатор",
     "block.geodes.emerald_crystal_echo_locator": "Смарагдовий кристалічний ехолокатор",
     "block.geodes.quartz_crystal_echo_locator": "Кварцовий кристалічний ехолокатор",
     "block.geodes.amethyst_crystal_echo_locator": "Аметистовий кристалічний ехолокатор",

@@ -10,15 +10,10 @@ import net.minecraft.registry.Registry;
 
 public class ModBlockEntities {
 
-    public static final BlockEntityType<EchoLocatorBlockEntity> ECHO_LOCATOR =
-            FabricBlockEntityTypeBuilder.create(
-                            EchoLocatorBlockEntity::new,
-                            ModBlocks.ECHO_LOCATOR
-                    )
-                    .build();
 
     public static void registerBlockEntities() {
-        register("echo_locator", ECHO_LOCATOR);
+        // no block entities anymore!
+        // I am keeping the code so that I can use it in the future if needed
     }
 
     private static void register(String name, BlockEntityType<?> blockEntityType) {

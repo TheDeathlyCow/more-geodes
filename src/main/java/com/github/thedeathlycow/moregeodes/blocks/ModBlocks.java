@@ -7,10 +7,10 @@ import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
-import net.minecraft.registry.Registry;
 
 
 public class ModBlocks {
@@ -52,8 +52,6 @@ public class ModBlocks {
     public static final Block LARGE_GYPSUM_BUD = new LargeCrystalClusterBlock(CrystalBlockSoundGroup.GYPSUM, 5, 3, FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).strength(1.3f));
     public static final Block MEDIUM_GYPSUM_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.LAPIS, 16, 3, FabricBlockSettings.create().mapColor(MapColor.LAPIS_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).strength(1.3f));
     public static final Block SMALL_GYPSUM_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.LAPIS, 11, 4, FabricBlockSettings.create().mapColor(MapColor.LAPIS_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).strength(1.3f));
-
-    public static final Block ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.ALL, FabricBlockSettings.create().mapColor(MapColor.BLACK).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
 
     public static final Block GABBRO = new Block(FabricBlockSettings.create().mapColor(MapColor.BLACK).requiresTool().strength(1.25F, 4.2F).sounds(BlockSoundGroup.BASALT));
 
@@ -145,7 +143,6 @@ public class ModBlocks {
         register("large_echo_bud", LARGE_ECHO_BUD);
         register("medium_echo_bud", MEDIUM_ECHO_BUD);
         register("small_echo_bud", SMALL_ECHO_BUD);
-        register("echo_locator", ECHO_LOCATOR);
         register("lapis_crystal_block", LAPIS_CRYSTAL_BLOCK);
         register("lapis_cluster", LAPIS_CLUSTER);
         register("large_lapis_bud", LARGE_LAPIS_BUD);

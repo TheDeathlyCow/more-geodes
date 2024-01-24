@@ -42,7 +42,7 @@
     "block.geodes.medium_gypsum_bud": "Mellomstor gipsknopp",
     "block.geodes.small_gypsum_bud": "Liten gipsknopp",
     "item.geodes.gypsum_shard": "Gipsskår",
-    "block.geodes.echo_locator": "Ekkolokalisator",
+    "item.geodes.echo_locator": "Ekkolokalisator",
     "block.geodes.emerald_crystal_echo_locator": "Ekkolokalisator smaragdkrystall",
     "block.geodes.quartz_crystal_echo_locator": "Ekkolokalisator kvartskrystall",
     "block.geodes.amethyst_crystal_echo_locator": "Ekkolokalisator ametystkrystall",

@@ -42,7 +42,7 @@
     "block.geodes.medium_gypsum_bud": "Средний гипсовый бутон",
     "block.geodes.small_gypsum_bud": "Малый гипсовый бутон",
     "item.geodes.gypsum_shard": "Осколок гипса",
-    "block.geodes.echo_locator": "Камертон",
+    "item.geodes.echo_locator": "Камертон",
     "block.geodes.emerald_crystal_echo_locator": "Изумрудный камертон",
     "block.geodes.quartz_crystal_echo_locator": "Кварцевый камертон",
     "block.geodes.amethyst_crystal_echo_locator": "Аметистовый камертон",
