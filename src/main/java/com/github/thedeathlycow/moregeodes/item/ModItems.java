@@ -66,11 +66,24 @@ public class ModItems {
     public static final Item CALCITE_SLAB = new BlockItem(ModBlocks.CALCITE_SLAB, new FabricItemSettings());
     public static final Item CALCITE_WALL = new BlockItem(ModBlocks.CALCITE_WALL, new FabricItemSettings());
 
-    public static final Item CRYSTAL_LOCATOR = new CrystalLocator(new FabricItemSettings().maxDamage(16), CrystalLocator.BASE_RANGE);
+    public static final Item CRYSTAL_LOCATOR = new CrystalLocatorItem(
+            new FabricItemSettings().maxDamage(16),
+            CrystalLocatorItem.CRYSTAL_LOCATOR_RANGE,
+            CrystalLocatorItem.CRYSTAL_LOCATOR_COOL_DOWN
+    );
 
-    public static final Item TUNED_CRYSTAL_LOCATOR = new TunedCrystalLocator(new FabricItemSettings().maxDamage(16), CrystalLocator.BASE_RANGE);
+    public static final Item TUNED_CRYSTAL_LOCATOR = new TunedCrystalLocatorItem(
+            new FabricItemSettings().maxDamage(16),
+            CrystalLocatorItem.CRYSTAL_LOCATOR_RANGE,
+            CrystalLocatorItem.CRYSTAL_LOCATOR_COOL_DOWN
+    );
 
-    public static final Item ECHO_LOCATOR = new BlockItem(ModBlocks.ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
+    public static final Item ECHO_LOCATOR = new EchoLocatorItem(
+            new FabricItemSettings().maxDamage(48),
+            EchoLocatorItem.BLOCK_RANGE,
+            EchoLocatorItem.ECHO_LOCATOR_COOL_DOWN
+    );
+
     public static final Item GABRRO = new BlockItem(ModBlocks.GABBRO, new FabricItemSettings());
 
     public static void registerItems() {

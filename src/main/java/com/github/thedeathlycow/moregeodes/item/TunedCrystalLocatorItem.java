@@ -1,9 +1,7 @@
 package com.github.thedeathlycow.moregeodes.item;
 
-import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.item.tuning.Tuning;
 import com.github.thedeathlycow.moregeodes.item.tuning.Tunings;
-import net.fabricmc.fabric.api.event.registry.DynamicRegistrySetupCallback;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -18,14 +16,14 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class TunedCrystalLocator extends CrystalLocator {
+public class TunedCrystalLocatorItem extends CrystalLocatorItem {
 
     public static final String TUNING_NBT_KEY = "tuning";
 
     public static final String TUNING_ID_NBT_KEY = "id";
 
-    public TunedCrystalLocator(Settings settings, int range) {
-        super(settings, range);
+    public TunedCrystalLocatorItem(Settings settings, int range, int coolDown) {
+        super(settings, range, coolDown);
     }
 
     @Override

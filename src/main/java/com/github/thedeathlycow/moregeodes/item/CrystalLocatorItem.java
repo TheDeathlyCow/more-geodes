@@ -5,7 +5,6 @@ import com.github.thedeathlycow.moregeodes.entity.GeodesEntityTypes;
 import com.github.thedeathlycow.moregeodes.item.tuning.Tuning;
 import com.github.thedeathlycow.moregeodes.mixin.BlockDisplayInvoker;
 import com.github.thedeathlycow.moregeodes.sounds.GeodesSoundEvents;
-import com.github.thedeathlycow.moregeodes.tag.ModBlockTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.ItemCooldownManager;
@@ -24,15 +23,17 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class CrystalLocator extends Item {
+public class CrystalLocatorItem extends Item {
 
-    public static final int BASE_RANGE = 48;
-    private static final int COOL_DOWN = 20;
+    public static final int CRYSTAL_LOCATOR_RANGE = 48;
+    public static final int CRYSTAL_LOCATOR_COOL_DOWN = 20;
     private final int range;
+    private final int coolDown;
 
-    public CrystalLocator(Settings settings, int range) {
+    public CrystalLocatorItem(Settings settings, int range, int coolDown) {
         super(settings);
         this.range = range;
+        this.coolDown = coolDown;
     }
 
     @Override
@@ -46,8 +47,14 @@ public class CrystalLocator extends Item {
             }
 
             ItemCooldownManager cooldownManager = user.getItemCooldownManager();
-            cooldownManager.set(ModItems.CRYSTAL_LOCATOR, COOL_DOWN);
-            cooldownManager.set(ModItems.TUNED_CRYSTAL_LOCATOR, COOL_DOWN);
+
+            if (this == ModItems.CRYSTAL_LOCATOR || this == ModItems.TUNED_CRYSTAL_LOCATOR) {
+                cooldownManager.set(ModItems.CRYSTAL_LOCATOR, this.coolDown);
+                cooldownManager.set(ModItems.TUNED_CRYSTAL_LOCATOR, this.coolDown);
+            } else {
+                cooldownManager.set(this, this.coolDown);
+            }
+
             user.playSound(GeodesSoundEvents.BLOCK_ECHO_LOCATOR_USE, user.getSoundCategory(), 1.0f, 1.0f);
         }
 

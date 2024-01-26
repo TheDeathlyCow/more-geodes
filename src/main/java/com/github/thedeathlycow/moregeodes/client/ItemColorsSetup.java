@@ -1,7 +1,7 @@
 package com.github.thedeathlycow.moregeodes.client;
 
 import com.github.thedeathlycow.moregeodes.item.ModItems;
-import com.github.thedeathlycow.moregeodes.item.TunedCrystalLocator;
+import com.github.thedeathlycow.moregeodes.item.TunedCrystalLocatorItem;
 import com.github.thedeathlycow.moregeodes.item.tuning.Tuning;
 import com.github.thedeathlycow.moregeodes.item.tuning.Tunings;
 import net.fabricmc.api.EnvType;
@@ -37,7 +37,7 @@ public class ItemColorsSetup {
 
     private static int getColor(ItemStack stack, int tintIndex) {
         if (tintIndex == 0 && registryManager != null) {
-            Tuning tuning = TunedCrystalLocator.getTuning(
+            Tuning tuning = TunedCrystalLocatorItem.getTuning(
                     registryManager, stack
             );
             return tuning != null
