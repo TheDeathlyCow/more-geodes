@@ -17,6 +17,7 @@ public class ModBiomeTags {
     public static final TagKey<Biome> HAS_EXTRA_LAPIS_GEODES = of("has_extra_lapis_geodes");
     public static final TagKey<Biome> HAS_GYPSUM_PATCH = of("has_gypsum_patch");
     public static final TagKey<Biome> HAS_CERTUS_GEODE = of("has_certus_geode");
+    public static final TagKey<Biome> HAS_BISMUTH_GEODE = of("has_bismuth_geode");
 
 
 

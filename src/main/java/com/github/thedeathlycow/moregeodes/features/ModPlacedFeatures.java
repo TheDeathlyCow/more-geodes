@@ -18,6 +18,7 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> LAPIS_GEODE_EXTRA = of("lapis_geode_extra");
     public static final RegistryKey<PlacedFeature> GYPSUM_PATCH = of("gypsum_patch");
     public static final RegistryKey<PlacedFeature> CERTUS_GEODE = of("certus_geode");
+    public static final RegistryKey<PlacedFeature> BISMUTH_GEODE = of("bismuth_geode");
 
     public static RegistryKey<PlacedFeature> of(String id) {
         return RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(MoreGeodes.MODID, id));

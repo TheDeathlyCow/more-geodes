@@ -49,4 +49,8 @@ public class MoreGeodes implements ModInitializer {
     public static boolean isAE2Loaded() {
         return FabricLoader.getInstance().isModLoaded("ae2");
     }
+
+    public static boolean isSpectrumLoaded() {
+        return FabricLoader.getInstance().isModLoaded("spectrum");
+    }
 }

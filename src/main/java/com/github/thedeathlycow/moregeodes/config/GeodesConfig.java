@@ -19,6 +19,7 @@ public final class GeodesConfig {
     private static final String generateLapisGeodes = "generate_lapis_geodes";
     private static final String generateGypsumPatches = "generate_gypsum_patches";
     private static final String generateCertusGeodes = "generate_certus_geodes";
+    private static final String generateBismuthGeodes = "generate_bismuth_geodes";
 
     private Properties properties;
     private final Properties defaultProperties = new Properties();
@@ -52,6 +53,10 @@ public final class GeodesConfig {
 
     public boolean generateCertusGeodes() {
         return Boolean.parseBoolean(properties.getProperty(generateCertusGeodes));
+    }
+
+    public boolean generateBismuthGeodes() {
+        return Boolean.parseBoolean(properties.getProperty(generateBismuthGeodes));
     }
 
     public void loadConfig() {
@@ -89,6 +94,7 @@ public final class GeodesConfig {
         defaultProperties.setProperty(generateLapisGeodes, "true");
         defaultProperties.setProperty(generateGypsumPatches, "true");
         defaultProperties.setProperty(generateCertusGeodes, "true");
+        defaultProperties.setProperty(generateBismuthGeodes, "true");
     }
 
     private File getConfigFile() {

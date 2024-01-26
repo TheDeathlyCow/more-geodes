@@ -103,6 +103,18 @@ public class ModFeatures {
                     )
             );
         }
+
+        if (MoreGeodes.isSpectrumLoaded()) {
+            modification.add(
+                    ModificationPhase.ADDITIONS,
+                    BiomeSelectors.tag(ModBiomeTags.HAS_BISMUTH_GEODE),
+                    modifier(
+                            ModPlacedFeatures.BISMUTH_GEODE,
+                            GenerationStep.Feature.VEGETAL_DECORATION,
+                            MoreGeodes.CONFIG.generateBismuthGeodes()
+                    )
+            );
+        }
     }
 
     private static BiConsumer<BiomeSelectionContext, BiomeModificationContext> modifier(
