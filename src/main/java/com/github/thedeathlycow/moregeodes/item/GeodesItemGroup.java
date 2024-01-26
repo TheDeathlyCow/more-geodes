@@ -118,6 +118,7 @@ public class GeodesItemGroup {
             entries.add(makeTunedLocatorStack("geodes:spectrum/topaz"));
             entries.add(makeTunedLocatorStack("geodes:spectrum/citrine"));
             entries.add(makeTunedLocatorStack("geodes:spectrum/moonstone"));
+            entries.add(makeTunedLocatorStack("geodes:spectrum/bismuth"));
         }
 
         return entries;

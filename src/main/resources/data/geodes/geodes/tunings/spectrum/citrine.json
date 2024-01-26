@@ -6,7 +6,7 @@
     },
     "tuned_to": {
         "block": {
-            "tag": "geodes:echo_locatable/citrine"
+            "tag": "geodes:crystal_locatable/citrine"
         }
     }
 }
