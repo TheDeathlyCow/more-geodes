@@ -47,13 +47,7 @@ public class CrystalLocatorItem extends Item {
             }
 
             ItemCooldownManager cooldownManager = user.getItemCooldownManager();
-
-            if (this == ModItems.CRYSTAL_LOCATOR || this == ModItems.TUNED_CRYSTAL_LOCATOR) {
-                cooldownManager.set(ModItems.CRYSTAL_LOCATOR, this.coolDown);
-                cooldownManager.set(ModItems.TUNED_CRYSTAL_LOCATOR, this.coolDown);
-            } else {
-                cooldownManager.set(this, this.coolDown);
-            }
+            this.setCooldown(cooldownManager, this.coolDown);
 
             user.playSound(GeodesSoundEvents.BLOCK_ECHO_LOCATOR_USE, user.getSoundCategory(), 1.0f, 1.0f);
         }
@@ -75,6 +69,11 @@ public class CrystalLocatorItem extends Item {
 
     protected boolean isPingableCrystal(ItemStack locatorStack, ServerWorld world, BlockPos pos) {
         return false;
+    }
+
+    protected void setCooldown(ItemCooldownManager cooldownManager, int ticks) {
+        cooldownManager.set(ModItems.CRYSTAL_LOCATOR, ticks);
+        cooldownManager.set(ModItems.TUNED_CRYSTAL_LOCATOR, ticks);
     }
 
     private int activate(ServerWorld world, BlockPos origin, ItemStack itemStack) {

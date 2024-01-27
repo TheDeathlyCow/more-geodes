@@ -4,6 +4,7 @@ import com.github.thedeathlycow.moregeodes.tag.ModBlockTags;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
@@ -57,5 +58,10 @@ public class EchoLocatorItem extends CrystalLocatorItem {
     @Override
     protected boolean isPingableCrystal(ItemStack locatorStack, ServerWorld world, BlockPos pos) {
         return world.getBlockState(pos).isIn(ModBlockTags.ECHO_LOCATABLE);
+    }
+
+    @Override
+    protected void setCooldown(ItemCooldownManager cooldownManager, int ticks) {
+        cooldownManager.set(this, ticks);
     }
 }
