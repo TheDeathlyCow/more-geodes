@@ -79,7 +79,7 @@ public class ModItems {
     );
 
     public static final Item ECHO_LOCATOR = new EchoLocatorItem(
-            new FabricItemSettings().maxDamage(48),
+            new FabricItemSettings().maxDamage(32),
             EchoLocatorItem.BLOCK_RANGE,
             EchoLocatorItem.ECHO_LOCATOR_COOL_DOWN
     );

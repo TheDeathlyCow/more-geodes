@@ -63,8 +63,10 @@
     
     "advancement.geodes.adventure.outrageous.title": "Gems Are Truly Outrageous",
     "advancement.geodes.adventure.outrageous.description": "Collect both an Emerald and Diamond geode block",
+    "advancement.geodes.adventure.use_crystal_locator.title": "Resonant Frequency",
+    "advancement.geodes.adventure.use_crystal_locator.description": "Use a tuned Crystal Locator to find a Geode",
     "advancement.geodes.adventure.use_echo_locator.title": "Is There an Echo in Here?",
-    "advancement.geodes.adventure.use_echo_locator.description": "Use an Echo Locator",
+    "advancement.geodes.adventure.use_echo_locator.description": "Use an Echo Locator to find some ore",
     "advancement.geodes.nether.barter_fools_gold.title": "Fool Me Once",
     "advancement.geodes.nether.barter_fools_gold.description": "Try to distract a Piglin with Pyrite",
     
