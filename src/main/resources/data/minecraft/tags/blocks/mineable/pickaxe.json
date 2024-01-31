@@ -21,7 +21,6 @@
         "geodes:large_echo_bud",
         "geodes:medium_echo_bud",
         "geodes:small_echo_bud",
-        "#geodes:echo_locators",
         "geodes:lapis_crystal_block",
         "geodes:budding_lapis",
         "geodes:lapis_cluster",
