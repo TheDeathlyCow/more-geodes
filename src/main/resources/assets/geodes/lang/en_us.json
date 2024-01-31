@@ -66,7 +66,9 @@
     
     
     "advancement.geodes.adventure.outrageous.title": "Gems Are Truly Outrageous",
-    "advancement.geodes.adventure.outrageous.description": "Collect both an Emerald and Diamond geode block",
+    "advancement.geodes.adventure.outrageous.description": "Collect both an Emerald and Diamond crystal block",
+    "advancement.geodes.adventure.rock_collector.title": "Rock Collector",
+    "advancement.geodes.adventure.rock_collector.description": "Obtain a cluster from every geode added by More Geodes (as well as Amethyst)",
     "advancement.geodes.adventure.use_crystal_locator.title": "Resonant Frequency",
     "advancement.geodes.adventure.use_crystal_locator.description": "Use a tuned Crystal Locator to find a Geode",
     "advancement.geodes.adventure.use_echo_locator.title": "Is There an Echo in Here?",
