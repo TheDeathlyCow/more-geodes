@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/outer_stairs",
+    "textures": {
+        "bottom": "geodes:block/polished_gypsum_block",
+        "side": "geodes:block/polished_gypsum_block",
+        "top": "geodes:block/polished_gypsum_block"
+    }
+}
