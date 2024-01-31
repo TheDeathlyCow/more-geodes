@@ -91,13 +91,16 @@ public class GeodesItemGroup {
 
                             entries.add(new ItemStack(ModItems.GABRRO));
 
-                            // locators
-                            entries.add(new ItemStack(ModItems.CRYSTAL_LOCATOR));
-                            entries.add(new ItemStack(ModItems.ECHO_LOCATOR));
+                            // gypsum blocks
                             entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_BLOCK));
                             entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_STAIRS));
                             entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_SLAB));
                             entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_WALL));
+
+                            // locators
+                            entries.add(new ItemStack(ModItems.CRYSTAL_LOCATOR));
+                            entries.add(new ItemStack(ModItems.ECHO_LOCATOR));
+
 
                             entries.addAll(getTunedCrystalLocators());
                         }))
