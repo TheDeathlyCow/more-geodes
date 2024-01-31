@@ -86,6 +86,10 @@ public class ModItems {
 
     public static final Item GABRRO = new BlockItem(ModBlocks.GABBRO, new FabricItemSettings());
 
+    public static final Item POLISHED_GYPSUM_BLOCK = new BlockItem(ModBlocks.POLISHED_GYPSUM_BLOCK, new FabricItemSettings());
+    public static final Item POLISHED_GYPSUM_STAIRS = new BlockItem(ModBlocks.POLISHED_GYPSUM_STAIRS, new FabricItemSettings());
+    public static final Item POLISHED_GYPSUM_SLAB = new BlockItem(ModBlocks.POLISHED_GYPSUM_SLAB, new FabricItemSettings());
+    public static final Item POLISHED_GYPSUM_WALL = new BlockItem(ModBlocks.POLISHED_GYPSUM_WALL, new FabricItemSettings());
     public static void registerItems() {
         register("emerald_shard", EMERALD_SHARD);
         register("pyrite_chunk", PYRITE_CHUNK);
@@ -133,6 +137,10 @@ public class ModItems {
         register("calcite_slab", CALCITE_SLAB);
         register("calcite_wall", CALCITE_WALL);
         register("gabbro", GABRRO);
+        register("polished_gypsum_block", POLISHED_GYPSUM_BLOCK);
+        register("polished_gypsum_stairs", POLISHED_GYPSUM_STAIRS);
+        register("polished_gypsum_slab", POLISHED_GYPSUM_SLAB);
+        register("polished_gypsum_wall", POLISHED_GYPSUM_WALL);
 
         CompostingChanceRegistry.INSTANCE.add(GYPSUM_SHARD, 1.0f);
 

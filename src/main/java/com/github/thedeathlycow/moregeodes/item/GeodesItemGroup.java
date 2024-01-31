@@ -94,6 +94,11 @@ public class GeodesItemGroup {
                             // locators
                             entries.add(new ItemStack(ModItems.CRYSTAL_LOCATOR));
                             entries.add(new ItemStack(ModItems.ECHO_LOCATOR));
+                            entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_BLOCK));
+                            entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_STAIRS));
+                            entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_SLAB));
+                            entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_WALL));
+
                             entries.addAll(getTunedCrystalLocators());
                         }))
                         .build()

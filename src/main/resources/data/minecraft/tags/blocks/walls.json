@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"geodes:pyrite_wall",
-		"geodes:calcite_wall"
+		"geodes:calcite_wall",
+		"geodes:polished_gypsum_wall"
 	]
 }
