@@ -41,6 +41,7 @@
         "geodes:polished_gypsum_block",
         "geodes:polished_gypsum_stairs",
         "geodes:polished_gypsum_slab",
-        "geodes:polished_gypsum_wall"
+        "geodes:polished_gypsum_wall",
+        "geodes:chiseled_gypsum"
     ]
 }
