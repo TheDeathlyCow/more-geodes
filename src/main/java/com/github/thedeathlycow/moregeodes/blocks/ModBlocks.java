@@ -145,6 +145,13 @@ public class ModBlocks {
                     .strength(0.8f)
     );
 
+    public static final Block GYPSUM_PILLAR = new PillarBlock(
+            FabricBlockSettings.create()
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(0.8f)
+    );
+
     public static void registerBlocks() {
         register("emerald_crystal_block", EMERALD_CRYSTAL_BLOCK);
         register("budding_emerald", BUDDING_EMERALD);
@@ -191,6 +198,7 @@ public class ModBlocks {
         register("polished_gypsum_slab", POLISHED_GYPSUM_SLAB);
         register("polished_gypsum_wall", POLISHED_GYPSUM_WALL);
         register("chiseled_gypsum", CHISELED_GYPSUM);
+        register("gypsum_pillar", GYPSUM_PILLAR);
     }
 
     private static void register(String name, Block block) {
