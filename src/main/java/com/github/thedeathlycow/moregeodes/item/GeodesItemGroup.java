@@ -96,6 +96,7 @@ public class GeodesItemGroup {
                             entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_STAIRS));
                             entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_SLAB));
                             entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_WALL));
+                            entries.add(new ItemStack(ModItems.CHISELED_GYPSUM));
 
                             // locators
                             entries.add(new ItemStack(ModItems.CRYSTAL_LOCATOR));

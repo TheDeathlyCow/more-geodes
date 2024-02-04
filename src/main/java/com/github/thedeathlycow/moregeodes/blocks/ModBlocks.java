@@ -138,6 +138,13 @@ public class ModBlocks {
 
     public static final Block POLISHED_GYPSUM_WALL = new WallBlock(FabricBlockSettings.copyOf(POLISHED_GYPSUM_BLOCK));
 
+    public static final Block CHISELED_GYPSUM = new Block(
+            FabricBlockSettings.create()
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(0.8f)
+    );
+
     public static void registerBlocks() {
         register("emerald_crystal_block", EMERALD_CRYSTAL_BLOCK);
         register("budding_emerald", BUDDING_EMERALD);
@@ -183,6 +190,7 @@ public class ModBlocks {
         register("polished_gypsum_stairs", POLISHED_GYPSUM_STAIRS);
         register("polished_gypsum_slab", POLISHED_GYPSUM_SLAB);
         register("polished_gypsum_wall", POLISHED_GYPSUM_WALL);
+        register("chiseled_gypsum", CHISELED_GYPSUM);
     }
 
     private static void register(String name, Block block) {
