@@ -28,18 +28,14 @@ public class EchoDisplayEntityRenderer extends DisplayEntityRenderer.BlockDispla
 
             Identifier texture = this.getTexture(blockDisplayEntity);
 
-            var mockProvider = new VertexConsumerProvider() {
-                @Override
-                public VertexConsumer getBuffer(RenderLayer layer) {
-                    return vertexConsumerProvider.getBuffer(RenderLayer.getOutline(texture));
-                }
-            };
-
             super.render(
                     blockDisplayEntity,
                     data,
                     matrixStack,
-                    mockProvider,
+                    // change the provider to only render outlines, and not render the normal state texture
+                    layer -> {
+                        return vertexConsumerProvider.getBuffer(RenderLayer.getOutline(texture));
+                    },
                     brightness,
                     lerpProgress
             );
