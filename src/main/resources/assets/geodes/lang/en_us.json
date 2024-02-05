@@ -50,12 +50,16 @@
     
     "block.geodes.gabbro": "Gabbro",
     
+    "block.geodes.chiseled_gypsum": "Chiseled Gypsum",
+    "block.geodes.gypsum_pillar": "Gypsum Pillar",
     "block.geodes.polished_gypsum_block": "Polished Gypsum Block",
     "block.geodes.polished_gypsum_stairs": "Polished Gypsum Stairs",
     "block.geodes.polished_gypsum_slab": "Polished Gypsum Slab",
     "block.geodes.polished_gypsum_wall": "Polished Gypsum Wall",
-    "block.geodes.chiseled_gypsum": "Chiseled Gypsum",
-    "block.geodes.gypsum_pillar": "Gypsum Pillar",
+    "block.geodes.smooth_gypsum_block": "Smooth Gypsum Block",
+    "block.geodes.smooth_gypsum_stairs": "Smooth Gypsum Stairs",
+    "block.geodes.smooth_gypsum_slab": "Smooth Gypsum Slab",
+    "block.geodes.smooth_gypsum_wall": "Smooth Gypsum Wall",
     
     "item.geodes.pyrite_chunk": "Pyrite Chunk",
     "item.geodes.gypsum_shard": "Gypsum Shard",

@@ -92,12 +92,16 @@ public class GeodesItemGroup {
                             entries.add(new ItemStack(ModItems.GABRRO));
 
                             // gypsum blocks
+                            entries.add(new ItemStack(ModItems.CHISELED_GYPSUM));
+                            entries.add(new ItemStack(ModItems.GYPSUM_PILLAR));
                             entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_BLOCK));
                             entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_STAIRS));
                             entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_SLAB));
                             entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_WALL));
-                            entries.add(new ItemStack(ModItems.CHISELED_GYPSUM));
-                            entries.add(new ItemStack(ModItems.GYPSUM_PILLAR));
+                            entries.add(new ItemStack(ModItems.SMOOTH_GYPSUM_BLOCK));
+                            entries.add(new ItemStack(ModItems.SMOOTH_GYPSUM_STAIRS));
+                            entries.add(new ItemStack(ModItems.SMOOTH_GYPSUM_SLAB));
+                            entries.add(new ItemStack(ModItems.SMOOTH_GYPSUM_WALL));
 
                             // locators
                             entries.add(new ItemStack(ModItems.CRYSTAL_LOCATOR));

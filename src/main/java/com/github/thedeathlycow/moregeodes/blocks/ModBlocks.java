@@ -122,6 +122,20 @@ public class ModBlocks {
             FabricBlockSettings.copyOf(Blocks.CALCITE)
     );
 
+    public static final Block CHISELED_GYPSUM = new Block(
+            FabricBlockSettings.create()
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(0.8f)
+    );
+
+    public static final Block GYPSUM_PILLAR = new PillarBlock(
+            FabricBlockSettings.create()
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(0.8f)
+    );
+
     public static final Block POLISHED_GYPSUM_BLOCK = new Block(
             FabricBlockSettings.create()
                     .instrument(Instrument.BASEDRUM)
@@ -138,19 +152,22 @@ public class ModBlocks {
 
     public static final Block POLISHED_GYPSUM_WALL = new WallBlock(FabricBlockSettings.copyOf(POLISHED_GYPSUM_BLOCK));
 
-    public static final Block CHISELED_GYPSUM = new Block(
+    public static final Block SMOOTH_GYPSUM_BLOCK = new Block(
             FabricBlockSettings.create()
                     .instrument(Instrument.BASEDRUM)
                     .requiresTool()
                     .strength(0.8f)
     );
 
-    public static final Block GYPSUM_PILLAR = new PillarBlock(
-            FabricBlockSettings.create()
-                    .instrument(Instrument.BASEDRUM)
-                    .requiresTool()
-                    .strength(0.8f)
+    public static final Block SMOOTH_GYPSUM_STAIRS = new StairsBlock(
+            SMOOTH_GYPSUM_BLOCK.getDefaultState(),
+            FabricBlockSettings.copyOf(SMOOTH_GYPSUM_BLOCK)
     );
+
+    public static final Block SMOOTH_GYPSUM_SLAB = new SlabBlock(FabricBlockSettings.copyOf(SMOOTH_GYPSUM_BLOCK));
+
+    public static final Block SMOOTH_GYPSUM_WALL = new WallBlock(FabricBlockSettings.copyOf(SMOOTH_GYPSUM_BLOCK));
+
 
     public static void registerBlocks() {
         register("emerald_crystal_block", EMERALD_CRYSTAL_BLOCK);
@@ -193,12 +210,16 @@ public class ModBlocks {
         register("small_gypsum_bud", SMALL_GYPSUM_BUD);
         register("budding_gypsum", BUDDING_GYPSUM);
         register("gabbro", GABBRO);
+        register("chiseled_gypsum", CHISELED_GYPSUM);
+        register("gypsum_pillar", GYPSUM_PILLAR);
         register("polished_gypsum_block", POLISHED_GYPSUM_BLOCK);
         register("polished_gypsum_stairs", POLISHED_GYPSUM_STAIRS);
         register("polished_gypsum_slab", POLISHED_GYPSUM_SLAB);
         register("polished_gypsum_wall", POLISHED_GYPSUM_WALL);
-        register("chiseled_gypsum", CHISELED_GYPSUM);
-        register("gypsum_pillar", GYPSUM_PILLAR);
+        register("smooth_gypsum_block", SMOOTH_GYPSUM_BLOCK);
+        register("smooth_gypsum_stairs", SMOOTH_GYPSUM_STAIRS);
+        register("smooth_gypsum_slab", SMOOTH_GYPSUM_SLAB);
+        register("smooth_gypsum_wall", SMOOTH_GYPSUM_WALL);
     }
 
     private static void register(String name, Block block) {
