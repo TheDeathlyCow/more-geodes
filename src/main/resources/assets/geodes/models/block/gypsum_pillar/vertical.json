@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:block/cube_column",
+    "textures": {
+        "end": "geodes:block/gypsum_pillar_top",
+        "side": "geodes:block/gypsum_pillar"
+    }
+}

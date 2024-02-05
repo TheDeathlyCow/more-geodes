@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "axis=x": {
+            "model": "geodes:block/gypsum_pillar/horizontal",
+            "x": 90,
+            "y": 90
+        },
+        "axis=y": {
+            "model": "geodes:block/gypsum_pillar/vertical"
+        },
+        "axis=z": {
+            "model": "geodes:block/gypsum_pillar/horizontal",
+            "x": 90
+        }
+    }
+}

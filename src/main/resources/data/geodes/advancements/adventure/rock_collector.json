@@ -1,0 +1,127 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:amethyst_cluster"
+        },
+        "title": {
+            "translate": "advancement.geodes.adventure.rock_collector.title"
+        },
+        "description": {
+            "translate": "advancement.geodes.adventure.rock_collector.description"
+        },
+        "frame": "challenge"
+    },
+    "parent": "geodes:adventure/outrageous",
+    "criteria": {
+        "collect_emerald_cluster": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "geodes:emerald_cluster"
+                        ]
+                    }
+                ]
+            }
+        },
+        "collect_diamond_cluster": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "geodes:diamond_cluster"
+                        ]
+                    }
+                ]
+            }
+        },
+        "collect_quartz_cluster": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "geodes:quartz_cluster"
+                        ]
+                    }
+                ]
+            }
+        },
+        "collect_echo_cluster": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "geodes:echo_cluster"
+                        ]
+                    }
+                ]
+            }
+        },
+        "collect_lapis_cluster": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "geodes:lapis_cluster"
+                        ]
+                    }
+                ]
+            }
+        },
+        "collect_gypsum_rose": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "geodes:gypsum_rose"
+                        ]
+                    }
+                ]
+            }
+        },
+        "collect_amethyst_cluster": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:amethyst_cluster"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "collect_emerald_cluster"
+        ],
+        [
+            "collect_diamond_cluster"
+        ],
+        [
+            "collect_quartz_cluster"
+        ],
+        [
+            "collect_echo_cluster"
+        ],
+        [
+            "collect_lapis_cluster"
+        ],
+        [
+            "collect_gypsum_rose"
+        ],
+        [
+            "collect_amethyst_cluster"
+        ]
+    ],
+    "rewards": {
+        "experience": 15
+    }
+}
