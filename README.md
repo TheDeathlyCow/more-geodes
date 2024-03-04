@@ -76,7 +76,7 @@ Tuning JSON schema
     // See: https://minecraft.wiki/w/Raw_JSON_text_format
     "description": {
         "text": "Tuned to Amethyst Crystals",
-        "color": "#"
+        "color": "#5d3a9a"
     },
 
     // A Location predicate. Same as the `predicate` field 
