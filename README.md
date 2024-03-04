@@ -188,7 +188,7 @@ If you have the [Applied Energistics 2](https://modrinth.com/mod/ae2) mod instal
 
 ## Spectrum Integration
 
-If you have [Spectrum](https://modrinth.com/mod/spectrum) installed, you'll be able to use the `generate_bismuth_geodes` setting to find Bismuth geodes in your world.
+If you have [Spectrum](https://modrinth.com/mod/spectrum) installed, you'll be able to use the `generate_bismuth_geodes` setting to find Bismuth geodes in your world. Furthermore, tunings for Topaz, Citrine, and Moonstone geodes will automatically be added.
 
 # Translations
 
