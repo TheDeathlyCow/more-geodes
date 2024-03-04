@@ -1,0 +1,17 @@
+{
+    "color": 13945530,
+    "description": {
+        "translate": "geodes.tunings.geodes.quartz",
+        "color": "#ddd4c6"
+    },
+    "tuned_to": {
+        "block": {
+            "blocks": [
+                "geodes:quartz_cluster",
+                "geodes:large_quartz_bud",
+                "geodes:medium_quartz_bud",
+                "geodes:small_quartz_bud"
+            ]
+        }
+    }
+}

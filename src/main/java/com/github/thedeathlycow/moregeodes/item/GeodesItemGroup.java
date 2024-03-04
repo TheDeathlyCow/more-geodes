@@ -2,15 +2,20 @@ package com.github.thedeathlycow.moregeodes.item;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GeodesItemGroup {
 
@@ -86,10 +91,61 @@ public class GeodesItemGroup {
 
                             entries.add(new ItemStack(ModItems.GABRRO));
 
-                            // echo locator
+                            // gypsum blocks
+                            entries.add(new ItemStack(ModItems.CHISELED_GYPSUM));
+                            entries.add(new ItemStack(ModItems.GYPSUM_PILLAR));
+                            entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_BLOCK));
+                            entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_STAIRS));
+                            entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_SLAB));
+                            entries.add(new ItemStack(ModItems.POLISHED_GYPSUM_WALL));
+                            entries.add(new ItemStack(ModItems.SMOOTH_GYPSUM_BLOCK));
+                            entries.add(new ItemStack(ModItems.SMOOTH_GYPSUM_STAIRS));
+                            entries.add(new ItemStack(ModItems.SMOOTH_GYPSUM_SLAB));
+                            entries.add(new ItemStack(ModItems.SMOOTH_GYPSUM_WALL));
+
+                            // locators
+                            entries.add(new ItemStack(ModItems.CRYSTAL_LOCATOR));
                             entries.add(new ItemStack(ModItems.ECHO_LOCATOR));
+
+
+                            entries.addAll(getTunedCrystalLocators());
                         }))
                         .build()
         );
     }
+
+    private static List<ItemStack> getTunedCrystalLocators() {
+
+        List<ItemStack> entries = new ArrayList<>(
+                List.of(
+                        makeTunedLocatorStack("geodes:amethyst"),
+                        makeTunedLocatorStack("geodes:emerald"),
+                        makeTunedLocatorStack("geodes:quartz"),
+                        makeTunedLocatorStack("geodes:diamond"),
+                        makeTunedLocatorStack("geodes:echo"),
+                        makeTunedLocatorStack("geodes:lapis"),
+                        makeTunedLocatorStack("geodes:gypsum")
+                )
+        );
+
+        if (FabricLoader.getInstance().isModLoaded("spectrum")) {
+            entries.add(makeTunedLocatorStack("geodes:spectrum/topaz"));
+            entries.add(makeTunedLocatorStack("geodes:spectrum/citrine"));
+            entries.add(makeTunedLocatorStack("geodes:spectrum/moonstone"));
+            entries.add(makeTunedLocatorStack("geodes:spectrum/bismuth"));
+        }
+
+        return entries;
+    }
+
+    public static ItemStack makeTunedLocatorStack(String tuningId) {
+        var stack = new ItemStack(ModItems.TUNED_CRYSTAL_LOCATOR);
+
+        var nbt = new NbtCompound();
+        nbt.putString(TunedCrystalLocatorItem.TUNING_ID_NBT_KEY, tuningId);
+        stack.setSubNbt(TunedCrystalLocatorItem.TUNING_NBT_KEY, nbt);
+
+        return stack;
+    }
+
 }

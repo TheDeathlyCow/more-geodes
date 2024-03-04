@@ -30,6 +30,15 @@ public class ModFeatures {
                 )
                 .add(
                         ModificationPhase.ADDITIONS,
+                        BiomeSelectors.tag(ModBiomeTags.HAS_EXTRA_EMERALD_GEODES),
+                        modifier(
+                                ModPlacedFeatures.EMERALD_GEODE_EXTRA,
+                                GenerationStep.Feature.UNDERGROUND_DECORATION,
+                                MoreGeodes.CONFIG.generateEmeraldGeodes()
+                        )
+                )
+                .add(
+                        ModificationPhase.ADDITIONS,
                         BiomeSelectors.tag(ModBiomeTags.HAS_QUARTZ_GEODE),
                         modifier(
                                 ModPlacedFeatures.QUARTZ_GEODE,
@@ -66,6 +75,15 @@ public class ModFeatures {
                 )
                 .add(
                         ModificationPhase.ADDITIONS,
+                        BiomeSelectors.tag(ModBiomeTags.HAS_EXTRA_LAPIS_GEODES),
+                        modifier(
+                                ModPlacedFeatures.LAPIS_GEODE_EXTRA,
+                                GenerationStep.Feature.UNDERGROUND_DECORATION,
+                                MoreGeodes.CONFIG.generateLapisGeodes()
+                        )
+                )
+                .add(
+                        ModificationPhase.ADDITIONS,
                         BiomeSelectors.tag(ModBiomeTags.HAS_GYPSUM_PATCH),
                         modifier(
                                 ModPlacedFeatures.GYPSUM_PATCH,
@@ -82,6 +100,18 @@ public class ModFeatures {
                             ModPlacedFeatures.CERTUS_GEODE,
                             GenerationStep.Feature.UNDERGROUND_DECORATION,
                             MoreGeodes.CONFIG.generateCertusGeodes()
+                    )
+            );
+        }
+
+        if (MoreGeodes.isSpectrumLoaded()) {
+            modification.add(
+                    ModificationPhase.ADDITIONS,
+                    BiomeSelectors.tag(ModBiomeTags.HAS_BISMUTH_GEODE),
+                    modifier(
+                            ModPlacedFeatures.BISMUTH_GEODE,
+                            GenerationStep.Feature.VEGETAL_DECORATION,
+                            MoreGeodes.CONFIG.generateBismuthGeodes()
                     )
             );
         }

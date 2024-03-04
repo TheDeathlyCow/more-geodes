@@ -1,0 +1,12 @@
+{
+    "color": 8806911,
+    "description": {
+        "translate": "geodes.tunings.spectrum.bismuth",
+        "color": "#8661ff"
+    },
+    "tuned_to": {
+        "block": {
+            "tag": "geodes:crystal_locatable/bismuth"
+        }
+    }
+}

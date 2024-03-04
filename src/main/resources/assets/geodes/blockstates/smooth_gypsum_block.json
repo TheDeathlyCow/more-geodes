@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "geodes:block/smooth_gypsum_block"
+        }
+    }
+}

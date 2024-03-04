@@ -1,0 +1,12 @@
+{
+    "color": 12244987,
+    "description": {
+        "translate": "geodes.tunings.spectrum.moonstone",
+        "color": "#bad7fb"
+    },
+    "tuned_to": {
+        "block": {
+            "tag": "geodes:crystal_locatable/moonstone"
+        }
+    }
+}

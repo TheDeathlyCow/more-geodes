@@ -1,0 +1,17 @@
+{
+    "color": 1564002,
+    "description": {
+        "translate": "geodes.tunings.geodes.emerald",
+        "color": "green"
+    },
+    "tuned_to": {
+        "block": {
+            "blocks": [
+                "geodes:emerald_cluster",
+                "geodes:large_emerald_bud",
+                "geodes:medium_emerald_bud",
+                "geodes:small_emerald_bud"
+            ]
+        }
+    }
+}

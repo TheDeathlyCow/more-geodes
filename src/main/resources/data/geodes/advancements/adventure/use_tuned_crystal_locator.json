@@ -1,0 +1,35 @@
+{
+	"display": {
+		"icon": {
+			"item": "geodes:tuned_crystal_locator",
+			"nbt": "{tuning:{id:\"geodes:emerald\"}}"
+		},
+		"title": {
+			"translate": "advancement.geodes.adventure.use_crystal_locator.title"
+		},
+		"description": {
+			"translate": "advancement.geodes.adventure.use_crystal_locator.description"
+		}
+	},
+	"parent": "minecraft:adventure/root",
+	"criteria": {
+		"use_crystal_locator": {
+			"trigger": "minecraft:item_durability_changed",
+			"conditions": {
+				"item": {
+					"items": [
+						"geodes:tuned_crystal_locator"
+					]
+				}
+			}
+		}
+	},
+	"requirements": [
+		[
+			"use_crystal_locator"
+		]
+	],
+	"rewards": {
+		"experience": 3
+	}
+}

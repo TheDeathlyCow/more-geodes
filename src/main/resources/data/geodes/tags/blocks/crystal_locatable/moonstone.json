@@ -1,0 +1,21 @@
+{
+    "replace": false,
+    "values": [
+        {
+            "required": false,
+            "id": "spectrum:moonstone_cluster"
+        },
+        {
+            "required": false,
+            "id": "spectrum:large_moonstone_bud"
+        },
+        {
+            "required": false,
+            "id": "spectrum:medium_moonstone_bud"
+        },
+        {
+            "required": false,
+            "id": "spectrum:small_moonstone_bud"
+        }
+    ]
+}

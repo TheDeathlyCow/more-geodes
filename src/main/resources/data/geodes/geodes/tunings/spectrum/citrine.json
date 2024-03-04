@@ -1,0 +1,12 @@
+{
+    "color": 16767554,
+    "description": {
+        "translate": "geodes.tunings.spectrum.citrine",
+        "color": "#ffda42"
+    },
+    "tuned_to": {
+        "block": {
+            "tag": "geodes:crystal_locatable/citrine"
+        }
+    }
+}

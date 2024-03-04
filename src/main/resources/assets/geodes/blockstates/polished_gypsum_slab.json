@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "type=bottom": {
+            "model": "geodes:block/polished_gypsum_slab/bottom"
+        },
+        "type=double": {
+            "model": "geodes:block/polished_gypsum_block"
+        },
+        "type=top": {
+            "model": "geodes:block/polished_gypsum_slab/top"
+        }
+    }
+}

@@ -2,6 +2,8 @@
 	"replace": false,
 	"values": [
 		"geodes:pyrite_slab",
-		"geodes:calcite_slab"
+		"geodes:calcite_slab",
+		"geodes:polished_gypsum_slab",
+		"geodes:smooth_gypsum_slab"
 	]
 }

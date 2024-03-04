@@ -10,29 +10,22 @@
 			"translate": "advancement.geodes.adventure.use_echo_locator.description"
 		}
 	},
-	"parent": "minecraft:adventure/root",
-	  "criteria": {
-		"use_any_echo_locator": {
-		  "conditions": {
-			"location": [
-			  {
-				"condition": "minecraft:location_check",
-				"predicate": {
-				  "block": {
-					"blocks": [
-					  "geodes:echo_locator"
+	"parent": "geodes:adventure/use_tuned_crystal_locator",
+	"criteria": {
+		"use_echo_locator": {
+			"trigger": "minecraft:item_durability_changed",
+			"conditions": {
+				"item": {
+					"items": [
+						"geodes:echo_locator"
 					]
-				  }
 				}
-			  }
-			]
-		  },
-		  "trigger": "minecraft:item_used_on_block"
+			}
 		}
-	  },
+	},
 	"requirements": [
 		[
-			"use_any_echo_locator"
+			"use_echo_locator"
 		]
 	],
 	"rewards": {

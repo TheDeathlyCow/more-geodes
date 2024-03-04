@@ -1,0 +1,42 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "geodes:tuning/spectrum/citrine_tuning"
+        ]
+    },
+    "criteria": {
+        "has_crystal_locator": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "geodes:crystal_locator"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "geodes:tuning/spectrum/citrine_tuning"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_crystal_locator",
+            "has_the_recipe"
+        ]
+    ],
+    "fabric:load_conditions": [
+        {
+            "condition": "fabric:all_mods_loaded",
+            "values": [
+                "spectrum"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "color": 2602980,
+    "description": {
+        "translate": "geodes.tunings.spectrum.topaz",
+        "color": "#27b7e4"
+    },
+    "tuned_to": {
+        "block": {
+            "tag": "geodes:crystal_locatable/topaz"
+        }
+    }
+}

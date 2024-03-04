@@ -2,6 +2,8 @@
 	"replace": false,
 	"values": [
 		"geodes:pyrite_stairs",
-		"geodes:calcite_stairs"
+		"geodes:calcite_stairs",
+		"geodes:polished_gypsum_stairs",
+		"geodes:smooth_gypsum_stairs"
 	]
 }

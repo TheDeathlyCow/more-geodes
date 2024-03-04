@@ -31,7 +31,9 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
     public LargeCrystalClusterBlock(CrystalBlockSoundGroup hitSoundGroup, int height, int xzOffset, Settings settings) {
         super(hitSoundGroup, height, xzOffset, settings);
         this.setDefaultState(this.getDefaultState().with(HALF, DoubleBlockHalf.LOWER));
-        height = 16; // imagine reassigning params lol
+
+        // create lower half size with a height of 16
+        height = 16;
         this.lowerUpShape = Block.createCuboidShape(xzOffset, 0.0, xzOffset, (16 - xzOffset), height, (16 - xzOffset));
         this.lowerDownShape = Block.createCuboidShape(xzOffset, (16 - height), xzOffset, (16 - xzOffset), 16.0, (16 - xzOffset));
         this.lowerNorthShape = Block.createCuboidShape(xzOffset, xzOffset, (16 - height), (16 - xzOffset), (16 - xzOffset), 16.0);
@@ -123,7 +125,10 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
 
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         if (!world.isClient) {
-            // server break
+
+            if (!player.isCreative()) {
+                Block.dropStacks(state, world, pos, null, player, player.getMainHandStack());
+            }
 
             if (state.get(HALF) == DoubleBlockHalf.UPPER) {
                 // when upper half is broken
@@ -146,7 +151,6 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
                     );
                 }
             }
-
         }
         super.onBreak(world, pos, state, player);
     }

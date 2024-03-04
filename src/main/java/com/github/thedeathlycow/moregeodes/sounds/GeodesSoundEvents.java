@@ -10,6 +10,7 @@ public class GeodesSoundEvents {
 
     public static final SoundEvent BLOCK_ECHO_LOCATOR_RESONATE = GeodesSoundEvents.of("block.geodes.echo_locator.resonate");
     public static final SoundEvent BLOCK_ECHO_LOCATOR_USE = GeodesSoundEvents.of("block.geodes.echo_locator.use");
+    public static final SoundEvent ITEM_CRYSTAL_LOCATOR_USE = GeodesSoundEvents.of("item.geodes.crystal_locator.use");
 
     public static final SoundEvent BLOCK_EMERALD_GEODE_CHIME = GeodesSoundEvents.of("block.geodes.emerald_crystal_block.chime");
     public static final SoundEvent BLOCK_QUARTZ_GEODE_CHIME = GeodesSoundEvents.of("block.geodes.quartz_crystal_block.chime");

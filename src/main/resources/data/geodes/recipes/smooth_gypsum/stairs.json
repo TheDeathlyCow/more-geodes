@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "geodes:smooth_gypsum_block"
+        }
+    },
+    "result": {
+        "item": "geodes:smooth_gypsum_stairs",
+        "count": 4
+    }
+}

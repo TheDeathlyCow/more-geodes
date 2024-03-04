@@ -6,11 +6,12 @@ import com.github.thedeathlycow.moregeodes.sounds.ModBlockSoundGroups;
 import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.Instrument;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
-import net.minecraft.registry.Registry;
 
 
 public class ModBlocks {
@@ -52,8 +53,6 @@ public class ModBlocks {
     public static final Block LARGE_GYPSUM_BUD = new LargeCrystalClusterBlock(CrystalBlockSoundGroup.GYPSUM, 5, 3, FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).strength(1.3f));
     public static final Block MEDIUM_GYPSUM_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.LAPIS, 16, 3, FabricBlockSettings.create().mapColor(MapColor.LAPIS_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).strength(1.3f));
     public static final Block SMALL_GYPSUM_BUD = new CrystalClusterBlock(CrystalBlockSoundGroup.LAPIS, 11, 4, FabricBlockSettings.create().mapColor(MapColor.LAPIS_BLUE).nonOpaque().requiresTool().sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK).strength(1.3f));
-
-    public static final Block ECHO_LOCATOR = new EchoLocatorBlock(EchoLocatorType.ALL, FabricBlockSettings.create().mapColor(MapColor.BLACK).nonOpaque().sounds(ModBlockSoundGroups.ECHO_LOCATOR).strength(1.5F, 6.0F).requiresTool());
 
     public static final Block GABBRO = new Block(FabricBlockSettings.create().mapColor(MapColor.BLACK).requiresTool().strength(1.25F, 4.2F).sounds(BlockSoundGroup.BASALT));
 
@@ -123,6 +122,52 @@ public class ModBlocks {
             FabricBlockSettings.copyOf(Blocks.CALCITE)
     );
 
+    public static final Block CHISELED_GYPSUM = new Block(
+            FabricBlockSettings.create()
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(0.8f)
+    );
+
+    public static final Block GYPSUM_PILLAR = new PillarBlock(
+            FabricBlockSettings.create()
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(0.8f)
+    );
+
+    public static final Block POLISHED_GYPSUM_BLOCK = new Block(
+            FabricBlockSettings.create()
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(0.8f)
+    );
+
+    public static final Block POLISHED_GYPSUM_STAIRS = new StairsBlock(
+            POLISHED_GYPSUM_BLOCK.getDefaultState(),
+            FabricBlockSettings.copyOf(POLISHED_GYPSUM_BLOCK)
+    );
+
+    public static final Block POLISHED_GYPSUM_SLAB = new SlabBlock(FabricBlockSettings.copyOf(POLISHED_GYPSUM_BLOCK));
+
+    public static final Block POLISHED_GYPSUM_WALL = new WallBlock(FabricBlockSettings.copyOf(POLISHED_GYPSUM_BLOCK));
+
+    public static final Block SMOOTH_GYPSUM_BLOCK = new Block(
+            FabricBlockSettings.create()
+                    .instrument(Instrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(0.8f)
+    );
+
+    public static final Block SMOOTH_GYPSUM_STAIRS = new StairsBlock(
+            SMOOTH_GYPSUM_BLOCK.getDefaultState(),
+            FabricBlockSettings.copyOf(SMOOTH_GYPSUM_BLOCK)
+    );
+
+    public static final Block SMOOTH_GYPSUM_SLAB = new SlabBlock(FabricBlockSettings.copyOf(SMOOTH_GYPSUM_BLOCK));
+
+    public static final Block SMOOTH_GYPSUM_WALL = new WallBlock(FabricBlockSettings.copyOf(SMOOTH_GYPSUM_BLOCK));
+
 
     public static void registerBlocks() {
         register("emerald_crystal_block", EMERALD_CRYSTAL_BLOCK);
@@ -145,7 +190,6 @@ public class ModBlocks {
         register("large_echo_bud", LARGE_ECHO_BUD);
         register("medium_echo_bud", MEDIUM_ECHO_BUD);
         register("small_echo_bud", SMALL_ECHO_BUD);
-        register("echo_locator", ECHO_LOCATOR);
         register("lapis_crystal_block", LAPIS_CRYSTAL_BLOCK);
         register("lapis_cluster", LAPIS_CLUSTER);
         register("large_lapis_bud", LARGE_LAPIS_BUD);
@@ -166,6 +210,16 @@ public class ModBlocks {
         register("small_gypsum_bud", SMALL_GYPSUM_BUD);
         register("budding_gypsum", BUDDING_GYPSUM);
         register("gabbro", GABBRO);
+        register("chiseled_gypsum", CHISELED_GYPSUM);
+        register("gypsum_pillar", GYPSUM_PILLAR);
+        register("polished_gypsum_block", POLISHED_GYPSUM_BLOCK);
+        register("polished_gypsum_stairs", POLISHED_GYPSUM_STAIRS);
+        register("polished_gypsum_slab", POLISHED_GYPSUM_SLAB);
+        register("polished_gypsum_wall", POLISHED_GYPSUM_WALL);
+        register("smooth_gypsum_block", SMOOTH_GYPSUM_BLOCK);
+        register("smooth_gypsum_stairs", SMOOTH_GYPSUM_STAIRS);
+        register("smooth_gypsum_slab", SMOOTH_GYPSUM_SLAB);
+        register("smooth_gypsum_wall", SMOOTH_GYPSUM_WALL);
     }
 
     private static void register(String name, Block block) {

@@ -66,8 +66,38 @@ public class ModItems {
     public static final Item CALCITE_SLAB = new BlockItem(ModBlocks.CALCITE_SLAB, new FabricItemSettings());
     public static final Item CALCITE_WALL = new BlockItem(ModBlocks.CALCITE_WALL, new FabricItemSettings());
 
-    public static final Item ECHO_LOCATOR = new BlockItem(ModBlocks.ECHO_LOCATOR, new FabricItemSettings().maxCount(1));
+    public static final Item CRYSTAL_LOCATOR = new CrystalLocatorItem(
+            new FabricItemSettings().maxDamage(16),
+            CrystalLocatorItem.CRYSTAL_LOCATOR_RANGE,
+            CrystalLocatorItem.CRYSTAL_LOCATOR_COOL_DOWN
+    );
+
+    public static final Item TUNED_CRYSTAL_LOCATOR = new TunedCrystalLocatorItem(
+            new FabricItemSettings().maxDamage(16),
+            CrystalLocatorItem.CRYSTAL_LOCATOR_RANGE,
+            CrystalLocatorItem.CRYSTAL_LOCATOR_COOL_DOWN
+    );
+
+    public static final Item ECHO_LOCATOR = new EchoLocatorItem(
+            new FabricItemSettings().maxDamage(32),
+            EchoLocatorItem.BLOCK_RANGE,
+            EchoLocatorItem.ECHO_LOCATOR_COOL_DOWN
+    );
+
     public static final Item GABRRO = new BlockItem(ModBlocks.GABBRO, new FabricItemSettings());
+
+    public static final Item CHISELED_GYPSUM = new BlockItem(ModBlocks.CHISELED_GYPSUM, new FabricItemSettings());
+    public static final Item GYPSUM_PILLAR = new BlockItem(ModBlocks.GYPSUM_PILLAR, new FabricItemSettings());
+
+    public static final Item POLISHED_GYPSUM_BLOCK = new BlockItem(ModBlocks.POLISHED_GYPSUM_BLOCK, new FabricItemSettings());
+    public static final Item POLISHED_GYPSUM_STAIRS = new BlockItem(ModBlocks.POLISHED_GYPSUM_STAIRS, new FabricItemSettings());
+    public static final Item POLISHED_GYPSUM_SLAB = new BlockItem(ModBlocks.POLISHED_GYPSUM_SLAB, new FabricItemSettings());
+    public static final Item POLISHED_GYPSUM_WALL = new BlockItem(ModBlocks.POLISHED_GYPSUM_WALL, new FabricItemSettings());
+
+    public static final Item SMOOTH_GYPSUM_BLOCK = new BlockItem(ModBlocks.SMOOTH_GYPSUM_BLOCK, new FabricItemSettings());
+    public static final Item SMOOTH_GYPSUM_STAIRS = new BlockItem(ModBlocks.SMOOTH_GYPSUM_STAIRS, new FabricItemSettings());
+    public static final Item SMOOTH_GYPSUM_SLAB = new BlockItem(ModBlocks.SMOOTH_GYPSUM_SLAB, new FabricItemSettings());
+    public static final Item SMOOTH_GYPSUM_WALL = new BlockItem(ModBlocks.SMOOTH_GYPSUM_WALL, new FabricItemSettings());
 
     public static void registerItems() {
         register("emerald_shard", EMERALD_SHARD);
@@ -105,6 +135,8 @@ public class ModItems {
         register("medium_gypsum_bud", MEDIUM_GYPSUM_BUD);
         register("large_gypsum_bud", LARGE_GYPSUM_BUD);
         register("gypsum_rose", GYPSUM_ROSE);
+        register("crystal_locator", CRYSTAL_LOCATOR);
+        register("tuned_crystal_locator", TUNED_CRYSTAL_LOCATOR);
         register("echo_locator", ECHO_LOCATOR);
         register("pyrite", PYRITE);
         register("pyrite_stairs", PYRITE_STAIRS);
@@ -114,6 +146,16 @@ public class ModItems {
         register("calcite_slab", CALCITE_SLAB);
         register("calcite_wall", CALCITE_WALL);
         register("gabbro", GABRRO);
+        register("chiseled_gypsum", CHISELED_GYPSUM);
+        register("gypsum_pillar", GYPSUM_PILLAR);
+        register("polished_gypsum_block", POLISHED_GYPSUM_BLOCK);
+        register("polished_gypsum_stairs", POLISHED_GYPSUM_STAIRS);
+        register("polished_gypsum_slab", POLISHED_GYPSUM_SLAB);
+        register("polished_gypsum_wall", POLISHED_GYPSUM_WALL);
+        register("smooth_gypsum_block", SMOOTH_GYPSUM_BLOCK);
+        register("smooth_gypsum_stairs", SMOOTH_GYPSUM_STAIRS);
+        register("smooth_gypsum_slab", SMOOTH_GYPSUM_SLAB);
+        register("smooth_gypsum_wall", SMOOTH_GYPSUM_WALL);
 
         CompostingChanceRegistry.INSTANCE.add(GYPSUM_SHARD, 1.0f);
 

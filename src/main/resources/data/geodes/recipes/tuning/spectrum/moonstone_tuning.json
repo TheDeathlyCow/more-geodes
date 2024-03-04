@@ -1,0 +1,21 @@
+{
+    "type": "geodes:crystal_tuning",
+    "group": "geodes_tunings",
+    "ingredients": [
+        {
+            "tag": "geodes:spectrum/moonstone_shards"
+        },
+        {
+            "item": "geodes:crystal_locator"
+        }
+    ],
+    "tuning": "geodes:spectrum/moonstone",
+    "fabric:load_conditions": [
+        {
+            "condition": "fabric:all_mods_loaded",
+            "values": [
+                "spectrum"
+            ]
+        }
+    ]
+}

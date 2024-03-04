@@ -1,6 +1,0 @@
-{
-    "parent": "geodes:block/echo_locator_base",
-    "textures": {
-        "material": "geodes:block/echo_locator/echo_material"
-    }
-}

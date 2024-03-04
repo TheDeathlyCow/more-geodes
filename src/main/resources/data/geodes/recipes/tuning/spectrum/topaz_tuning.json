@@ -1,0 +1,21 @@
+{
+    "type": "geodes:crystal_tuning",
+    "group": "geodes_tunings",
+    "ingredients": [
+        {
+            "tag": "geodes:spectrum/topaz_shards"
+        },
+        {
+            "item": "geodes:crystal_locator"
+        }
+    ],
+    "tuning": "geodes:spectrum/topaz",
+    "fabric:load_conditions": [
+        {
+            "condition": "fabric:all_mods_loaded",
+            "values": [
+                "spectrum"
+            ]
+        }
+    ]
+}

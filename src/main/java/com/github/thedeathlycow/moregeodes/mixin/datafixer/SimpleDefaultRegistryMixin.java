@@ -22,10 +22,8 @@ public class SimpleDefaultRegistryMixin {
             argsOnly = true
     )
     private Identifier fixOldIds(Identifier id) {
-        if (id != null) {
-            if (GeodeBlockRenaming.MAP.containsKey(id)) {
-                return GeodeBlockRenaming.MAP.get(id);
-            }
+        if (id != null && GeodeBlockRenaming.MAP.containsKey(id)) {
+            return GeodeBlockRenaming.MAP.get(id);
         }
         return id;
     }
