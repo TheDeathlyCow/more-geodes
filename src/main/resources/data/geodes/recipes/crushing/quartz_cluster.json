@@ -1,0 +1,27 @@
+{
+    "type": "create:crushing",
+    "ingredients": [
+        {
+            "item": "geodes:quartz_cluster"
+        }
+    ],
+    "processingTime": 150,
+    "results": [
+        {
+            "count": 7,
+            "item": "minecraft:quartz"
+        },
+        {
+            "chance": 0.5,
+            "item": "minecraft:quartz"
+        }
+    ],
+    "fabric:load_conditions": [
+        {
+            "condition": "fabric:all_mods_loaded",
+            "values": [
+                "create"
+            ]
+        }
+    ]
+}

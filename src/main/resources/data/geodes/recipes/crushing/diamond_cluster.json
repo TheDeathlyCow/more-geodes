@@ -1,0 +1,27 @@
+{
+    "type": "create:crushing",
+    "ingredients": [
+        {
+            "item": "geodes:diamond_cluster"
+        }
+    ],
+    "processingTime": 350,
+    "results": [
+        {
+            "count": 1,
+            "item": "minecraft:diamond"
+        },
+        {
+            "chance": 0.75,
+            "item": "minecraft:diamond"
+        }
+    ],
+    "fabric:load_conditions": [
+        {
+            "condition": "fabric:all_mods_loaded",
+            "values": [
+                "create"
+            ]
+        }
+    ]
+}
