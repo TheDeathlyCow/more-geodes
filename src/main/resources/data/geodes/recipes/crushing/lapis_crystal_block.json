@@ -1,0 +1,27 @@
+{
+    "type": "create:crushing",
+    "ingredients": [
+        {
+            "item": "geodes:lapis_crystal_block"
+        }
+    ],
+    "processingTime": 150,
+    "results": [
+        {
+            "count": 3,
+            "item": "minecraft:lapis_lazuli"
+        },
+        {
+            "chance": 0.5,
+            "item": "minecraft:lapis_lazuli"
+        }
+    ],
+    "fabric:load_conditions": [
+        {
+            "condition": "fabric:all_mods_loaded",
+            "values": [
+                "create"
+            ]
+        }
+    ]
+}

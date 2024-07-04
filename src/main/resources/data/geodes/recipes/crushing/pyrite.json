@@ -1,0 +1,27 @@
+{
+    "type": "create:crushing",
+    "ingredients": [
+        {
+            "item": "geodes:pyrite"
+        }
+    ],
+    "processingTime": 250,
+    "results": [
+        {
+            "count": 3,
+            "item": "geodes:pyrite_chunk"
+        },
+        {
+            "chance": 0.5,
+            "item": "geodes:pyrite_chunk"
+        }
+    ],
+    "fabric:load_conditions": [
+        {
+            "condition": "fabric:all_mods_loaded",
+            "values": [
+                "create"
+            ]
+        }
+    ]
+}

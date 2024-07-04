@@ -1,0 +1,23 @@
+{
+    "type": "create:crushing",
+    "ingredients": [
+        {
+            "item": "geodes:diamond_crystal_block"
+        }
+    ],
+    "processingTime": 350,
+    "results": [
+        {
+            "chance": 0.5,
+            "item": "minecraft:diamond"
+        }
+    ],
+    "fabric:load_conditions": [
+        {
+            "condition": "fabric:all_mods_loaded",
+            "values": [
+                "create"
+            ]
+        }
+    ]
+}

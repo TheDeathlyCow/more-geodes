@@ -1,0 +1,27 @@
+{
+    "type": "create:crushing",
+    "ingredients": [
+        {
+            "item": "geodes:gypsum_crystal_block"
+        }
+    ],
+    "processingTime": 150,
+    "results": [
+        {
+            "count": 3,
+            "item": "geodes:gypsum_shard"
+        },
+        {
+            "chance": 0.5,
+            "item": "geodes:gypsum_shard"
+        }
+    ],
+    "fabric:load_conditions": [
+        {
+            "condition": "fabric:all_mods_loaded",
+            "values": [
+                "create"
+            ]
+        }
+    ]
+}
