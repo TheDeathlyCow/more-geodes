@@ -190,6 +190,10 @@ If you have the [Applied Energistics 2](https://modrinth.com/mod/ae2) mod instal
 
 If you have [Spectrum](https://modrinth.com/mod/spectrum) installed, you'll be able to use the `generate_bismuth_geodes` setting to find Bismuth geodes in your world. Furthermore, tunings for Topaz, Citrine, and Moonstone geodes will automatically be added.
 
+## Create Integration
+
+If you have [Create](https://modrinth.com/mod/create-fabric) installed, the crystal blocks, clusters, Pyrite, and Gabbro can all be crushed to produce various materials. Note that Diamond and Echo blocks do not produce as much materials as their Amethyst, Quartz, Emerald, Lapis, and Gypsum counterparts. 
+
 # Translations
 
 If you'd like to create translations for More Geodes, the project is on [Crowdin](https://crowdin.com/project/more-geodes). You can also provide translations via issue or pull request if you so wish. Thanks for your contribution!
