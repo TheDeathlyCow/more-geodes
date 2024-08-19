@@ -1,0 +1,41 @@
+{
+    "schema_version": 1,
+    "quilt_loader": {
+        "group": "${group}",
+        "id": "geodes",
+        "version": "${version}",
+        "metadata": {
+            "name": "More Geodes",
+            "description": "Adds more geode variants including Diamond, Emerald, and Quartz.",
+            "contributors": {
+                "TheDeathlyCow": "Author",
+                "NerjalNosk": "Contributor",
+                "SalveMundiProd": "Contributor"
+            },
+            "icon": "assets/geodes/icon.png"
+        },
+        "intermediate_mappings": "net.fabricmc:intermediary",
+        "entrypoints": {
+            "init": [
+                "com.thedeathlycow.moregeodes.quilt.MoreGeodesQuilt"
+            ]
+        },
+        "depends": [
+            {
+                "id": "quilt_loader",
+                "version": "*"
+            },
+            {
+                "id": "quilted_fabric_api_base",
+                "version": "*"
+            },
+            {
+                "id": "minecraft",
+                "version": ">=1.21"
+            }
+        ]
+    },
+    "mixin": [
+        "geodes.mixins.json"
+    ]
+}

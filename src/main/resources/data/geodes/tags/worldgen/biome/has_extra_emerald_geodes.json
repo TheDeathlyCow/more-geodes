@@ -1,8 +1,0 @@
-{
-    "replace": false,
-    "values": [
-        "minecraft:grove",
-        "#minecraft:is_mountain",
-        "#c:mountain"
-    ]
-}

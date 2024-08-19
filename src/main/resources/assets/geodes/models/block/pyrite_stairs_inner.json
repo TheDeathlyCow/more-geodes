@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "geodes:block/pyrite",
-    "side": "geodes:block/pyrite",
-    "top": "geodes:block/pyrite"
-  }
-}

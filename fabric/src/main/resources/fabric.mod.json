@@ -1,0 +1,56 @@
+{
+    "schemaVersion": 1,
+    "id": "geodes",
+    "version": "${version}",
+    "name": "More Geodes",
+    "description": "Adds more geode variants including Diamond, Emerald, and Quartz.",
+    "authors": [
+        "TheDeathlyCow"
+    ],
+    "contributors": [
+        "Nerjal Nosk",
+        "SalveMundiProd"
+    ],
+    "contact": {
+        "homepage": "https://github.com/TheDeathlyCow/more-geodes/blob/main/README.md",
+        "sources": "https://github.com/TheDeathlyCow/more-geodes",
+        "issues":  "https://github.com/TheDeathlyCow/more-geodes/issues"
+    },
+    "license": "CC0-1.0",
+    "icon": "assets/geodes/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            {
+                "value": "com.thedeathlycow.moregeodes.fabric.MoreGeodesFabric",
+                "adapter": "kotlin"
+            }
+        ],
+        "client": [
+            {
+                "value": "com.thedeathlycow.moregeodes.fabric.client.MoreGeodesFabricClient",
+                "adapter": "kotlin"
+            }
+        ]
+    },
+    "mixins": [
+        "geodes.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.16.2",
+        "minecraft": "~1.21",
+        "java": ">=21",
+        "fabric-api": "*",
+        "fabric-language-kotlin": "*"
+    },
+    "suggests": {
+        "another-mod": "*"
+    },
+    "custom": {
+        "modmenu": {
+            "links": {
+                "modmenu.discord": "https://discord.gg/aqASuWebRU"
+            }
+        }
+    }
+}

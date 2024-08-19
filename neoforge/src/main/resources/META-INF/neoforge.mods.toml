@@ -1,0 +1,38 @@
+modLoader = "kotlinforforge"
+loaderVersion = "[5,)"
+#issueTrackerURL = ""
+license = "Insert License Here"
+
+[[mods]]
+modId = "geodes"
+version = "${version}"
+displayName = "More Geodes"
+authors = "TheDeathlyCow"
+description = '''
+Adds more geode variants including Diamond, Emerald, and Quartz.
+'''
+#logoFile = ""
+
+[[dependencies.geodes]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.geodes]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.geodes]]
+modId = "fabric-api"
+type = "required"
+versionRange = "[0.101,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[mixins]]
+config = "geodes.mixins.json"
