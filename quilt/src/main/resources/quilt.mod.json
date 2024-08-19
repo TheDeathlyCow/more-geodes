@@ -26,7 +26,7 @@
                 "version": "*"
             },
             {
-                "id": "quilted_fabric_api_base",
+                "id": "fabric-api",
                 "version": "*"
             },
             {
@@ -35,7 +35,7 @@
             }
         ]
     },
-    "mixin": [
-        "geodes.mixins.json"
+    "mixins": [
+        "geodes-common.mixins.json"
     ]
 }

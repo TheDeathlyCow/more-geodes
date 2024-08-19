@@ -27,12 +27,5 @@ versionRange = "[1.21,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.geodes]]
-modId = "fabric-api"
-type = "required"
-versionRange = "[0.101,)"
-ordering = "NONE"
-side = "BOTH"
-
 [[mixins]]
-config = "geodes.mixins.json"
+config = "geodes-common.mixins.json"
