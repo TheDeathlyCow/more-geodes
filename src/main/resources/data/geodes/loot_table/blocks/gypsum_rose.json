@@ -1,0 +1,195 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "geodes:gypsum_rose",
+              "condition": {
+                "predicate": {
+                  "predicates": {
+                    "minecraft:enchantments": [
+                      {
+                        "levels": {
+                          "min": 1
+                        },
+                        "enchantments": "minecraft:silk_touch"
+                      }
+                    ]
+                  }
+                },
+                "type": "minecraft:match_tool"
+              }
+            },
+            {
+              "type": "minecraft:item",
+              "name": "geodes:gypsum_shard",
+              "condition": {
+                "predicate": {
+                  "items": "#minecraft:cluster_max_harvestables"
+                },
+                "type": "minecraft:match_tool"
+              },
+              "modifier": [
+                {
+                  "count": 4,
+                  "add": false,
+                  "type": "minecraft:set_count"
+                },
+                {
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops",
+                  "type": "minecraft:apply_bonus"
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "geodes:gypsum_shard",
+              "condition": {
+                "type": "minecraft:survives_explosion"
+              },
+              "modifier": [
+                {
+                  "count": 2,
+                  "add": false,
+                  "type": "minecraft:set_count"
+                },
+                {
+                  "type": "minecraft:explosion_decay"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "geodes:gypsum_rose",
+            "state": {
+              "half": "lower"
+            }
+          },
+          {
+            "offsetY": 1,
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "geodes:gypsum_rose"
+                ],
+                "state": {
+                  "half": "upper"
+                }
+              }
+            },
+            "type": "minecraft:location_check"
+          }
+        ]
+      }
+    },
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "geodes:gypsum_rose",
+              "condition": {
+                "predicate": {
+                  "predicates": {
+                    "minecraft:enchantments": [
+                      {
+                        "levels": {
+                          "min": 1
+                        },
+                        "enchantments": "minecraft:silk_touch"
+                      }
+                    ]
+                  }
+                },
+                "type": "minecraft:match_tool"
+              }
+            },
+            {
+              "type": "minecraft:item",
+              "name": "geodes:gypsum_shard",
+              "condition": {
+                "predicate": {
+                  "items": "#minecraft:cluster_max_harvestables"
+                },
+                "type": "minecraft:match_tool"
+              },
+              "modifier": [
+                {
+                  "count": 4,
+                  "add": false,
+                  "type": "minecraft:set_count"
+                },
+                {
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops",
+                  "type": "minecraft:apply_bonus"
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "geodes:gypsum_shard",
+              "condition": {
+                "type": "minecraft:survives_explosion"
+              },
+              "modifier": [
+                {
+                  "count": 2,
+                  "add": false,
+                  "type": "minecraft:set_count"
+                },
+                {
+                  "type": "minecraft:explosion_decay"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "geodes:gypsum_rose",
+            "state": {
+              "half": "upper"
+            }
+          },
+          {
+            "offsetY": -1,
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "geodes:gypsum_rose"
+                ],
+                "state": {
+                  "half": "lower"
+                }
+              }
+            },
+            "type": "minecraft:location_check"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -3,16 +3,25 @@ package com.github.thedeathlycow.moregeodes.blocks;
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.sounds.CrystalBlockSoundGroup;
 import com.github.thedeathlycow.moregeodes.sounds.ModBlockSoundGroups;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.*;
-import net.minecraft.block.enums.Instrument;
-import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Direction;
-
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import java.util.List;
 
 
@@ -20,454 +29,454 @@ public class ModBlocks {
 
     public static final Block EMERALD_CRYSTAL_BLOCK = new CrystalBlock(
             CrystalBlockSoundGroup.EMERALD_GEODE,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.EMERALD_GREEN)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "emerald_crystal_block")))
+                    .mapColor(MapColor.EMERALD)
                     .strength(1.5F)
-                    .sounds(ModBlockSoundGroups.EMERALD_GEODE)
-                    .requiresTool()
+                    .sound(ModBlockSoundGroups.EMERALD_GEODE)
+                    .requiresCorrectToolForDrops()
     );
 
     public static final Block EMERALD_CLUSTER = new CrystalClusterBlock(
             CrystalBlockSoundGroup.EMERALD_GEODE,
             7, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.EMERALD_GREEN)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.EMERALD_CLUSTER)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "emerald_cluster")))
+                    .mapColor(MapColor.EMERALD)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.EMERALD_CLUSTER)
                     .strength(1.5f)
-                    .luminance((blockState) -> 5)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .lightLevel((blockState) -> 5)
+                    .pushReaction(PushReaction.POPPED)
     );
     public static final Block LARGE_EMERALD_BUD = new CrystalClusterBlock(
             CrystalBlockSoundGroup.EMERALD_GEODE,
             5, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.EMERALD_GREEN)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.LARGE_EMERALD_BUD)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "large_emerald_bud")))
+                    .mapColor(MapColor.EMERALD)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.LARGE_EMERALD_BUD)
                     .strength(1.5f)
-                    .luminance((blockState) -> 4)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .lightLevel((blockState) -> 4)
+                    .pushReaction(PushReaction.POPPED)
     );
     public static final Block MEDIUM_EMERALD_BUD = new CrystalClusterBlock(
             CrystalBlockSoundGroup.EMERALD_GEODE,
             4, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.EMERALD_GREEN)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.MEDIUM_EMERALD_BUD)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "medium_emerald_bud")))
+                    .mapColor(MapColor.EMERALD)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.MEDIUM_EMERALD_BUD)
                     .strength(1.5f)
-                    .luminance((blockState) -> 2)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .lightLevel((blockState) -> 2)
+                    .pushReaction(PushReaction.POPPED)
     );
     public static final Block SMALL_EMERALD_BUD = new CrystalClusterBlock(
             CrystalBlockSoundGroup.EMERALD_GEODE,
             3, 4,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.EMERALD_GREEN)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.SMALL_EMERALD_BUD)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "small_emerald_bud")))
+                    .mapColor(MapColor.EMERALD)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.SMALL_EMERALD_BUD)
                     .strength(1.5f)
-                    .luminance((blockState) -> 1)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .lightLevel((blockState) -> 1)
+                    .pushReaction(PushReaction.POPPED)
     );
 
     public static final Block QUARTZ_CRYSTAL_BLOCK = new CrystalBlock(
             CrystalBlockSoundGroup.QUARTZ_GEODE,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.OFF_WHITE)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "quartz_crystal_block")))
+                    .mapColor(MapColor.QUARTZ)
                     .strength(1.5F)
-                    .sounds(ModBlockSoundGroups.QUARTZ_GEODE)
-                    .requiresTool()
+                    .sound(ModBlockSoundGroups.QUARTZ_GEODE)
+                    .requiresCorrectToolForDrops()
     );
 
     public static final Block QUARTZ_CLUSTER = new QuartzClusterBlock(
             7, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.OFF_WHITE)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.QUARTZ_CLUSTER)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "quartz_cluster")))
+                    .mapColor(MapColor.QUARTZ)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.QUARTZ_CLUSTER)
                     .strength(1.5f)
-                    .luminance((blockState) -> 5)
-                    .pistonBehavior(PistonBehavior.DESTROY),
+                    .lightLevel((blockState) -> 5)
+                    .pushReaction(PushReaction.POPPED),
             15, 1
     );
     public static final Block LARGE_QUARTZ_BUD = new QuartzClusterBlock(
             5, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.OFF_WHITE)
-                    .nonOpaque().requiresTool()
-                    .sounds(ModBlockSoundGroups.LARGE_QUARTZ_BUD)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "large_quartz_bud")))
+                    .mapColor(MapColor.QUARTZ)
+                    .noOcclusion().requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.LARGE_QUARTZ_BUD)
                     .strength(1.5f)
-                    .luminance((blockState) -> 4)
-                    .pistonBehavior(PistonBehavior.DESTROY),
+                    .lightLevel((blockState) -> 4)
+                    .pushReaction(PushReaction.POPPED),
             15, 5
     );
     public static final Block MEDIUM_QUARTZ_BUD = new QuartzClusterBlock(
             4, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.OFF_WHITE)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.MEDIUM_QUARTZ_BUD)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "medium_quartz_bud")))
+                    .mapColor(MapColor.QUARTZ)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.MEDIUM_QUARTZ_BUD)
                     .strength(1.5f)
-                    .luminance((blockState) -> 2)
-                    .pistonBehavior(PistonBehavior.DESTROY),
+                    .lightLevel((blockState) -> 2)
+                    .pushReaction(PushReaction.POPPED),
             15, 10
     );
     public static final Block SMALL_QUARTZ_BUD = new QuartzClusterBlock(
             3, 4,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.OFF_WHITE)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.SMALL_QUARTZ_BUD)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "small_quartz_bud")))
+                    .mapColor(MapColor.QUARTZ)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.SMALL_QUARTZ_BUD)
                     .strength(1.5f)
-                    .luminance((blockState) -> 1)
-                    .pistonBehavior(PistonBehavior.DESTROY),
+                    .lightLevel((blockState) -> 1)
+                    .pushReaction(PushReaction.POPPED),
             15, 20
     );
 
     public static final Block DIAMOND_CRYSTAL_BLOCK = new CrystalBlock(
             CrystalBlockSoundGroup.DIAMOND_GEODE,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.DIAMOND_BLUE)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "diamond_crystal_block")))
+                    .mapColor(MapColor.DIAMOND)
                     .strength(1.5F)
-                    .sounds(ModBlockSoundGroups.DIAMOND_GEODE)
-                    .requiresTool()
+                    .sound(ModBlockSoundGroups.DIAMOND_GEODE)
+                    .requiresCorrectToolForDrops()
     );
 
     public static final Block DIAMOND_CLUSTER = new CrystalClusterBlock(
             CrystalBlockSoundGroup.DIAMOND_GEODE,
             7, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.DIAMOND_BLUE)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.DIAMOND_CLUSTER)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "diamond_cluster")))
+                    .mapColor(MapColor.DIAMOND)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.DIAMOND_CLUSTER)
                     .strength(1.5f)
-                    .luminance((blockState) -> 7)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .lightLevel((blockState) -> 7)
+                    .pushReaction(PushReaction.POPPED)
     );
 
     public static final Block ECHO_BLOCK = new CrystalBlock(
             CrystalBlockSoundGroup.ECHO_BLOCK,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.BLACK)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "echo_block")))
+                    .mapColor(MapColor.COLOR_BLACK)
                     .strength(1.5f)
-                    .sounds(ModBlockSoundGroups.ECHO_BLOCK)
-                    .requiresTool()
+                    .sound(ModBlockSoundGroups.ECHO_BLOCK)
+                    .requiresCorrectToolForDrops()
     );
 
     public static final Block ECHO_CLUSTER = new CrystalClusterBlock(
             CrystalBlockSoundGroup.ECHO_BLOCK,
             7, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.BLACK)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.ECHO_CLUSTER)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "echo_cluster")))
+                    .mapColor(MapColor.COLOR_BLACK)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.ECHO_CLUSTER)
                     .strength(1.5f)
-                    .luminance((blockState) -> 5)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .lightLevel((blockState) -> 5)
+                    .pushReaction(PushReaction.POPPED)
     );
     public static final Block LARGE_ECHO_BUD = new CrystalClusterBlock(
             CrystalBlockSoundGroup.ECHO_BLOCK,
             5, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.BLACK)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.LARGE_ECHO_BUD)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "large_echo_bud")))
+                    .mapColor(MapColor.COLOR_BLACK)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.LARGE_ECHO_BUD)
                     .strength(1.5f)
-                    .luminance((blockState) -> 4)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .lightLevel((blockState) -> 4)
+                    .pushReaction(PushReaction.POPPED)
     );
     public static final Block MEDIUM_ECHO_BUD = new CrystalClusterBlock(
             CrystalBlockSoundGroup.ECHO_BLOCK,
             4, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.BLACK)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.MEDIUM_ECHO_BUD)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "medium_echo_bud")))
+                    .mapColor(MapColor.COLOR_BLACK)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.MEDIUM_ECHO_BUD)
                     .strength(1.5f)
-                    .luminance((blockState) -> 2)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .lightLevel((blockState) -> 2)
+                    .pushReaction(PushReaction.POPPED)
     );
     public static final Block SMALL_ECHO_BUD = new CrystalClusterBlock(
             CrystalBlockSoundGroup.ECHO_BLOCK,
             3, 4,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.BLACK)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.SMALL_ECHO_BUD)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "small_echo_bud")))
+                    .mapColor(MapColor.COLOR_BLACK)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.SMALL_ECHO_BUD)
                     .strength(1.5f)
-                    .luminance((blockState) -> 1)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .lightLevel((blockState) -> 1)
+                    .pushReaction(PushReaction.POPPED)
     );
 
     public static final Block LAPIS_CRYSTAL_BLOCK = new CrystalBlock(
             CrystalBlockSoundGroup.LAPIS,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.LAPIS_BLUE)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "lapis_crystal_block")))
+                    .mapColor(MapColor.LAPIS)
                     .strength(1.5f)
-                    .sounds(ModBlockSoundGroups.LAPIS_CRYSTAL_BLOCK)
-                    .requiresTool()
+                    .sound(ModBlockSoundGroups.LAPIS_CRYSTAL_BLOCK)
+                    .requiresCorrectToolForDrops()
     );
     public static final Block LAPIS_CLUSTER = new CrystalClusterBlock(
             CrystalBlockSoundGroup.LAPIS,
             7, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.LAPIS_BLUE)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.LAPIS_CLUSTER)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "lapis_cluster")))
+                    .mapColor(MapColor.LAPIS)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.LAPIS_CLUSTER)
                     .strength(1.5f)
-                    .luminance((blockState) -> 5)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .lightLevel((blockState) -> 5)
+                    .pushReaction(PushReaction.POPPED)
     );
     public static final Block LARGE_LAPIS_BUD = new CrystalClusterBlock(
             CrystalBlockSoundGroup.LAPIS,
             5, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.LAPIS_BLUE)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.LARGE_LAPIS_BUD)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "large_lapis_bud")))
+                    .mapColor(MapColor.LAPIS)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.LARGE_LAPIS_BUD)
                     .strength(1.5f)
-                    .luminance((blockState) -> 4)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .lightLevel((blockState) -> 4)
+                    .pushReaction(PushReaction.POPPED)
     );
     public static final Block MEDIUM_LAPIS_BUD = new CrystalClusterBlock(
             CrystalBlockSoundGroup.LAPIS,
             4, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.LAPIS_BLUE)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.MEDIUM_LAPIS_BUD)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "medium_lapis_bud")))
+                    .mapColor(MapColor.LAPIS)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.MEDIUM_LAPIS_BUD)
                     .strength(1.5f)
-                    .luminance((blockState) -> 2)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .lightLevel((blockState) -> 2)
+                    .pushReaction(PushReaction.POPPED)
     );
     public static final Block SMALL_LAPIS_BUD = new CrystalClusterBlock(
             CrystalBlockSoundGroup.LAPIS,
             3, 4,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.LAPIS_BLUE)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.SMALL_LAPIS_BUD)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "small_lapis_bud")))
+                    .mapColor(MapColor.LAPIS)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.SMALL_LAPIS_BUD)
                     .strength(1.5f)
-                    .luminance((blockState) -> 1)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .lightLevel((blockState) -> 1)
+                    .pushReaction(PushReaction.POPPED)
     );
 
 
     public static final Block GYPSUM_CRYSTAL_BLOCK = new CrystalBlock(
             CrystalBlockSoundGroup.GYPSUM,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.WHITE_GRAY)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "gypsum_crystal_block")))
+                    .mapColor(MapColor.WOOL)
                     .strength(1.3f)
-                    .sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK)
-                    .requiresTool()
+                    .sound(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK)
+                    .requiresCorrectToolForDrops()
     );
     public static final Block GYPSUM_ROSE = new LargeCrystalClusterBlock(
             CrystalBlockSoundGroup.GYPSUM,
             13, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.WHITE_GRAY)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "gypsum_rose")))
+                    .mapColor(MapColor.WOOL)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK)
                     .strength(1.3f)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .pushReaction(PushReaction.POPPED)
     );
     public static final Block LARGE_GYPSUM_BUD = new LargeCrystalClusterBlock(
             CrystalBlockSoundGroup.GYPSUM,
             5, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.WHITE_GRAY)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "large_gypsum_bud")))
+                    .mapColor(MapColor.WOOL)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK)
                     .strength(1.3f)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .pushReaction(PushReaction.POPPED)
     );
     public static final Block MEDIUM_GYPSUM_BUD = new CrystalClusterBlock(
             CrystalBlockSoundGroup.LAPIS,
             16, 3,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.LAPIS_BLUE)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "medium_gypsum_bud")))
+                    .mapColor(MapColor.LAPIS)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK)
                     .strength(1.3f)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .pushReaction(PushReaction.POPPED)
     );
     public static final Block SMALL_GYPSUM_BUD = new CrystalClusterBlock(
             CrystalBlockSoundGroup.LAPIS,
             11, 4,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.LAPIS_BLUE)
-                    .nonOpaque()
-                    .requiresTool()
-                    .sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK)
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "small_gypsum_bud")))
+                    .mapColor(MapColor.LAPIS)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK)
                     .strength(1.3f)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .pushReaction(PushReaction.POPPED)
     );
 
     public static final Block GABBRO = new Block(
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.BLACK)
-                    .requiresTool()
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "gabbro")))
+                    .mapColor(MapColor.COLOR_BLACK)
+                    .requiresCorrectToolForDrops()
                     .strength(1.25F, 4.2F)
-                    .sounds(BlockSoundGroup.BASALT)
+                    .sound(SoundType.BASALT)
     );
 
     public static final GeodeBuddingBlock BUDDING_EMERALD = new GeodeBuddingBlock(
             CrystalBlockSoundGroup.EMERALD_GEODE,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.EMERALD_GREEN)
-                    .ticksRandomly()
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "budding_emerald")))
+                    .mapColor(MapColor.EMERALD)
+                    .randomTicks()
                     .strength(1.5F)
-                    .sounds(ModBlockSoundGroups.EMERALD_GEODE)
-                    .requiresTool(),
+                    .sound(ModBlockSoundGroups.EMERALD_GEODE)
+                    .requiresCorrectToolForDrops(),
             List.of(SMALL_EMERALD_BUD, MEDIUM_EMERALD_BUD, LARGE_EMERALD_BUD, EMERALD_CLUSTER)
     );
 
     public static final GeodeBuddingBlock BUDDING_QUARTZ = new GeodeBuddingBlock(
             CrystalBlockSoundGroup.QUARTZ_GEODE,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.OFF_WHITE)
-                    .ticksRandomly()
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "budding_quartz")))
+                    .mapColor(MapColor.QUARTZ)
+                    .randomTicks()
                     .strength(1.5f)
-                    .sounds(ModBlockSoundGroups.QUARTZ_GEODE)
-                    .requiresTool(),
+                    .sound(ModBlockSoundGroups.QUARTZ_GEODE)
+                    .requiresCorrectToolForDrops(),
             List.of(SMALL_QUARTZ_BUD, MEDIUM_QUARTZ_BUD, LARGE_QUARTZ_BUD, QUARTZ_CLUSTER)
     );
 
     public static final GeodeBuddingBlock BUDDING_ECHO_BLOCK = new GeodeBuddingBlock(
             CrystalBlockSoundGroup.ECHO_BLOCK,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.BLACK)
-                    .ticksRandomly()
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "budding_echo_block")))
+                    .mapColor(MapColor.COLOR_BLACK)
+                    .randomTicks()
                     .strength(1.5f)
-                    .sounds(ModBlockSoundGroups.ECHO_BLOCK)
-                    .requiresTool(),
+                    .sound(ModBlockSoundGroups.ECHO_BLOCK)
+                    .requiresCorrectToolForDrops(),
             List.of(SMALL_ECHO_BUD, MEDIUM_ECHO_BUD, LARGE_ECHO_BUD, ECHO_CLUSTER)
     );
 
     public static final GeodeBuddingBlock BUDDING_LAPIS = new GeodeBuddingBlock(
             CrystalBlockSoundGroup.LAPIS,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.BLACK)
-                    .ticksRandomly()
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "budding_lapis")))
+                    .mapColor(MapColor.COLOR_BLACK)
+                    .randomTicks()
                     .strength(1.5f)
-                    .sounds(ModBlockSoundGroups.LAPIS_CRYSTAL_BLOCK)
-                    .requiresTool(),
+                    .sound(ModBlockSoundGroups.LAPIS_CRYSTAL_BLOCK)
+                    .requiresCorrectToolForDrops(),
             List.of(SMALL_LAPIS_BUD, MEDIUM_LAPIS_BUD, LARGE_LAPIS_BUD, LAPIS_CLUSTER)
     );
 
     public static final Block BUDDING_GYPSUM = new DirectedBuddingBlock(
             Direction.UP,
             CrystalBlockSoundGroup.GYPSUM,
-            FabricBlockSettings.create()
-                    .mapColor(MapColor.WHITE_GRAY)
-                    .ticksRandomly()
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "budding_gypsum")))
+                    .mapColor(MapColor.WOOL)
+                    .randomTicks()
                     .strength(1.3f)
-                    .sounds(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK)
-                    .requiresTool(),
+                    .sound(ModBlockSoundGroups.GYPSUM_CRYSTAL_BLOCK)
+                    .requiresCorrectToolForDrops(),
             List.of(SMALL_GYPSUM_BUD, MEDIUM_GYPSUM_BUD, LARGE_GYPSUM_BUD, GYPSUM_ROSE)
     );
 
 
     public static final Block PYRITE = new Block(
-            FabricBlockSettings.create()
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "pyrite")))
                     .mapColor(MapColor.GOLD)
-                    .sounds(BlockSoundGroup.CALCITE)
-                    .requiresTool()
+                    .sound(SoundType.CALCITE)
+                    .requiresCorrectToolForDrops()
                     .strength(0.75F)
     );
 
-    public static final Block PYRITE_STAIRS = new StairsBlock(
-            PYRITE.getDefaultState(),
-            FabricBlockSettings.copyOf(PYRITE)
+    public static final Block PYRITE_STAIRS = new StairBlock(
+            PYRITE.defaultBlockState(),
+            BlockBehaviour.Properties.ofFullCopy(PYRITE).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "pyrite_stairs")))
     );
 
     public static final Block PYRITE_SLAB = new SlabBlock(
-            FabricBlockSettings.copyOf(PYRITE)
+            BlockBehaviour.Properties.ofFullCopy(PYRITE).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "pyrite_slab")))
     );
 
     public static final Block PYRITE_WALL = new WallBlock(
-            FabricBlockSettings.copyOf(PYRITE)
+            BlockBehaviour.Properties.ofFullCopy(PYRITE).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "pyrite_wall")))
     );
 
-    public static final Block CALCITE_STAIRS = new StairsBlock(
-            Blocks.CALCITE.getDefaultState(),
-            FabricBlockSettings.copyOf(Blocks.CALCITE)
+    public static final Block CALCITE_STAIRS = new StairBlock(
+            Blocks.CALCITE.defaultBlockState(),
+            BlockBehaviour.Properties.ofFullCopy(Blocks.CALCITE).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "calcite_stairs")))
     );
 
     public static final Block CALCITE_SLAB = new SlabBlock(
-            FabricBlockSettings.copyOf(Blocks.CALCITE)
+            BlockBehaviour.Properties.ofFullCopy(Blocks.CALCITE).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "calcite_slab")))
     );
 
     public static final Block CALCITE_WALL = new WallBlock(
-            FabricBlockSettings.copyOf(Blocks.CALCITE)
+            BlockBehaviour.Properties.ofFullCopy(Blocks.CALCITE).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "calcite_wall")))
     );
 
     public static final Block CHISELED_GYPSUM = new Block(
-            FabricBlockSettings.create()
-                    .instrument(Instrument.BASEDRUM)
-                    .requiresTool()
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "chiseled_gypsum")))
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
                     .strength(0.8f)
     );
 
-    public static final Block GYPSUM_PILLAR = new PillarBlock(
-            FabricBlockSettings.create()
-                    .instrument(Instrument.BASEDRUM)
-                    .requiresTool()
+    public static final Block GYPSUM_PILLAR = new RotatedPillarBlock(
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "gypsum_pillar")))
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
                     .strength(0.8f)
     );
 
     public static final Block POLISHED_GYPSUM_BLOCK = new Block(
-            FabricBlockSettings.create()
-                    .instrument(Instrument.BASEDRUM)
-                    .requiresTool()
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "polished_gypsum_block")))
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
                     .strength(0.8f)
     );
 
-    public static final Block POLISHED_GYPSUM_STAIRS = new StairsBlock(
-            POLISHED_GYPSUM_BLOCK.getDefaultState(),
-            FabricBlockSettings.copyOf(POLISHED_GYPSUM_BLOCK)
+    public static final Block POLISHED_GYPSUM_STAIRS = new StairBlock(
+            POLISHED_GYPSUM_BLOCK.defaultBlockState(),
+            BlockBehaviour.Properties.ofFullCopy(POLISHED_GYPSUM_BLOCK).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "polished_gypsum_stairs")))
     );
 
-    public static final Block POLISHED_GYPSUM_SLAB = new SlabBlock(FabricBlockSettings.copyOf(POLISHED_GYPSUM_BLOCK));
+    public static final Block POLISHED_GYPSUM_SLAB = new SlabBlock(BlockBehaviour.Properties.ofFullCopy(POLISHED_GYPSUM_BLOCK).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "polished_gypsum_slab"))));
 
-    public static final Block POLISHED_GYPSUM_WALL = new WallBlock(FabricBlockSettings.copyOf(POLISHED_GYPSUM_BLOCK));
+    public static final Block POLISHED_GYPSUM_WALL = new WallBlock(BlockBehaviour.Properties.ofFullCopy(POLISHED_GYPSUM_BLOCK).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "polished_gypsum_wall"))));
 
     public static final Block SMOOTH_GYPSUM_BLOCK = new Block(
-            FabricBlockSettings.create()
-                    .instrument(Instrument.BASEDRUM)
-                    .requiresTool()
+            BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "smooth_gypsum_block")))
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
                     .strength(0.8f)
     );
 
-    public static final Block SMOOTH_GYPSUM_STAIRS = new StairsBlock(
-            SMOOTH_GYPSUM_BLOCK.getDefaultState(),
-            FabricBlockSettings.copyOf(SMOOTH_GYPSUM_BLOCK)
+    public static final Block SMOOTH_GYPSUM_STAIRS = new StairBlock(
+            SMOOTH_GYPSUM_BLOCK.defaultBlockState(),
+            BlockBehaviour.Properties.ofFullCopy(SMOOTH_GYPSUM_BLOCK).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "smooth_gypsum_stairs")))
     );
 
-    public static final Block SMOOTH_GYPSUM_SLAB = new SlabBlock(FabricBlockSettings.copyOf(SMOOTH_GYPSUM_BLOCK));
+    public static final Block SMOOTH_GYPSUM_SLAB = new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SMOOTH_GYPSUM_BLOCK).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "smooth_gypsum_slab"))));
 
-    public static final Block SMOOTH_GYPSUM_WALL = new WallBlock(FabricBlockSettings.copyOf(SMOOTH_GYPSUM_BLOCK));
+    public static final Block SMOOTH_GYPSUM_WALL = new WallBlock(BlockBehaviour.Properties.ofFullCopy(SMOOTH_GYPSUM_BLOCK).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "smooth_gypsum_wall"))));
 
 
     public static void registerBlocks() {
@@ -524,7 +533,7 @@ public class ModBlocks {
     }
 
     private static void register(String name, Block block) {
-        Registry.register(Registries.BLOCK, new Identifier(MoreGeodes.MODID, name), block);
+        Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, name), block);
     }
 
 }

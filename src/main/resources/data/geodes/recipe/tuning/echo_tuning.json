@@ -1,0 +1,9 @@
+{
+  "type": "geodes:crystal_tuning",
+  "group": "geodes_tunings",
+  "ingredients": [
+    "minecraft:echo_shard",
+    "geodes:crystal_locator"
+  ],
+  "tuning": "geodes:echo"
+}

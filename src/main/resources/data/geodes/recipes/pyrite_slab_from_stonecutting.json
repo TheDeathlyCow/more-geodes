@@ -1,8 +1,0 @@
-{
-	"type": "minecraft:stonecutting",
-	"count": 2,
-	"ingredient": {
-		"item": "geodes:pyrite"
-	},
-	"result": "geodes:pyrite_slab"
-}

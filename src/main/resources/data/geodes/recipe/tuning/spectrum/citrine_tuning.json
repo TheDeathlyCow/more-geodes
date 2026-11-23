@@ -1,0 +1,17 @@
+{
+  "type": "geodes:crystal_tuning",
+  "group": "geodes_tunings",
+  "ingredients": [
+    "#geodes:spectrum/citrine_shards",
+    "geodes:crystal_locator"
+  ],
+  "tuning": "geodes:spectrum/citrine",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "spectrum"
+      ]
+    }
+  ]
+}

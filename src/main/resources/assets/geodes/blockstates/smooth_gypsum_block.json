@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "geodes:block/smooth_gypsum_block"
-        }
+  "variants": {
+    "": {
+      "model": "geodes:block/smooth_gypsum_block"
     }
+  }
 }

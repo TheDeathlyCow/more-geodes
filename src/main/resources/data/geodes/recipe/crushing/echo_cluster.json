@@ -1,0 +1,25 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    "geodes:echo_cluster"
+  ],
+  "processingTime": 350,
+  "results": [
+    {
+      "count": 1,
+      "item": "minecraft:echo_shard"
+    },
+    {
+      "chance": 0.75,
+      "item": "minecraft:echo_shard"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ]
+}

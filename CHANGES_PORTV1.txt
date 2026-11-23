@@ -1,0 +1,60 @@
+More Geodes 1.9.3 -> Minecraft 26.3 Fabric, portV1
+================================================
+
+BASELINE AND CONTENT
+- Uses upstream tag 1.9.3, commit c0e1246b7366857351238244d59a0b8a7710b0a0.
+- Preserves all 50 registered blocks, 56 items, sounds, textures, model geometry,
+  generation parameters, configuration keys, and the geodes namespace.
+- Preserves emerald, quartz, diamond, echo, lapis, gypsum patches, locators,
+  pyrite piglin behavior, decorative blocks, and optional integration data.
+
+BUILD AND REGISTRATION
+- Migrates Yarn names to official names and the unobfuscated Loom pipeline.
+- Uses Java 25 bytecode, Loader 0.19.5, API 0.164.0+26.3, Loom 1.17.21,
+  Gradle 9.7.1. Replaces the removed fabric dependency ID with fabric-api.
+- Sets block/item keys before construction using current vanilla settings.
+- Keeps Carpet compile-only; its mixin is selected only when Carpet is loaded.
+- Removes the unused AE2 Java build dependency; certus integration is data.
+
+WORLD GENERATION AND DATA
+- Moves configured features to worldgen/feature and inlines configurations,
+  including nested gypsum vegetation features.
+- Migrates state providers, integer providers, block-state serialization,
+  loot conditions/modifiers, ingredients, item results, predicates, and icons.
+- Keeps vanilla geode and vegetation patch algorithms and original generation
+  steps, rarity values, layer weights, heights, and biome-selection tags.
+- Retains old common biome tag IDs as optional fallbacks beside modern tags.
+- Guards foreign-mod feature and recipe definitions with resource conditions.
+- Retargets the simple-block injection so tall gypsum places both halves and
+  correctly fails when the space for its second half is occupied.
+- Corrects two upstream advancement references to nonexistent *_wall_stairs
+  recipes; preserves original advancement IDs and the existing wall recipes.
+
+GAMEPLAY AND CLIENT
+- Migrates locator tuning to the persistent, synchronized geodes:tuning item
+  component. Reads legacy tuning from vanilla-upgraded custom_data and converts
+  it on use. Preserves the original detection predicate, cooldowns and durability.
+- Bounds locator iteration to the original detection sphere's bounding box.
+  Candidate visits fall from 912673 to 166375 for the Crystal Locator, with no
+  change to which block positions can match. Echo Locator semantics also remain.
+- Replaces obsolete tuning recipe serialization with codecs/stream codecs.
+  Recipe results remain templates until item component binding is complete.
+- Uses current entity creation, synchronized data, and saved-data APIs.
+- Keeps temporary locator displays outline-only via vanilla's render submission
+  API. Client tint comes from the synchronized tuning registry and item component.
+- Adds current item asset wrappers around the original item models.
+- Replaces the removed composting registry with a component giving exactly one
+  compost layer per gypsum shard, matching the original 100% success chance.
+- Retargets piglin brain memory, fool's-gold behavior, crystal chimes, Carpet,
+  and legacy registry lookup mixins. Removes the now-unneeded display invoker.
+- Fixes echo-display saved is_pinged key handling and keeps lifetime authority
+  on the server. Removes a first-run config assertion that rejected absent files.
+
+PRESERVATION LIMITS
+- Vanilla terrain/generation changes mean same-seed geode coordinates across
+  1.20.1 and 26.3 cannot be identical. The original parameters are retained,
+  including emerald's intentionally unchanged upper placement bound of Y 480.
+- The original code tests squared distance multiplied by three. That behavior
+  is preserved, including its smaller effective radius than the nominal constants.
+- This is a port, not a rebalance. Optional-mod runtime behavior depends on
+  those projects providing compatible Fabric builds; see TEST_REPORT.txt.

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": "geodes:gypsum_shard"
+  },
+  "result": {
+    "id": "geodes:gypsum_crystal_block"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "# #",
+    " # "
+  ],
+  "key": {
+    "#": "minecraft:quartz"
+  },
+  "result": {
+    "id": "geodes:quartz_crystal_block"
+  }
+}

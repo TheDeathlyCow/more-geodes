@@ -1,2 +1,5 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Normalize source text while preserving the tested resource payloads.
+* text=auto eol=lf
+*.bat text eol=crlf
+src/main/resources/** -text
+*.jar -text

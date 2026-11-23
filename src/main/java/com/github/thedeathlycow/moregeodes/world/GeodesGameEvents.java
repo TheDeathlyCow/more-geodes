@@ -1,26 +1,10 @@
 package com.github.thedeathlycow.moregeodes.world;
 
-import com.github.thedeathlycow.moregeodes.MoreGeodes;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.world.event.GameEvent;
-
-public class GeodesGameEvents {
-
-    public static final GameEvent CRYSTAL_RESONATE = of("crystal_resonate");
-    public static void registerEvents() {
-        register(CRYSTAL_RESONATE);
-    }
-
-    private static void register(GameEvent event) {
-        Registry.register(Registries.GAME_EVENT, event.getId(), event);
-    }
-
-    public static GameEvent of(String name) {
-        return of(name, 16);
-    }
-
-    public static GameEvent of(String name, int range) {
-        return new GameEvent(String.format("%s:%s", MoreGeodes.MODID, name), range);
-    }
+import net.minecraft.core.*;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.gameevent.GameEvent;
+public final class GeodesGameEvents {
+    public static final Holder.Reference<GameEvent> CRYSTAL_RESONATE=Registry.registerForHolder(BuiltInRegistries.GAME_EVENT,Identifier.fromNamespaceAndPath("geodes","crystal_resonate"),new GameEvent(16));
+    public static void registerEvents() {}
 }

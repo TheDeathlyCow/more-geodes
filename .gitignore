@@ -31,3 +31,7 @@ bin/
 # fabric
 
 run/
+
+# Local runtime/debug artifacts
+*.hprof
+hs_err_pid*.log

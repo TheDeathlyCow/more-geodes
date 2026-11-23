@@ -1,0 +1,76 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "geodes:large_lapis_bud",
+              "condition": {
+                "predicate": {
+                  "predicates": {
+                    "minecraft:enchantments": [
+                      {
+                        "levels": {
+                          "min": 1
+                        },
+                        "enchantments": "minecraft:silk_touch"
+                      }
+                    ]
+                  }
+                },
+                "type": "minecraft:match_tool"
+              }
+            },
+            {
+              "type": "minecraft:alternatives",
+              "children": [
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:lapis_lazuli",
+                  "condition": {
+                    "predicate": {
+                      "items": "#minecraft:cluster_max_harvestables"
+                    },
+                    "type": "minecraft:match_tool"
+                  },
+                  "modifier": [
+                    {
+                      "count": 2,
+                      "add": false,
+                      "type": "minecraft:set_count"
+                    },
+                    {
+                      "enchantment": "minecraft:fortune",
+                      "formula": "minecraft:ore_drops",
+                      "type": "minecraft:apply_bonus"
+                    }
+                  ]
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:lapis_lazuli",
+                  "modifier": [
+                    {
+                      "count": 2,
+                      "add": false,
+                      "type": "minecraft:set_count"
+                    },
+                    {
+                      "type": "minecraft:explosion_decay"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

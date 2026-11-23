@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "geodes:large_echo_bud"
+        }
+      ],
+      "condition": {
+        "predicate": {
+          "predicates": {
+            "minecraft:enchantments": [
+              {
+                "levels": {
+                  "min": 1
+                },
+                "enchantments": "minecraft:silk_touch"
+              }
+            ]
+          }
+        },
+        "type": "minecraft:match_tool"
+      }
+    }
+  ]
+}

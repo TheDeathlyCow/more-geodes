@@ -1,0 +1,9 @@
+{
+  "type": "geodes:crystal_tuning",
+  "group": "geodes_tunings",
+  "ingredients": [
+    "minecraft:quartz",
+    "geodes:crystal_locator"
+  ],
+  "tuning": "geodes:quartz"
+}

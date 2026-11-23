@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "geodes:block/chiseled_gypsum"
-        }
+  "variants": {
+    "": {
+      "model": "geodes:block/chiseled_gypsum"
     }
+  }
 }

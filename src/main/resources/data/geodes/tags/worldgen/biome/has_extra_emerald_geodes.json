@@ -1,8 +1,15 @@
 {
-    "replace": false,
-    "values": [
-        "minecraft:grove",
-        "#minecraft:is_mountain",
-        "#c:mountain"
-    ]
+  "replace": false,
+  "values": [
+    "minecraft:grove",
+    "#minecraft:is_mountain",
+    {
+      "id": "#c:mountain",
+      "required": false
+    },
+    {
+      "id": "#c:is_mountain",
+      "required": false
+    }
+  ]
 }

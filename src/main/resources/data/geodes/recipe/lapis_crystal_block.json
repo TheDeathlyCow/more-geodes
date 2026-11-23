@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": "minecraft:lapis_lazuli"
+  },
+  "result": {
+    "id": "geodes:lapis_crystal_block"
+  }
+}

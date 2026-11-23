@@ -1,0 +1,168 @@
+MORE GEODES - FABRIC 26.3 PORTV1 VALIDATION
+Validation date: 2026-10-19
+========================================
+
+RESULT
+------
+The compiled port was built successfully and exercised in real Minecraft 26.3
+dedicated-server and graphical-client processes. The release JAR was also
+installed independently of Gradle/Loom, with test code in a separate JAR.
+Finally, a dedicated server started successfully with only More Geodes and
+Fabric API in its mods directory (no test mod and no Carpet).
+
+This is an unofficial source-level port of upstream More Geodes 1.9.3:
+https://github.com/TheDeathlyCow/more-geodes/tree/1.9.3
+Commit c0e1246b7366857351238244d59a0b8a7710b0a0.
+References were inspected and left unchanged.
+
+EXACT BUILD AND TEST ENVIRONMENT
+-------------------------------
+Minecraft Java Edition: 26.3
+Fabric Loader: 0.19.5
+Fabric API: 0.164.0+26.3
+Fabric Loom: 1.17.21
+Gradle wrapper: 9.7.1, distribution checksum pinned
+Compiler/runtime: Oracle JDK 26.0.2.1 on Windows 11
+Java compilation target: release 25 (class-file major version 69)
+Optional Carpet test: 26.3, Modrinth version yt9oDFOj
+Client: actual OpenGL rendering using Intel graphics, 1280 x 800
+
+The required minimum is Java 25; this validation used Java 26, not a second
+Java 25 runtime. The ordinary build has no JUnit tests. Gameplay tests are
+explicit testmod launches, documented in TESTING.md, and excluded from the
+release JAR. Windows BUILD_FABRIC_26.3.bat was actually executed successfully.
+The Linux/macOS helper was inspected but not executed on those operating systems.
+
+RELEASE ARTIFACT
+----------------
+build/libs/more-geodes-fabric-26.3-1.9.3-portV1.jar
+SHA-256: 12d5adc8b6a6975784cb3c2e72a36ba0d17e4ccf163fd94166d40fca8e4dba8f
+
+Clean rebuilds reproduced that JAR byte for byte. The same hash identifies the
+JAR installed in the independent production-format client/server test folders.
+The complete staged project also passed a clean build and testmodClasses
+compilation, reproducing the tested release JAR without relying on its original
+project directory's build outputs.
+The archive includes source, wrapper, build scripts, licenses, original JAR,
+and validation evidence. It excludes game binaries, libraries, caches, worlds,
+test-mod binaries, failed builds, and development tooling intermediates.
+
+CONTENT AND DATA CHECKS
+-----------------------
+* All 50 original registered blocks and 56 original registered items exist.
+* All 1,983 block states encode/decode successfully with current codecs.
+* All 46 original mod loot tables load.
+* All 49 core recipes and 56 core advancements load. The complete source also
+  retains the conditional Create/Spectrum recipes and Spectrum advancements:
+  66 recipe files and 59 advancement files in total.
+* All seven core locator tuning recipes craft, retain tuning, and round-trip
+  through persistent and network codecs. The tuning registry synchronizes to
+  an independently running client. Its emerald tint was ff17dd62.
+* Every original PNG texture and OGG sound is retained byte for byte.
+* All 56 item models resolve to nonempty models on the real client. Screenshots
+  show the original textures, crystal transparency, decorative blocks, locator
+  outline wave, and More Geodes creative tab. The tab contains 62 entries,
+  including the tuned locators.
+* No dependency, entrypoint, registry, required-mixin injection, or mod resource
+  loading failure occurred in successful final runs.
+
+WORLD GENERATION
+----------------
+* Fabric biome feature injection and all generation configuration switches
+  were checked. With all eight switches false, content remains registered,
+  saved content reloads, and mod generation is absent from biome injection.
+* Each of the five core geode features (emerald, quartz, diamond, echo, lapis)
+  was placed using the actual vanilla geode algorithm in a controlled solid
+  terrain fixture. Each generated its expected crystal blocks.
+* A full gypsum vegetation patch generated both gypsum ground and tall crystals
+  using the real feature algorithm: 414 ground blocks and 159 crystal blocks
+  in the final controlled patch fixture.
+* A fresh sample generated 512 Overworld chunks and 256 Nether chunks. It
+  contained natural lapis/pyrite and diamond geodes in the Overworld, and quartz
+  geodes in the Nether. The same saved chunks were checked after restart.
+* That arbitrary natural sample did not establish naturally occurring emerald,
+  echo, or gypsum patches. Their definitions, biome selection, and direct
+  algorithm placement were tested; no claim of a natural sample for them is
+  made. Original rarity, heights, layer weights, and generation steps remain.
+* Old and new Minecraft terrain generation cannot promise identical geode
+  coordinates for the same seed. No retroactive population is implemented.
+
+INTERACTION AND STATE
+---------------------
+* Emerald, quartz, echo, and lapis budding blocks grew through every crystal
+  stage in all six directions, including waterlogging behavior.
+* Gypsum grew upward, placed/broke as two halves, and refused placement when
+  its upper half was obstructed. Intact and orphan-half loot cases passed.
+* Silk Touch, Fortune, slab loot, and gypsum drops were exercised.
+* Gypsum shards add exactly one guaranteed compost layer, preserving upstream
+  behavior under the new compost component representation.
+* Piglins remembered and rejected fool's gold, including memory save/reload.
+* Locator matching, wave timing, actual player use, temporary display lifetime,
+  and visible outline rendering were exercised. Original durability and cooldown
+  constants/conditions were also retained through source comparison.
+* All four quartz stages toggled under actual scheduled ticks while a player
+  kept the chunks active: half-periods 20, 10, 5, and 1 tick, respectively.
+  They also stopped after their supporting input was removed.
+* Carpet's movableAmethyst integration was tested with its actual 26.3 mod:
+  budding-block piston reactions changed with the rule, and Silk Touch with
+  the rule enabled dropped the budding block. No Carpet code is bundled.
+
+SAVE AND MIGRATION CHECKS
+-------------------------
+A real server restart preserved saved inventories (including all seven tuned
+core locators), damage, a waterlogged crystal, and budding blocks. The disabled
+generation configuration also passed this restart check.
+
+A synthetic original-format 1.20.1 locator item was upgraded through vanilla's
+actual DataFixer from data version 3465 to 5023, then decoded by the port. Its
+legacy tuning and damage survived, and legacy tuning converts to the current
+component on use. Original content IDs, block properties, and advancement IDs
+are preserved. This is evidence for those specific cases, not a complete
+1.20.1-world upgrade trial. No user's existing world was modified.
+
+PERFORMANCE OBSERVATIONS
+------------------------
+The locator preserves the original squared-distance predicate while narrowing
+candidate iteration from 912,673 to 166,375 positions for Crystal Locator.
+Observed activations in the independent runs were about 53-88 ms on this host;
+these measurements include runtime allocation and are not universal benchmarks.
+
+The fresh 768-chunk sample took about 26 seconds for generation/scanning on this
+host (about 20 s Overworld and 6 s Nether). Re-reading the saved sample took
+about 4 seconds. Test setup deliberately blocks the server thread to generate
+and inspect hundreds of chunks and can produce a "Can't keep up" warning.
+This does not establish steady-play performance or absence of every regression.
+No large-world, large-modpack, or prolonged multiplayer stress test was run.
+
+EVIDENCE AND LIMITATIONS
+------------------------
+validation/production-core.json: independent fresh-world core run, 17 checks.
+validation/production-carpet.json: final independent run/restart, 18 checks,
+  including the added full gypsum patch check and actual Carpet integration.
+validation/generation-disabled.json: disabled-generation run/restart, 15 checks.
+validation/scheduled-clocks.json: real scheduler measurements, all stages passed.
+validation/client-results.txt: client model, sync, tint, and creative-tab results.
+validation/standalone-smoke.log: startup with only the two required mod JARs.
+validation/*.png: actual screenshots from the independent client.
+validation/artifact-audit.json: static content, archive, and reference checks.
+
+All recorded final checks passed. A Carpet-named check in a non-Carpet run
+checks the default budding-block piston reaction; the Carpet-enabled run is
+the evidence for the optional rule and Silk Touch behavior.
+
+AE2, Spectrum, and Create Fabric runtime integrations remain unverified: their
+checked release feeds did not list a 26.3 Fabric build on 2026-10-19. Their
+conditional data is preserved and absent integrations do not block startup.
+Arbitrary modded biome providers and full modpacks were not tested. Relevant
+biome tags remain extensible through data packs.
+
+The local test server bound only to loopback and used an offline test profile.
+Online account authentication and Realms were not tested. Corresponding Realms
+authentication messages and Windows performance-counter warnings are host/test
+environment messages, not evidence of a More Geodes registry or resource error.
+
+Packaging follows the supplied template's single-root, build-ready project
+layout. This port additionally includes the compiled installable JAR, a build
+readme (missing from the template), test sources/evidence, and complete licenses.
+
+Reproduction instructions: TESTING.md. Installation/build: BUILD_README.txt.

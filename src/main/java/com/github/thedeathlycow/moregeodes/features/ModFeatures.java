@@ -3,11 +3,10 @@ package com.github.thedeathlycow.moregeodes.features;
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.tag.ModBiomeTags;
 import net.fabricmc.fabric.api.biome.v1.*;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.feature.PlacedFeature;
-
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import java.util.function.BiConsumer;
 
 public class ModFeatures {
@@ -15,7 +14,7 @@ public class ModFeatures {
     public static void placeFeaturesInBiomes() {
 
         BiomeModification modification = BiomeModifications.create(
-                new Identifier(MoreGeodes.MODID, "geode_additions")
+                Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "geode_additions")
         );
 
         modification
@@ -24,7 +23,7 @@ public class ModFeatures {
                         BiomeSelectors.tag(ModBiomeTags.HAS_EMERALD_GEODE),
                         modifier(
                                 ModPlacedFeatures.EMERALD_GEODE,
-                                GenerationStep.Feature.UNDERGROUND_DECORATION,
+                                GenerationStep.Decoration.UNDERGROUND_DECORATION,
                                 MoreGeodes.CONFIG.generateEmeraldGeodes()
                         )
                 )
@@ -33,7 +32,7 @@ public class ModFeatures {
                         BiomeSelectors.tag(ModBiomeTags.HAS_EXTRA_EMERALD_GEODES),
                         modifier(
                                 ModPlacedFeatures.EMERALD_GEODE_EXTRA,
-                                GenerationStep.Feature.UNDERGROUND_DECORATION,
+                                GenerationStep.Decoration.UNDERGROUND_DECORATION,
                                 MoreGeodes.CONFIG.generateEmeraldGeodes()
                         )
                 )
@@ -42,7 +41,7 @@ public class ModFeatures {
                         BiomeSelectors.tag(ModBiomeTags.HAS_QUARTZ_GEODE),
                         modifier(
                                 ModPlacedFeatures.QUARTZ_GEODE,
-                                GenerationStep.Feature.UNDERGROUND_DECORATION,
+                                GenerationStep.Decoration.UNDERGROUND_DECORATION,
                                 MoreGeodes.CONFIG.generateQuartzGeodes()
                         )
                 )
@@ -51,7 +50,7 @@ public class ModFeatures {
                         BiomeSelectors.tag(ModBiomeTags.HAS_DIAMOND_GEODE),
                         modifier(
                                 ModPlacedFeatures.DIAMOND_GEODE,
-                                GenerationStep.Feature.UNDERGROUND_DECORATION,
+                                GenerationStep.Decoration.UNDERGROUND_DECORATION,
                                 MoreGeodes.CONFIG.generateDiamondGeodes()
                         )
                 )
@@ -60,7 +59,7 @@ public class ModFeatures {
                         BiomeSelectors.tag(ModBiomeTags.HAS_ECHO_GEODE),
                         modifier(
                                 ModPlacedFeatures.ECHO_GEODE,
-                                GenerationStep.Feature.UNDERGROUND_DECORATION,
+                                GenerationStep.Decoration.UNDERGROUND_DECORATION,
                                 MoreGeodes.CONFIG.generateEchoGeodes()
                         )
                 )
@@ -69,7 +68,7 @@ public class ModFeatures {
                         BiomeSelectors.tag(ModBiomeTags.HAS_LAPIS_GEODE),
                         modifier(
                                 ModPlacedFeatures.LAPIS_GEODE,
-                                GenerationStep.Feature.UNDERGROUND_DECORATION,
+                                GenerationStep.Decoration.UNDERGROUND_DECORATION,
                                 MoreGeodes.CONFIG.generateLapisGeodes()
                         )
                 )
@@ -78,7 +77,7 @@ public class ModFeatures {
                         BiomeSelectors.tag(ModBiomeTags.HAS_EXTRA_LAPIS_GEODES),
                         modifier(
                                 ModPlacedFeatures.LAPIS_GEODE_EXTRA,
-                                GenerationStep.Feature.UNDERGROUND_DECORATION,
+                                GenerationStep.Decoration.UNDERGROUND_DECORATION,
                                 MoreGeodes.CONFIG.generateLapisGeodes()
                         )
                 )
@@ -87,7 +86,7 @@ public class ModFeatures {
                         BiomeSelectors.tag(ModBiomeTags.HAS_GYPSUM_PATCH),
                         modifier(
                                 ModPlacedFeatures.GYPSUM_PATCH,
-                                GenerationStep.Feature.VEGETAL_DECORATION,
+                                GenerationStep.Decoration.VEGETAL_DECORATION,
                                 MoreGeodes.CONFIG.generateGypsumPatches()
                         )
                 );
@@ -98,7 +97,7 @@ public class ModFeatures {
                     BiomeSelectors.tag(ModBiomeTags.HAS_CERTUS_GEODE),
                     modifier(
                             ModPlacedFeatures.CERTUS_GEODE,
-                            GenerationStep.Feature.UNDERGROUND_DECORATION,
+                            GenerationStep.Decoration.UNDERGROUND_DECORATION,
                             MoreGeodes.CONFIG.generateCertusGeodes()
                     )
             );
@@ -110,7 +109,7 @@ public class ModFeatures {
                     BiomeSelectors.tag(ModBiomeTags.HAS_BISMUTH_GEODE),
                     modifier(
                             ModPlacedFeatures.BISMUTH_GEODE,
-                            GenerationStep.Feature.VEGETAL_DECORATION,
+                            GenerationStep.Decoration.VEGETAL_DECORATION,
                             MoreGeodes.CONFIG.generateBismuthGeodes()
                     )
             );
@@ -118,8 +117,8 @@ public class ModFeatures {
     }
 
     private static BiConsumer<BiomeSelectionContext, BiomeModificationContext> modifier(
-            RegistryKey<PlacedFeature> feature,
-            GenerationStep.Feature step,
+            ResourceKey<PlacedFeature> feature,
+            GenerationStep.Decoration step,
             boolean shouldAdd
     ) {
         return (biomeSelectionContext, biomeModificationContext) -> {

@@ -1,7 +1,0 @@
-{
-    "replace": false,
-    "values": [
-        "geodes:crystal_locator",
-        "geodes:tuned_crystal_locator"
-    ]
-}

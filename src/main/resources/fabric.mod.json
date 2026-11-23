@@ -14,7 +14,7 @@
   "contact": {
     "homepage": "https://github.com/TheDeathlyCow/more-geodes/blob/main/README.md",
     "sources": "https://github.com/TheDeathlyCow/more-geodes",
-    "issues":  "https://github.com/TheDeathlyCow/more-geodes/issues"
+    "issues": "https://github.com/TheDeathlyCow/more-geodes/issues"
   },
   "license": "LGPL-3.0",
   "icon": "assets/geodes/icon.png",
@@ -31,13 +31,10 @@
     "geodes.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.25",
-    "fabric": "*",
-    "minecraft": "~1.20.1",
-    "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
+    "fabricloader": ">=0.19.5",
+    "fabric-api": ">=0.164.0+26.3",
+    "minecraft": "~26.3",
+    "java": ">=25"
   },
   "custom": {
     "modmenu": {

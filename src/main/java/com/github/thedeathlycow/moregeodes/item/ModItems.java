@@ -2,102 +2,102 @@ package com.github.thedeathlycow.moregeodes.item;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.blocks.ModBlocks;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 
 public class ModItems {
 
-    public static final Item EMERALD_SHARD = new Item(new FabricItemSettings());
-    public static final Item PYRITE_CHUNK = new Item(new FabricItemSettings());
-    public static final Item GYPSUM_SHARD = new Item(new FabricItemSettings());
+    public static final Item EMERALD_SHARD = new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "emerald_shard"))));
+    public static final Item PYRITE_CHUNK = new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "pyrite_chunk"))));
+    public static final Item GYPSUM_SHARD = new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "gypsum_shard"))).component(net.minecraft.core.component.DataComponents.COMPOSTABLE, new net.minecraft.world.item.component.Compostable(new net.minecraft.world.level.storage.loot.providers.number.ints.ResolvableInt.Constant(1))));
 
-    public static final Item EMERALD_CRYSTAL_BLOCK = new BlockItem(ModBlocks.EMERALD_CRYSTAL_BLOCK, new FabricItemSettings());
-    public static final Item BUDDING_EMERALD = new BlockItem(ModBlocks.BUDDING_EMERALD, new FabricItemSettings());
-    public static final Item SMALL_EMERALD_BUD = new BlockItem(ModBlocks.SMALL_EMERALD_BUD, new FabricItemSettings());
-    public static final Item MEDIUM_EMERALD_BUD = new BlockItem(ModBlocks.MEDIUM_EMERALD_BUD, new FabricItemSettings());
-    public static final Item LARGE_EMERALD_BUD = new BlockItem(ModBlocks.LARGE_EMERALD_BUD, new FabricItemSettings());
-    public static final Item EMERALD_CLUSTER = new BlockItem(ModBlocks.EMERALD_CLUSTER, new FabricItemSettings());
+    public static final Item EMERALD_CRYSTAL_BLOCK = new BlockItem(ModBlocks.EMERALD_CRYSTAL_BLOCK, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "emerald_crystal_block"))).useBlockDescriptionPrefix());
+    public static final Item BUDDING_EMERALD = new BlockItem(ModBlocks.BUDDING_EMERALD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "budding_emerald"))).useBlockDescriptionPrefix());
+    public static final Item SMALL_EMERALD_BUD = new BlockItem(ModBlocks.SMALL_EMERALD_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "small_emerald_bud"))).useBlockDescriptionPrefix());
+    public static final Item MEDIUM_EMERALD_BUD = new BlockItem(ModBlocks.MEDIUM_EMERALD_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "medium_emerald_bud"))).useBlockDescriptionPrefix());
+    public static final Item LARGE_EMERALD_BUD = new BlockItem(ModBlocks.LARGE_EMERALD_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "large_emerald_bud"))).useBlockDescriptionPrefix());
+    public static final Item EMERALD_CLUSTER = new BlockItem(ModBlocks.EMERALD_CLUSTER, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "emerald_cluster"))).useBlockDescriptionPrefix());
 
-    public static final Item QUARTZ_CRYSTAL_BLOCK = new BlockItem(ModBlocks.QUARTZ_CRYSTAL_BLOCK, new FabricItemSettings());
-    public static final Item BUDDING_QUARTZ = new BlockItem(ModBlocks.BUDDING_QUARTZ, new FabricItemSettings());
-    public static final Item SMALL_QUARTZ_BUD = new BlockItem(ModBlocks.SMALL_QUARTZ_BUD, new FabricItemSettings());
-    public static final Item MEDIUM_QUARTZ_BUD = new BlockItem(ModBlocks.MEDIUM_QUARTZ_BUD, new FabricItemSettings());
-    public static final Item LARGE_QUARTZ_BUD = new BlockItem(ModBlocks.LARGE_QUARTZ_BUD, new FabricItemSettings());
-    public static final Item QUARTZ_CLUSTER = new BlockItem(ModBlocks.QUARTZ_CLUSTER, new FabricItemSettings());
+    public static final Item QUARTZ_CRYSTAL_BLOCK = new BlockItem(ModBlocks.QUARTZ_CRYSTAL_BLOCK, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "quartz_crystal_block"))).useBlockDescriptionPrefix());
+    public static final Item BUDDING_QUARTZ = new BlockItem(ModBlocks.BUDDING_QUARTZ, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "budding_quartz"))).useBlockDescriptionPrefix());
+    public static final Item SMALL_QUARTZ_BUD = new BlockItem(ModBlocks.SMALL_QUARTZ_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "small_quartz_bud"))).useBlockDescriptionPrefix());
+    public static final Item MEDIUM_QUARTZ_BUD = new BlockItem(ModBlocks.MEDIUM_QUARTZ_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "medium_quartz_bud"))).useBlockDescriptionPrefix());
+    public static final Item LARGE_QUARTZ_BUD = new BlockItem(ModBlocks.LARGE_QUARTZ_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "large_quartz_bud"))).useBlockDescriptionPrefix());
+    public static final Item QUARTZ_CLUSTER = new BlockItem(ModBlocks.QUARTZ_CLUSTER, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "quartz_cluster"))).useBlockDescriptionPrefix());
 
-    public static final Item DIAMOND_CRYSTAL_BLOCK = new BlockItem(ModBlocks.DIAMOND_CRYSTAL_BLOCK, new FabricItemSettings());
-    public static final Item DIAMOND_CLUSTER = new BlockItem(ModBlocks.DIAMOND_CLUSTER, new FabricItemSettings());
+    public static final Item DIAMOND_CRYSTAL_BLOCK = new BlockItem(ModBlocks.DIAMOND_CRYSTAL_BLOCK, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "diamond_crystal_block"))).useBlockDescriptionPrefix());
+    public static final Item DIAMOND_CLUSTER = new BlockItem(ModBlocks.DIAMOND_CLUSTER, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "diamond_cluster"))).useBlockDescriptionPrefix());
 
-    public static final Item ECHO_BLOCK = new BlockItem(ModBlocks.ECHO_BLOCK, new FabricItemSettings());
-    public static final Item BUDDING_ECHO_BLOCK = new BlockItem(ModBlocks.BUDDING_ECHO_BLOCK, new FabricItemSettings());
-    public static final Item SMALL_ECHO_BUD = new BlockItem(ModBlocks.SMALL_ECHO_BUD, new FabricItemSettings());
-    public static final Item MEDIUM_ECHO_BUD = new BlockItem(ModBlocks.MEDIUM_ECHO_BUD, new FabricItemSettings());
-    public static final Item LARGE_ECHO_BUD = new BlockItem(ModBlocks.LARGE_ECHO_BUD, new FabricItemSettings());
-    public static final Item ECHO_CLUSTER = new BlockItem(ModBlocks.ECHO_CLUSTER, new FabricItemSettings());
+    public static final Item ECHO_BLOCK = new BlockItem(ModBlocks.ECHO_BLOCK, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "echo_block"))).useBlockDescriptionPrefix());
+    public static final Item BUDDING_ECHO_BLOCK = new BlockItem(ModBlocks.BUDDING_ECHO_BLOCK, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "budding_echo_block"))).useBlockDescriptionPrefix());
+    public static final Item SMALL_ECHO_BUD = new BlockItem(ModBlocks.SMALL_ECHO_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "small_echo_bud"))).useBlockDescriptionPrefix());
+    public static final Item MEDIUM_ECHO_BUD = new BlockItem(ModBlocks.MEDIUM_ECHO_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "medium_echo_bud"))).useBlockDescriptionPrefix());
+    public static final Item LARGE_ECHO_BUD = new BlockItem(ModBlocks.LARGE_ECHO_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "large_echo_bud"))).useBlockDescriptionPrefix());
+    public static final Item ECHO_CLUSTER = new BlockItem(ModBlocks.ECHO_CLUSTER, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "echo_cluster"))).useBlockDescriptionPrefix());
 
-    public static final Item LAPIS_CRYSTAL_BLOCK = new BlockItem(ModBlocks.LAPIS_CRYSTAL_BLOCK, new FabricItemSettings());
+    public static final Item LAPIS_CRYSTAL_BLOCK = new BlockItem(ModBlocks.LAPIS_CRYSTAL_BLOCK, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "lapis_crystal_block"))).useBlockDescriptionPrefix());
 
-    public static final Item BUDDING_LAPIS = new BlockItem(ModBlocks.BUDDING_LAPIS, new FabricItemSettings());
+    public static final Item BUDDING_LAPIS = new BlockItem(ModBlocks.BUDDING_LAPIS, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "budding_lapis"))).useBlockDescriptionPrefix());
 
-    public static final Item SMALL_LAPIS_BUD = new BlockItem(ModBlocks.SMALL_LAPIS_BUD, new FabricItemSettings());
-    public static final Item MEDIUM_LAPIS_BUD = new BlockItem(ModBlocks.MEDIUM_LAPIS_BUD, new FabricItemSettings());
-    public static final Item LARGE_LAPIS_BUD = new BlockItem(ModBlocks.LARGE_LAPIS_BUD, new FabricItemSettings());
-    public static final Item LAPIS_CLUSTER = new BlockItem(ModBlocks.LAPIS_CLUSTER, new FabricItemSettings());
+    public static final Item SMALL_LAPIS_BUD = new BlockItem(ModBlocks.SMALL_LAPIS_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "small_lapis_bud"))).useBlockDescriptionPrefix());
+    public static final Item MEDIUM_LAPIS_BUD = new BlockItem(ModBlocks.MEDIUM_LAPIS_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "medium_lapis_bud"))).useBlockDescriptionPrefix());
+    public static final Item LARGE_LAPIS_BUD = new BlockItem(ModBlocks.LARGE_LAPIS_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "large_lapis_bud"))).useBlockDescriptionPrefix());
+    public static final Item LAPIS_CLUSTER = new BlockItem(ModBlocks.LAPIS_CLUSTER, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "lapis_cluster"))).useBlockDescriptionPrefix());
 
-    public static final Item GYPSUM_CRYSTAL_BLOCK = new BlockItem(ModBlocks.GYPSUM_CRYSTAL_BLOCK, new FabricItemSettings());
-    public static final Item BUDDING_GYPSUM = new BlockItem(ModBlocks.BUDDING_GYPSUM, new FabricItemSettings());
-    public static final Item SMALL_GYPSUM_BUD = new BlockItem(ModBlocks.SMALL_GYPSUM_BUD, new FabricItemSettings());
-    public static final Item MEDIUM_GYPSUM_BUD = new BlockItem(ModBlocks.MEDIUM_GYPSUM_BUD, new FabricItemSettings());
-    public static final Item LARGE_GYPSUM_BUD = new BlockItem(ModBlocks.LARGE_GYPSUM_BUD, new FabricItemSettings());
-    public static final Item GYPSUM_ROSE = new BlockItem(ModBlocks.GYPSUM_ROSE, new FabricItemSettings());
+    public static final Item GYPSUM_CRYSTAL_BLOCK = new BlockItem(ModBlocks.GYPSUM_CRYSTAL_BLOCK, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "gypsum_crystal_block"))).useBlockDescriptionPrefix());
+    public static final Item BUDDING_GYPSUM = new BlockItem(ModBlocks.BUDDING_GYPSUM, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "budding_gypsum"))).useBlockDescriptionPrefix());
+    public static final Item SMALL_GYPSUM_BUD = new BlockItem(ModBlocks.SMALL_GYPSUM_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "small_gypsum_bud"))).useBlockDescriptionPrefix());
+    public static final Item MEDIUM_GYPSUM_BUD = new BlockItem(ModBlocks.MEDIUM_GYPSUM_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "medium_gypsum_bud"))).useBlockDescriptionPrefix());
+    public static final Item LARGE_GYPSUM_BUD = new BlockItem(ModBlocks.LARGE_GYPSUM_BUD, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "large_gypsum_bud"))).useBlockDescriptionPrefix());
+    public static final Item GYPSUM_ROSE = new BlockItem(ModBlocks.GYPSUM_ROSE, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "gypsum_rose"))).useBlockDescriptionPrefix());
 
 
-    public static final Item PYRITE = new BlockItem(ModBlocks.PYRITE, new FabricItemSettings());
-    public static final Item PYRITE_STAIRS = new BlockItem(ModBlocks.PYRITE_STAIRS, new FabricItemSettings());
-    public static final Item PYRITE_SLAB = new BlockItem(ModBlocks.PYRITE_SLAB, new FabricItemSettings());
-    public static final Item PYRITE_WALL = new BlockItem(ModBlocks.PYRITE_WALL, new FabricItemSettings());
+    public static final Item PYRITE = new BlockItem(ModBlocks.PYRITE, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "pyrite"))).useBlockDescriptionPrefix());
+    public static final Item PYRITE_STAIRS = new BlockItem(ModBlocks.PYRITE_STAIRS, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "pyrite_stairs"))).useBlockDescriptionPrefix());
+    public static final Item PYRITE_SLAB = new BlockItem(ModBlocks.PYRITE_SLAB, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "pyrite_slab"))).useBlockDescriptionPrefix());
+    public static final Item PYRITE_WALL = new BlockItem(ModBlocks.PYRITE_WALL, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "pyrite_wall"))).useBlockDescriptionPrefix());
 
-    public static final Item CALCITE_STAIRS = new BlockItem(ModBlocks.CALCITE_STAIRS, new FabricItemSettings());
-    public static final Item CALCITE_SLAB = new BlockItem(ModBlocks.CALCITE_SLAB, new FabricItemSettings());
-    public static final Item CALCITE_WALL = new BlockItem(ModBlocks.CALCITE_WALL, new FabricItemSettings());
+    public static final Item CALCITE_STAIRS = new BlockItem(ModBlocks.CALCITE_STAIRS, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "calcite_stairs"))).useBlockDescriptionPrefix());
+    public static final Item CALCITE_SLAB = new BlockItem(ModBlocks.CALCITE_SLAB, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "calcite_slab"))).useBlockDescriptionPrefix());
+    public static final Item CALCITE_WALL = new BlockItem(ModBlocks.CALCITE_WALL, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "calcite_wall"))).useBlockDescriptionPrefix());
 
     public static final Item CRYSTAL_LOCATOR = new CrystalLocatorItem(
-            new FabricItemSettings().maxDamage(16),
+            new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "crystal_locator"))).durability(16),
             CrystalLocatorItem.CRYSTAL_LOCATOR_RANGE,
             CrystalLocatorItem.CRYSTAL_LOCATOR_COOL_DOWN
     );
 
     public static final Item TUNED_CRYSTAL_LOCATOR = new TunedCrystalLocatorItem(
-            new FabricItemSettings().maxDamage(16),
+            new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "tuned_crystal_locator"))).durability(16),
             CrystalLocatorItem.CRYSTAL_LOCATOR_RANGE,
             CrystalLocatorItem.CRYSTAL_LOCATOR_COOL_DOWN
     );
 
     public static final Item ECHO_LOCATOR = new EchoLocatorItem(
-            new FabricItemSettings().maxDamage(32),
+            new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "echo_locator"))).durability(32),
             EchoLocatorItem.BLOCK_RANGE,
             EchoLocatorItem.ECHO_LOCATOR_COOL_DOWN
     );
 
-    public static final Item GABRRO = new BlockItem(ModBlocks.GABBRO, new FabricItemSettings());
+    public static final Item GABRRO = new BlockItem(ModBlocks.GABBRO, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "gabbro"))).useBlockDescriptionPrefix());
 
-    public static final Item CHISELED_GYPSUM = new BlockItem(ModBlocks.CHISELED_GYPSUM, new FabricItemSettings());
-    public static final Item GYPSUM_PILLAR = new BlockItem(ModBlocks.GYPSUM_PILLAR, new FabricItemSettings());
+    public static final Item CHISELED_GYPSUM = new BlockItem(ModBlocks.CHISELED_GYPSUM, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "chiseled_gypsum"))).useBlockDescriptionPrefix());
+    public static final Item GYPSUM_PILLAR = new BlockItem(ModBlocks.GYPSUM_PILLAR, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "gypsum_pillar"))).useBlockDescriptionPrefix());
 
-    public static final Item POLISHED_GYPSUM_BLOCK = new BlockItem(ModBlocks.POLISHED_GYPSUM_BLOCK, new FabricItemSettings());
-    public static final Item POLISHED_GYPSUM_STAIRS = new BlockItem(ModBlocks.POLISHED_GYPSUM_STAIRS, new FabricItemSettings());
-    public static final Item POLISHED_GYPSUM_SLAB = new BlockItem(ModBlocks.POLISHED_GYPSUM_SLAB, new FabricItemSettings());
-    public static final Item POLISHED_GYPSUM_WALL = new BlockItem(ModBlocks.POLISHED_GYPSUM_WALL, new FabricItemSettings());
+    public static final Item POLISHED_GYPSUM_BLOCK = new BlockItem(ModBlocks.POLISHED_GYPSUM_BLOCK, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "polished_gypsum_block"))).useBlockDescriptionPrefix());
+    public static final Item POLISHED_GYPSUM_STAIRS = new BlockItem(ModBlocks.POLISHED_GYPSUM_STAIRS, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "polished_gypsum_stairs"))).useBlockDescriptionPrefix());
+    public static final Item POLISHED_GYPSUM_SLAB = new BlockItem(ModBlocks.POLISHED_GYPSUM_SLAB, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "polished_gypsum_slab"))).useBlockDescriptionPrefix());
+    public static final Item POLISHED_GYPSUM_WALL = new BlockItem(ModBlocks.POLISHED_GYPSUM_WALL, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "polished_gypsum_wall"))).useBlockDescriptionPrefix());
 
-    public static final Item SMOOTH_GYPSUM_BLOCK = new BlockItem(ModBlocks.SMOOTH_GYPSUM_BLOCK, new FabricItemSettings());
-    public static final Item SMOOTH_GYPSUM_STAIRS = new BlockItem(ModBlocks.SMOOTH_GYPSUM_STAIRS, new FabricItemSettings());
-    public static final Item SMOOTH_GYPSUM_SLAB = new BlockItem(ModBlocks.SMOOTH_GYPSUM_SLAB, new FabricItemSettings());
-    public static final Item SMOOTH_GYPSUM_WALL = new BlockItem(ModBlocks.SMOOTH_GYPSUM_WALL, new FabricItemSettings());
+    public static final Item SMOOTH_GYPSUM_BLOCK = new BlockItem(ModBlocks.SMOOTH_GYPSUM_BLOCK, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "smooth_gypsum_block"))).useBlockDescriptionPrefix());
+    public static final Item SMOOTH_GYPSUM_STAIRS = new BlockItem(ModBlocks.SMOOTH_GYPSUM_STAIRS, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "smooth_gypsum_stairs"))).useBlockDescriptionPrefix());
+    public static final Item SMOOTH_GYPSUM_SLAB = new BlockItem(ModBlocks.SMOOTH_GYPSUM_SLAB, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "smooth_gypsum_slab"))).useBlockDescriptionPrefix());
+    public static final Item SMOOTH_GYPSUM_WALL = new BlockItem(ModBlocks.SMOOTH_GYPSUM_WALL, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, "smooth_gypsum_wall"))).useBlockDescriptionPrefix());
 
     public static void registerItems() {
         register("emerald_shard", EMERALD_SHARD);
@@ -157,12 +157,10 @@ public class ModItems {
         register("smooth_gypsum_slab", SMOOTH_GYPSUM_SLAB);
         register("smooth_gypsum_wall", SMOOTH_GYPSUM_WALL);
 
-        CompostingChanceRegistry.INSTANCE.add(GYPSUM_SHARD, 1.0f);
-
         GeodesItemGroup.register();
     }
 
     private static void register(String name, Item item) {
-        Registry.register(Registries.ITEM, new Identifier(MoreGeodes.MODID, name), item);
+        Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, name), item);
     }
 }

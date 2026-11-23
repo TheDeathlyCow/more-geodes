@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "geodes:polished_gypsum_block",
+  "result": {
+    "id": "geodes:polished_gypsum_slab",
+    "count": 2
+  }
+}

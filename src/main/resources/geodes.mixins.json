@@ -1,22 +1,19 @@
 {
-    "required": true,
-    "minVersion": "0.8",
-    "package": "com.github.thedeathlycow.moregeodes.mixin",
-    "compatibilityLevel": "JAVA_17",
-    "plugin": "com.github.thedeathlycow.moregeodes.mixin.Plugin",
-    "mixins": [
-        "BlockDisplayInvoker",
-        "FoolsGoldBarterPiglinBrainMixin",
-        "PiglinMemoryMixin",
-        "SimpleBlockFeatureMixin",
-        "StepSoundMixin",
-        "compat.carpet.MovableAmethystMixin",
-        "datafixer.SimpleDefaultRegistryMixin"
-    ],
-    "client": [
-        "client.ItemColorsMixin"
-    ],
-    "injectors": {
-        "defaultRequire": 1
-    }
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.github.thedeathlycow.moregeodes.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "plugin": "com.github.thedeathlycow.moregeodes.mixin.Plugin",
+  "mixins": [
+    "FoolsGoldBarterPiglinBrainMixin",
+    "PiglinMemoryMixin",
+    "SimpleBlockFeatureMixin",
+    "StepSoundMixin",
+    "compat.carpet.MovableAmethystMixin",
+    "datafixer.SimpleDefaultRegistryMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

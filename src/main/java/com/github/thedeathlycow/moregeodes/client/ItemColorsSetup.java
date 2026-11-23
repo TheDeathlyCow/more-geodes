@@ -1,55 +1,21 @@
 package com.github.thedeathlycow.moregeodes.client;
 
-import com.github.thedeathlycow.moregeodes.item.ModItems;
 import com.github.thedeathlycow.moregeodes.item.TunedCrystalLocatorItem;
 import com.github.thedeathlycow.moregeodes.item.tuning.Tuning;
-import com.github.thedeathlycow.moregeodes.item.tuning.Tunings;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.event.registry.DynamicRegistrySetupCallback;
-import net.minecraft.client.color.item.ItemColors;
-import net.minecraft.item.ItemStack;
-import net.minecraft.registry.DynamicRegistryManager;
-import org.jetbrains.annotations.Nullable;
-
-@Environment(EnvType.CLIENT)
-public class ItemColorsSetup {
-
-    @Nullable
-    private static DynamicRegistryManager registryManager = null;
-
-    public static void onInitialize() {
-        DynamicRegistrySetupCallback.EVENT.register(
-                registryView -> {
-                    if (registryView.getOptional(Tunings.REGISTRY_KEY).isPresent()) {
-                        registryManager = registryView.asDynamicRegistryManager();
-                    }
-                }
-        );
-    }
-
-    public static void registerItemColors(ItemColors itemColors) {
-        itemColors.register(
-                ItemColorsSetup::getColor,
-                ModItems.TUNED_CRYSTAL_LOCATOR
-        );
-    }
-
-    private static int getColor(ItemStack stack, int tintIndex) {
-        if (tintIndex == 0 && registryManager != null) {
-            Tuning tuning = TunedCrystalLocatorItem.getTuning(
-                    registryManager, stack
-            );
-            return tuning != null
-                    ? tuning.getColor()
-                    : Tuning.UNTUNED.getColor();
+import com.mojang.serialization.MapCodec;
+import net.minecraft.client.color.item.*;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+public final class ItemColorsSetup {
+    public static void onInitialize() {ItemTintSources.ID_MAPPER.put(Identifier.fromNamespaceAndPath("geodes","tuning"),TuningTint.CODEC);}
+    public record TuningTint() implements ItemTintSource {
+        public static final MapCodec<TuningTint> CODEC=MapCodec.unit(new TuningTint());
+        @Override public int calculate(ItemStack stack,ClientLevel level,LivingEntity owner) {
+            Tuning tuning=level==null?null:TunedCrystalLocatorItem.getTuning(level.registryAccess(),stack);
+            return 0xff000000 | (tuning==null?Tuning.UNTUNED.getColor():tuning.getColor());
         }
-        return -1;
+        @Override public MapCodec<TuningTint> type() {return CODEC;}
     }
-
-
-    private ItemColorsSetup() {
-
-    }
-
 }

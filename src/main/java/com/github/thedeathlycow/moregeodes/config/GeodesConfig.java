@@ -102,7 +102,7 @@ public final class GeodesConfig {
                 .getConfigDir()
                 .resolve("geodes.properties");
         File file = config.toFile();
-        assert file.isFile();
+        // A missing file is expected on first startup; loadConfig creates it.
         return file;
     }
 

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": "minecraft:echo_shard"
+  },
+  "result": {
+    "id": "geodes:echo_block"
+  }
+}

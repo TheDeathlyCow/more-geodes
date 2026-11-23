@@ -5,20 +5,28 @@ import com.github.thedeathlycow.moregeodes.MoreGeodes;
 import com.github.thedeathlycow.moregeodes.item.ModItems;
 import com.github.thedeathlycow.moregeodes.sounds.CrystalBlockSoundGroup;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BuddingAmethystBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.PushReaction;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
@@ -35,41 +43,41 @@ import java.util.stream.Collectors;
 @SuppressWarnings("deprecation")
 public class GeodeBuddingBlock extends CrystalBlock {
 
-    private static final Direction[] DIRECTIONS = Direction.values();
+    private static final Direction[] UPDATE_SHAPE_ORDER = Direction.values();
 
     private final List<Block> clusters;
 
-    public GeodeBuddingBlock(CrystalBlockSoundGroup hitSoundGroup, AbstractBlock.Settings settings, List<Block> clusters) {
-        super(hitSoundGroup, settings.pistonBehavior(PistonBehavior.DESTROY));
+    public GeodeBuddingBlock(CrystalBlockSoundGroup hitSoundGroup, BlockBehaviour.Properties settings, List<Block> clusters) {
+        super(hitSoundGroup, settings.pushReaction(PushReaction.POPPED));
         this.clusters = clusters;
     }
 
 
     @Override
-    public void afterBreak(
-            World world,
-            PlayerEntity player,
+    public void playerDestroy(
+            ServerLevel world,
+            ServerPlayer player,
             BlockPos pos,
             BlockState state,
             @Nullable BlockEntity blockEntity,
             ItemStack stack
     ) {
-        super.afterBreak(world, player, pos, state, blockEntity, stack);
+        super.playerDestroy(world, player, pos, state, blockEntity, stack);
         if (MoreGeodes.isCarpetLoaded()) {
             if (CarpetSettings.movableAmethyst
-                    && stack.getItem() instanceof PickaxeItem
-                    && EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) > 0
+                    && stack.is(ItemTags.PICKAXES)
+                    && EnchantmentHelper.getItemEnchantmentLevel(world.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.SILK_TOUCH), stack) > 0
             ) {
-                dropStack(world, pos, this.asItem().getDefaultStack());
+                popResource(world, pos, this.asItem().getDefaultInstance());
             }
         }
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
         if (this.shouldGrow(random)) { // modulate the speed of the budding growth
             // the direction we want to try growing in
-            Direction directionToGrow = DIRECTIONS[random.nextInt(DIRECTIONS.length)];
+            Direction directionToGrow = UPDATE_SHAPE_ORDER[random.nextInt(UPDATE_SHAPE_ORDER.length)];
 
             this.growCrystalOnce(world, pos, directionToGrow);
         }
@@ -81,11 +89,11 @@ public class GeodeBuddingBlock extends CrystalBlock {
 
     public List<BlockState> getClusterStates() {
         return this.getClusters().stream()
-                .map((Block::getDefaultState))
+                .map((Block::defaultBlockState))
                 .collect(Collectors.toList());
     }
 
-    protected boolean shouldGrow(Random random) {
+    protected boolean shouldGrow(RandomSource random) {
         return random.nextInt(5) == 0;
     }
 
@@ -96,10 +104,10 @@ public class GeodeBuddingBlock extends CrystalBlock {
      * @param pos             The position of the budding block
      * @param directionToGrow The direction of the crystal to be grown
      */
-    protected void growCrystalOnce(ServerWorld world, BlockPos pos, Direction directionToGrow) {
+    protected void growCrystalOnce(ServerLevel world, BlockPos pos, Direction directionToGrow) {
 
         // the position of the block to try growing in
-        BlockPos positionToGrow = pos.offset(directionToGrow);
+        BlockPos positionToGrow = pos.relative(directionToGrow);
 
         // the current state of the block to try growing in
         BlockState currentStateInGrow = world.getBlockState(positionToGrow);
@@ -109,30 +117,30 @@ public class GeodeBuddingBlock extends CrystalBlock {
 
         // set the next bud state if present
         nextBud.ifPresent((nextGrowth) -> {
-            BlockState nextBudState = nextGrowth.getDefaultState()
-                    .with(CrystalClusterBlock.FACING, directionToGrow)
-                    .with(CrystalClusterBlock.WATERLOGGED, currentStateInGrow.getFluidState().getFluid() == Fluids.WATER);
+            BlockState nextBudState = nextGrowth.defaultBlockState()
+                    .setValue(CrystalClusterBlock.FACING, directionToGrow)
+                    .setValue(CrystalClusterBlock.WATERLOGGED, currentStateInGrow.getFluidState().getType() == Fluids.WATER);
 
             if (nextGrowth instanceof LargeCrystalClusterBlock) {
 
-                Direction facing = nextBudState.get(CrystalClusterBlock.FACING);
-                BlockPos headPos = positionToGrow.offset(facing);
+                Direction facing = nextBudState.getValue(CrystalClusterBlock.FACING);
+                BlockPos headPos = positionToGrow.relative(facing);
                 BlockState headState = world.getBlockState(headPos);
 
                 boolean canGrow = (this.stateCanGrowNewBud(headState) || this.stateCanGrowBud(headState, facing))
-                        && nextBudState.canPlaceAt(world, positionToGrow);
+                        && nextBudState.canSurvive(world, positionToGrow);
 
                 if (canGrow) {
                     LargeCrystalClusterBlock.placeAt(
                             world,
                             nextBudState,
                             positionToGrow,
-                            Block.NOTIFY_ALL
+                            Block.UPDATE_ALL
                     );
                 }
 
             } else {
-                world.setBlockState(positionToGrow, nextBudState, Block.NOTIFY_ALL);
+                world.setBlock(positionToGrow, nextBudState, Block.UPDATE_ALL);
             }
         });
     }
@@ -161,12 +169,12 @@ public class GeodeBuddingBlock extends CrystalBlock {
 
 
     private boolean stateCanGrowBud(BlockState state, Direction direction) {
-        return state.contains(CrystalClusterBlock.FACING)
-                && state.get(CrystalClusterBlock.FACING) == direction
+        return state.hasProperty(CrystalClusterBlock.FACING)
+                && state.getValue(CrystalClusterBlock.FACING) == direction
                 && this.clusters.contains(state.getBlock());
     }
 
     private boolean stateCanGrowNewBud(BlockState state) {
-        return state.isAir() || state.isOf(Blocks.WATER) && state.getFluidState().getLevel() == 8;
+        return state.isAir() || state.is(Blocks.WATER) && state.getFluidState().getAmount() == 8;
     }
 }

@@ -1,10 +1,10 @@
 package com.github.thedeathlycow.moregeodes.sounds;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
-import net.minecraft.registry.Registries;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.Identifier;
-import net.minecraft.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.sounds.SoundEvent;
 
 public class GeodesSoundEvents {
 
@@ -76,11 +76,11 @@ public class GeodesSoundEvents {
     }
 
     private static void register(SoundEvent event) {
-        Registry.register(Registries.SOUND_EVENT, event.getId(), event);
+        Registry.register(BuiltInRegistries.SOUND_EVENT, event.location(), event);
     }
 
     private static SoundEvent of(String name) {
-        return SoundEvent.of(new Identifier(MoreGeodes.MODID, name));
+        return SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(MoreGeodes.MODID, name));
     }
 
 }

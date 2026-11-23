@@ -1,142 +1,78 @@
 plugins {
-	id 'fabric-loom' version '1.0-SNAPSHOT'
-	id 'maven-publish'
+    id 'net.fabricmc.fabric-loom' version '1.17.21'
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
-archivesBaseName = project.archives_base_name
 version = project.mod_version
-group = project.maven_group
+group = 'com.github.thedeathlycow'
+base { archivesName = 'more-geodes-fabric-26.3' }
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
-
-	maven {
-		name "Carpet"
-		url 'https://masa.dy.fi/maven'
-	}
-	maven {
-		name "Modmaven"
-		url 'https://modmaven.dev/'
-		content { // limit maven to AE2
-			includeGroup 'appeng'
-		}
-	}
-	maven {
-		name "Shedaniel"
-		url 'https://maven.shedaniel.me/'
-	}
+    mavenCentral()
+    exclusiveContent {
+        forRepository { maven { url = 'https://api.modrinth.com/maven' } }
+        filter { includeGroup 'maven.modrinth' }
+    }
 }
 
 dependencies {
-	// To change the versions see the gradle.properties file
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-	modCompileOnly "carpet:fabric-carpet:${project.carpet_version}"
-
-	// AE2 integration
-	modCompileOnly ("appeng:appliedenergistics2-fabric:${project.ae2_version}") {
-		exclude group: "mezz.jei", module: "${project.jei_module}"
-		exclude group: "mcp.mobius.waila", module: "${project.waila_module}"
-		exclude group: "me.shedaniel", module: "${project.rei_module}"
-	}
-
-	afterEvaluate {
-		subprojects.each {
-			api project(path: ":${it.name}", configuration: "namedElements")
-
-			if (!(it.name in devOnlyModules)) {
-				include project("${it.name}:")
-			}
-
-			testmodImplementation project("${it.name}:").sourceSets.testmod.output
-		}
-	}
-}
-
-processResources {
-	inputs.property "version", project.version
-
-	filesMatching("fabric.mod.json") {
-		expand "version": project.version
-	}
-}
-
-tasks.withType(JavaCompile).configureEach {
-	// Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
-	it.options.release = 17
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    // Optional at runtime, as in upstream. No Carpet code is bundled.
+    compileOnly 'maven.modrinth:carpet:yt9oDFOj'
+    if (project.hasProperty('withCarpet')) {
+        runtimeOnly 'maven.modrinth:carpet:yt9oDFOj'
+    }
 }
 
 java {
-	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-	// if it is present.
-	// If you remove this line, sources will not be generated.
-	withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+    withSourcesJar()
 }
-
+tasks.withType(JavaCompile).configureEach { options.release = 25 }
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') { expand version: project.version }
+}
 jar {
-	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}"}
-	}
+    from('LICENSE') { rename { 'LICENSE_more-geodes' } }
+    from('COPYING')
 }
 
-// configure the maven publication
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			from components.java
-		}
-	}
-
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
-	}
-}
-
+// Test-only code is compiled and launched explicitly; the release JAR contains
+// only src/main. The integration tests create and modify isolated test worlds.
 sourceSets {
-	testmod {
-		compileClasspath += main.compileClasspath
-		runtimeClasspath += main.runtimeClasspath
-		compileClasspath += main.output
-		runtimeClasspath += main.output
-	}
+    testmod {
+        compileClasspath += sourceSets.main.compileClasspath + sourceSets.main.output
+        runtimeClasspath += sourceSets.main.runtimeClasspath + sourceSets.main.output
+    }
 }
-
-subprojects {
-	dependencies {
-		testmodImplementation sourceSets.main.output
-		testmodImplementation project(path: ':', configuration: 'namedElements')
-	}
-}
-
 loom {
-	runs {
-		testmodClient {
-			client()
-			ideConfigGenerated project.rootProject == project
-			name = "Testmod Client"
-			source sourceSets.testmod
-		}
-		testmodServer {
-			server()
-			ideConfigGenerated project.rootProject == project
-			name = "Testmod Server"
-			source sourceSets.testmod
-		}
-	}
+    mods {
+        geodes { sourceSet sourceSets.main }
+        'geodes-test' { sourceSet sourceSets.testmod }
+    }
+    runs {
+        server { programArg 'nogui' }
+        testmodServer {
+            server()
+            source sourceSets.testmod
+            runDir 'run/test-server'
+        }
+        testmodClient {
+            client()
+            source sourceSets.testmod
+            runDir 'run/test-client'
+            programArgs '--username', 'GeodesQA', '--width', '1280', '--height', '800'
+        }
+    }
+    if (project.hasProperty('keepTestServer')) {
+        runs.testmodServer.property 'geodes.tests.keepOpen', 'true'
+    }
+}
+tasks.register('testmodJar', Jar) {
+    dependsOn tasks.named('testmodClasses')
+    archiveClassifier = 'testmod'
+    from sourceSets.testmod.output
 }

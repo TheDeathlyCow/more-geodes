@@ -1,25 +1,38 @@
 package com.github.thedeathlycow.moregeodes.blocks;
 
 import com.github.thedeathlycow.moregeodes.sounds.CrystalBlockSoundGroup;
-import net.minecraft.block.*;
-import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.EnumProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.ScheduledTickAccess;
+import net.minecraft.util.RandomSource;
+import net.minecraft.core.Direction;
+import net.minecraft.util.Mth;
+import net.minecraft.world.level.*;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.LevelEvent;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 public class LargeCrystalClusterBlock extends CrystalClusterBlock {
 
-    public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
+    public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
     protected final VoxelShape lowerNorthShape;
     protected final VoxelShape lowerSouthShape;
@@ -28,61 +41,61 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
     protected final VoxelShape lowerUpShape;
     protected final VoxelShape lowerDownShape;
 
-    public LargeCrystalClusterBlock(CrystalBlockSoundGroup hitSoundGroup, int height, int xzOffset, Settings settings) {
+    public LargeCrystalClusterBlock(CrystalBlockSoundGroup hitSoundGroup, int height, int xzOffset, Properties settings) {
         super(hitSoundGroup, height, xzOffset, settings);
-        this.setDefaultState(this.getDefaultState().with(HALF, DoubleBlockHalf.LOWER));
+        this.registerDefaultState(this.defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER));
 
         // create lower half size with a height of 16
         height = 16;
-        this.lowerUpShape = Block.createCuboidShape(xzOffset, 0.0, xzOffset, (16 - xzOffset), height, (16 - xzOffset));
-        this.lowerDownShape = Block.createCuboidShape(xzOffset, (16 - height), xzOffset, (16 - xzOffset), 16.0, (16 - xzOffset));
-        this.lowerNorthShape = Block.createCuboidShape(xzOffset, xzOffset, (16 - height), (16 - xzOffset), (16 - xzOffset), 16.0);
-        this.lowerSouthShape = Block.createCuboidShape(xzOffset, xzOffset, 0.0, (16 - xzOffset), (16 - xzOffset), height);
-        this.lowerEastShape = Block.createCuboidShape(0.0, xzOffset, xzOffset, height, (16 - xzOffset), (16 - xzOffset));
-        this.lowerWestShape = Block.createCuboidShape((16 - height), xzOffset, xzOffset, 16.0, (16 - xzOffset), (16 - xzOffset));
+        this.lowerUpShape = Block.box(xzOffset, 0.0, xzOffset, (16 - xzOffset), height, (16 - xzOffset));
+        this.lowerDownShape = Block.box(xzOffset, (16 - height), xzOffset, (16 - xzOffset), 16.0, (16 - xzOffset));
+        this.lowerNorthShape = Block.box(xzOffset, xzOffset, (16 - height), (16 - xzOffset), (16 - xzOffset), 16.0);
+        this.lowerSouthShape = Block.box(xzOffset, xzOffset, 0.0, (16 - xzOffset), (16 - xzOffset), height);
+        this.lowerEastShape = Block.box(0.0, xzOffset, xzOffset, height, (16 - xzOffset), (16 - xzOffset));
+        this.lowerWestShape = Block.box((16 - height), xzOffset, xzOffset, 16.0, (16 - xzOffset), (16 - xzOffset));
     }
 
-    public static void placeAt(WorldAccess world, BlockState state, BlockPos pos, int flags) {
-        BlockPos headPos = pos.offset(state.get(FACING));
-        world.setBlockState(
+    public static void placeAt(LevelAccessor world, BlockState state, BlockPos pos, int flags) {
+        BlockPos headPos = pos.relative(state.getValue(FACING));
+        world.setBlock(
                 pos,
-                TallPlantBlock.withWaterloggedState(world, pos, state.with(HALF, DoubleBlockHalf.LOWER)),
+                DoublePlantBlock.copyWaterloggedFrom(world, pos, state.setValue(HALF, DoubleBlockHalf.LOWER)),
                 flags
         );
-        world.setBlockState(
+        world.setBlock(
                 headPos,
-                TallPlantBlock.withWaterloggedState(world, headPos, state.with(HALF, DoubleBlockHalf.UPPER)),
+                DoublePlantBlock.copyWaterloggedFrom(world, headPos, state.setValue(HALF, DoubleBlockHalf.UPPER)),
                 flags
         );
     }
 
     @Nullable
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
 
-        @Nullable BlockState baseState = super.getPlacementState(ctx);
+        @Nullable BlockState baseState = super.getStateForPlacement(ctx);
         if (baseState == null) {
             return null;
         }
 
-        BlockPos blockPos = ctx.getBlockPos();
-        World world = ctx.getWorld();
+        BlockPos blockPos = ctx.getClickedPos();
+        Level world = ctx.getLevel();
 
-        boolean canPlace = blockPos.getY() < world.getTopY() - 1
-                && world.getBlockState(blockPos.offset(baseState.get(FACING))).canReplace(ctx);
+        boolean canPlace = blockPos.getY() < world.getMaxY() - 1
+                && world.getBlockState(blockPos.relative(baseState.getValue(FACING))).canBeReplaced(ctx);
 
         return canPlace ? baseState : null;
     }
 
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        super.appendProperties(builder);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder);
         builder.add(HALF);
     }
 
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.get(HALF) == DoubleBlockHalf.UPPER) {
-            return super.getOutlineShape(state, world, pos, context);
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
+            return super.getShape(state, world, pos, context);
         } else {
-            return switch (state.get(FACING)) {
+            return switch (state.getValue(FACING)) {
                 case NORTH -> this.lowerNorthShape;
                 case SOUTH -> this.lowerSouthShape;
                 case EAST -> this.lowerEastShape;
@@ -93,82 +106,82 @@ public class LargeCrystalClusterBlock extends CrystalClusterBlock {
         }
     }
 
-    public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
-        BlockPos headPos = pos.offset(state.get(CrystalClusterBlock.FACING));
-        world.setBlockState(
+    public void setPlacedBy(Level world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
+        BlockPos headPos = pos.relative(state.getValue(CrystalClusterBlock.FACING));
+        world.setBlock(
                 headPos,
-                TallPlantBlock.withWaterloggedState(world, headPos, state.with(HALF, DoubleBlockHalf.UPPER)),
-                Block.NOTIFY_ALL
+                DoublePlantBlock.copyWaterloggedFrom(world, headPos, state.setValue(HALF, DoubleBlockHalf.UPPER)),
+                Block.UPDATE_ALL
         );
     }
 
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return switch (state.get(HALF)) {
-            case LOWER -> super.canPlaceAt(state, world, pos);
+    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
+        return switch (state.getValue(HALF)) {
+            case LOWER -> super.canSurvive(state, world, pos);
             case UPPER -> this.canPlaceUpper(state, world, pos);
         };
     }
 
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction dirToNeighbour, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        DoubleBlockHalf half = state.get(HALF);
+    public BlockState updateShape(BlockState state, LevelReader world, ScheduledTickAccess ticks, BlockPos pos, Direction dirToNeighbour, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
+        DoubleBlockHalf half = state.getValue(HALF);
 
         boolean shouldBreakBlock = half == DoubleBlockHalf.LOWER
-                && dirToNeighbour == state.get(FACING)
-                && (!neighborState.isOf(this) || neighborState.get(HALF) == half);
+                && dirToNeighbour == state.getValue(FACING)
+                && (!neighborState.is(this) || neighborState.getValue(HALF) == half);
 
         if (shouldBreakBlock) {
-            return Blocks.AIR.getDefaultState();
+            return Blocks.AIR.defaultBlockState();
         } else {
-            return super.getStateForNeighborUpdate(state, dirToNeighbour, neighborState, world, pos, neighborPos);
+            return super.updateShape(state, world, ticks, pos, dirToNeighbour, neighborPos, neighborState, random);
         }
     }
 
-    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (!world.isClient) {
+    public BlockState playerWillDestroy(Level world, BlockPos pos, BlockState state, Player player) {
+        if (!world.isClientSide()) {
 
             if (!player.isCreative()) {
-                Block.dropStacks(state, world, pos, null, player, player.getMainHandStack());
+                Block.dropResources(state, world, pos, null, player, player.getMainHandItem());
             }
 
-            if (state.get(HALF) == DoubleBlockHalf.UPPER) {
+            if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
                 // when upper half is broken
-                BlockPos anchorPos = pos.offset(state.get(FACING).getOpposite());
+                BlockPos anchorPos = pos.relative(state.getValue(FACING).getOpposite());
                 BlockState anchorState = world.getBlockState(anchorPos);
 
-                if (anchorState.isOf(this) && anchorState.get(HALF) == DoubleBlockHalf.LOWER) {
+                if (anchorState.is(this) && anchorState.getValue(HALF) == DoubleBlockHalf.LOWER) {
 
-                    world.setBlockState(
+                    world.setBlock(
                             anchorPos,
-                            Blocks.AIR.getDefaultState(),
-                            Block.SKIP_DROPS | Block.NOTIFY_ALL
+                            Blocks.AIR.defaultBlockState(),
+                            Block.UPDATE_SUPPRESS_DROPS | Block.UPDATE_ALL
                     );
 
-                    world.syncWorldEvent(
+                    world.levelEvent(
                             player,
-                            WorldEvents.BLOCK_BROKEN,
+                            LevelEvent.PARTICLES_DESTROY_BLOCK,
                             anchorPos,
-                            Block.getRawIdFromState(anchorState)
+                            Block.getId(anchorState)
                     );
                 }
             }
         }
-        super.onBreak(world, pos, state, player);
+        return super.playerWillDestroy(world, pos, state, player);
     }
 
     @SuppressWarnings("deprecation")
-    public long getRenderingSeed(BlockState state, BlockPos pos) {
-        return MathHelper.hashCode(
+    public long getSeed(BlockState state, BlockPos pos) {
+        return Mth.getSeed(
                 pos.getX(),
-                pos.down(state.get(HALF) == DoubleBlockHalf.LOWER ? 0 : 1).getY(),
+                pos.below(state.getValue(HALF) == DoubleBlockHalf.LOWER ? 0 : 1).getY(),
                 pos.getZ()
         );
     }
 
-    private boolean canPlaceUpper(BlockState state, WorldView world, BlockPos pos) {
-        Direction direction = state.get(FACING);
-        BlockPos anchorPos = pos.offset(direction.getOpposite());
+    private boolean canPlaceUpper(BlockState state, LevelReader world, BlockPos pos) {
+        Direction direction = state.getValue(FACING);
+        BlockPos anchorPos = pos.relative(direction.getOpposite());
         BlockState anchorState = world.getBlockState(anchorPos);
         return anchorState.getBlock() instanceof LargeCrystalClusterBlock // allow anchor to not always be strictly 'this' for budding growth
-                && anchorState.get(HALF) == DoubleBlockHalf.LOWER;
+                && anchorState.getValue(HALF) == DoubleBlockHalf.LOWER;
     }
 }

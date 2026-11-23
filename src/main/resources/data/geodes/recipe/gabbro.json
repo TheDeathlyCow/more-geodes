@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:diorite",
+    [
+      "minecraft:basalt",
+      "minecraft:smooth_basalt"
+    ]
+  ],
+  "result": {
+    "count": 2,
+    "id": "geodes:gabbro"
+  }
+}

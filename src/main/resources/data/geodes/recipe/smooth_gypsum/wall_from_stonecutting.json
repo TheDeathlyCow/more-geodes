@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "geodes:smooth_gypsum_block",
+  "result": {
+    "id": "geodes:smooth_gypsum_wall",
+    "count": 1
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "geodes:item/echo_crystal_echo_locator"
+  }
+}

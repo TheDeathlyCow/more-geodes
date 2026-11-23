@@ -1,73 +1,43 @@
 package com.github.thedeathlycow.moregeodes.item;
 
-import com.github.thedeathlycow.moregeodes.item.tuning.Tuning;
-import com.github.thedeathlycow.moregeodes.item.tuning.Tunings;
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.DynamicRegistryManager;
-import net.minecraft.registry.Registry;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import com.github.thedeathlycow.moregeodes.item.tuning.*;
+import java.util.function.Consumer;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
-
 public class TunedCrystalLocatorItem extends CrystalLocatorItem {
-
-    public static final String TUNING_NBT_KEY = "tuning";
-
-    public static final String TUNING_ID_NBT_KEY = "id";
-
-    public TunedCrystalLocatorItem(Settings settings, int range, int coolDown) {
-        super(settings, range, coolDown);
+    public static final String TUNING_NBT_KEY="tuning", TUNING_ID_NBT_KEY="id";
+    public TunedCrystalLocatorItem(Properties properties,int range,int cooldown) { super(properties,range,cooldown); }
+    /** Vanilla upgrades unknown pre-component item tags into custom_data. */
+    public static @Nullable Identifier tuningId(ItemStack stack) {
+        Identifier id=stack.get(ModComponents.TUNING);
+        if(id!=null) return id;
+        CustomData legacy=stack.get(DataComponents.CUSTOM_DATA);
+        if(legacy==null) return null;
+        CompoundTag tuning=legacy.copyTag().getCompoundOrEmpty(TUNING_NBT_KEY);
+        return Identifier.tryParse(tuning.getStringOr(TUNING_ID_NBT_KEY,""));
     }
-
-    @Override
-    public boolean isTuned(ItemStack stack, @Nullable World world) {
-        return world != null && getTuning(world.getRegistryManager(), stack) != null;
+    public static @Nullable Tuning getTuning(HolderLookup.Provider registries, ItemStack stack) {
+        Identifier id=tuningId(stack);
+        if(id==null) return null;
+        return registries.lookup(Tunings.REGISTRY_KEY).flatMap(r -> r.get(net.minecraft.resources.ResourceKey.create(Tunings.REGISTRY_KEY,id))).map(net.minecraft.core.Holder::value).orElse(null);
     }
-
-    @Override
-    protected boolean isPingableCrystal(ItemStack locatorStack, ServerWorld world, BlockPos pos) {
-        Tuning tuning = getTuning(world.getRegistryManager(), locatorStack);
-        if (tuning == null) {
-            return super.isPingableCrystal(locatorStack, world, pos);
-        }
-        return tuning.test(world, pos);
+    @Override public boolean isTuned(ItemStack stack,@Nullable Level level) { return level!=null && getTuning(level.registryAccess(),stack)!=null; }
+    @Override protected boolean isPingableCrystal(ItemStack stack,ServerLevel level,BlockPos pos) {
+        Tuning tuning=getTuning(level.registryAccess(),stack);
+        return tuning!=null && tuning.test(level,pos);
     }
-
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-
-        Tuning tuning = null;
-        if (world != null) {
-            tuning = getTuning(world.getRegistryManager(), stack);
-        }
-
-        if (tuning != null) {
-            tooltip.add(tuning.getDescription());
-        }
-
-        super.appendTooltip(stack, world, tooltip, context);
-    }
-
-    @Nullable
-    public static Tuning getTuning(DynamicRegistryManager registryManager, ItemStack stack) {
-
-        Registry<Tuning> tuningRegistry = registryManager.get(Tunings.REGISTRY_KEY);
-        if (tuningRegistry == null) {
-            return null;
-        }
-
-        NbtCompound nbt = stack.getSubNbt(TUNING_NBT_KEY);
-        if (nbt == null) {
-            return null;
-        }
-
-        return tuningRegistry.get(new Identifier(nbt.getString(TUNING_ID_NBT_KEY)));
+    @Override public void appendHoverText(ItemStack stack,TooltipContext context,TooltipDisplay display,Consumer<Component> output,TooltipFlag flag) {
+        Tuning tuning=getTuning(context.registries(),stack);
+        output.accept(tuning!=null?tuning.getDescription():Tuning.UNTUNED.getDescription());
     }
 }

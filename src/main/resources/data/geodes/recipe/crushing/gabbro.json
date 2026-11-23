@@ -1,0 +1,21 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    "geodes:gabbro"
+  ],
+  "processingTime": 350,
+  "results": [
+    {
+      "chance": 0.25,
+      "item": "minecraft:quartz"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ]
+}

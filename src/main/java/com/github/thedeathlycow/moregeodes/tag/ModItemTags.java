@@ -1,17 +1,17 @@
 package com.github.thedeathlycow.moregeodes.tag;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
-import net.minecraft.item.Item;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 
 public class ModItemTags {
 
     public static final TagKey<Item> FOOLS_GOLD = create("fools_gold");
 
     private static TagKey<Item> create(String id) {
-        return TagKey.of(RegistryKeys.ITEM, new Identifier(MoreGeodes.MODID, id));
+        return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, id));
     }
 
 }

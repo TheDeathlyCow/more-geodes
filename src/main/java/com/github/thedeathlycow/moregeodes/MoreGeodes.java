@@ -27,6 +27,7 @@ public class MoreGeodes implements ModInitializer {
     public void onInitialize() {
         LOGGER.info("Beginning More Geodes initialization");
         CONFIG.loadConfig();
+        com.github.thedeathlycow.moregeodes.item.ModComponents.register();
 
         ModBlocks.registerBlocks();
         ModItems.registerItems();

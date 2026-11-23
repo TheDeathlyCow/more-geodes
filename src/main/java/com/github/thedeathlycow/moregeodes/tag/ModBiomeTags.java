@@ -1,10 +1,10 @@
 package com.github.thedeathlycow.moregeodes.tag;
 
 import com.github.thedeathlycow.moregeodes.MoreGeodes;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.Identifier;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.biome.Biome;
 
 public class ModBiomeTags {
 
@@ -22,7 +22,7 @@ public class ModBiomeTags {
 
 
     private static TagKey<Biome> of(String id) {
-        return TagKey.of(RegistryKeys.BIOME, new Identifier(MoreGeodes.MODID, id));
+        return TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MoreGeodes.MODID, id));
     }
 
 }

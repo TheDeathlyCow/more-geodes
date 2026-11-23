@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": "geodes:smooth_gypsum_block"
+  },
+  "result": {
+    "count": 6,
+    "id": "geodes:smooth_gypsum_wall"
+  }
+}

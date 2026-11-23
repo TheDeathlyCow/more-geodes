@@ -2,15 +2,6 @@ package com.github.thedeathlycow.moregeodes.mixin;
 
 import com.github.thedeathlycow.moregeodes.entity.GeodesMemoryModules;
 import com.github.thedeathlycow.moregeodes.tag.ModItemTags;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.brain.Brain;
-import net.minecraft.entity.ai.brain.MemoryModuleType;
-import net.minecraft.entity.mob.AbstractPiglinEntity;
-import net.minecraft.entity.mob.PiglinBrain;
-import net.minecraft.entity.mob.PiglinEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,70 +10,79 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.Brain;
+import net.minecraft.world.entity.ai.memory.MemoryModuleType;
+import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
+import net.minecraft.world.entity.monster.piglin.Piglin;
+import net.minecraft.world.entity.monster.piglin.PiglinAi;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 
-@Mixin(PiglinBrain.class)
+@Mixin(PiglinAi.class)
 public abstract class FoolsGoldBarterPiglinBrainMixin {
 
 
     @Shadow
-    protected static void becomeAngryWith(AbstractPiglinEntity piglin, LivingEntity target) {
+    protected static void setAngerTarget(net.minecraft.server.level.ServerLevel level, AbstractPiglin piglin, LivingEntity target) {
     }
 
     @Shadow
-    protected static void angerAtCloserTargets(AbstractPiglinEntity piglin, LivingEntity target) {
+    protected static void broadcastAngerTarget(net.minecraft.server.level.ServerLevel level, AbstractPiglin piglin, LivingEntity target) {
     }
 
     @Inject(
-            method = "canGather",
+            method = "wantsToPickup",
             at = @At("HEAD"),
             cancellable = true
     )
     private static void piglinsRememberFoolsGold(
-            PiglinEntity piglin, ItemStack stack,
+            Piglin piglin, ItemStack stack,
             CallbackInfoReturnable<Boolean> cir
     ) {
-        Brain<PiglinEntity> brain = piglin.getBrain();
-        Optional<Boolean> memory = brain.getOptionalMemory(GeodesMemoryModules.REMEMBERS_FOOLS_GOLD);
+        Brain<Piglin> brain = piglin.getBrain();
+        Optional<Boolean> memory = brain.getMemoryInternal(GeodesMemoryModules.REMEMBERS_FOOLS_GOLD);
 
-        boolean remembersFoolsGold = brain.hasMemoryModule(GeodesMemoryModules.REMEMBERS_FOOLS_GOLD)
+        boolean remembersFoolsGold = brain.hasMemoryValue(GeodesMemoryModules.REMEMBERS_FOOLS_GOLD)
                 && memory != null // NOSONAR - why tf is there a nullable optional
                 && memory.isPresent()
                 && memory.get();
 
-        if (remembersFoolsGold && stack.isIn(ModItemTags.FOOLS_GOLD)) {
+        if (remembersFoolsGold && stack.is(ModItemTags.FOOLS_GOLD)) {
             cir.setReturnValue(false);
         }
     }
 
     @Inject(
-            method = "consumeOffHandItem",
+            method = "stopHoldingOffHandItem",
             at = @At("HEAD"),
             cancellable = true
     )
-    private static void angerPiglinWhenBarterWithFoolsGold(PiglinEntity piglin, boolean barter, CallbackInfo ci) {
+    private static void angerPiglinWhenBarterWithFoolsGold(net.minecraft.server.level.ServerLevel level, Piglin piglin, boolean barter, CallbackInfo ci) {
         if (!barter) {
             return;
         }
 
-        ItemStack stack = piglin.getStackInHand(Hand.OFF_HAND);
-        if (stack.isIn(ModItemTags.FOOLS_GOLD)) {
-            angerAtNearbyPlayers(piglin);
-            piglin.getBrain().remember(GeodesMemoryModules.REMEMBERS_FOOLS_GOLD, true);
+        ItemStack stack = piglin.getItemInHand(InteractionHand.OFF_HAND);
+        if (stack.is(ModItemTags.FOOLS_GOLD)) {
+            angerAtNearbyPlayers(level, piglin);
+            piglin.getBrain().setMemory(GeodesMemoryModules.REMEMBERS_FOOLS_GOLD, true);
             stack.setCount(0);
-            piglin.swingHand(Hand.OFF_HAND);
+            piglin.swing(InteractionHand.OFF_HAND, net.minecraft.world.item.component.SwingAnimation.DEFAULT);
             ci.cancel();
         }
     }
 
-    private static void angerAtNearbyPlayers(PiglinEntity piglin) {
-        Brain<PiglinEntity> brain = piglin.getBrain();
-        Optional<PlayerEntity> rememberedPlayer = brain
-                .getOptionalMemory(MemoryModuleType.NEAREST_VISIBLE_PLAYER);
+    private static void angerAtNearbyPlayers(net.minecraft.server.level.ServerLevel level, Piglin piglin) {
+        Brain<Piglin> brain = piglin.getBrain();
+        Optional<Player> rememberedPlayer = brain
+                .getMemoryInternal(MemoryModuleType.NEAREST_VISIBLE_PLAYER);
 
         rememberedPlayer.ifPresent(
                 player -> {
-                    becomeAngryWith(piglin, player);
-                    angerAtCloserTargets(piglin, player);
+                    setAngerTarget(level, piglin, player);
+                    broadcastAngerTarget(level, piglin, player);
                 }
         );
     }
