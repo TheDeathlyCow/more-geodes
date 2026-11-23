@@ -2,4 +2,6 @@
 * text=auto eol=lf
 *.bat text eol=crlf
 src/main/resources/** -text
+LICENSE -text
+COPYING -text
 *.jar -text
