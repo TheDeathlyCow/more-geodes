@@ -51,6 +51,7 @@ public final class PortClientTests implements ClientModInitializer {
                     int color=new ItemColorsSetup.TuningTint().calculate(stack,mc.level,mc.player);
                     if(color!=(0xff000000|tuning.getColor())) throw new AssertionError("Wrong client tuning tint");
                     Files.writeString(Path.of("client-test-results.txt"),"PASS: joined Fabric 26.3 dedicated server; resolved "+count+" item models; synchronized tuning registry; emerald tint="+Integer.toHexString(color)+"\n");
+                    Files.writeString(Path.of("client-test-results.txt"), LocatorRenderTests.run(mc), StandardOpenOption.APPEND);
                     mc.gui.setScreen(null);System.out.println("GEODES_CLIENT_MODELS_PASS "+count);
                 }
                 if(connectedTicks==100) {saved=false;screenshot(mc,"geodes-content.png");}

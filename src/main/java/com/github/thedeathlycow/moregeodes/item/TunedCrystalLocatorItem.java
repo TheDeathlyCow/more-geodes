@@ -2,6 +2,7 @@ package com.github.thedeathlycow.moregeodes.item;
 
 import com.github.thedeathlycow.moregeodes.item.tuning.*;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
@@ -35,6 +36,12 @@ public class TunedCrystalLocatorItem extends CrystalLocatorItem {
     @Override protected boolean isPingableCrystal(ItemStack stack,ServerLevel level,BlockPos pos) {
         Tuning tuning=getTuning(level.registryAccess(),stack);
         return tuning!=null && tuning.test(level,pos);
+    }
+    @Override protected @Nullable Predicate<BlockPos> prepareMatcher(ItemStack stack, ServerLevel level) {
+        // An addon may override the older per-position hook. Do not bypass it.
+        if (getClass() != TunedCrystalLocatorItem.class) return super.prepareMatcher(stack, level);
+        Tuning tuning = getTuning(level.registryAccess(), stack);
+        return tuning == null ? null : tuning.prepareMatcher(level);
     }
     @Override public void appendHoverText(ItemStack stack,TooltipContext context,TooltipDisplay display,Consumer<Component> output,TooltipFlag flag) {
         Tuning tuning=getTuning(context.registries(),stack);

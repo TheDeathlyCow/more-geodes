@@ -1,0 +1,155 @@
+{
+  "minecraft": "26.3",
+  "failures": 0,
+  "carpet": true,
+  "tests": [
+    {
+      "test": "original block and item registry inventory",
+      "passed": true,
+      "milliseconds": 4
+    },
+    {
+      "test": "every original loot table, recipe and advancement loads",
+      "passed": true,
+      "milliseconds": 0
+    },
+    {
+      "test": "biome injection and generation configuration",
+      "passed": true,
+      "milliseconds": 3
+    },
+    {
+      "test": "all block states survive codec round trips",
+      "passed": true,
+      "milliseconds": 85
+    },
+    {
+      "test": "saved blocks and inventories survive server restart",
+      "passed": true,
+      "milliseconds": 599
+    },
+    {
+      "test": "all seven core tuning recipes craft and synchronize",
+      "passed": true,
+      "milliseconds": 37
+    },
+    {
+      "test": "1.20.1 locator item upgrades through vanilla DataFixer",
+      "passed": true,
+      "milliseconds": 1442
+    },
+    {
+      "test": "crystals grow through all original stages",
+      "passed": true,
+      "milliseconds": 255
+    },
+    {
+      "test": "gypsum grows upward and places two block halves",
+      "passed": true,
+      "milliseconds": 43
+    },
+    {
+      "test": "gypsum vegetation patch generates its ground and crystals",
+      "passed": true,
+      "milliseconds": 244
+    },
+    {
+      "test": "all quartz oscillator stages toggle and stop",
+      "passed": true,
+      "milliseconds": 35
+    },
+    {
+      "test": "Silk Touch, Fortune, slabs and gypsum drops",
+      "passed": true,
+      "milliseconds": 30
+    },
+    {
+      "test": "piglins remember and reject fools gold",
+      "passed": true,
+      "milliseconds": 140
+    },
+    {
+      "test": "locator predicate, wave delay and entity lifetime",
+      "passed": true,
+      "milliseconds": 171
+    },
+    {
+      "test": "locator visits exactly the V1 positions in the same order",
+      "passed": true,
+      "milliseconds": 206
+    },
+    {
+      "test": "prepared predicates preserve built-in and custom tuning semantics",
+      "passed": true,
+      "milliseconds": 58
+    },
+    {
+      "test": "all tuning activations preserve display states, order and delays",
+      "passed": true,
+      "milliseconds": 154
+    },
+    {
+      "test": "display countdown stays local and survives save/reload",
+      "passed": true,
+      "milliseconds": 3
+    },
+    {
+      "test": "gypsum composting preserves one guaranteed layer",
+      "passed": true,
+      "milliseconds": 0
+    },
+    {
+      "test": "optional Carpet piston behavior",
+      "passed": true,
+      "milliseconds": 71
+    },
+    {
+      "test": "vanilla geode algorithm places every core variant",
+      "passed": true,
+      "milliseconds": 2685
+    },
+    {
+      "test": "new Overworld and Nether chunks naturally contain geodes",
+      "passed": true,
+      "milliseconds": 20999
+    }
+  ],
+  "metrics": {
+    "registered_blocks": 50,
+    "registered_items": 56,
+    "generation_enabled": true,
+    "block_states_round_tripped": 1983,
+    "save_fixture_phase": "verified after restart",
+    "gypsum_patch_fixture_ground": 414,
+    "gypsum_patch_fixture_crystals": 159,
+    "locator_activation_ms": 36.3697,
+    "emerald_fixture_crystal_blocks": 652,
+    "quartz_fixture_crystal_blocks": 709,
+    "diamond_fixture_crystal_blocks": 776,
+    "echo_fixture_crystal_blocks": 581,
+    "lapis_fixture_crystal_blocks": 564,
+    "overworld_natural_blocks": {
+      "geodes:budding_lapis": 367,
+      "geodes:diamond_cluster": 5,
+      "geodes:diamond_crystal_block": 256,
+      "geodes:lapis_cluster": 13,
+      "geodes:lapis_crystal_block": 4373,
+      "geodes:large_lapis_bud": 14,
+      "geodes:medium_lapis_bud": 18,
+      "geodes:pyrite": 5311,
+      "geodes:small_lapis_bud": 15
+    },
+    "overworld_sample_chunks": 512,
+    "overworld_sample_chunks_ms": 14998,
+    "the_nether_natural_blocks": {
+      "geodes:budding_quartz": 374,
+      "geodes:large_quartz_bud": 15,
+      "geodes:medium_quartz_bud": 19,
+      "geodes:quartz_cluster": 18,
+      "geodes:quartz_crystal_block": 3926,
+      "geodes:small_quartz_bud": 16
+    },
+    "the_nether_sample_chunks": 256,
+    "the_nether_sample_chunks_ms": 6000
+  }
+}

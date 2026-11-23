@@ -1,0 +1,117 @@
+{
+  "minecraft": "26.3",
+  "failures": 0,
+  "carpet": false,
+  "tests": [
+    {
+      "test": "original block and item registry inventory",
+      "passed": true,
+      "milliseconds": 5
+    },
+    {
+      "test": "every original loot table, recipe and advancement loads",
+      "passed": true,
+      "milliseconds": 1
+    },
+    {
+      "test": "biome injection and generation configuration",
+      "passed": true,
+      "milliseconds": 2
+    },
+    {
+      "test": "all block states survive codec round trips",
+      "passed": true,
+      "milliseconds": 93
+    },
+    {
+      "test": "saved blocks and inventories survive server restart",
+      "passed": true,
+      "milliseconds": 822
+    },
+    {
+      "test": "all seven core tuning recipes craft and synchronize",
+      "passed": true,
+      "milliseconds": 46
+    },
+    {
+      "test": "1.20.1 locator item upgrades through vanilla DataFixer",
+      "passed": true,
+      "milliseconds": 1116
+    },
+    {
+      "test": "crystals grow through all original stages",
+      "passed": true,
+      "milliseconds": 201
+    },
+    {
+      "test": "gypsum grows upward and places two block halves",
+      "passed": true,
+      "milliseconds": 39
+    },
+    {
+      "test": "gypsum vegetation patch generates its ground and crystals",
+      "passed": true,
+      "milliseconds": 212
+    },
+    {
+      "test": "all quartz oscillator stages toggle and stop",
+      "passed": true,
+      "milliseconds": 35
+    },
+    {
+      "test": "Silk Touch, Fortune, slabs and gypsum drops",
+      "passed": true,
+      "milliseconds": 28
+    },
+    {
+      "test": "piglins remember and reject fools gold",
+      "passed": true,
+      "milliseconds": 129
+    },
+    {
+      "test": "locator predicate, wave delay and entity lifetime",
+      "passed": true,
+      "milliseconds": 155
+    },
+    {
+      "test": "locator visits exactly the V1 positions in the same order",
+      "passed": true,
+      "milliseconds": 175
+    },
+    {
+      "test": "prepared predicates preserve built-in and custom tuning semantics",
+      "passed": true,
+      "milliseconds": 58
+    },
+    {
+      "test": "all tuning activations preserve display states, order and delays",
+      "passed": true,
+      "milliseconds": 144
+    },
+    {
+      "test": "display countdown stays local and survives save/reload",
+      "passed": true,
+      "milliseconds": 2
+    },
+    {
+      "test": "gypsum composting preserves one guaranteed layer",
+      "passed": true,
+      "milliseconds": 0
+    },
+    {
+      "test": "optional Carpet piston behavior",
+      "passed": true,
+      "milliseconds": 0
+    }
+  ],
+  "metrics": {
+    "registered_blocks": 50,
+    "registered_items": 56,
+    "generation_enabled": false,
+    "block_states_round_tripped": 1983,
+    "save_fixture_phase": "verified after restart",
+    "gypsum_patch_fixture_ground": 414,
+    "gypsum_patch_fixture_crystals": 159,
+    "locator_activation_ms": 30.2729
+  }
+}

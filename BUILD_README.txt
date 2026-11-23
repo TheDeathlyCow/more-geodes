@@ -1,10 +1,10 @@
-More Geodes 1.9.3 - unofficial Fabric 26.3 compatibility port, portV1
+More Geodes 1.9.3 - unofficial Fabric 26.3 compatibility port, portV2
 =================================================================
 
 INSTALL
 -------
 The compiled, installable mod is:
-  build/libs/more-geodes-fabric-26.3-1.9.3-portV1.jar
+  build/libs/more-geodes-fabric-26.3-1.9.3-portV2.jar
 
 Use Minecraft Java Edition 26.3, Fabric Loader 0.19.5 or newer,
 Fabric API 0.164.0+26.3, and Java 25 or newer. Testing used Java 26.0.2.1.
@@ -63,4 +63,5 @@ Commit: c0e1246b7366857351238244d59a0b8a7710b0a0
 This archive includes the complete modified source and required build files.
 The mod remains LGPL-3.0-only. LICENSE contains LGPLv3; COPYING contains GPLv3.
 This compatibility port is not an official upstream More Geodes release.
-See CHANGES_PORTV1.txt, TEST_REPORT.txt, and TESTING.md for details.
+See CHANGES_PORTV2.txt for this update; CHANGES_PORTV1.txt records the initial
+compatibility port. TEST_REPORT.txt and TESTING.md describe validation.

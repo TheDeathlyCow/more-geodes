@@ -7,6 +7,7 @@
   "entrypoints": {
     "main": [
       "com.github.thedeathlycow.moregeodes.testmod.PortRuntimeTests",
+      "com.github.thedeathlycow.moregeodes.testmod.LocatorBenchmarks",
       "com.github.thedeathlycow.moregeodes.testmod.ClientFixture",
       "com.github.thedeathlycow.moregeodes.testmod.ScheduledClockTests"
     ],

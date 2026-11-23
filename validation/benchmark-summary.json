@@ -1,0 +1,129 @@
+{
+  "runs": [
+    "bench-v1-a",
+    "bench-v2-a",
+    "bench-v2-b",
+    "bench-v1-b"
+  ],
+  "activation_cases": [
+    {
+      "case": "untuned",
+      "matched_blocks": 0,
+      "v1": {
+        "pooled_median_ms": 2.5178,
+        "per_run_median_ms": [
+          2.2904,
+          2.6337
+        ],
+        "pooled_median_thread_allocated_bytes": 120.0
+      },
+      "v2": {
+        "pooled_median_ms": 0.0005,
+        "per_run_median_ms": [
+          0.0005,
+          0.0004
+        ],
+        "pooled_median_thread_allocated_bytes": 0.0
+      },
+      "time_reduction_percent": 99.98014139327984
+    },
+    {
+      "case": "tuned_empty",
+      "matched_blocks": 0,
+      "v1": {
+        "pooled_median_ms": 15.6245,
+        "per_run_median_ms": [
+          15.3834,
+          16.07045
+        ],
+        "pooled_median_thread_allocated_bytes": 3642576.0
+      },
+      "v2": {
+        "pooled_median_ms": 3.868,
+        "per_run_median_ms": [
+          3.4203,
+          4.10575
+        ],
+        "pooled_median_thread_allocated_bytes": 56216.0
+      },
+      "time_reduction_percent": 75.24400780824988
+    },
+    {
+      "case": "tuned_sparse",
+      "matched_blocks": 1,
+      "v1": {
+        "pooled_median_ms": 16.44965,
+        "per_run_median_ms": [
+          16.36585,
+          16.48375
+        ],
+        "pooled_median_thread_allocated_bytes": 5783112.0
+      },
+      "v2": {
+        "pooled_median_ms": 4.2806,
+        "per_run_median_ms": [
+          3.7112,
+          4.46875
+        ],
+        "pooled_median_thread_allocated_bytes": 61696.0
+      },
+      "time_reduction_percent": 73.97756183262258
+    },
+    {
+      "case": "tuned_dense_128",
+      "matched_blocks": 128,
+      "v1": {
+        "pooled_median_ms": 17.52025,
+        "per_run_median_ms": [
+          17.55165,
+          17.41715
+        ],
+        "pooled_median_thread_allocated_bytes": 6457120.0
+      },
+      "v2": {
+        "pooled_median_ms": 5.3346,
+        "per_run_median_ms": [
+          4.90035,
+          5.5523
+        ],
+        "pooled_median_thread_allocated_bytes": 730624.0
+      },
+      "time_reduction_percent": 69.55180434069148
+    },
+    {
+      "case": "echo_dense",
+      "matched_blocks": 32,
+      "v1": {
+        "pooled_median_ms": 0.2267,
+        "per_run_median_ms": [
+          0.2638,
+          0.2042
+        ],
+        "pooled_median_thread_allocated_bytes": 167824.0
+      },
+      "v2": {
+        "pooled_median_ms": 0.2572,
+        "per_run_median_ms": [
+          0.24505,
+          0.28655
+        ],
+        "pooled_median_thread_allocated_bytes": 166424.0
+      },
+      "time_reduction_percent": -13.45390383767091
+    }
+  ],
+  "metadata_v1": {
+    "display_count": 100,
+    "ticks_per_display": 42,
+    "dirty_metadata_batches": 4200,
+    "encoded_metadata_body_bytes": 21600,
+    "scope": "Actual dirty tracker data encoded with the vanilla packet codec; excludes spawn/removal, framing, compression and transport"
+  },
+  "metadata_v2": {
+    "display_count": 100,
+    "ticks_per_display": 42,
+    "dirty_metadata_batches": 100,
+    "encoded_metadata_body_bytes": 500,
+    "scope": "Actual dirty tracker data encoded with the vanilla packet codec; excludes spawn/removal, framing, compression and transport"
+  }
+}

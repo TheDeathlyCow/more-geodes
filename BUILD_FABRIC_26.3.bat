@@ -13,10 +13,10 @@ echo Building More Geodes for Minecraft 26.3 with:
 "%JAVA_HOME%\bin\java.exe" -version
 call "%~dp0gradlew.bat" --no-daemon clean build
 if errorlevel 1 goto fail
-if not exist "%~dp0build\libs\more-geodes-fabric-26.3-1.9.3-portV1.jar" goto fail
+if not exist "%~dp0build\libs\more-geodes-fabric-26.3-1.9.3-portV2.jar" goto fail
 echo.
 echo BUILD SUCCESSFUL
-echo Install build\libs\more-geodes-fabric-26.3-1.9.3-portV1.jar
+echo Install build\libs\more-geodes-fabric-26.3-1.9.3-portV2.jar
 echo See BUILD_README.txt for Fabric API requirements and installation.
 pause
 exit /b 0

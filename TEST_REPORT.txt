@@ -1,168 +1,146 @@
-MORE GEODES - FABRIC 26.3 PORTV1 VALIDATION
-Validation date: 2026-10-19
-========================================
+MORE GEODES FABRIC 26.3 - PORTV2 VALIDATION
+2026-10-20
+=========================================
 
 RESULT
 ------
-The compiled port was built successfully and exercised in real Minecraft 26.3
-dedicated-server and graphical-client processes. The release JAR was also
-installed independently of Gradle/Loom, with test code in a separate JAR.
-Finally, a dedicated server started successfully with only More Geodes and
-Fabric API in its mods directory (no test mod and no Carpet).
+V2 reduces tuned-locator activation work, skips model extraction for invisible
+pending displays, and removes redundant countdown metadata. V1 and the original
+references remain intact. No geode, resource, recipe, loot or balancing changes.
+The six changed production classes are described in CHANGES_PORTV2.txt.
 
-This is an unofficial source-level port of upstream More Geodes 1.9.3:
-https://github.com/TheDeathlyCow/more-geodes/tree/1.9.3
-Commit c0e1246b7366857351238244d59a0b8a7710b0a0.
-References were inspected and left unchanged.
+ENVIRONMENT AND ARTIFACT
+------------------------
+Minecraft 26.3; Loader 0.19.5; Fabric API 0.164.0+26.3; Loom 1.17.21.
+Gradle 9.7.1 (checksum pinned); JDK 26.0.2.1; Windows 11; release-25 bytecode.
+Optional Carpet 26.3 (Modrinth yt9oDFOj). Minimum Java 25 was not separately run.
+Graphical clients: Sodium 0.9.2+mc26.3, Vulkan 1.4.341 / NVIDIA 610.71, 1280x800.
 
-EXACT BUILD AND TEST ENVIRONMENT
--------------------------------
-Minecraft Java Edition: 26.3
-Fabric Loader: 0.19.5
-Fabric API: 0.164.0+26.3
-Fabric Loom: 1.17.21
-Gradle wrapper: 9.7.1, distribution checksum pinned
-Compiler/runtime: Oracle JDK 26.0.2.1 on Windows 11
-Java compilation target: release 25 (class-file major version 69)
-Optional Carpet test: 26.3, Modrinth version yt9oDFOj
-Client: actual OpenGL rendering using Intel graphics, 1280 x 800
+Installable JAR: build/libs/more-geodes-fabric-26.3-1.9.3-portV2.jar
+SHA256: 5bda54cdcd6d6fdaa33813aa410f04676a430b432132f11af121bf0484e04e12
 
-The required minimum is Java 25; this validation used Java 26, not a second
-Java 25 runtime. The ordinary build has no JUnit tests. Gameplay tests are
-explicit testmod launches, documented in TESTING.md, and excluded from the
-release JAR. Windows BUILD_FABRIC_26.3.bat was actually executed successfully.
-The Linux/macOS helper was inspected but not executed on those operating systems.
+Independent real Fabric server/client processes used the compiled release;
+test code was a separate JAR and the client game JAR was unmodified. A clean
+staged-source rebuild reproduced the tested release byte for byte. The Windows
+build helper was executed; the Unix helper was inspected but not run on Unix.
+Ordinary Gradle tests have no JUnit cases: gameplay tests require testmod runs.
+The installable JAR contains no test-mod, Minecraft or Carpet classes.
 
-RELEASE ARTIFACT
-----------------
-build/libs/more-geodes-fabric-26.3-1.9.3-portV1.jar
-SHA-256: 12d5adc8b6a6975784cb3c2e72a36ba0d17e4ccf163fd94166d40fca8e4dba8f
+REGRESSION CHECKS
+-----------------
+The final Carpet-enabled suite passed all 22 checks. A restarted copy of the
+saved V1 validation world also passed all 22. Fresh/restart runs with all eight
+generation options false passed 20 applicable checks without Carpet. A server
+started with only the release and Fabric API, without test mod or Carpet.
 
-Clean rebuilds reproduced that JAR byte for byte. The same hash identifies the
-JAR installed in the independent production-format client/server test folders.
-The complete staged project also passed a clean build and testmodClasses
-compilation, reproducing the tested release JAR without relying on its original
-project directory's build outputs.
-The archive includes source, wrapper, build scripts, licenses, original JAR,
-and validation evidence. It excludes game binaries, libraries, caches, worlds,
-test-mod binaries, failed builds, and development tooling intermediates.
+* All 50 blocks, 56 items and 1,983 block states pass registry/codec checks.
+* Loot, core recipes, advancements and all seven tuning recipes load.
+* V1 save/reload preserves 63 inventory entries (56 items/seven tuned locators),
+  a waterlogged crystal and budding echo. Legacy 1.20.1 item tuning/damage still
+  upgrades through vanilla's DataFixer. No user's world was touched.
+* Crystal growth, gypsum two-half behavior, loot/enchantments, piglin memory,
+  composting, Carpet piston reactions and Carpet Silk Touch drops pass.
+* All five core geode algorithms and gypsum patch place expected content.
+* A fresh 512 Overworld/256 Nether chunk sample contains natural diamond,
+  lapis/pyrite and quartz. The saved sample remains readable. This arbitrary
+  sample does not establish natural emerald, echo or gypsum occurrences;
+  their definitions, biome injection and direct algorithm placement pass.
+* Real scheduled quartz clocks pass: half-periods 20, 10, 5 and 1 tick.
 
-CONTENT AND DATA CHECKS
+LOCATOR PRESERVATION
+--------------------
+An independent V1 box iterator/distance predicate verifies every visited
+position in order for range 48 (88,959 positions) and range 6 (179), at ordinary,
+negative and near-world-border coordinates. An addon subclass retains its hook.
+Prepared and original predicates agree for all seven tunings, custom tag,
+dimension, position, light, sky and block-state predicates, unloaded positions
+and height boundaries. Matching does not force unloaded chunks.
+Every core activation preserves count, display position/order/state and integer
+wave delay. Untuned/invalid tunings match nothing. Use/cooldown/damage unchanged.
+Countdown tests preserve ping tick, one-time ping, exact 42-tick lifetime with
+delay 12, saved/reloaded remaining lifetime and invisible/glowing flags. Only
+the visible transition dirties metadata. Old metadata indices/types remain.
+
+Both clients resolve 56 item models, verify emerald tint ff17dd62 and select
+the 62-entry creative tab. V2 rejects pending displays before extraction and
+preserves visible outline state. Actual locator use/screenshots are recorded.
+A real V1 client joined the V2 server, synchronized tunings and used its locator.
+
+ACTIVATION BENCHMARK
+--------------------
+Same compiled helper, actual V1/V2 release JARs, four separate fresh servers in
+V1/V2/V2/V1 order; seed 7402163; JDK/JVM -Xms1G -Xmx3G; loaded/forced chunks;
+no players. Entity sections finish loading first. Per case: 12 warmups and 24
+samples per run, 48 samples per version. Only activate() elapsed time and actual
+current-thread allocated bytes are timed; setup/generation/cleanup are excluded.
+Cleanup asserts accessible entities and target counts must agree.
+
+Pooled medians (ms; allocated bytes/call):
+Case               Matches    V1 ms     V2 ms     V1 bytes    V2 bytes
+Untuned                  0     2.5178    0.0005          120           0
+Tuned empty              0    15.6245    3.8680    3,642,576      56,216
+Tuned one target         1    16.4497    4.2806    5,783,112      61,696
+Tuned 128 targets      128    17.5203    5.3346    6,457,120     730,624
+Echo Locator dense      32     0.2267    0.2572      167,824     166,424
+
+Tuned cases took about 70-75% less activation time and allocated 89-99% fewer
+bytes in this fixture. Untuned scanning is eliminated. These are host-specific
+elapsed timings, not universal speed/FPS claims. Echo Locator has no reliable
+timing benefit: pooled median rose about 0.03 ms, with per-run medians spanning
+0.20-0.29 ms. Its short scan is dominated by creating 32 entities. No short-range
+speedup is claimed. All raw samples/per-run medians/p95s are included.
+
+METADATA BENCHMARK
+-------------------
+100 actual displays, each delay 12/lifetime 42 ticks, dirty values encoded with
+vanilla's packet codec. Both repetitions gave identical counts:
+                             V1       V2
+Dirty metadata batches      4,200      100
+Encoded packet-body bytes  21,600      500
+About 97.6% fewer batches. Excludes initial spawn/removal, framing, compression,
+transport, recipients and actual throughput. Redundant changing values were
+removed; metadata layout slots remain for compatibility.
+
+PENDING DISPLAY PREPARATION
+---------------------------
+Render-thread test: Sodium 0.9.2/Vulkan, 256 synthetic pending displays,
+60 warmup/120 measured frames; one client process per release:
+                                  V1         V2
+Median preparation ms          0.69675    0.00645
+p95 preparation ms             1.29560    0.05720
+Created render states           30,720          0
+Measures visibility/model/render-state preparation only. V1 built states then
+cleared them; V2 rejects them earlier. Does not measure full frames, GPU time,
+ordinary-play FPS or frame pacing. Broader FPS claims would need more trials.
+
+PRESERVATION AND LIMITS
 -----------------------
-* All 50 original registered blocks and 56 original registered items exist.
-* All 1,983 block states encode/decode successfully with current codecs.
-* All 46 original mod loot tables load.
-* All 49 core recipes and 56 core advancements load. The complete source also
-  retains the conditional Create/Spectrum recipes and Spectrum advancements:
-  66 recipe files and 59 advancement files in total.
-* All seven core locator tuning recipes craft, retain tuning, and round-trip
-  through persistent and network codecs. The tuning registry synchronizes to
-  an independently running client. Its emerald tint was ff17dd62.
-* Every original PNG texture and OGG sound is retained byte for byte.
-* All 56 item models resolve to nonempty models on the real client. Screenshots
-  show the original textures, crystal transparency, decorative blocks, locator
-  outline wave, and More Geodes creative tab. The tab contains 62 entries,
-  including the tuned locators.
-* No dependency, entrypoint, registry, required-mixin injection, or mod resource
-  loading failure occurred in successful final runs.
+All 600 V1 asset/data files are byte-identical. All worldgen source is unchanged:
+no RNG, algorithm, order, biome, frequency, distribution, shape, type or chunk
+access changes. V2 therefore introduces no deterministic generation change
+relative to V1. No retroactive population. This does not promise identical
+terrain between the original 1.20.1 game and 26.3.
+No startup, resource-loading or chunk-generation speedup is claimed. No prolonged
+multiplayer/modpack, heap-retention, GC-pause or broad FPS benchmark. Current-
+thread allocation is not total heap usage. Shared geometry arrays add ~16 KB.
+AE2/Spectrum/Create integrations remain conditional/unverified in 26.3. No new
+dependency, production callback or mixin. Arbitrary biome providers/other
+performance mods were not tested. Sodium 0.9.2/Vulkan was tested.
+Offline localhost testing excludes Realms/authentication. Their messages,
+Windows counter warnings and Sodium's end_of_frame warning are recorded host/
+renderer messages; gameplay assertions and model/render-state checks passed.
 
-WORLD GENERATION
-----------------
-* Fabric biome feature injection and all generation configuration switches
-  were checked. With all eight switches false, content remains registered,
-  saved content reloads, and mod generation is absent from biome injection.
-* Each of the five core geode features (emerald, quartz, diamond, echo, lapis)
-  was placed using the actual vanilla geode algorithm in a controlled solid
-  terrain fixture. Each generated its expected crystal blocks.
-* A full gypsum vegetation patch generated both gypsum ground and tall crystals
-  using the real feature algorithm: 414 ground blocks and 159 crystal blocks
-  in the final controlled patch fixture.
-* A fresh sample generated 512 Overworld chunks and 256 Nether chunks. It
-  contained natural lapis/pyrite and diamond geodes in the Overworld, and quartz
-  geodes in the Nether. The same saved chunks were checked after restart.
-* That arbitrary natural sample did not establish naturally occurring emerald,
-  echo, or gypsum patches. Their definitions, biome selection, and direct
-  algorithm placement were tested; no claim of a natural sample for them is
-  made. Original rarity, heights, layer weights, and generation steps remain.
-* Old and new Minecraft terrain generation cannot promise identical geode
-  coordinates for the same seed. No retroactive population is implemented.
-
-INTERACTION AND STATE
----------------------
-* Emerald, quartz, echo, and lapis budding blocks grew through every crystal
-  stage in all six directions, including waterlogging behavior.
-* Gypsum grew upward, placed/broke as two halves, and refused placement when
-  its upper half was obstructed. Intact and orphan-half loot cases passed.
-* Silk Touch, Fortune, slab loot, and gypsum drops were exercised.
-* Gypsum shards add exactly one guaranteed compost layer, preserving upstream
-  behavior under the new compost component representation.
-* Piglins remembered and rejected fool's gold, including memory save/reload.
-* Locator matching, wave timing, actual player use, temporary display lifetime,
-  and visible outline rendering were exercised. Original durability and cooldown
-  constants/conditions were also retained through source comparison.
-* All four quartz stages toggled under actual scheduled ticks while a player
-  kept the chunks active: half-periods 20, 10, 5, and 1 tick, respectively.
-  They also stopped after their supporting input was removed.
-* Carpet's movableAmethyst integration was tested with its actual 26.3 mod:
-  budding-block piston reactions changed with the rule, and Silk Touch with
-  the rule enabled dropped the budding block. No Carpet code is bundled.
-
-SAVE AND MIGRATION CHECKS
--------------------------
-A real server restart preserved saved inventories (including all seven tuned
-core locators), damage, a waterlogged crystal, and budding blocks. The disabled
-generation configuration also passed this restart check.
-
-A synthetic original-format 1.20.1 locator item was upgraded through vanilla's
-actual DataFixer from data version 3465 to 5023, then decoded by the port. Its
-legacy tuning and damage survived, and legacy tuning converts to the current
-component on use. Original content IDs, block properties, and advancement IDs
-are preserved. This is evidence for those specific cases, not a complete
-1.20.1-world upgrade trial. No user's existing world was modified.
-
-PERFORMANCE OBSERVATIONS
-------------------------
-The locator preserves the original squared-distance predicate while narrowing
-candidate iteration from 912,673 to 166,375 positions for Crystal Locator.
-Observed activations in the independent runs were about 53-88 ms on this host;
-these measurements include runtime allocation and are not universal benchmarks.
-
-The fresh 768-chunk sample took about 26 seconds for generation/scanning on this
-host (about 20 s Overworld and 6 s Nether). Re-reading the saved sample took
-about 4 seconds. Test setup deliberately blocks the server thread to generate
-and inspect hundreds of chunks and can produce a "Can't keep up" warning.
-This does not establish steady-play performance or absence of every regression.
-No large-world, large-modpack, or prolonged multiplayer stress test was run.
-
-EVIDENCE AND LIMITATIONS
-------------------------
-validation/production-core.json: independent fresh-world core run, 17 checks.
-validation/production-carpet.json: final independent run/restart, 18 checks,
-  including the added full gypsum patch check and actual Carpet integration.
-validation/generation-disabled.json: disabled-generation run/restart, 15 checks.
-validation/scheduled-clocks.json: real scheduler measurements, all stages passed.
-validation/client-results.txt: client model, sync, tint, and creative-tab results.
-validation/standalone-smoke.log: startup with only the two required mod JARs.
-validation/*.png: actual screenshots from the independent client.
-validation/artifact-audit.json: static content, archive, and reference checks.
-
-All recorded final checks passed. A Carpet-named check in a non-Carpet run
-checks the default budding-block piston reaction; the Carpet-enabled run is
-the evidence for the optional rule and Silk Touch behavior.
-
-AE2, Spectrum, and Create Fabric runtime integrations remain unverified: their
-checked release feeds did not list a 26.3 Fabric build on 2026-10-19. Their
-conditional data is preserved and absent integrations do not block startup.
-Arbitrary modded biome providers and full modpacks were not tested. Relevant
-biome tags remain extensible through data packs.
-
-The local test server bound only to loopback and used an offline test profile.
-Online account authentication and Realms were not tested. Corresponding Realms
-authentication messages and Windows performance-counter warnings are host/test
-environment messages, not evidence of a More Geodes registry or resource error.
-
-Packaging follows the supplied template's single-root, build-ready project
-layout. This port additionally includes the compiled installable JAR, a build
-readme (missing from the template), test sources/evidence, and complete licenses.
-
-Reproduction instructions: TESTING.md. Installation/build: BUILD_README.txt.
+EVIDENCE
+---------
+validation/production-carpet.json: 22 passed checks.
+validation/v1-save-reload.json: V1 save/restart, 22 passed checks.
+validation/generation-disabled.json: disabled/reloaded world, 20 passed checks.
+validation/scheduled-clocks.json: actual scheduler results.
+validation/client-*.txt: graphical/client interoperability results.
+validation/benchmark-*.json: four raw runs and pooled summary.
+validation/render-*.json: raw synthetic render preparation timings.
+validation/standalone-smoke.log: release/API-only startup.
+validation/*.png: real V2 client screenshots.
+validation/artifact-audit.json: baseline/reference/content/release audit.
+SHA256SUMS.txt: per-file archive checksums.
+Install/build: BUILD_README.txt. Reproduction: TESTING.md.

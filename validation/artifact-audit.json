@@ -1,0 +1,72 @@
+{
+  "release_sha256": "5bda54cdcd6d6fdaa33813aa410f04676a430b432132f11af121bf0484e04e12",
+  "baseline_v1_jar_sha256_unchanged": "12d5adc8b6a6975784cb3c2e72a36ba0d17e4ccf163fd94166d40fca8e4dba8f",
+  "baseline_v1_zip_unchanged": true,
+  "original_reference_unchanged": true,
+  "template_unchanged": true,
+  "changed_production_source_files": [
+    "src/main/java/com/github/thedeathlycow/moregeodes/client/EchoDisplayEntityRenderer.java",
+    "src/main/java/com/github/thedeathlycow/moregeodes/entity/EchoDisplay.java",
+    "src/main/java/com/github/thedeathlycow/moregeodes/entity/GeodesEntityTypes.java",
+    "src/main/java/com/github/thedeathlycow/moregeodes/item/CrystalLocatorItem.java",
+    "src/main/java/com/github/thedeathlycow/moregeodes/item/TunedCrystalLocatorItem.java",
+    "src/main/java/com/github/thedeathlycow/moregeodes/item/tuning/Tuning.java"
+  ],
+  "byte_identical_v1_asset_and_data_files": 600,
+  "original_png_and_ogg_files_preserved": 88,
+  "worldgen_source_unchanged": true,
+  "class_file_major_versions": [
+    69
+  ],
+  "compiled_classes": 52,
+  "release_excludes_test_and_dependency_classes": true,
+  "independent_release_server_and_client_tested": true,
+  "all_included_final_runtime_reports_pass": true,
+  "fabric_metadata": {
+    "schemaVersion": 1,
+    "id": "geodes",
+    "version": "1.9.3-portV2",
+    "name": "More Geodes",
+    "description": "Adds more geode variants including Diamond, Emerald, and Quartz.",
+    "authors": [
+      "TheDeathlyCow"
+    ],
+    "contributors": [
+      "Nerjal Nosk",
+      "SalveMundiProd"
+    ],
+    "contact": {
+      "homepage": "https://github.com/TheDeathlyCow/more-geodes/blob/main/README.md",
+      "sources": "https://github.com/TheDeathlyCow/more-geodes",
+      "issues": "https://github.com/TheDeathlyCow/more-geodes/issues"
+    },
+    "license": "LGPL-3.0",
+    "icon": "assets/geodes/icon.png",
+    "environment": "*",
+    "entrypoints": {
+      "main": [
+        "com.github.thedeathlycow.moregeodes.MoreGeodes"
+      ],
+      "client": [
+        "com.github.thedeathlycow.moregeodes.MoreGeodesClient"
+      ]
+    },
+    "mixins": [
+      "geodes.mixins.json"
+    ],
+    "depends": {
+      "fabricloader": ">=0.19.5",
+      "fabric-api": ">=0.164.0+26.3",
+      "minecraft": "~26.3",
+      "java": ">=25"
+    },
+    "custom": {
+      "modmenu": {
+        "links": {
+          "modmenu.discord": "https://discord.gg/aqASuWebRU"
+        }
+      }
+    }
+  },
+  "staged_source_clean_rebuild_matches_tested_release": true
+}

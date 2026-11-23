@@ -1,0 +1,59 @@
+More Geodes Fabric 26.3, portV2 - performance update
+=================================================
+
+Based directly on the working portV1 source. Upstream remains More Geodes
+1.9.3, commit c0e1246b7366857351238244d59a0b8a7710b0a0, LGPL-3.0-only.
+CHANGES_PORTV1.txt records the original compatibility changes.
+
+LOCATOR ACTIVATION
+------------------
+CrystalLocatorItem.activate uses compact, immutable row bounds for the exact
+original sphere: 3 * (dx*dx + dy*dy + dz*dz) <= range*range. It visits 88,959
+eligible positions for range 48, instead of iterating 166,375 box positions
+and rejecting their corners. Echo Locator visits 179 instead of 343.
+X-then-Y-then-Z iteration order and integer wave delays remain identical.
+One mutable position is reused. Shared geometry and delay tables occupy about
+16 KB of primitive-array payload and are prepared once during initialization.
+
+The tuned locator resolves its item component and dynamic tuning registry
+entry once per activation instead of once per candidate position. Untuned
+and invalid tunings return immediately. Tuning.prepareMatcher calls vanilla's
+block predicate directly only when the surrounding location predicate has no
+additional conditions. This retains vanilla's loaded-chunk, state, NBT and
+component checks. Custom location conditions use the complete original path.
+Predicates are prepared per activation, so data-pack reloads cannot leave a
+stale cached registry value. Existing addon subclass matching hooks remain.
+
+TEMPORARY DISPLAY ENTITIES
+--------------------------
+EchoDisplay keeps its lifetime, glow threshold and ping-once state on the
+server. Client rendering only needs vanilla's invisible/glowing flags; sending
+the countdown on every tick was redundant. Save keys and expiry/ping ticks
+are unchanged. The old three metadata slots remain registered in their
+original order, at defaults, to preserve V1/V2 packet layout compatibility.
+Normal visible-state changes still dirty metadata and synchronize immediately.
+
+GeodesEntityTypes restores the upstream Fabric builder's tracking defaults:
+five chunks and an update interval of three ticks, replacing portV1's ten
+chunks/one tick. A locator's maximum detection radius is under 28 blocks.
+Vanilla sends dirty flags independently of that periodic update interval.
+
+EchoDisplayEntityRenderer.shouldRender rejects an invisible pending display
+before render-state and block-model extraction. The old path extracted a
+model and then cleared it. Visible outline submission is unchanged.
+
+PRESERVATION AND SCOPE
+----------------------
+No changes to geode algorithms, placement, RNG use, shape, distribution, biome
+selection, generation settings or chunk access. All world-generation source,
+data, models, textures, sounds, recipes, tags and loot remain identical to V1.
+There are no new dependencies, events or mixins in production code.
+No startup or chunk-generation speedup is claimed. The justified changes
+reduce locator activation, pending-display preparation and metadata costs.
+
+BUILD AND VALIDATION
+--------------------
+Version is 1.9.3-portV2; Minecraft/Fabric/Java requirements are unchanged.
+Test-only code adds behavior comparisons and reproducible V1/V2 benchmarks.
+It is built separately and never included in the installable release JAR.
+See TEST_REPORT.txt for measured results and limits, TESTING.md for reproduction.

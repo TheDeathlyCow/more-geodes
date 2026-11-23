@@ -59,6 +59,8 @@ public final class PortRuntimeTests implements ModInitializer {
         result.addProperty("milliseconds",(System.nanoTime()-start)/1_000_000);results.add(result);
     }
     @Override public void onInitialize() {
+        if (Boolean.getBoolean("geodes.tests.benchmarkOnly")) return;
+        LocatorOptimizationTests.registerFixtures();
         ServerLifecycleEvents.SERVER_STARTED.register(s->{server=s;level=s.overworld();run();});
     }
     private void run() {
@@ -77,6 +79,10 @@ public final class PortRuntimeTests implements ModInitializer {
         check("Silk Touch, Fortune, slabs and gypsum drops",this::drops);
         check("piglins remember and reject fools gold",this::piglins);
         check("locator predicate, wave delay and entity lifetime",this::locator);
+        check("locator visits exactly the V1 positions in the same order", () -> LocatorOptimizationTests.orderedSearch(level));
+        check("prepared predicates preserve built-in and custom tuning semantics", () -> LocatorOptimizationTests.predicates(level));
+        check("all tuning activations preserve display states, order and delays", () -> LocatorOptimizationTests.activation(level));
+        check("display countdown stays local and survives save/reload", () -> LocatorOptimizationTests.metadata(level));
         check("gypsum composting preserves one guaranteed layer",this::compost);
         check("optional Carpet piston behavior",this::carpet);
         if(MoreGeodes.CONFIG.generateDiamondGeodes()) {
@@ -301,7 +307,9 @@ public final class PortRuntimeTests implements ModInitializer {
         try {
             field.setBoolean(null,true);
             require(ModBlocks.BUDDING_EMERALD.defaultBlockState().getPistonPushReaction()==net.minecraft.world.level.material.PushReaction.PUSH_PULL,"Carpet rule ineffective");
-            BlockPos p=new BlockPos(80,220,80);level.setBlock(p,ModBlocks.BUDDING_EMERALD.defaultBlockState(),2);
+            // Use the already entity-accessible fixture chunk, including on
+            // restart: terrain load alone does not finish saved entity loading.
+            BlockPos p=bench;level.setBlock(p,ModBlocks.BUDDING_EMERALD.defaultBlockState(),2);
             var fake=new net.minecraft.server.level.ServerPlayer(server,level,new com.mojang.authlib.GameProfile(UUID.randomUUID(),"GeodesTest"),net.minecraft.server.level.ClientInformation.createDefault()) {
                 @Override public void awardStat(net.minecraft.stats.Stat<?> stat,int amount) {}
             };
